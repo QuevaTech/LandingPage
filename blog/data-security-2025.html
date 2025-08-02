@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Büyük Veri Çağında Güvenlik | QuevaTech Blog</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4F46E5;
+            border-radius: 10px;
+        }
+        .dark ::-webkit-scrollbar-track {
+            background: #111827;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: #A855F7;
+        }
+        /* Active language styling */
+        .lang-switcher .active {
+            color: #4F46E5;
+            font-weight: 700;
+        }
+        .dark .lang-switcher .active {
+            color: #A855F7;
+        }
+        /* Blog content styling */
+        .blog-content h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #111827;
+        }
+        .dark .blog-content h2 {
+            color: white;
+        }
+        .blog-content h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #1f2937;
+        }
+        .dark .blog-content h3 {
+            color: #e5e7eb;
+        }
+        .blog-content p {
+            margin-bottom: 1rem;
+            line-height: 1.75;
+            color: #374151;
+        }
+        .dark .blog-content p {
+            color: #d1d5db;
+        }
+        .blog-content ul {
+            margin-bottom: 1rem;
+            margin-left: 1.5rem;
+        }
+        .blog-content li {
+            margin-left: 1.5rem;
+            color: #374151;
+            position: relative;
+        }
+        .dark .blog-content li {
+            color: #d1d5db;
+        }
+        .blog-content li::before {
+            content: "•";
+            position: absolute;
+            left: -1rem;
+            color: #4F46E5;
+            font-weight: 700;
+        }
+        .dark .blog-content li::before {
+            color: #A855F7;
+        }
+        .blog-content blockquote {
+            border-left: 4px solid #4F46E5;
+            padding-left: 1rem;
+            font-style: italic;
+            margin: 1.5rem 0;
+            color: #4b5563;
+        }
+        .dark .blog-content blockquote {
+            border-left-color: #A855F7;
+            color: #9ca3af;
+        }
+        .blog-content code {
+            background-color: #f3f4f6;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.875rem;
+        }
+        .dark .blog-content code {
+            background-color: #1f2937;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'queva-indigo': '#4F46E5',
+                        'queva-purple': '#A855F7',
+                        'queva-sky': '#0EA5E9',
+                        'queva-dark': '#1E293B',
+                        'queva-light': '#F3F4F6',
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-inter bg-queva-light dark:bg-queva-dark text-queva-dark dark:text-queva-light transition-colors duration-500">
+
+    <!-- Navigation Bar -->
+    <header id="navbar" class="fixed top-0 left-0 w-full z-50 bg-white dark:bg-queva-dark shadow-md transition-all duration-300">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="../index.html" class="text-2xl font-bold text-gray-900 dark:text-white">Queva<span class="text-queva-indigo dark:text-queva-purple font-extrabold">Tech</span></a>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex items-center space-x-6">
+                    <a href="../index.html#products" data-lang="nav_products" class="hover:text-queva-indigo dark:hover:text-queva-purple transition-colors">Ürünler</a>
+                    <a href="../index.html#solutions" data-lang="nav_solutions" class="hover:text-queva-indigo dark:hover:text-queva-purple transition-colors">Çözümler</a>
+                    <a href="../index.html#about" data-lang="nav_about" class="hover:text-queva-indigo dark:hover:text-queva-purple transition-colors">Hakkımızda</a>
+                    <a href="../index.html#blog" data-lang="nav_blog" class="hover:text-queva-indigo dark:hover:text-queva-purple transition-colors">Blog</a>
+                    <a href="../index.html#contact" data-lang="nav_contact" class="hover:text-queva-indigo dark:hover:text-queva-purple transition-colors">İletişim</a>
+                </nav>
+
+                <!-- Controls: Language, Theme -->
+                <div class="flex items-center">
+                     <!-- Language Switcher -->
+                    <div class="lang-switcher text-sm font-semibold mr-4">
+                        <button id="lang-tr" class="p-1">TR</button>
+                        <span>/</span>
+                        <button id="lang-en" class="p-1">EN</button>
+                    </div>
+                    <!-- Theme Toggle -->
+                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                        <svg id="theme-toggle-dark-icon" class="hidden h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                        <svg id="theme-toggle-light-icon" class="hidden h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-20">
+        <!-- Hero Section -->
+        <section class="bg-gradient-to-br from-queva-indigo to-queva-purple py-16">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto text-center text-white">
+                    <div class="flex items-center justify-center mb-4">
+                        <a href="../index.html#blog" class="flex items-center text-white/80 hover:text-white transition-colors">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                            </svg>
+                            <span data-lang="back_to_blog">Blog'a Dön</span>
+                        </a>
+                    </div>
+                    <h1 data-lang="blog_title" class="text-4xl md:text-5xl font-bold mb-4">Büyük Veri Çağında Güvenlik</h1>
+                    <div class="flex items-center justify-center space-x-4 text-white/90">
+                        <span data-lang="blog_date">5 Ağustos 2025</span>
+                        <span>•</span>
+                        <span data-lang="blog_read_time">7 dakika okuma</span>
+                        <span>•</span>
+                        <span data-lang="blog_author">QuevaTech Güvenlik Uzmanı</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Content -->
+        <section class="py-16">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto">
+                    <!-- Featured Image -->
+                    <div class="mb-8 rounded-2xl overflow-hidden shadow-lg">
+                        <img src="https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&fit=crop" alt="Data Security 2025" class="w-full h-64 md:h-80 object-cover">
+                    </div>
+
+                    <!-- Tags -->
+                    <div class="flex flex-wrap gap-2 mb-8">
+                        <span class="px-3 py-1 bg-queva-indigo/10 text-queva-indigo text-sm rounded-full">Cyber Security</span>
+                        <span class="px-3 py-1 bg-queva-purple/10 text-queva-purple text-sm rounded-full">TRNG Technology</span>
+                        <span class="px-3 py-1 bg-queva-sky/10 text-queva-sky text-sm rounded-full">Data Protection</span>
+                        <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm rounded-full">Cryptography</span>
+                    </div>
+
+                    <!-- Article Content -->
+                    <div class="blog-content prose prose-lg max-w-none">
+                        <div data-lang="blog_intro">
+                            <p class="text-xl text-gray-600 dark:text-gray-400 mb-8 font-medium">
+                                Cyber security landscape 2025'te dramatik değişimler yaşıyor. Geleneksel güvenlik protokolleri yetersiz kalırken, True Random Number Generator (TRNG) teknolojileri kritik önem kazanıyor. QuevaTech'in AI-Hybrid TRNG çözümleri ile güvenlik paradigması yeniden tanımlanıyor.
+                            </p>
+                        </div>
+
+                        <div data-lang="blog_content">
+                            <h2>Güvenlik Tehditleri: Yeni Boyut</h2>
+                            <p>
+                                2025'te cyber attack sophistication exponential artış gösteriyor. AI-powered saldırılar, quantum computing tehditleri ve IoT vulnerabilities traditional security measures'ı yetersiz kılıyor.
+                            </p>
+                            
+                            <p>
+                                Critical threat vectors:
+                            </p>
+                            
+                            <ul>
+                                <li><strong>AI-Enhanced Attacks:</strong> Machine learning ile adaptive ve self-evolving malware</li>
+                                <li><strong>Quantum Cryptography Threats:</strong> Mevcut encryption standards'ın potansiyel vulnerability'si</li>
+                                <li><strong>IoT Botnets:</strong> Milyarlarca connected device'ın weaponization'ı</li>
+                                <li><strong>Deep Fake Intelligence:</strong> Social engineering attacks'ta hyper-realistic content</li>
+                                <li><strong>Supply Chain Infiltration:</strong> Software/hardware supply chain'de sophisticated backdoors</li>
+                            </ul>
+
+                            <h2>TRNG Technology: Güvenliğin Yeni Temeli</h2>
+                            <p>
+                                Pseudo-random generators'ın predictability'si kritik güvenlik açığı yaratıyor. True Random Number Generation, cryptographic security'nin fundamental requirement'ı haline geliyor.
+                            </p>
+
+                            <blockquote>
+                                "Gerçek rastgelelik, modern cybersecurity'nin en kritik building block'udur. Öngörülebilir pattern'lar, en sophisticated encryption'ı bile vulnerable hale getirebilir."
+                            </blockquote>
+
+                            <h3>QuevaTech AI-Hybrid TRNG Advantages</h3>
+                            <p>
+                                QuevaTech'in revolutionary approach:
+                            </p>
+                            
+                            <ul>
+                                <li><strong>Hardware-Based Entropy:</strong> Physical phenomena'dan true randomness extraction</li>
+                                <li><strong>AI Quality Assurance:</strong> Machine learning ile randomness quality monitoring</li>
+                                <li><strong>Real-time Adaptation:</strong> Environmental changes'e adaptive response</li>
+                                <li><strong>High-Speed Generation:</strong> Enterprise-grade throughput requirements</li>
+                                <li><strong>Certification Compliance:</strong> NIST, Common Criteria ve industry standards</li>
+                            </ul>
+
+                            <h2>Financial Sector: Critical Applications</h2>
+                            <p>
+                                Financial institutions'ta TRNG technology adoption %450 artış gösteriyor. Özellikle:
+                            </p>
+
+                            <h3>Cryptographic Key Generation</h3>
+                            <p>
+                                Banking systems'te key generation quality directly impact security posture:
+                            </p>
+                            <ul>
+                                <li>SSL/TLS certificate generation</li>
+                                <li>Digital signature authenticity</li>
+                                <li>Blockchain transaction security</li>
+                                <li>Multi-factor authentication tokens</li>
+                            </ul>
+
+                            <h3>Fraud Detection Enhancement</h3>
+                            <p>
+                                AI-powered fraud detection systems TRNG ile enhanced performance gösteriyor:
+                            </p>
+                            <ul>
+                                <li>Transaction pattern analysis</li>
+                                <li>Behavioral biometrics</li>
+                                <li>Risk scoring algorithms</li>
+                                <li>Real-time anomaly detection</li>
+                            </ul>
+
+                            <h2>Healthcare Data Protection Revolution</h2>
+                            <p>
+                                Healthcare sector'da data sensitivity maksimum seviyede. HIPAA compliance ve patient privacy'nin kritik importance'ı TRNG adoption'ı accelerate ediyor.
+                            </p>
+
+                            <h3>Medical Device Security</h3>
+                            <p>
+                                Connected medical devices'ta security requirements:
+                            </p>
+                            <ul>
+                                <li>Patient monitoring systems</li>
+                                <li>Implantable device communication</li>
+                                <li>Telemedicine platforms</li>
+                                <li>Electronic health records</li>
+                            </ul>
+
+                            <blockquote>
+                                "Healthcare IoT devices'ın proliferation'ı ile TRNG-based security protocols life-critical importance kazanıyor."
+                            </blockquote>
+
+                            <h2>Edge Computing Security Challenges</h2>
+                            <p>
+                                Edge computing deployment'ının exponential growth'u yeni security paradigms gerektiriyor. Distributed architectures traditional centralized security models'ı challenge ediyor.
+                            </p>
+
+                            <h3>Edge-Native TRNG Solutions</h3>
+                            <p>
+                                QuevaTech'in edge-optimized TRNG technology:
+                            </p>
+                            <ul>
+                                <li><strong>Low-Power Operation:</strong> Battery-constrained environments için optimization</li>
+                                <li><strong>Minimal Footprint:</strong> Resource-limited edge devices'ta deployment</li>
+                                <li><strong>Offline Capability:</strong> Network connectivity olmadan operation</li>
+                                <li><strong>Tamper Resistance:</strong> Physical attack'lara karşı protection</li>
+                            </ul>
+
+                            <h2>Quantum Computing Preparedness</h2>
+                            <p>
+                                Quantum computing'in practical implementation'ı yaklaşırken, quantum-resistant cryptography kritik hale geliyor. TRNG technology bu transition'da fundamental role oynuyor.
+                            </p>
+
+                            <h3>Post-Quantum Cryptography</h3>
+                            <p>
+                                NIST's post-quantum cryptography standards:
+                            </p>
+                            <ul>
+                                <li>Lattice-based cryptography</li>
+                                <li>Hash-based signatures</li>
+                                <li>Code-based cryptography</li>
+                                <li>Multivariate cryptography</li>
+                            </ul>
+
+                            <p>
+                                Bu algorithms'ın effectiveness'i high-quality randomness'a critically dependent.
+                            </p>
+
+                            <h2>Regulatory Compliance Evolution</h2>
+                            <p>
+                                2025'te regulatory landscape dramatically evolved. GDPR, CCPA gibi regulations'a ek olarak sector-specific requirements artıyor.
+                            </p>
+
+                            <h3>Compliance Requirements</h3>
+                            <p>
+                                Key regulatory frameworks:
+                            </p>
+                            <ul>
+                                <li><strong>NIST Cybersecurity Framework 2.0:</strong> Enhanced randomness requirements</li>
+                                <li><strong>ISO 27001:2022:</strong> TRNG implementation mandates</li>
+                                <li><strong>PCI DSS 4.0:</strong> Advanced cryptographic standards</li>
+                                <li><strong>SOX Compliance:</strong> Financial data protection enhancements</li>
+                            </ul>
+
+                            <h2>Implementation Strategy: Best Practices</h2>
+                            <p>
+                                Enterprise TRNG deployment için comprehensive strategy:
+                            </p>
+
+                            <h3>Assessment Phase</h3>
+                            <ul>
+                                <li>Current security posture analysis</li>
+                                <li>Randomness quality audit</li>
+                                <li>Compliance gap identification</li>
+                                <li>Risk assessment matrix</li>
+                            </ul>
+
+                            <h3>Integration Planning</h3>
+                            <ul>
+                                <li>Legacy system compatibility</li>
+                                <li>Performance impact evaluation</li>
+                                <li>Scalability requirements</li>
+                                <li>Disaster recovery planning</li>
+                            </ul>
+
+                            <h3>Monitoring & Maintenance</h3>
+                            <ul>
+                                <li>Continuous entropy monitoring</li>
+                                <li>Performance metrics tracking</li>
+                                <li>Security event correlation</li>
+                                <li>Regular audit procedures</li>
+                            </ul>
+
+                            <h2>Future Outlook: Security Evolution</h2>
+                            <p>
+                                2025 sonrası security landscape predictions:
+                            </p>
+
+                            <ul>
+                                <li><strong>Zero Trust Architecture:</strong> TRNG-based identity verification</li>
+                                <li><strong>Homomorphic Encryption:</strong> Encrypted data processing capabilities</li>
+                                <li><strong>Federated Learning Security:</strong> Distributed AI model protection</li>
+                                <li><strong>Quantum Key Distribution:</strong> Ultimate secure communication</li>
+                            </ul>
+
+                            <blockquote>
+                                "Güvenliğin geleceği, predictable patterns'dan truly random foundations'a transition'da yatıyor. Bu paradigm shift, organizasyonların survival'ı için kritik."
+                            </blockquote>
+
+                            <h2>QuevaTech'in Competitive Advantage</h2>
+                            <p>
+                                QuevaTech'in AI-Hybrid TRNG technology market leadership'i:
+                            </p>
+
+                            <ul>
+                                <li><strong>Performance Superiority:</strong> Industry-leading throughput ve quality metrics</li>
+                                <li><strong>Integration Flexibility:</strong> Multiple platforms ve environments support</li>
+                                <li><strong>Cost Effectiveness:</strong> ROI optimization through efficiency</li>
+                                <li><strong>Expert Support:</strong> Comprehensive technical assistance</li>
+                            </ul>
+
+                            <h2>Sonuç: Action Required</h2>
+                            <p>
+                                Cyber security threats'in sophistication'ı exponentially artarken, traditional security measures inadequate kalıyor. TRNG technology adoption artık luxury değil, necessity.
+                            </p>
+
+                            <p>
+                                Organizations immediate action almalı:
+                            </p>
+                            
+                            <ul>
+                                <li><strong>Security Assessment:</strong> Current randomness quality evaluation</li>
+                                <li><strong>Strategy Development:</strong> TRNG integration roadmap</li>
+                                <li><strong>Vendor Selection:</strong> Proven technology partner identification</li>
+                                <li><strong>Implementation Planning:</strong> Phased deployment approach</li>
+                            </ul>
+
+                            <p>
+                                QuevaTech'in AI-Hybrid TRNG technology ile organizasyonlar future-proof security foundation inşa edebilir. Dijital transformation'ın hızlandığı bu dönemde, güvenlik investment'ı competitive advantage sağlıyor.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Share Section -->
+                    <div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+                        <div class="flex items-center justify-between flex-wrap gap-4">
+                            <div>
+                                <h3 data-lang="share_title" class="text-lg font-semibold mb-2">Bu yazıyı paylaş</h3>
+                                <div class="flex space-x-4">
+                                    <a href="#" class="text-gray-500 hover:text-queva-indigo transition-colors">
+                                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                                    </a>
+                                    <a href="#" class="text-gray-500 hover:text-queva-indigo transition-colors">
+                                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H6.328C3.965 1 2 2.985 2 5.337v13.326C2 21.015 3.965 23 6.328 23h11.34c2.363 0 4.328-1.985 4.328-4.337V5.337C22 2.985 20.031 1 17.668 1z" clip-rule="evenodd" /></svg>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-sm text-gray-500 dark:text-gray-400" data-lang="author_info">
+                                    QuevaTech Güvenlik Uzmanları tarafından yazıldı
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Related Posts -->
+                    <div class="mt-16">
+                        <h3 data-lang="related_posts" class="text-2xl font-bold mb-8">İlgili Yazılar</h3>
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <a href="ai-future-2025.html" class="block group">
+                                <div class="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                                    <img src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop" alt="AI Future" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                                    <div class="p-6">
+                                        <h4 class="font-bold text-lg mb-2 group-hover:text-queva-indigo dark:group-hover:text-queva-purple transition-colors">2025'te Yapay Zekânın Geleceği</h4>
+                                        <p class="text-gray-600 dark:text-gray-400 text-sm">2025 yılı yapay zeka teknolojisi için gerçek bir dönüm noktası olacak...</p>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="mlops-2025.html" class="block group">
+                                <div class="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                                    <img src="https://images.pexels.com/photos/325229/pexels-photo-325229.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop" alt="MLOps" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                                    <div class="p-6">
+                                        <h4 class="font-bold text-lg mb-2 group-hover:text-queva-indigo dark:group-hover:text-queva-purple transition-colors">MLOps: Modellerinizi Hayata Geçirin</h4>
+                                        <p class="text-gray-600 dark:text-gray-400 text-sm">MLOps 2025'te enterprise AI'ın omurgası haline geldi...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-queva-dark text-queva-light">
+        <div class="container mx-auto px-4 py-12">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Queva<span class="text-queva-purple">Tech</span></h3>
+                    <p data-lang="footer_tagline" class="text-gray-400">Yapay zekâ ile geleceği şekillendiriyoruz.</p>
+                </div>
+                <div>
+                    <h4 data-lang="footer_quick" class="font-bold mb-4">Hızlı Menü</h4>
+                    <ul class="space-y-2">
+                        <li><a href="../index.html#products" data-lang="footer_products" class="text-gray-400 hover:text-white">Ürünler</a></li>
+                        <li><a href="../index.html#solutions" data-lang="footer_solutions" class="text-gray-400 hover:text-white">Çözümler</a></li>
+                        <li><a href="../index.html#blog" data-lang="footer_blog" class="text-gray-400 hover:text-white">Blog</a></li>
+                        <li><a href="../index.html#contact" data-lang="footer_contact" class="text-gray-400 hover:text-white">İletişim</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 data-lang="footer_legal" class="font-bold mb-4">Yasal</h4>
+                    <ul class="space-y-2">
+                        <li><a href="../privacy-policy.html" data-lang="footer_privacy" class="text-gray-400 hover:text-white">Gizlilik Politikası</a></li>
+                        <li><a href="../terms-of-service.html" data-lang="footer_terms" class="text-gray-400 hover:text-white">Kullanım Şartları</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 data-lang="footer_contact_title" class="font-bold mb-4">İletişim</h4>
+                    <a href="mailto:info@queva.tech" class="text-gray-400 hover:text-white flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        info@queva.tech
+                    </a>
+                </div>
+            </div>
+            <div class="mt-8 border-t border-gray-700 pt-8 text-center text-gray-400">
+                <p data-lang="footer_copyright">&copy; 2025 QuevaTech. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Language Data
+        const langData = {
+            tr: {
+                // Navigation
+                nav_products: "Ürünler",
+                nav_solutions: "Çözümler", 
+                nav_about: "Hakkımızda",
+                nav_blog: "Blog",
+                nav_contact: "İletişim",
+                
+                // Blog
+                back_to_blog: "Blog'a Dön",
+                blog_title: "Büyük Veri Çağında Güvenlik",
+                blog_date: "5 Ağustos 2025",
+                blog_read_time: "7 dakika okuma",
+                blog_author: "QuevaTech Güvenlik Uzmanı",
+                
+                blog_intro: `
+                    <p class="text-xl text-gray-600 dark:text-gray-400 mb-8 font-medium">
+                        Cyber security landscape 2025'te dramatik değişimler yaşıyor. Geleneksel güvenlik protokolleri yetersiz kalırken, True Random Number Generator (TRNG) teknolojileri kritik önem kazanıyor. QuevaTech'in AI-Hybrid TRNG çözümleri ile güvenlik paradigması yeniden tanımlanıyor.
+                    </p>
+                `,
+                
+                // Share and related
+                share_title: "Bu yazıyı paylaş",
+                author_info: "QuevaTech Güvenlik Uzmanları tarafından yazıldı",
+                related_posts: "İlgili Yazılar",
+                
+                // Footer
+                footer_tagline: "Yapay zekâ ile geleceği şekillendiriyoruz.",
+                footer_quick: "Hızlı Menü",
+                footer_products: "Ürünler",
+                footer_solutions: "Çözümler",
+                footer_blog: "Blog",
+                footer_contact: "İletişim",
+                footer_legal: "Yasal",
+                footer_privacy: "Gizlilik Politikası",
+                footer_terms: "Kullanım Şartları",
+                footer_contact_title: "İletişim",
+                footer_copyright: "© 2025 QuevaTech. Tüm hakları saklıdır."
+            },
+            en: {
+                // Navigation
+                nav_products: "Products",
+                nav_solutions: "Solutions",
+                nav_about: "About Us", 
+                nav_blog: "Blog",
+                nav_contact: "Contact",
+                
+                // Blog
+                back_to_blog: "Back to Blog",
+                blog_title: "Security in the Big Data Era",
+                blog_date: "August 5, 2025",
+                blog_read_time: "7 min read",
+                blog_author: "QuevaTech Security Expert",
+                
+                blog_intro: `
+                    <p class="text-xl text-gray-600 dark:text-gray-400 mb-8 font-medium">
+                        The cyber security landscape is undergoing dramatic changes in 2025. While traditional security protocols are proving inadequate, True Random Number Generator (TRNG) technologies are gaining critical importance. The security paradigm is being redefined with QuevaTech's AI-Hybrid TRNG solutions.
+                    </p>
+                `,
+                
+                // Share and related
+                share_title: "Share this article",
+                author_info: "Written by QuevaTech Security Experts",
+                related_posts: "Related Articles",
+                
+                // Footer
+                footer_tagline: "Shaping the future with artificial intelligence.",
+                footer_quick: "Quick Menu",
+                footer_products: "Products",
+                footer_solutions: "Solutions", 
+                footer_blog: "Blog",
+                footer_contact: "Contact",
+                footer_legal: "Legal",
+                footer_privacy: "Privacy Policy",
+                footer_terms: "Terms of Service",
+                footer_contact_title: "Contact",
+                footer_copyright: "© 2025 QuevaTech. All rights reserved."
+            }
+        };
+
+        // Language Switcher Logic
+        const langTrBtn = document.getElementById('lang-tr');
+        const langEnBtn = document.getElementById('lang-en');
+
+        const updateLanguage = (lang) => {
+            document.documentElement.lang = lang;
+            localStorage.setItem('language', lang);
+
+            // Update button styles
+            langTrBtn.classList.toggle('active', lang === 'tr');
+            langEnBtn.classList.toggle('active', lang === 'en');
+
+            // Update text content
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                const key = el.getAttribute('data-lang');
+                if (langData[lang][key]) {
+                    el.innerHTML = langData[lang][key];
+                }
+            });
+
+            // Update page title
+            if (lang === 'tr') {
+                document.title = "Büyük Veri Çağında Güvenlik | QuevaTech Blog";
+            } else {
+                document.title = "Security in the Big Data Era | QuevaTech Blog";
+            }
+        };
+
+        langTrBtn.addEventListener('click', () => updateLanguage('tr'));
+        langEnBtn.addEventListener('click', () => updateLanguage('en'));
+
+        // Load initial language
+        const initialLang = localStorage.getItem('language') || 'tr';
+        updateLanguage(initialLang);
+
+        // Theme Toggle Logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            themeToggleLightIcon.classList.remove('hidden');
+        } else {
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        themeToggleBtn.addEventListener('click', function() {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
