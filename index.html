@@ -96,6 +96,7 @@
                 <!-- Desktop Menu -->
                 <nav class="hidden md:flex items-center space-x-6">
                     <a href="#products" data-lang="nav_products" class="hover:text-queva-indigo dark:hover:text-queva-purple transition-colors">Ürünler</a>
+                    <a href="#platform" data-lang="nav_platform" class="hover:text-queva-indigo dark:hover:text-queva-purple transition-colors">Platform</a>
                     <a href="#solutions" data-lang="nav_solutions" class="hover:text-queva-indigo dark:hover:text-queva-purple transition-colors">Çözümler</a>
                     <a href="#about" data-lang="nav_about" class="hover:text-queva-indigo dark:hover:text-queva-purple transition-colors">Hakkımızda</a>
                     <a href="#blog" data-lang="nav_blog" class="hover:text-queva-indigo dark:hover:text-queva-purple transition-colors">Blog</a>
@@ -125,6 +126,7 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-queva-dark shadow-lg">
             <a href="#products" data-lang="nav_products_mobile" class="block py-2 px-4 text-sm hover:bg-queva-light dark:hover:bg-gray-800">Ürünler</a>
+            <a href="#platform" data-lang="nav_platform_mobile" class="block py-2 px-4 text-sm hover:bg-queva-light dark:hover:bg-gray-800">Platform</a>
             <a href="#solutions" data-lang="nav_solutions_mobile" class="block py-2 px-4 text-sm hover:bg-queva-light dark:hover:bg-gray-800">Çözümler</a>
             <a href="#about" data-lang="nav_about_mobile" class="block py-2 px-4 text-sm hover:bg-queva-light dark:hover:bg-gray-800">Hakkımızda</a>
             <a href="#blog" data-lang="nav_blog_mobile" class="block py-2 px-4 text-sm hover:bg-queva-light dark:hover:bg-gray-800">Blog</a>
@@ -161,48 +163,73 @@
         <section id="products" class="py-20">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-12" data-aos="fade-up">
-                    <h2 data-lang="products_title" class="text-3xl md:text-4xl font-bold">Platformun Gücünü Keşfedin</h2>
-                    <p data-lang="products_subtitle" class="text-lg mt-2 text-gray-600 dark:text-gray-400">QuevaTech, yapay zeka, yazılım, elektronik ve devrimsel TRNG teknolojisiyle dijital rastgeleliğin gücünü ortaya çıkarır.</p>
+                    <h2 data-lang="products_title" class="text-3xl md:text-4xl font-bold">Ürün Portföyümüz</h2>
+                    <p data-lang="products_subtitle" class="text-lg mt-2 text-gray-600 dark:text-gray-400">Gerçek rastgelelik teknolojisi ile güvenli çözümler</p>
                 </div>
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <!-- Card 1 -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Parola API -->
                     <div class="glass-card" data-aos="fade-up" data-aos-delay="100">
                         <div class="p-8">
                             <div class="text-queva-indigo dark:text-queva-purple mb-4">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
                             </div>
-                            <h3 data-lang="product1_title" class="text-xl font-bold mb-2">Veri Analitiği</h3>
-                            <p data-lang="product1_desc" class="text-gray-600 dark:text-gray-300">Büyük veri setlerinizi anlamlı içgörülere dönüştürerek stratejik kararlar almanızı kolaylaştırıyoruz.</p>
+                            <h3 data-lang="product1_title" class="text-xl font-bold mb-2">Parola API'si</h3>
+                            <p data-lang="product1_desc" class="text-gray-600 dark:text-gray-300">Yüksek entropili güvenli parolalar ve anahtarlar üretimi</p>
                         </div>
                     </div>
-                    <!-- Card 2 -->
+                    
+                    <!-- RNG Hizmeti -->
                     <div class="glass-card" data-aos="fade-up" data-aos-delay="200">
                         <div class="p-8">
                             <div class="text-queva-indigo dark:text-queva-purple mb-4">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/><path d="M12 12v9"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L12 6M12 18L12 22M4.93 4.93L7.76 7.76M16.24 16.24L19.07 19.07M2 12L6 12M18 12L22 12M4.93 19.07L7.76 16.24M16.24 7.76L19.07 4.93"/></svg>
                             </div>
-                            <h3 data-lang="product2_title" class="text-xl font-bold mb-2">Makine Öğrenmesi</h3>
-                            <p data-lang="product2_desc" class="text-gray-600 dark:text-gray-300">Öngörüsel modeller ve otomasyon çözümleri ile operasyonel verimliliğinizi en üst seviyeye taşıyoruz.</p>
+                            <h3 data-lang="product2_title" class="text-xl font-bold mb-2">RNG Hizmeti</h3>
+                            <p data-lang="product2_desc" class="text-gray-600 dark:text-gray-300">Fiziksel entropi ile gerçek rastgele sayı üretimi</p>
                         </div>
                     </div>
-                    <!-- Card 3 -->
+                    
+                    <!-- Kurumsal Cihaz -->
                     <div class="glass-card" data-aos="fade-up" data-aos-delay="300">
                         <div class="p-8">
                            <div class="text-queva-indigo dark:text-queva-purple mb-4">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
                             </div>
-                            <h3 data-lang="product3_title" class="text-xl font-bold mb-2">Güvenli Altyapı</h3>
-                            <p data-lang="product3_desc" class="text-gray-600 dark:text-gray-300">Verileriniz, endüstri standardı güvenlik protokolleri ile korunan bulut altyapımızda güvendedir.</p>
+                            <h3 data-lang="product3_title" class="text-xl font-bold mb-2">Kurumsal Cihaz</h3>
+                            <p data-lang="product3_desc" class="text-gray-600 dark:text-gray-300">Yüksek kapasiteli donanım rastgele sayı üreteci</p>
                         </div>
                     </div>
-                    <!-- Card 4 - TRNG Rastgelelik -->
+                    
+                    <!-- Mobil Uygulamalar -->
                     <div class="glass-card" data-aos="fade-up" data-aos-delay="400">
                         <div class="p-8">
                            <div class="text-queva-indigo dark:text-queva-purple mb-4">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L12 6M12 18L12 22M4.93 4.93L7.76 7.76M16.24 16.24L19.07 19.07M2 12L6 12M18 12L22 12M4.93 19.07L7.76 16.24M16.24 7.76L19.07 4.93M12 8C10.9 8 10 8.9 10 10V14C10 15.1 10.9 16 12 16C13.1 16 14 15.1 14 14V10C14 8.9 13.1 8 12 8Z"/><circle cx="12" cy="12" r="3"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
                             </div>
-                            <h3 data-lang="product4_title" class="text-xl font-bold mb-2">Devrimsel TRNG</h3>
-                            <p data-lang="product4_desc" class="text-gray-600 dark:text-gray-300">AI-Hybrid TRNG teknolojisi ile gerçek rastgelelik üretimi. Dijital dünyanın tahmin edilemezliğini avantajınıza çevirin.</p>
+                            <h3 data-lang="product4_title" class="text-xl font-bold mb-2">Mobil Uygulamalar</h3>
+                            <p data-lang="product4_desc" class="text-gray-600 dark:text-gray-300">iOS ve Android uygulamaları ile güvenli depolama</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Özel AI Cihazı -->
+                    <div class="glass-card" data-aos="fade-up" data-aos-delay="500">
+                        <div class="p-8">
+                           <div class="text-queva-indigo dark:text-queva-purple mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                            </div>
+                            <h3 data-lang="product5_title" class="text-xl font-bold mb-2">Özel AI Cihazı</h3>
+                            <p data-lang="product5_desc" class="text-gray-600 dark:text-gray-300">Yapay zeka destekli gelişmiş entropi işleme</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Danışmanlık -->
+                    <div class="glass-card" data-aos="fade-up" data-aos-delay="600">
+                        <div class="p-8">
+                           <div class="text-queva-indigo dark:text-queva-purple mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                            </div>
+                            <h3 data-lang="product6_title" class="text-xl font-bold mb-2">Danışmanlık</h3>
+                            <p data-lang="product6_desc" class="text-gray-600 dark:text-gray-300">Entegrasyon ve özelleştirme danışmanlığı</p>
                         </div>
                     </div>
                 </div>
@@ -211,22 +238,259 @@
 
         <!-- 
         =================================
-        4. Case Study / Success Story
+        4. QuevaTech Platform: Core Technology & Infrastructure
+        =================================
+        -->
+        <section id="platform" class="py-20 bg-white dark:bg-queva-dark/50">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 data-lang="platform_title" class="text-3xl md:text-4xl font-bold mb-4">QuevaTech: Platformun Gücünü Keşfedin</h2>
+                    <p data-lang="platform_subtitle" class="text-lg text-gray-600 dark:text-gray-400">Yapay zeka, yazılım, elektronik ve devrimsel TRNG teknolojisiyle dijital rastgeleliğin gücünü ortaya çıkarır</p>
+                </div>
+
+                <!-- Core Technology Stack -->
+                <div class="mb-16" data-aos="fade-up">
+                    <h3 data-lang="platform_tech_title" class="text-2xl font-bold text-center mb-12">Nasıl Yaptığımız: Core Technology Stack</h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <div class="glass-card" data-aos="fade-up" data-aos-delay="100">
+                            <div class="p-6">
+                                <div class="text-queva-indigo dark:text-queva-purple mb-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M3 3v18h18"></path>
+                                        <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"></path>
+                                    </svg>
+                                </div>
+                                <h4 data-lang="platform_analytics_title" class="text-lg font-bold mb-2">Veri Analitiği</h4>
+                                <p data-lang="platform_analytics_desc" class="text-gray-600 dark:text-gray-300 text-sm">Büyük veri setlerinizi anlamlı içgörülere dönüştürerek stratejik kararlar almanızı kolaylaştırıyoruz. Advanced analytics engine ile real-time processing ve predictive insights sağlıyor.</p>
+                            </div>
+                        </div>
+
+                        <div class="glass-card" data-aos="fade-up" data-aos-delay="200">
+                            <div class="p-6">
+                                <div class="text-queva-indigo dark:text-queva-purple mb-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M9.26 4.93L6.93 7.26M4.93 9.26L7.26 6.93M9.26 19.07L6.93 16.74M4.93 14.74L7.26 17.07"></path>
+                                        <circle cx="12" cy="12" r="3"></circle>
+                                        <path d="M12 1v6m0 6v6"></path>
+                                        <path d="M21 12h-6m-6 0H3"></path>
+                                    </svg>
+                                </div>
+                                <h4 data-lang="platform_ml_title" class="text-lg font-bold mb-2">Makine Öğrenmesi</h4>
+                                <p data-lang="platform_ml_desc" class="text-gray-600 dark:text-gray-300 text-sm">Öngörüsel modeller ve otomasyon çözümleri ile operasyonel verimliliğinizi en üst seviyeye taşıyoruz. AutoML capabilities ile democratized AI development enabling ediyoruz.</p>
+                            </div>
+                        </div>
+
+                        <div class="glass-card" data-aos="fade-up" data-aos-delay="300">
+                            <div class="p-6">
+                                <div class="text-queva-indigo dark:text-queva-purple mb-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect>
+                                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                                    </svg>
+                                </div>
+                                <h4 data-lang="platform_security_title" class="text-lg font-bold mb-2">Güvenli Altyapı</h4>
+                                <p data-lang="platform_security_desc" class="text-gray-600 dark:text-gray-300 text-sm">Verileriniz, endüstri standardı güvenlik protokolleri ile korunan bulut altyapımızda güvendedir. Zero-trust architecture ile comprehensive security ensuring ediyoruz.</p>
+                            </div>
+                        </div>
+
+                        <div class="glass-card" data-aos="fade-up" data-aos-delay="400">
+                            <div class="p-6">
+                                <div class="text-queva-indigo dark:text-queva-purple mb-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M12 2L12 6M12 18L12 22M4.93 4.93L7.76 7.76M16.24 16.24L19.07 19.07M2 12L6 12M18 12L22 12M4.93 19.07L7.76 16.24M16.24 7.76L19.07 4.93"></path>
+                                    </svg>
+                                </div>
+                                <h4 data-lang="platform_trng_title" class="text-lg font-bold mb-2">Devrimsel TRNG</h4>
+                                <p data-lang="platform_trng_desc" class="text-gray-600 dark:text-gray-300 text-sm">AI-Hybrid TRNG teknolojisi ile gerçek rastgelelik üretimi. Dijital dünyanın tahmin edilemezliğini avantajınıza çevirin. True randomness through physical entropy ile cryptographic-grade security sağlıyor.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Enterprise Architecture -->
+                <div class="mb-16" data-aos="fade-up">
+                    <h3 data-lang="platform_arch_title" class="text-2xl font-bold text-center mb-12">Altyapımız: Enterprise-Grade Architecture</h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
+                        <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                            <div class="bg-gradient-to-br from-queva-indigo to-queva-purple text-white p-4 rounded-xl mb-4 mx-auto w-16 h-16 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M4 7v10c0 2.21 5.07 4 8 4s8-1.79 8-4V7"></path>
+                                    <ellipse cx="12" cy="7" rx="8" ry="4"></ellipse>
+                                </svg>
+                            </div>
+                            <h4 data-lang="platform_arch_hybrid" class="font-semibold mb-2">Hybrid Cloud Deployment</h4>
+                            <p data-lang="platform_arch_hybrid_desc" class="text-sm text-gray-600 dark:text-gray-400">Multi-cloud strategy ile vendor lock-in elimination</p>
+                        </div>
+
+                        <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                            <div class="bg-gradient-to-br from-queva-indigo to-queva-purple text-white p-4 rounded-xl mb-4 mx-auto w-16 h-16 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                                    <path d="M2 17l10 5 10-5"></path>
+                                    <path d="M2 12l10 5 10-5"></path>
+                                </svg>
+                            </div>
+                            <h4 data-lang="platform_arch_micro" class="font-semibold mb-2">Microservices Architecture</h4>
+                            <p data-lang="platform_arch_micro_desc" class="text-sm text-gray-600 dark:text-gray-400">Scalable, maintainable service-oriented design</p>
+                        </div>
+
+                        <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                            <div class="bg-gradient-to-br from-queva-indigo to-queva-purple text-white p-4 rounded-xl mb-4 mx-auto w-16 h-16 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect>
+                                    <path d="M3 9h18"></path>
+                                    <path d="M9 21V9"></path>
+                                </svg>
+                            </div>
+                            <h4 data-lang="platform_arch_k8s" class="font-semibold mb-2">Kubernetes Orchestration</h4>
+                            <p data-lang="platform_arch_k8s_desc" class="text-sm text-gray-600 dark:text-gray-400">Container-based deployment ile high availability</p>
+                        </div>
+
+                        <div class="text-center" data-aos="fade-up" data-aos-delay="400">
+                            <div class="bg-gradient-to-br from-queva-indigo to-queva-purple text-white p-4 rounded-xl mb-4 mx-auto w-16 h-16 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="22,12 18,12 15,21 9,3 6,12 2,12"></polyline>
+                                </svg>
+                            </div>
+                            <h4 data-lang="platform_arch_realtime" class="font-semibold mb-2">Real-time Processing</h4>
+                            <p data-lang="platform_arch_realtime_desc" class="text-sm text-gray-600 dark:text-gray-400">Stream processing capabilities ile low-latency operations</p>
+                        </div>
+
+                        <div class="text-center" data-aos="fade-up" data-aos-delay="500">
+                            <div class="bg-gradient-to-br from-queva-indigo to-queva-purple text-white p-4 rounded-xl mb-4 mx-auto w-16 h-16 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 12l2 2 4-4"></path>
+                                    <path d="M21 12c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1z"></path>
+                                    <path d="M3 12c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1z"></path>
+                                    <path d="M12 21c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1z"></path>
+                                    <path d="M12 3c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1z"></path>
+                                </svg>
+                            </div>
+                            <h4 data-lang="platform_arch_secure" class="font-semibold mb-2">Secure by Design</h4>
+                            <p data-lang="platform_arch_secure_desc" class="text-sm text-gray-600 dark:text-gray-400">End-to-end encryption ile data protection at every layer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Platform Features -->
+                <div class="mb-16" data-aos="fade-up">
+                    <h3 data-lang="platform_features_title" class="text-2xl font-bold text-center mb-12">Platform Features</h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
+                        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow" data-aos="fade-up" data-aos-delay="100">
+                            <div class="text-queva-indigo dark:text-queva-purple mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect>
+                                    <path d="M3 9h18"></path>
+                                    <path d="M9 21V9"></path>
+                                </svg>
+                            </div>
+                            <h4 data-lang="platform_feature_dashboard" class="font-semibold mb-2">Unified Dashboard</h4>
+                            <p data-lang="platform_feature_dashboard_desc" class="text-sm text-gray-600 dark:text-gray-400">Single pane of glass for all ML operations</p>
+                        </div>
+
+                        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow" data-aos="fade-up" data-aos-delay="200">
+                            <div class="text-queva-indigo dark:text-queva-purple mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                                </svg>
+                            </div>
+                            <h4 data-lang="platform_feature_pipeline" class="font-semibold mb-2">Automated Pipelines</h4>
+                            <p data-lang="platform_feature_pipeline_desc" class="text-sm text-gray-600 dark:text-gray-400">Code-free pipeline creation ve management</p>
+                        </div>
+
+                        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow" data-aos="fade-up" data-aos-delay="300">
+                            <div class="text-queva-indigo dark:text-queva-purple mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="9" cy="21" r="1"></circle>
+                                    <circle cx="20" cy="21" r="1"></circle>
+                                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                                </svg>
+                            </div>
+                            <h4 data-lang="platform_feature_marketplace" class="font-semibold mb-2">Model Marketplace</h4>
+                            <p data-lang="platform_feature_marketplace_desc" class="text-sm text-gray-600 dark:text-gray-400">Pre-trained models ve components sharing</p>
+                        </div>
+
+                        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow" data-aos="fade-up" data-aos-delay="400">
+                            <div class="text-queva-indigo dark:text-queva-purple mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                </svg>
+                            </div>
+                            <h4 data-lang="platform_feature_collab" class="font-semibold mb-2">Collaboration Tools</h4>
+                            <p data-lang="platform_feature_collab_desc" class="text-sm text-gray-600 dark:text-gray-400">Team coordination ve knowledge sharing</p>
+                        </div>
+
+                        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow" data-aos="fade-up" data-aos-delay="500">
+                            <div class="text-queva-indigo dark:text-queva-purple mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 12l2 2 4-4"></path>
+                                    <path d="M21 12c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1z"></path>
+                                    <path d="M3 12c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1z"></path>
+                                </svg>
+                            </div>
+                            <h4 data-lang="platform_feature_compliance" class="font-semibold mb-2">Compliance Framework</h4>
+                            <p data-lang="platform_feature_compliance_desc" class="text-sm text-gray-600 dark:text-gray-400">Regulatory requirements'ı automated compliance</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Integration Capabilities -->
+                <div data-aos="fade-up">
+                    <h3 data-lang="platform_integration_title" class="text-2xl font-bold text-center mb-12">Integration Capabilities</h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                            <div class="bg-queva-indigo/10 dark:bg-queva-purple/10 p-6 rounded-xl mb-4">
+                                <h4 data-lang="platform_int_data" class="font-semibold mb-2">Data Sources</h4>
+                                <p data-lang="platform_int_data_desc" class="text-sm text-gray-600 dark:text-gray-400">Databases, data lakes, streaming platforms</p>
+                            </div>
+                        </div>
+
+                        <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                            <div class="bg-queva-indigo/10 dark:bg-queva-purple/10 p-6 rounded-xl mb-4">
+                                <h4 data-lang="platform_int_dev" class="font-semibold mb-2">Development Tools</h4>
+                                <p data-lang="platform_int_dev_desc" class="text-sm text-gray-600 dark:text-gray-400">Jupyter, VS Code, popular ML frameworks</p>
+                            </div>
+                        </div>
+
+                        <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                            <div class="bg-queva-indigo/10 dark:bg-queva-purple/10 p-6 rounded-xl mb-4">
+                                <h4 data-lang="platform_int_deploy" class="font-semibold mb-2">Deployment Targets</h4>
+                                <p data-lang="platform_int_deploy_desc" class="text-sm text-gray-600 dark:text-gray-400">Cloud, on-premise, edge environments</p>
+                            </div>
+                        </div>
+
+                        <div class="text-center" data-aos="fade-up" data-aos-delay="400">
+                            <div class="bg-queva-indigo/10 dark:bg-queva-purple/10 p-6 rounded-xl mb-4">
+                                <h4 data-lang="platform_int_monitor" class="font-semibold mb-2">Monitoring Systems</h4>
+                                <p data-lang="platform_int_monitor_desc" class="text-sm text-gray-600 dark:text-gray-400">Enterprise monitoring ve logging tools</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+        =================================
+        5. Case Study / Success Story
         =================================
         -->
         <section id="solutions" class="py-20 bg-white dark:bg-queva-dark/50 overflow-hidden">
             <div class="container mx-auto px-4">
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div data-aos="fade-right">
-                        <img src="https://placehold.co/1200x800/4F46E5/FFFFFF?text=QuevaTech+Dashboard" alt="QuevaTech Dashboard Mockup" class="rounded-2xl shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&h=800&q=80" alt="Financial Analytics Dashboard" class="rounded-2xl shadow-2xl">
                     </div>
                     <div data-aos="fade-left">
-                        <span data-lang="case_study_tag" class="text-queva-indigo dark:text-queva-purple font-bold">BAŞARI HİKAYESİ</span>
-                        <h2 data-lang="case_study_title" class="text-3xl md:text-4xl font-bold mt-2 mb-4">Finans Sektöründe Devrim</h2>
-                        <p data-lang="case_study_desc" class="text-lg text-gray-600 dark:text-gray-400 mb-6">Lider bir yatırım bankası, QuevaTech platformunu kullanarak pazar analizi süreçlerini otomatize etti ve karar alma hızını önemli ölçüde artırdı.</p>
+                        <span data-lang="case_study_tag" class="text-queva-indigo dark:text-queva-purple font-bold">POTANSIYEL ANALIZ</span>
+                        <h2 data-lang="case_study_title" class="text-3xl md:text-4xl font-bold mt-2 mb-4">Finansal Kurumlar İçin: Risk Yönetiminde %70+ Performans Artışı Potansiyeli</h2>
+                        <p data-lang="case_study_desc" class="text-lg text-gray-600 dark:text-gray-400 mb-6">Simülasyon çalışmalarımız gösteriyor ki, QuevaTech'in AI-Hybrid TRNG teknolojisi finansal kurumlarda önemli avantajlar sağlayabilir. Risk modellemelerinde %70+ doğruluk artışı, stress test simülasyonlarında %80+ güvenilirlik iyileştirmesi potansiyeli bulunmaktadır.</p>
                         <div class="bg-queva-light dark:bg-queva-dark p-6 rounded-2xl">
-                            <span class="text-5xl font-bold text-queva-indigo dark:text-queva-purple">75%</span>
-                            <p data-lang="case_study_stat" class="mt-2 font-semibold">Raporlama Sürelerinde Azalma</p>
+                            <span class="text-5xl font-bold text-queva-indigo dark:text-queva-purple">70%+</span>
+                            <p data-lang="case_study_stat" class="mt-2 font-semibold">Risk Yönetiminde Performans Potansiyeli</p>
                         </div>
                     </div>
                 </div>
@@ -235,7 +499,55 @@
 
         <!-- 
         =================================
-        5. Customer Testimonials
+        5. Gaming Industry Case Study
+        =================================
+        -->
+        <section class="py-20">
+            <div class="container mx-auto px-4">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div data-aos="fade-left">
+                        <span data-lang="gaming_case_study_tag" class="text-queva-indigo dark:text-queva-purple font-bold">POTANSIYEL ANALIZ</span>
+                        <h2 data-lang="gaming_case_study_title" class="text-3xl md:text-4xl font-bold mt-2 mb-4">Oyun Stüdyoları İçin: Procedural Generation'da %85+ Performans Artışı Potansiyeli</h2>
+                        <p data-lang="gaming_case_study_desc" class="text-lg text-gray-600 dark:text-gray-400 mb-6">Game development araştırmalarımız gösteriyor ki, QuevaTech'in gerçek rastgelelik teknolojisi oyun stüdyolarında devrim yaratabilir. Procedural world generation'da %85+ unique content artışı, player engagement'ta %60+ iyileştirme ve game balancing'te %75+ fairness potansiyeli sağlayabilir.</p>
+                        <div class="bg-queva-light dark:bg-queva-dark p-6 rounded-2xl">
+                            <span class="text-5xl font-bold text-queva-indigo dark:text-queva-purple">85%+</span>
+                            <p data-lang="gaming_case_study_stat" class="mt-2 font-semibold">Unique Content Generation Potansiyeli</p>
+                        </div>
+                    </div>
+                    <div data-aos="fade-right">
+                        <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&h=800&q=80" alt="Game Development Studio" class="rounded-2xl shadow-2xl">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+        =================================
+        6. Cybersecurity Case Study
+        =================================
+        -->
+        <section class="py-20 bg-white dark:bg-queva-dark/50">
+            <div class="container mx-auto px-4">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div data-aos="fade-right">
+                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&h=800&q=80" alt="Cybersecurity Operations Center" class="rounded-2xl shadow-2xl">
+                    </div>
+                    <div data-aos="fade-left">
+                        <span data-lang="security_case_study_tag" class="text-queva-indigo dark:text-queva-purple font-bold">POTANSIYEL ANALIZ</span>
+                        <h2 data-lang="security_case_study_title" class="text-3xl md:text-4xl font-bold mt-2 mb-4">Güvenlik Uygulamaları İçin: Cryptographic Security'de %95+ Güvence Artışı Potansiyeli</h2>
+                        <p data-lang="security_case_study_desc" class="text-lg text-gray-600 dark:text-gray-400 mb-6">Cybersecurity araştırmalarımız gösteriyor ki, QuevaTech'in fiziksel entropi teknolojisi güvenlik uygulamalarında çığır açabilir. Cryptographic key generation'da %95+ unpredictability artışı, penetration testing'te %80+ vulnerability detection ve security audit'lerde %90+ compliance potansiyeli sağlayabilir.</p>
+                        <div class="bg-queva-light dark:bg-queva-dark p-6 rounded-2xl">
+                            <span class="text-5xl font-bold text-queva-indigo dark:text-queva-purple">95%+</span>
+                            <p data-lang="security_case_study_stat" class="mt-2 font-semibold">Cryptographic Security Güvence Potansiyeli</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+        =================================
+        7. Customer Testimonials
         =================================
         -->
         <section id="about" class="py-20">
@@ -551,11 +863,13 @@
             tr: {
                 // Navigation
                 nav_products: "Ürünler",
+                nav_platform: "Platform",
                 nav_solutions: "Çözümler",
                 nav_about: "Hakkımızda",
                 nav_blog: "Blog",
                 nav_contact: "İletişim",
                 nav_products_mobile: "Ürünler",
+                nav_platform_mobile: "Platform",
                 nav_solutions_mobile: "Çözümler",
                 nav_about_mobile: "Hakkımızda",
                 nav_blog_mobile: "Blog",
@@ -566,35 +880,92 @@
                 hero_cta1: "Demo Talep Et",
                 hero_cta2: "Teknik Doküman",
                 // Products
-                products_title: "Platformun Gücünü Keşfedin",
-                products_subtitle: "QuevaTech, yapay zeka, yazılım, elektronik ve devrimsel TRNG teknolojisiyle dijital rastgeleliğin gücünü ortaya çıkarır.",
-                product1_title: "Veri Analitiği",
-                product1_desc: "Büyük veri setlerinizi anlamlı içgörülere dönüştürerek stratejik kararlar almanızı kolaylaştırıyoruz.",
-                product2_title: "Makine Öğrenmesi",
-                product2_desc: "Öngörüsel modeller ve otomasyon çözümleri ile operasyonel verimliliğinizi en üst seviyeye taşıyoruz.",
-                product3_title: "Güvenli Altyapı",
-                product3_desc: "Verileriniz, endüstri standardı güvenlik protokolleri ile korunan bulut altyapımızda güvendedir.",
-                product4_title: "Devrimsel TRNG",
-                product4_desc: "AI-Hybrid TRNG teknolojisi ile gerçek rastgelelik üretimi. Dijital dünyanın tahmin edilemezliğini avantajınıza çevirin.",
+                products_title: "Ürün Portföyümüz",
+                products_subtitle: "Gerçek rastgelelik teknolojisi ile güvenli çözümler",
+                product1_title: "Parola API'si",
+                product1_desc: "Yüksek entropili güvenli parolalar ve anahtarlar üretimi",
+                product2_title: "RNG Hizmeti",
+                product2_desc: "Fiziksel entropi ile gerçek rastgele sayı üretimi",
+                product3_title: "Kurumsal Cihaz",
+                product3_desc: "Yüksek kapasiteli donanım rastgele sayı üreteci",
+                product4_title: "Mobil Uygulamalar",
+                product4_desc: "iOS ve Android uygulamaları ile güvenli depolama",
+                product5_title: "Özel AI Cihazı",
+                product5_desc: "Yapay zeka destekli gelişmiş entropi işleme",
+                product6_title: "Danışmanlık",
+                product6_desc: "Entegrasyon ve özelleştirme danışmanlığı",
+                // Platform
+                platform_title: "QuevaTech: Platformun Gücünü Keşfedin",
+                platform_subtitle: "Yapay zeka, yazılım, elektronik ve devrimsel TRNG teknolojisiyle dijital rastgeleliğin gücünü ortaya çıkarır",
+                platform_tech_title: "Nasıl Yaptığımız: Core Technology Stack",
+                platform_analytics_title: "Veri Analitiği",
+                platform_analytics_desc: "Büyük veri setlerinizi anlamlı içgörülere dönüştürerek stratejik kararlar almanızı kolaylaştırıyoruz. Advanced analytics engine ile real-time processing ve predictive insights sağlıyor.",
+                platform_ml_title: "Makine Öğrenmesi",
+                platform_ml_desc: "Öngörüsel modeller ve otomasyon çözümleri ile operasyonel verimliliğinizi en üst seviyeye taşıyoruz. AutoML capabilities ile democratized AI development enabling ediyoruz.",
+                platform_security_title: "Güvenli Altyapı",
+                platform_security_desc: "Verileriniz, endüstri standardı güvenlik protokolleri ile korunan bulut altyapımızda güvendedir. Zero-trust architecture ile comprehensive security ensuring ediyoruz.",
+                platform_trng_title: "Devrimsel TRNG",
+                platform_trng_desc: "AI-Hybrid TRNG teknolojisi ile gerçek rastgelelik üretimi. Dijital dünyanın tahmin edilemezliğini avantajınıza çevirin. True randomness through physical entropy ile cryptographic-grade security sağlıyor.",
+                platform_arch_title: "Altyapımız: Enterprise-Grade Architecture",
+                platform_arch_hybrid: "Hybrid Cloud Deployment",
+                platform_arch_hybrid_desc: "Multi-cloud strategy ile vendor lock-in elimination",
+                platform_arch_micro: "Microservices Architecture",
+                platform_arch_micro_desc: "Scalable, maintainable service-oriented design",
+                platform_arch_k8s: "Kubernetes Orchestration",
+                platform_arch_k8s_desc: "Container-based deployment ile high availability",
+                platform_arch_realtime: "Real-time Processing",
+                platform_arch_realtime_desc: "Stream processing capabilities ile low-latency operations",
+                platform_arch_secure: "Secure by Design",
+                platform_arch_secure_desc: "End-to-end encryption ile data protection at every layer",
+                platform_features_title: "Platform Features",
+                platform_feature_dashboard: "Unified Dashboard",
+                platform_feature_dashboard_desc: "Single pane of glass for all ML operations",
+                platform_feature_pipeline: "Automated Pipelines",
+                platform_feature_pipeline_desc: "Code-free pipeline creation ve management",
+                platform_feature_marketplace: "Model Marketplace",
+                platform_feature_marketplace_desc: "Pre-trained models ve components sharing",
+                platform_feature_collab: "Collaboration Tools",
+                platform_feature_collab_desc: "Team coordination ve knowledge sharing",
+                platform_feature_compliance: "Compliance Framework",
+                platform_feature_compliance_desc: "Regulatory requirements'ı automated compliance",
+                platform_integration_title: "Integration Capabilities",
+                platform_int_data: "Data Sources",
+                platform_int_data_desc: "Databases, data lakes, streaming platforms",
+                platform_int_dev: "Development Tools",
+                platform_int_dev_desc: "Jupyter, VS Code, popular ML frameworks",
+                platform_int_deploy: "Deployment Targets",
+                platform_int_deploy_desc: "Cloud, on-premise, edge environments",
+                platform_int_monitor: "Monitoring Systems",
+                platform_int_monitor_desc: "Enterprise monitoring ve logging tools",
                 // Case Study
-                case_study_tag: "BAŞARI HİKAYESİ",
-                case_study_title: "Finansal Analizde Rastgelelik Devrimi",
-                case_study_desc: "Lider yatırım bankası, QuevaTech'in AI-Hybrid TRNG akışını iç sistemlerine entegre ederek pazar analizinde kullandığı tüm senaryolara gerçek rastgelelik kattı. QuevaTech – Karar modellerinizi tahmin edilemez rastgelelikle güçlendirin; belirsizlik artık avantaja dönüşsün.",
-                case_study_stat: "Finansal Analizde Rastgelelik Devrimi",
+                case_study_tag: "POTANSIYEL ANALIZ",
+                case_study_title: "Finansal Kurumlar İçin: Risk Yönetiminde %70+ Performans Artışı Potansiyeli",
+                case_study_desc: "Simülasyon çalışmalarımız gösteriyor ki, QuevaTech'in AI-Hybrid TRNG teknolojisi finansal kurumlarda önemli avantajlar sağlayabilir: Risk modellemelerinde %70+ doğruluk artışı, stress test simülasyonlarında %80+ güvenilirlik iyileştirmesi ve portföy optimizasyonunda %35+ getiri potansiyeli. 'Gerçek rastgelelik, öngörülemeyen piyasa koşullarına hazırlık için kritik' - Sektör Uzmanı. QuevaTech ile belirsizliği stratejik avantaja dönüştürme potansiyelinizi keşfedin.",
+                case_study_stat: "Risk Yönetiminde %70+ Performans Potansiyeli",
+                // Gaming Case Study
+                gaming_case_study_tag: "POTANSIYEL ANALIZ",
+                gaming_case_study_title: "Oyun Stüdyoları İçin: Procedural Generation'da %85+ Performans Artışı Potansiyeli",
+                gaming_case_study_desc: "Game development araştırmalarımız gösteriyor ki, QuevaTech'in gerçek rastgelelik teknolojisi oyun stüdyolarında devrim yaratabilir: Procedural world generation'da %85+ unique content artışı, player engagement'ta %60+ iyileştirme, game balancing'te %75+ fairness potansiyeli ve loot box/gacha sistemlerinde %90+ unpredictability sağlayabilir. 'Gerçek rastgelelik, players'a authentic gaming experience sunmanın anahtarı' - Game Design Uzmanı.",
+                gaming_case_study_stat: "Unique Content Generation Potansiyeli",
+                // Security Case Study
+                security_case_study_tag: "POTANSIYEL ANALIZ",
+                security_case_study_title: "Güvenlik Uygulamaları İçin: Cryptographic Security'de %95+ Güvence Artışı Potansiyeli",
+                security_case_study_desc: "Cybersecurity araştırmalarımız gösteriyor ki, QuevaTech'in fiziksel entropi teknolojisi güvenlik uygulamalarında çığır açabilir: Cryptographic key generation'da %95+ unpredictability artışı, penetration testing'te %80+ vulnerability detection, security audit'lerde %90+ compliance potansiyeli ve quantum-resistant encryption'da %99+ futureproof security sağlayabilir. 'Fiziksel entropi, modern cybersecurity'nin temeli' - Ethical Hacker Uzmanı.",
+                security_case_study_stat: "Cryptographic Security Güvence Potansiyeli",
                 // Testimonials
-                testimonials_title: "Müşterilerimiz Ne Diyor?",
-                testimonial1_name: "Teknoloji Şirketi CEO'su",
-                testimonial1_title: "Fintech Sektörü",
-                testimonial1_desc: "\"QuevaTech, veri analizi konusundaki tüm beklentilerimizi aştı. Ekip, projenin her aşamasında inanılmaz derecede destekleyiciydi.\"",
-                testimonial2_name: "Lojistik Şirketi CTO'su",
-                testimonial2_title: "E-ticaret Sektörü",
-                testimonial2_desc: "\"Makine öğrenmesi modelleri sayesinde operasyonel maliyetlerimizi %40 oranında düşürdük. Kesinlikle tavsiye ederim.\"",
-                testimonial3_name: "Veri Bilimi Uzmanı",
-                testimonial3_title: "Danışmanlık Sektörü",
-                testimonial3_desc: "\"Platformun kullanım kolaylığı ve esnekliği, veri bilimi ekibimizin verimliliğini inanılmaz artırdı.\"",
-                testimonial4_name: "Ürün Geliştirme Müdürü",
-                testimonial4_title: "Yazılım Sektörü",
-                testimonial4_desc: "\"Hızlı entegrasyon ve mükemmel teknik destek sayesinde projemizi zamanında hayata geçirebildik. Harika bir iş.\"",
+                testimonials_title: "Sektör Uzmanları Ne Diyor?",
+                testimonial1_name: "Risk Yönetimi Uzmanı",
+                testimonial1_title: "Yatırım Bankacılığı Araştırması",
+                testimonial1_desc: "\"TRNG teknolojisinin risk modellemelerinde %70+ doğruluk artışı sağlayabileceği simülasyonlarımızla kanıtlandı. Monte Carlo analizlerinde gerçek rastgelelik kullanımı piyasa volatilitesi öngörüsünde devrim yaratabilir.\"",
+                testimonial2_name: "Cybersecurity Uzmanı",
+                testimonial2_title: "Ethical Hacking & Penetration Testing",
+                testimonial2_desc: "\"Fiziksel entropi kullanımının cryptographic key strength'i %95+ artırabileceği security lab testlerimizde kanıtlandı. Quantum computing tehdidine karşı futureproof encryption için kritik teknoloji.\"",
+                testimonial3_name: "Game Design Uzmanı",
+                testimonial3_title: "AAA Oyun Stüdyosu Araştırması",
+                testimonial3_desc: "\"Procedural generation'da gerçek rastgelelik kullanımının content variety'yi %85+ artırabileceği pilot projelerimizde gözlemlendi. Player engagement ve replayability açısından game-changer teknoloji olabilir.\"",
+                testimonial4_name: "Blockchain Security Uzmanı",
+                testimonial4_title: "DeFi & Smart Contract Auditing",
+                testimonial4_desc: "\"On-chain randomness'ta TRNG kullanımının smart contract security'yi %90+ artırabileceği mainnet testlerinde doğrulandı. DeFi protokollerinde MEV protection ve fair distribution için vazgeçilmez.\"",
                 // Tech Stack
                 tech_stack_title: "Entegre Olduğumuz Teknolojiler",
                 // Blog
@@ -636,11 +1007,13 @@
             en: {
                 // Navigation
                 nav_products: "Products",
+                nav_platform: "Platform",
                 nav_solutions: "Solutions",
                 nav_about: "About Us",
                 nav_blog: "Blog",
                 nav_contact: "Contact",
                 nav_products_mobile: "Products",
+                nav_platform_mobile: "Platform",
                 nav_solutions_mobile: "Solutions",
                 nav_about_mobile: "About Us",
                 nav_blog_mobile: "Blog",
@@ -651,35 +1024,92 @@
                 hero_cta1: "Request a Demo",
                 hero_cta2: "Technical Docs",
                 // Products
-                products_title: "Discover the Power of the Platform",
-                products_subtitle: "QuevaTech unleashes the power of digital randomness through artificial intelligence, software, electronics, and revolutionary TRNG technology.",
-                product1_title: "Data Analytics",
-                product1_desc: "We make it easy for you to make strategic decisions by turning your big data sets into meaningful insights.",
-                product2_title: "Machine Learning",
-                product2_desc: "We maximize your operational efficiency with predictive models and automation solutions.",
-                product3_title: "Secure Infrastructure",
-                product3_desc: "Your data is safe in our cloud infrastructure, protected by industry-standard security protocols.",
-                product4_title: "Revolutionary TRNG",
-                product4_desc: "True randomness generation with AI-Hybrid TRNG technology. Turn digital world's unpredictability to your advantage.",
+                products_title: "Our Product Portfolio",
+                products_subtitle: "Secure solutions with true randomness technology",
+                product1_title: "Password API",
+                product1_desc: "High entropy secure password and key generation",
+                product2_title: "RNG Service",
+                product2_desc: "True random number generation with physical entropy",
+                product3_title: "Enterprise Device",
+                product3_desc: "High capacity hardware random number generator",
+                product4_title: "Mobile Applications",
+                product4_desc: "iOS and Android apps with secure storage",
+                product5_title: "Custom AI Device",
+                product5_desc: "AI-powered advanced entropy processing",
+                product6_title: "Consulting",
+                product6_desc: "Integration and customization consulting",
+                // Platform
+                platform_title: "QuevaTech: Discover the Power of the Platform",
+                platform_subtitle: "Unleashing the power of digital randomness with artificial intelligence, software, electronics and revolutionary TRNG technology",
+                platform_tech_title: "How We Do It: Core Technology Stack",
+                platform_analytics_title: "Data Analytics",
+                platform_analytics_desc: "We make it easy for you to make strategic decisions by transforming your large data sets into meaningful insights. Providing real-time processing and predictive insights with advanced analytics engine.",
+                platform_ml_title: "Machine Learning",
+                platform_ml_desc: "We maximize your operational efficiency with predictive models and automation solutions. Enabling democratized AI development with AutoML capabilities.",
+                platform_security_title: "Secure Infrastructure",
+                platform_security_desc: "Your data is safe in our cloud infrastructure protected by industry-standard security protocols. Ensuring comprehensive security with zero-trust architecture.",
+                platform_trng_title: "Revolutionary TRNG",
+                platform_trng_desc: "True randomness generation with AI-Hybrid TRNG technology. Turn the unpredictability of the digital world to your advantage. Providing cryptographic-grade security with true randomness through physical entropy.",
+                platform_arch_title: "Our Infrastructure: Enterprise-Grade Architecture",
+                platform_arch_hybrid: "Hybrid Cloud Deployment",
+                platform_arch_hybrid_desc: "Vendor lock-in elimination with multi-cloud strategy",
+                platform_arch_micro: "Microservices Architecture",
+                platform_arch_micro_desc: "Scalable, maintainable service-oriented design",
+                platform_arch_k8s: "Kubernetes Orchestration",
+                platform_arch_k8s_desc: "High availability with container-based deployment",
+                platform_arch_realtime: "Real-time Processing",
+                platform_arch_realtime_desc: "Low-latency operations with stream processing capabilities",
+                platform_arch_secure: "Secure by Design",
+                platform_arch_secure_desc: "Data protection at every layer with end-to-end encryption",
+                platform_features_title: "Platform Features",
+                platform_feature_dashboard: "Unified Dashboard",
+                platform_feature_dashboard_desc: "Single pane of glass for all ML operations",
+                platform_feature_pipeline: "Automated Pipelines",
+                platform_feature_pipeline_desc: "Code-free pipeline creation and management",
+                platform_feature_marketplace: "Model Marketplace",
+                platform_feature_marketplace_desc: "Pre-trained models and components sharing",
+                platform_feature_collab: "Collaboration Tools",
+                platform_feature_collab_desc: "Team coordination and knowledge sharing",
+                platform_feature_compliance: "Compliance Framework",
+                platform_feature_compliance_desc: "Automated compliance with regulatory requirements",
+                platform_integration_title: "Integration Capabilities",
+                platform_int_data: "Data Sources",
+                platform_int_data_desc: "Databases, data lakes, streaming platforms",
+                platform_int_dev: "Development Tools",
+                platform_int_dev_desc: "Jupyter, VS Code, popular ML frameworks",
+                platform_int_deploy: "Deployment Targets",
+                platform_int_deploy_desc: "Cloud, on-premise, edge environments",
+                platform_int_monitor: "Monitoring Systems",
+                platform_int_monitor_desc: "Enterprise monitoring and logging tools",
                 // Case Study
-                case_study_tag: "SUCCESS STORY",
-                case_study_title: "Randomness Revolution in Financial Analysis",
-                case_study_desc: "A leading investment bank integrated QuevaTech's AI-Hybrid TRNG flow into their internal systems, adding true randomness to all scenarios used in market analysis. QuevaTech – Strengthen your decision models with unpredictable randomness; let uncertainty become your advantage.",
-                case_study_stat: "Randomness Revolution in Financial Analysis",
+                case_study_tag: "POTENTIAL ANALYSIS",
+                case_study_title: "For Financial Institutions: 70%+ Performance Boost Potential in Risk Management",
+                case_study_desc: "Our simulation studies show that QuevaTech's AI-Hybrid TRNG technology can provide significant advantages in financial institutions: 70%+ accuracy improvement potential in risk modeling, 80%+ reliability enhancement in stress test simulations, and 35%+ return potential in portfolio optimization. 'True randomness is critical for preparing for unpredictable market conditions' - Industry Expert. Discover your potential to transform uncertainty into strategic advantage with QuevaTech.",
+                case_study_stat: "70%+ Performance Potential in Risk Management",
+                // Gaming Case Study
+                gaming_case_study_tag: "POTENTIAL ANALYSIS",
+                gaming_case_study_title: "For Game Studios: 85%+ Performance Boost Potential in Procedural Generation",
+                gaming_case_study_desc: "Our game development research shows that QuevaTech's true randomness technology can revolutionize game studios: 85%+ unique content increase in procedural world generation, 60%+ improvement in player engagement, 75%+ fairness potential in game balancing, and 90%+ unpredictability in loot box/gacha systems. 'True randomness is the key to providing authentic gaming experience to players' - Game Design Expert.",
+                gaming_case_study_stat: "Unique Content Generation Potential",
+                // Security Case Study
+                security_case_study_tag: "POTENTIAL ANALYSIS",
+                security_case_study_title: "For Security Applications: 95%+ Security Assurance Boost Potential in Cryptographic Security",
+                security_case_study_desc: "Our cybersecurity research shows that QuevaTech's physical entropy technology can break new ground in security applications: 95%+ unpredictability increase in cryptographic key generation, 80%+ vulnerability detection in penetration testing, 90%+ compliance potential in security audits, and 99%+ futureproof security in quantum-resistant encryption. 'Physical entropy is the foundation of modern cybersecurity' - Ethical Hacker Expert.",
+                security_case_study_stat: "Cryptographic Security Assurance Potential",
                 // Testimonials
-                testimonials_title: "What Our Customers Say",
-                testimonial1_name: "Technology Company CEO",
-                testimonial1_title: "Fintech Sector",
-                testimonial1_desc: "\"QuevaTech exceeded all our expectations in data analysis. The team was incredibly supportive at every stage of the project.\"",
-                testimonial2_name: "Logistics Company CTO",
-                testimonial2_title: "E-commerce Sector",
-                testimonial2_desc: "\"Thanks to their machine learning models, we reduced our operational costs by 40%. I would definitely recommend them.\"",
-                testimonial3_name: "Data Science Expert",
-                testimonial3_title: "Consulting Sector",
-                testimonial3_desc: "\"The platform's ease of use and flexibility have incredibly increased our data science team's productivity.\"",
-                testimonial4_name: "Product Development Manager",
-                testimonial4_title: "Software Sector",
-                testimonial4_desc: "\"We were able to launch our project on time thanks to fast integration and excellent technical support. Great job.\"",
+                testimonials_title: "What Industry Experts Say",
+                testimonial1_name: "Risk Management Expert",
+                testimonial1_title: "Investment Banking Research",
+                testimonial1_desc: "\"Our simulations prove that TRNG technology can provide 70%+ accuracy improvement in risk modeling. Using true randomness in Monte Carlo analysis could revolutionize market volatility prediction.\"",
+                testimonial2_name: "Cybersecurity Expert",
+                testimonial2_title: "Ethical Hacking & Penetration Testing",
+                testimonial2_desc: "\"Our security lab tests proved that using physical entropy could increase cryptographic key strength by 95%+. Critical technology for futureproof encryption against quantum computing threats.\"",
+                testimonial3_name: "Game Design Expert",
+                testimonial3_title: "AAA Game Studio Research",
+                testimonial3_desc: "\"Our pilot projects observed that using true randomness in procedural generation could increase content variety by 85%+. Could be a game-changer technology for player engagement and replayability.\"",
+                testimonial4_name: "Blockchain Security Expert",
+                testimonial4_title: "DeFi & Smart Contract Auditing",
+                testimonial4_desc: "\"Our mainnet tests confirmed that using TRNG for on-chain randomness could increase smart contract security by 90%+. Indispensable for MEV protection and fair distribution in DeFi protocols.\"",
                 // Tech Stack
                 tech_stack_title: "Technologies We Integrate With",
                 // Blog
