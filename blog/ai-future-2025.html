@@ -41,29 +41,74 @@
         }
         /* Blog content styling */
         .blog-content h2 {
-            @apply text-2xl font-bold mt-8 mb-4 text-gray-900 dark:text-white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #111827;
+        }
+        .dark .blog-content h2 {
+            color: white;
         }
         .blog-content h3 {
-            @apply text-xl font-semibold mt-6 mb-3 text-gray-800 dark:text-gray-200;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #1f2937;
+        }
+        .dark .blog-content h3 {
+            color: #e5e7eb;
         }
         .blog-content p {
-            @apply mb-4 leading-relaxed text-gray-700 dark:text-gray-300;
+            margin-bottom: 1rem;
+            line-height: 1.75;
+            color: #374151;
+        }
+        .dark .blog-content p {
+            color: #d1d5db;
         }
         .blog-content ul {
-            @apply mb-4 space-y-2;
+            margin-bottom: 1rem;
+            margin-left: 1.5rem;
         }
         .blog-content li {
-            @apply ml-6 text-gray-700 dark:text-gray-300 relative;
+            margin-left: 1.5rem;
+            color: #374151;
+            position: relative;
+        }
+        .dark .blog-content li {
+            color: #d1d5db;
         }
         .blog-content li::before {
             content: "•";
-            @apply absolute -left-4 text-queva-indigo dark:text-queva-purple font-bold;
+            position: absolute;
+            left: -1rem;
+            color: #4F46E5;
+            font-weight: 700;
+        }
+        .dark .blog-content li::before {
+            color: #A855F7;
         }
         .blog-content blockquote {
-            @apply border-l-4 border-queva-indigo dark:border-queva-purple pl-4 italic my-6 text-gray-600 dark:text-gray-400;
+            border-left: 4px solid #4F46E5;
+            padding-left: 1rem;
+            font-style: italic;
+            margin: 1.5rem 0;
+            color: #4b5563;
+        }
+        .dark .blog-content blockquote {
+            border-left-color: #A855F7;
+            color: #9ca3af;
         }
         .blog-content code {
-            @apply bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-sm;
+            background-color: #f3f4f6;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.875rem;
+        }
+        .dark .blog-content code {
+            background-color: #1f2937;
         }
     </style>
     <script>
@@ -154,7 +199,7 @@
                 <div class="max-w-4xl mx-auto">
                     <!-- Featured Image -->
                     <div class="mb-8 rounded-2xl overflow-hidden shadow-lg">
-                        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=600&fit=crop&crop=face" alt="AI Future 2025" class="w-full h-64 md:h-80 object-cover">
+                        <img src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&fit=crop" alt="AI Future 2025" class="w-full h-64 md:h-80 object-cover">
                     </div>
 
                     <!-- Tags -->
@@ -325,7 +370,7 @@
                         <div class="grid md:grid-cols-2 gap-8">
                             <a href="data-security-2025.html" class="block group">
                                 <div class="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-                                    <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&h=300&fit=crop" alt="Data Security" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                                    <img src="https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop" alt="Data Security" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
                                     <div class="p-6">
                                         <h4 class="font-bold text-lg mb-2 group-hover:text-queva-indigo dark:group-hover:text-queva-purple transition-colors">Büyük Veri Çağında Güvenlik</h4>
                                         <p class="text-gray-600 dark:text-gray-400 text-sm">Cyber security landscape 2025'te dramatik değişimler yaşıyor...</p>
@@ -334,7 +379,7 @@
                             </a>
                             <a href="mlops-2025.html" class="block group">
                                 <div class="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-                                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=300&fit=crop" alt="MLOps" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                                    <img src="https://images.pexels.com/photos/325229/pexels-photo-325229.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop" alt="MLOps" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
                                     <div class="p-6">
                                         <h4 class="font-bold text-lg mb-2 group-hover:text-queva-indigo dark:group-hover:text-queva-purple transition-colors">MLOps: Modellerinizi Hayata Geçirin</h4>
                                         <p class="text-gray-600 dark:text-gray-400 text-sm">MLOps 2025'te enterprise AI'ın omurgası haline geldi...</p>

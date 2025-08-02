@@ -352,7 +352,7 @@
                 <div class="grid md:grid-cols-3 gap-8">
                     <!-- Blog Post 1 -->
                     <div class="bg-white dark:bg-queva-dark/50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="100">
-                        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop&crop=face" alt="AI Future 2025" class="w-full h-48 object-cover">
+                        <img src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="AI Future 2025" class="w-full h-48 object-cover">
                         <div class="p-6">
                             <div class="flex items-center text-xs text-gray-500 dark:text-gray-400 mb-2">
                                 <span>1 Ağustos 2025</span>
@@ -376,7 +376,7 @@
                     </div>
                     <!-- Blog Post 2 -->
                     <div class="bg-white dark:bg-queva-dark/50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="200">
-                        <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&h=400&fit=crop&crop=face" alt="Data Security" class="w-full h-48 object-cover">
+                        <img src="https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="Data Security" class="w-full h-48 object-cover">
                         <div class="p-6">
                             <div class="flex items-center text-xs text-gray-500 dark:text-gray-400 mb-2">
                                 <span>25 Temmuz 2025</span>
@@ -400,7 +400,7 @@
                     </div>
                     <!-- Blog Post 3 -->
                     <div class="bg-white dark:bg-queva-dark/50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="300">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&crop=face" alt="MLOps Pipeline" class="w-full h-48 object-cover">
+                        <img src="https://images.pexels.com/photos/325229/pexels-photo-325229.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="MLOps Pipeline" class="w-full h-48 object-cover">
                         <div class="p-6">
                             <div class="flex items-center text-xs text-gray-500 dark:text-gray-400 mb-2">
                                 <span>18 Temmuz 2025</span>
@@ -438,7 +438,7 @@
                     <p data-lang="contact_subtitle" class="text-lg mt-2 text-gray-600 dark:text-gray-400">Projeniz hakkında konuşmak veya demo talep etmek için formu doldurun.</p>
                 </div>
                 <div class="grid md:grid-cols-2 gap-12">
-                    <form class="space-y-6" data-aos="fade-right">
+                    <form id="contact-form" class="space-y-6" data-aos="fade-right">
                         <div>
                             <label for="name" data-lang="form_name" class="block mb-2 text-sm font-medium">Adınız Soyadınız</label>
                             <input type="text" id="name" class="contact-input" placeholder="John Doe" required>
@@ -451,7 +451,19 @@
                             <label for="message" data-lang="form_message" class="block mb-2 text-sm font-medium">Mesajınız</label>
                             <textarea id="message" rows="6" class="contact-input" data-lang-placeholder="form_placeholder"></textarea>
                         </div>
-                        <button type="submit" data-lang="form_submit" class="w-full bg-queva-indigo text-white font-bold py-3 px-8 rounded-full hover:bg-queva-purple transition-all duration-300">Mesajı Gönder</button>
+                        <button type="submit" id="send-email-btn" data-lang="form_submit" class="w-full bg-queva-indigo text-white font-bold py-3 px-8 rounded-full hover:bg-queva-purple transition-all duration-300">Mesajı Gönder</button>
+                        
+                        <!-- Alternative Email Contact -->
+                        <div class="mt-6 p-4 bg-queva-light dark:bg-queva-dark/50 rounded-lg border border-gray-200 dark:border-gray-700">
+                            <p data-lang="form_alt_text" class="text-sm text-gray-600 dark:text-gray-400 mb-3">Form çalışmıyor mu? Doğrudan e-posta gönderin:</p>
+                            <a href="mailto:info@queva.tech?subject=QuevaTech İletişim&body=Merhaba QuevaTech ekibi,%0D%0A%0D%0AProjem hakkında bilgi almak istiyorum.%0D%0A%0D%0AAdım: [Adınızı yazın]%0D%0AE-posta: [E-posta adresinizi yazın]%0D%0AMesajım: [Mesajınızı yazın]%0D%0A%0D%0ATeşekkürler." 
+                               class="inline-flex items-center px-4 py-2 bg-queva-purple text-white rounded-lg hover:bg-queva-indigo transition-colors">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <span data-lang="form_email_direct">E-posta Gönder</span>
+                            </a>
+                        </div>
                     </form>
                     <div class="rounded-2xl overflow-hidden shadow-lg" data-aos="fade-left">
                          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3174.123456789!2d28.341234567890123!3d37.02345678901234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14be123456789abc%3A0xabcdef123456789!2sAkyaka%2C%20Ula%2FMu%C4%9Fla%2C%20T%C3%BCrkiye!5e0!3m2!1str!2str!4v1672851025098!5m2!1str!2str" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -605,6 +617,8 @@
                 form_message: "Mesajınız",
                 form_placeholder: "Projenizden bahsedin...",
                 form_submit: "Mesajı Gönder",
+                form_alt_text: "Form çalışmıyor mu? Doğrudan e-posta gönderin:",
+                form_email_direct: "E-posta Gönder",
                 // Footer
                 footer_tagline: "Yapay zekâ ile geleceği şekillendiriyoruz.",
                 footer_menu_quick: "Hızlı Menü",
@@ -688,6 +702,8 @@
                 form_message: "Your Message",
                 form_placeholder: "Tell us about your project...",
                 form_submit: "Send Message",
+                form_alt_text: "Form not working? Send email directly:",
+                form_email_direct: "Send Email",
                 // Footer
                 footer_tagline: "Shaping the future with artificial intelligence.",
                 footer_menu_quick: "Quick Menu",
@@ -812,6 +828,54 @@
         const mobileMenu = document.getElementById('mobile-menu');
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
+        });
+
+
+        // =================================
+        // Contact Form Email Redirect Logic
+        // =================================
+        const contactForm = document.getElementById('contact-form');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            // Get current language for email template
+            const currentLang = localStorage.getItem('language') || 'tr';
+            
+            let subject, body;
+            
+            if (currentLang === 'tr') {
+                subject = 'QuevaTech İletişim - ' + name;
+                body = `Merhaba QuevaTech ekibi,
+
+${message}
+
+İletişim Bilgileri:
+Ad: ${name}
+E-posta: ${email}
+
+Teşekkürler.`;
+            } else {
+                subject = 'QuevaTech Contact - ' + name;
+                body = `Hello QuevaTech team,
+
+${message}
+
+Contact Information:
+Name: ${name}
+Email: ${email}
+
+Thank you.`;
+            }
+            
+            // Create mailto link
+            const mailtoLink = `mailto:info@queva.tech?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
         });
 
 

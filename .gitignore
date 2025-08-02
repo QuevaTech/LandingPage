@@ -1,0 +1,17 @@
+# Dependencies (CDN)
+node_modules/
+
+# macOS
+.DS_Store
+
+# Editor files
+.vscode/
+*.swp
+*.swo
+
+# Temporary files
+*.tmp
+*.temp
+
+# Logs
+*.log
