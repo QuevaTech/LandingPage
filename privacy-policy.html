@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gizlilik Politikası | QuevaTech</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Custom scrollbar for a more modern look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4F46E5;
+            border-radius: 10px;
+        }
+        .dark ::-webkit-scrollbar-track {
+            background: #111827;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: #A855F7;
+        }
+        /* Style for active language */
+        .lang-switcher .active {
+            color: #4F46E5;
+            font-weight: 700;
+        }
+        .dark .lang-switcher .active {
+            color: #A855F7;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'queva-indigo': '#4F46E5',
+                        'queva-purple': '#A855F7',
+                        'queva-sky': '#0EA5E9',
+                        'queva-dark': '#1E293B',
+                        'queva-light': '#F3F4F6',
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-inter bg-queva-light dark:bg-queva-dark text-queva-dark dark:text-queva-light transition-colors duration-500">
+
+    <!-- Navigation Bar -->
+    <header id="navbar" class="fixed top-0 left-0 w-full z-50 bg-white dark:bg-queva-dark shadow-md transition-all duration-300">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="index.html" class="text-2xl font-bold text-gray-900 dark:text-white">Queva<span class="text-queva-indigo dark:text-queva-purple font-extrabold">Tech</span></a>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex items-center space-x-6">
+                    <a href="index.html#products" data-lang="nav_products" class="hover:text-queva-indigo dark:hover:text-queva-purple transition-colors">Ürünler</a>
+                    <a href="index.html#solutions" data-lang="nav_solutions" class="hover:text-queva-indigo dark:hover:text-queva-purple transition-colors">Çözümler</a>
+                    <a href="index.html#about" data-lang="nav_about" class="hover:text-queva-indigo dark:hover:text-queva-purple transition-colors">Hakkımızda</a>
+                    <a href="index.html#blog" data-lang="nav_blog" class="hover:text-queva-indigo dark:hover:text-queva-purple transition-colors">Blog</a>
+                    <a href="index.html#contact" data-lang="nav_contact" class="hover:text-queva-indigo dark:hover:text-queva-purple transition-colors">İletişim</a>
+                </nav>
+
+                <!-- Controls: Language, Theme -->
+                <div class="flex items-center">
+                     <!-- Language Switcher -->
+                    <div class="lang-switcher text-sm font-semibold mr-4">
+                        <button id="lang-tr" class="p-1">TR</button>
+                        <span>/</span>
+                        <button id="lang-en" class="p-1">EN</button>
+                    </div>
+                    <!-- Theme Toggle -->
+                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                        <svg id="theme-toggle-dark-icon" class="hidden h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                        <svg id="theme-toggle-light-icon" class="hidden h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-20">
+        <!-- Header Section -->
+        <section class="bg-gradient-to-br from-queva-indigo to-queva-purple py-16">
+            <div class="container mx-auto px-4 text-center text-white">
+                <h1 data-lang="privacy_title" class="text-4xl md:text-5xl font-bold mb-4">Gizlilik Politikası</h1>
+                <p data-lang="privacy_subtitle" class="text-lg md:text-xl max-w-2xl mx-auto">QuevaTech olarak kişisel verilerinizin korunması bizim için önceliklidir.</p>
+                <p data-lang="privacy_date" class="text-sm mt-4 opacity-90">Son güncelleme: 31 Temmuz 2025</p>
+            </div>
+        </section>
+
+        <!-- Privacy Policy Content -->
+        <section class="py-16">
+            <div class="container mx-auto px-4 max-w-4xl">
+                
+                <!-- Introduction -->
+                <div class="mb-12">
+                    <h2 data-lang="privacy_intro_title" class="text-2xl font-bold mb-4 text-queva-indigo dark:text-queva-purple">Giriş</h2>
+                    <p data-lang="privacy_intro_text" class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                        QuevaTech ("biz", "bizim", "şirketimiz") olarak, kişisel verilerinizin gizliliğini ve güvenliğini korumaya kararlıyız. Bu gizlilik politikası, web sitemizi ziyaret ettiğinizde veya hizmetlerimizi kullandığınızda kişisel bilgilerinizi nasıl topladığımızı, kullandığımızı ve koruduğumuzu açıklar.
+                    </p>
+                </div>
+
+                <!-- Information We Collect -->
+                <div class="mb-12">
+                    <h2 data-lang="privacy_collect_title" class="text-2xl font-bold mb-4 text-queva-indigo dark:text-queva-purple">Topladığımız Bilgiler</h2>
+                    <div class="space-y-4 text-gray-600 dark:text-gray-300 leading-relaxed">
+                        <h3 data-lang="privacy_personal_info" class="text-lg font-semibold">Kişisel Bilgiler</h3>
+                        <p data-lang="privacy_personal_desc">
+                            İletişim formlarını doldurduğunuzda veya hizmetlerimiz için kaydolduğunuzda aşağıdaki bilgileri toplayabiliriz:
+                        </p>
+                        <ul class="list-disc list-inside space-y-2 ml-4">
+                            <li data-lang="privacy_name">Ad ve soyad</li>
+                            <li data-lang="privacy_email">E-posta adresi</li>
+                            <li data-lang="privacy_phone">Telefon numarası</li>
+                            <li data-lang="privacy_company">Şirket bilgileri</li>
+                            <li data-lang="privacy_message">İletişim mesajları</li>
+                        </ul>
+                        
+                        <h3 data-lang="privacy_technical_info" class="text-lg font-semibold mt-6">Teknik Bilgiler</h3>
+                        <p data-lang="privacy_technical_desc">
+                            Web sitemizi ziyaret ettiğinizde otomatik olarak toplanan bilgiler:
+                        </p>
+                        <ul class="list-disc list-inside space-y-2 ml-4">
+                            <li data-lang="privacy_ip">IP adresi</li>
+                            <li data-lang="privacy_browser">Tarayıcı türü ve sürümü</li>
+                            <li data-lang="privacy_device">Cihaz bilgileri</li>
+                            <li data-lang="privacy_pages">Ziyaret edilen sayfalar</li>
+                            <li data-lang="privacy_time">Ziyaret süresi</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- How We Use Information -->
+                <div class="mb-12">
+                    <h2 data-lang="privacy_use_title" class="text-2xl font-bold mb-4 text-queva-indigo dark:text-queva-purple">Bilgileri Nasıl Kullanırız</h2>
+                    <div class="space-y-4 text-gray-600 dark:text-gray-300 leading-relaxed">
+                        <p data-lang="privacy_use_intro">Topladığımız kişisel bilgileri aşağıdaki amaçlarla kullanırız:</p>
+                        <ul class="list-disc list-inside space-y-2 ml-4">
+                            <li data-lang="privacy_use_contact">İletişim taleplerinize yanıt vermek</li>
+                            <li data-lang="privacy_use_services">Hizmetlerimizi sunmak ve geliştirmek</li>
+                            <li data-lang="privacy_use_support">Teknik destek sağlamak</li>
+                            <li data-lang="privacy_use_updates">Ürün güncellemeleri ve duyurular göndermek</li>
+                            <li data-lang="privacy_use_analytics">Web sitesi performansını analiz etmek</li>
+                            <li data-lang="privacy_use_security">Güvenlik önlemleri almak</li>
+                            <li data-lang="privacy_use_legal">Yasal yükümlülüklerimizi yerine getirmek</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Information Sharing -->
+                <div class="mb-12">
+                    <h2 data-lang="privacy_sharing_title" class="text-2xl font-bold mb-4 text-queva-indigo dark:text-queva-purple">Bilgi Paylaşımı</h2>
+                    <div class="space-y-4 text-gray-600 dark:text-gray-300 leading-relaxed">
+                        <p data-lang="privacy_sharing_intro">Kişisel bilgilerinizi üçüncü taraflarla yalnızca aşağıdaki durumlarda paylaşırız:</p>
+                        <ul class="list-disc list-inside space-y-2 ml-4">
+                            <li data-lang="privacy_sharing_consent">Açık izniz dahilinde</li>
+                            <li data-lang="privacy_sharing_service">Hizmet sağlayıcılarımızla (analitik, hosting vb.)</li>
+                            <li data-lang="privacy_sharing_legal">Yasal gereklilikler dahilinde</li>
+                            <li data-lang="privacy_sharing_safety">Güvenlik ve emniyet amacıyla</li>
+                            <li data-lang="privacy_sharing_business">İş birleşmeleri veya satışları durumunda</li>
+                        </ul>
+                        <p data-lang="privacy_sharing_note" class="font-semibold">
+                            Kişisel bilgilerinizi hiçbir zaman ticari amaçlarla satmaz, kiralamaz veya pazarlamayız.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Data Security -->
+                <div class="mb-12">
+                    <h2 data-lang="privacy_security_title" class="text-2xl font-bold mb-4 text-queva-indigo dark:text-queva-purple">Veri Güvenliği</h2>
+                    <div class="space-y-4 text-gray-600 dark:text-gray-300 leading-relaxed">
+                        <p data-lang="privacy_security_intro">Kişisel bilgilerinizi korumak için aşağıdaki güvenlik önlemlerini alırız:</p>
+                        <ul class="list-disc list-inside space-y-2 ml-4">
+                            <li data-lang="privacy_security_encryption">SSL/TLS şifreleme</li>
+                            <li data-lang="privacy_security_access">Sınırlı erişim kontrolleri</li>
+                            <li data-lang="privacy_security_firewall">Güvenlik duvarları ve antivirüs koruması</li>
+                            <li data-lang="privacy_security_monitoring">Sürekli güvenlik izleme</li>
+                            <li data-lang="privacy_security_updates">Düzenli güvenlik güncellemeleri</li>
+                            <li data-lang="privacy_security_training">Personel güvenlik eğitimleri</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Your Rights -->
+                <div class="mb-12">
+                    <h2 data-lang="privacy_rights_title" class="text-2xl font-bold mb-4 text-queva-indigo dark:text-queva-purple">Haklarınız</h2>
+                    <div class="space-y-4 text-gray-600 dark:text-gray-300 leading-relaxed">
+                        <p data-lang="privacy_rights_intro">KVKK kapsamında aşağıdaki haklara sahipsiniz:</p>
+                        <ul class="list-disc list-inside space-y-2 ml-4">
+                            <li data-lang="privacy_rights_access">Kişisel verilerinizin işlenip işlenmediğini öğrenme</li>
+                            <li data-lang="privacy_rights_info">İşlenen veriler hakkında bilgi talep etme</li>
+                            <li data-lang="privacy_rights_purpose">İşleme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme</li>
+                            <li data-lang="privacy_rights_third_party">Verilerinizin aktarıldığı üçüncü kişileri bilme</li>
+                            <li data-lang="privacy_rights_correction">Eksik veya yanlış verilerin düzeltilmesini isteme</li>
+                            <li data-lang="privacy_rights_deletion">Verilerin silinmesini veya yok edilmesini isteme</li>
+                            <li data-lang="privacy_rights_objection">İşlemeye itiraz etme</li>
+                            <li data-lang="privacy_rights_complaint">Şikayette bulunma</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Cookies -->
+                <div class="mb-12">
+                    <h2 data-lang="privacy_cookies_title" class="text-2xl font-bold mb-4 text-queva-indigo dark:text-queva-purple">Çerezler (Cookies)</h2>
+                    <div class="space-y-4 text-gray-600 dark:text-gray-300 leading-relaxed">
+                        <p data-lang="privacy_cookies_intro">Web sitemizde kullanıcı deneyimini iyileştirmek için çerezler kullanırız:</p>
+                        <ul class="list-disc list-inside space-y-2 ml-4">
+                            <li data-lang="privacy_cookies_essential">Temel çerezler: Site işlevselliği için gerekli</li>
+                            <li data-lang="privacy_cookies_analytics">Analitik çerezler: Site performansını analiz etmek için</li>
+                            <li data-lang="privacy_cookies_functional">İşlevsel çerezler: Tercihlerinizi hatırlamak için</li>
+                            <li data-lang="privacy_cookies_marketing">Pazarlama çerezler: Kişiselleştirilmiş içerik için</li>
+                        </ul>
+                        <p data-lang="privacy_cookies_control">Tarayıcı ayarlarınızdan çerezleri kontrol edebilir veya devre dışı bırakabilirsiniz.</p>
+                    </div>
+                </div>
+
+                <!-- Data Retention -->
+                <div class="mb-12">
+                    <h2 data-lang="privacy_retention_title" class="text-2xl font-bold mb-4 text-queva-indigo dark:text-queva-purple">Veri Saklama</h2>
+                    <div class="space-y-4 text-gray-600 dark:text-gray-300 leading-relaxed">
+                        <p data-lang="privacy_retention_intro">Kişisel verilerinizi yalnızca gerekli olan süre boyunca saklarız:</p>
+                        <ul class="list-disc list-inside space-y-2 ml-4">
+                            <li data-lang="privacy_retention_contact">İletişim verileri: 3 yıl</li>
+                            <li data-lang="privacy_retention_analytics">Analitik veriler: 2 yıl</li>
+                            <li data-lang="privacy_retention_marketing">Pazarlama verileri: İzin geri çekilene kadar</li>
+                            <li data-lang="privacy_retention_legal">Yasal gereklilikler: İlgili yasalarca belirlenen süreler</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- International Transfers -->
+                <div class="mb-12">
+                    <h2 data-lang="privacy_transfers_title" class="text-2xl font-bold mb-4 text-queva-indigo dark:text-queva-purple">Uluslararası Veri Transferi</h2>
+                    <div class="space-y-4 text-gray-600 dark:text-gray-300 leading-relaxed">
+                        <p data-lang="privacy_transfers_intro">
+                            Hizmet sağlayıcılarımızla çalışırken verileriniz yurt dışına aktarılabilir. Bu durumda:
+                        </p>
+                        <ul class="list-disc list-inside space-y-2 ml-4">
+                            <li data-lang="privacy_transfers_adequacy">Yeterli koruma seviyesi olan ülkeler tercih edilir</li>
+                            <li data-lang="privacy_transfers_safeguards">Uygun güvenlik önlemleri alınır</li>
+                            <li data-lang="privacy_transfers_consent">Gerekli hallerde açık izin alınır</li>
+                            <li data-lang="privacy_transfers_contracts">Veri koruma sözleşmeleri yapılır</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Changes to Policy -->
+                <div class="mb-12">
+                    <h2 data-lang="privacy_changes_title" class="text-2xl font-bold mb-4 text-queva-indigo dark:text-queva-purple">Politika Değişiklikleri</h2>
+                    <div class="space-y-4 text-gray-600 dark:text-gray-300 leading-relaxed">
+                        <p data-lang="privacy_changes_intro">
+                            Bu gizlilik politikasını zaman zaman güncelleyebiliriz. Önemli değişiklikler durumunda:
+                        </p>
+                        <ul class="list-disc list-inside space-y-2 ml-4">
+                            <li data-lang="privacy_changes_notification">E-posta yoluyla bilgilendirme yapılır</li>
+                            <li data-lang="privacy_changes_website">Web sitesinde duyuru yapılır</li>
+                            <li data-lang="privacy_changes_date">Güncelleme tarihi belirtilir</li>
+                            <li data-lang="privacy_changes_review">Düzenli olarak gözden geçirme yapılır</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="mb-12">
+                    <h2 data-lang="privacy_contact_title" class="text-2xl font-bold mb-4 text-queva-indigo dark:text-queva-purple">İletişim</h2>
+                    <div class="space-y-4 text-gray-600 dark:text-gray-300 leading-relaxed">
+                        <p data-lang="privacy_contact_intro">
+                            Bu gizlilik politikası hakkında sorularınız veya veri koruma haklarınızı kullanmak istiyorsanız bizimle iletişime geçebilirsiniz:
+                        </p>
+                        <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
+                            <p><strong data-lang="privacy_contact_company">QuevaTech</strong></p>
+                            <p data-lang="privacy_contact_email">E-posta: <a href="mailto:privacy@queva.tech" class="text-queva-indigo dark:text-queva-purple hover:underline">privacy@queva.tech</a></p>
+                            <p data-lang="privacy_contact_general">Genel: <a href="mailto:info@queva.tech" class="text-queva-indigo dark:text-queva-purple hover:underline">info@queva.tech</a></p>
+                            <p data-lang="privacy_contact_address">Adres: Akyaka, Ula/Muğla, Türkiye</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-queva-dark text-queva-light">
+        <div class="container mx-auto px-4 py-8">
+            <div class="text-center">
+                <h3 class="text-xl font-bold mb-4">Queva<span class="text-queva-purple">Tech</span></h3>
+                <p data-lang="footer_tagline" class="text-gray-400 mb-4">Yapay zekâ ile geleceği şekillendiriyoruz.</p>
+                <div class="flex justify-center space-x-6">
+                    <a href="index.html" data-lang="footer_home" class="text-gray-400 hover:text-white">Ana Sayfa</a>
+                    <a href="privacy-policy.html" data-lang="footer_privacy" class="text-gray-400 hover:text-white">Gizlilik Politikası</a>
+                    <a href="terms-of-service.html" data-lang="footer_terms" class="text-gray-400 hover:text-white">Kullanım Şartları</a>
+                </div>
+                <div class="mt-6 border-t border-gray-700 pt-6 text-gray-400">
+                    <p data-lang="footer_copyright">&copy; 2025 QuevaTech. Tüm hakları saklıdır.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Language Data
+        const langData = {
+            tr: {
+                // Navigation
+                nav_products: "Ürünler",
+                nav_solutions: "Çözümler",
+                nav_about: "Hakkımızda",
+                nav_blog: "Blog",
+                nav_contact: "İletişim",
+                // Privacy Policy
+                privacy_title: "Gizlilik Politikası",
+                privacy_subtitle: "QuevaTech olarak kişisel verilerinizin korunması bizim için önceliklidir.",
+                privacy_date: "Son güncelleme: 31 Temmuz 2025",
+                privacy_intro_title: "Giriş",
+                privacy_intro_text: "QuevaTech (\"biz\", \"bizim\", \"şirketimiz\") olarak, kişisel verilerinizin gizliliğini ve güvenliğini korumaya kararlıyız. Bu gizlilik politikası, web sitemizi ziyaret ettiğinizde veya hizmetlerimizi kullandığınızda kişisel bilgilerinizi nasıl topladığımızı, kullandığımızı ve koruduğumuzu açıklar.",
+                privacy_collect_title: "Topladığımız Bilgiler",
+                privacy_personal_info: "Kişisel Bilgiler",
+                privacy_personal_desc: "İletişim formlarını doldurduğunuzda veya hizmetlerimiz için kaydolduğunuzda aşağıdaki bilgileri toplayabiliriz:",
+                privacy_name: "Ad ve soyad",
+                privacy_email: "E-posta adresi",
+                privacy_phone: "Telefon numarası",
+                privacy_company: "Şirket bilgileri",
+                privacy_message: "İletişim mesajları",
+                privacy_technical_info: "Teknik Bilgiler",
+                privacy_technical_desc: "Web sitemizi ziyaret ettiğinizde otomatik olarak toplanan bilgiler:",
+                privacy_ip: "IP adresi",
+                privacy_browser: "Tarayıcı türü ve sürümü",
+                privacy_device: "Cihaz bilgileri",
+                privacy_pages: "Ziyaret edilen sayfalar",
+                privacy_time: "Ziyaret süresi",
+                privacy_use_title: "Bilgileri Nasıl Kullanırız",
+                privacy_use_intro: "Topladığımız kişisel bilgileri aşağıdaki amaçlarla kullanırız:",
+                privacy_use_contact: "İletişim taleplerinize yanıt vermek",
+                privacy_use_services: "Hizmetlerimizi sunmak ve geliştirmek",
+                privacy_use_support: "Teknik destek sağlamak",
+                privacy_use_updates: "Ürün güncellemeleri ve duyurular göndermek",
+                privacy_use_analytics: "Web sitesi performansını analiz etmek",
+                privacy_use_security: "Güvenlik önlemleri almak",
+                privacy_use_legal: "Yasal yükümlülüklerimizi yerine getirmek",
+                privacy_sharing_title: "Bilgi Paylaşımı",
+                privacy_sharing_intro: "Kişisel bilgilerinizi üçüncü taraflarla yalnızca aşağıdaki durumlarda paylaşırız:",
+                privacy_sharing_consent: "Açık izniz dahilinde",
+                privacy_sharing_service: "Hizmet sağlayıcılarımızla (analitik, hosting vb.)",
+                privacy_sharing_legal: "Yasal gereklilikler dahilinde",
+                privacy_sharing_safety: "Güvenlik ve emniyet amacıyla",
+                privacy_sharing_business: "İş birleşmeleri veya satışları durumunda",
+                privacy_sharing_note: "Kişisel bilgilerinizi hiçbir zaman ticari amaçlarla satmaz, kiralamaz veya pazarlamayız.",
+                privacy_security_title: "Veri Güvenliği",
+                privacy_security_intro: "Kişisel bilgilerinizi korumak için aşağıdaki güvenlik önlemlerini alırız:",
+                privacy_security_encryption: "SSL/TLS şifreleme",
+                privacy_security_access: "Sınırlı erişim kontrolleri",
+                privacy_security_firewall: "Güvenlik duvarları ve antivirüs koruması",
+                privacy_security_monitoring: "Sürekli güvenlik izleme",
+                privacy_security_updates: "Düzenli güvenlik güncellemeleri",
+                privacy_security_training: "Personel güvenlik eğitimleri",
+                privacy_rights_title: "Haklarınız",
+                privacy_rights_intro: "KVKK kapsamında aşağıdaki haklara sahipsiniz:",
+                privacy_rights_access: "Kişisel verilerinizin işlenip işlenmediğini öğrenme",
+                privacy_rights_info: "İşlenen veriler hakkında bilgi talep etme",
+                privacy_rights_purpose: "İşleme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme",
+                privacy_rights_third_party: "Verilerinizin aktarıldığı üçüncü kişileri bilme",
+                privacy_rights_correction: "Eksik veya yanlış verilerin düzeltilmesini isteme",
+                privacy_rights_deletion: "Verilerin silinmesini veya yok edilmesini isteme",
+                privacy_rights_objection: "İşlemeye itiraz etme",
+                privacy_rights_complaint: "Şikayette bulunma",
+                privacy_cookies_title: "Çerezler (Cookies)",
+                privacy_cookies_intro: "Web sitemizde kullanıcı deneyimini iyileştirmek için çerezler kullanırız:",
+                privacy_cookies_essential: "Temel çerezler: Site işlevselliği için gerekli",
+                privacy_cookies_analytics: "Analitik çerezler: Site performansını analiz etmek için",
+                privacy_cookies_functional: "İşlevsel çerezler: Tercihlerinizi hatırlamak için",
+                privacy_cookies_marketing: "Pazarlama çerezler: Kişiselleştirilmiş içerik için",
+                privacy_cookies_control: "Tarayıcı ayarlarınızdan çerezleri kontrol edebilir veya devre dışı bırakabilirsiniz.",
+                privacy_retention_title: "Veri Saklama",
+                privacy_retention_intro: "Kişisel verilerinizi yalnızca gerekli olan süre boyunca saklarız:",
+                privacy_retention_contact: "İletişim verileri: 3 yıl",
+                privacy_retention_analytics: "Analitik veriler: 2 yıl",
+                privacy_retention_marketing: "Pazarlama verileri: İzin geri çekilene kadar",
+                privacy_retention_legal: "Yasal gereklilikler: İlgili yasalarca belirlenen süreler",
+                privacy_transfers_title: "Uluslararası Veri Transferi",
+                privacy_transfers_intro: "Hizmet sağlayıcılarımızla çalışırken verileriniz yurt dışına aktarılabilir. Bu durumda:",
+                privacy_transfers_adequacy: "Yeterli koruma seviyesi olan ülkeler tercih edilir",
+                privacy_transfers_safeguards: "Uygun güvenlik önlemleri alınır",
+                privacy_transfers_consent: "Gerekli hallerde açık izin alınır",
+                privacy_transfers_contracts: "Veri koruma sözleşmeleri yapılır",
+                privacy_changes_title: "Politika Değişiklikleri",
+                privacy_changes_intro: "Bu gizlilik politikasını zaman zaman güncelleyebiliriz. Önemli değişiklikler durumunda:",
+                privacy_changes_notification: "E-posta yoluyla bilgilendirme yapılır",
+                privacy_changes_website: "Web sitesinde duyuru yapılır",
+                privacy_changes_date: "Güncelleme tarihi belirtilir",
+                privacy_changes_review: "Düzenli olarak gözden geçirme yapılır",
+                privacy_contact_title: "İletişim",
+                privacy_contact_intro: "Bu gizlilik politikası hakkında sorularınız veya veri koruma haklarınızı kullanmak istiyorsanız bizimle iletişime geçebilirsiniz:",
+                privacy_contact_company: "QuevaTech",
+                privacy_contact_email: "E-posta: privacy@queva.tech",
+                privacy_contact_general: "Genel: info@queva.tech",
+                privacy_contact_address: "Adres: Akyaka, Ula/Muğla, Türkiye",
+                // Footer
+                footer_tagline: "Yapay zekâ ile geleceği şekillendiriyoruz.",
+                footer_home: "Ana Sayfa",
+                footer_privacy: "Gizlilik Politikası",
+                footer_terms: "Kullanım Şartları",
+                footer_copyright: "© 2025 QuevaTech. Tüm hakları saklıdır.",
+            },
+            en: {
+                // Navigation
+                nav_products: "Products",
+                nav_solutions: "Solutions",
+                nav_about: "About Us",
+                nav_blog: "Blog",
+                nav_contact: "Contact",
+                // Privacy Policy
+                privacy_title: "Privacy Policy",
+                privacy_subtitle: "At QuevaTech, protecting your personal data is our priority.",
+                privacy_date: "Last updated: July 31, 2025",
+                privacy_intro_title: "Introduction",
+                privacy_intro_text: "QuevaTech (\"we\", \"our\", \"company\") is committed to protecting the privacy and security of your personal data. This privacy policy explains how we collect, use, and protect your personal information when you visit our website or use our services.",
+                privacy_collect_title: "Information We Collect",
+                privacy_personal_info: "Personal Information",
+                privacy_personal_desc: "When you fill out contact forms or register for our services, we may collect the following information:",
+                privacy_name: "Name and surname",
+                privacy_email: "Email address",
+                privacy_phone: "Phone number",
+                privacy_company: "Company information",
+                privacy_message: "Contact messages",
+                privacy_technical_info: "Technical Information",
+                privacy_technical_desc: "Information automatically collected when you visit our website:",
+                privacy_ip: "IP address",
+                privacy_browser: "Browser type and version",
+                privacy_device: "Device information",
+                privacy_pages: "Pages visited",
+                privacy_time: "Visit duration",
+                privacy_use_title: "How We Use Information",
+                privacy_use_intro: "We use the personal information we collect for the following purposes:",
+                privacy_use_contact: "Respond to your contact requests",
+                privacy_use_services: "Provide and improve our services",
+                privacy_use_support: "Provide technical support",
+                privacy_use_updates: "Send product updates and announcements",
+                privacy_use_analytics: "Analyze website performance",
+                privacy_use_security: "Take security measures",
+                privacy_use_legal: "Fulfill our legal obligations",
+                privacy_sharing_title: "Information Sharing",
+                privacy_sharing_intro: "We share your personal information with third parties only in the following cases:",
+                privacy_sharing_consent: "With your explicit consent",
+                privacy_sharing_service: "With our service providers (analytics, hosting, etc.)",
+                privacy_sharing_legal: "For legal requirements",
+                privacy_sharing_safety: "For security and safety purposes",
+                privacy_sharing_business: "In case of business mergers or sales",
+                privacy_sharing_note: "We never sell, rent, or market your personal information for commercial purposes.",
+                privacy_security_title: "Data Security",
+                privacy_security_intro: "We take the following security measures to protect your personal information:",
+                privacy_security_encryption: "SSL/TLS encryption",
+                privacy_security_access: "Limited access controls",
+                privacy_security_firewall: "Firewalls and antivirus protection",
+                privacy_security_monitoring: "Continuous security monitoring",
+                privacy_security_updates: "Regular security updates",
+                privacy_security_training: "Staff security training",
+                privacy_rights_title: "Your Rights",
+                privacy_rights_intro: "Under GDPR/KVKK, you have the following rights:",
+                privacy_rights_access: "Learn whether your personal data is being processed",
+                privacy_rights_info: "Request information about processed data",
+                privacy_rights_purpose: "Learn the purpose of processing and whether it is used appropriately",
+                privacy_rights_third_party: "Know third parties to whom your data is transferred",
+                privacy_rights_correction: "Request correction of incomplete or incorrect data",
+                privacy_rights_deletion: "Request deletion or destruction of data",
+                privacy_rights_objection: "Object to processing",
+                privacy_rights_complaint: "File a complaint",
+                privacy_cookies_title: "Cookies",
+                privacy_cookies_intro: "We use cookies on our website to improve user experience:",
+                privacy_cookies_essential: "Essential cookies: Required for site functionality",
+                privacy_cookies_analytics: "Analytics cookies: To analyze site performance",
+                privacy_cookies_functional: "Functional cookies: To remember your preferences",
+                privacy_cookies_marketing: "Marketing cookies: For personalized content",
+                privacy_cookies_control: "You can control or disable cookies from your browser settings.",
+                privacy_retention_title: "Data Retention",
+                privacy_retention_intro: "We keep your personal data only for as long as necessary:",
+                privacy_retention_contact: "Contact data: 3 years",
+                privacy_retention_analytics: "Analytics data: 2 years",
+                privacy_retention_marketing: "Marketing data: Until consent is withdrawn",
+                privacy_retention_legal: "Legal requirements: Periods determined by relevant laws",
+                privacy_transfers_title: "International Data Transfer",
+                privacy_transfers_intro: "Your data may be transferred abroad when working with our service providers. In this case:",
+                privacy_transfers_adequacy: "Countries with adequate protection levels are preferred",
+                privacy_transfers_safeguards: "Appropriate security measures are taken",
+                privacy_transfers_consent: "Explicit consent is obtained when necessary",
+                privacy_transfers_contracts: "Data protection contracts are made",
+                privacy_changes_title: "Policy Changes",
+                privacy_changes_intro: "We may update this privacy policy from time to time. In case of significant changes:",
+                privacy_changes_notification: "Notification is made via email",
+                privacy_changes_website: "Announcement is made on the website",
+                privacy_changes_date: "Update date is specified",
+                privacy_changes_review: "Regular reviews are conducted",
+                privacy_contact_title: "Contact",
+                privacy_contact_intro: "If you have questions about this privacy policy or want to exercise your data protection rights, you can contact us:",
+                privacy_contact_company: "QuevaTech",
+                privacy_contact_email: "Email: privacy@queva.tech",
+                privacy_contact_general: "General: info@queva.tech",
+                privacy_contact_address: "Address: Akyaka, Ula/Muğla, Turkey",
+                // Footer
+                footer_tagline: "Shaping the future with artificial intelligence.",
+                footer_home: "Home",
+                footer_privacy: "Privacy Policy",
+                footer_terms: "Terms of Service",
+                footer_copyright: "© 2025 QuevaTech. All rights reserved.",
+            }
+        };
+
+        // Language Switcher Logic
+        const langTrBtn = document.getElementById('lang-tr');
+        const langEnBtn = document.getElementById('lang-en');
+
+        const updateLanguage = (lang) => {
+            document.documentElement.lang = lang;
+            localStorage.setItem('language', lang);
+
+            // Update button styles
+            langTrBtn.classList.toggle('active', lang === 'tr');
+            langEnBtn.classList.toggle('active', lang === 'en');
+
+            // Update text content
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                const key = el.getAttribute('data-lang');
+                if (langData[lang][key]) {
+                    el.innerText = langData[lang][key];
+                }
+            });
+        };
+
+        langTrBtn.addEventListener('click', () => updateLanguage('tr'));
+        langEnBtn.addEventListener('click', () => updateLanguage('en'));
+
+        // Load initial language
+        const initialLang = localStorage.getItem('language') || 'tr';
+        updateLanguage(initialLang);
+
+        // Theme Toggle Logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            themeToggleLightIcon.classList.remove('hidden');
+        } else {
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        themeToggleBtn.addEventListener('click', function() {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+    </script>
+</body>
+</html>

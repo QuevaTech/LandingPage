@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuevaTech | Yapay Zekâ ile Geleceği Şekillendiriyoruz</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS (Animate on Scroll) Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Swiper.js for Carousel -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <!-- Custom Styles & Tailwind Config -->
+    <style>
+        /* Custom scrollbar for a more modern look (optional) */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4F46E5;
+            border-radius: 10px;
+        }
+        .dark ::-webkit-scrollbar-track {
+            background: #111827;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: #A855F7;
+        }
+        /* Style for active language */
+        .lang-switcher .active {
+            color: #4F46E5;
+            font-weight: 700;
+        }
+        .dark .lang-switcher .active {
+            color: #A855F7;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            darkMode: 'class', // 'class' or 'media'
+            theme: {
+                extend: {
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        // Marka Kimliği Renkleri
+                        'queva-indigo': '#4F46E5',
+                        'queva-purple': '#A855F7',
+                        'queva-sky': '#0EA5E9',
+                        'queva-dark': '#111827',
+                        'queva-light': '#F3F4F6',
+                    },
+                    transitionDuration: {
+                        '500': '500ms',
+                    },
+                    transformOrigin: {
+                        '0': '0%',
+                    },
+                    zIndex: {
+                        '-1': '-1',
+                    },
+                    scale: {
+                        '104': '1.04',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-inter bg-queva-light dark:bg-queva-dark text-queva-dark dark:text-queva-light transition-colors duration-500">
+
+    <!-- 
+    =================================
+    1. Navigation Bar (Yapışkan Menü)
+    =================================
+    -->
+    <header id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="#" class="text-2xl font-bold text-white">Queva<span class="text-white font-extrabold">Tech</span></a>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex items-center space-x-6">
+                    <a href="#products" data-lang="nav_products" class="hover:text-queva-indigo dark:hover:text-queva-purple transition-colors">Ürünler</a>
+                    <a href="#solutions" data-lang="nav_solutions" class="hover:text-queva-indigo dark:hover:text-queva-purple transition-colors">Çözümler</a>
+                    <a href="#about" data-lang="nav_about" class="hover:text-queva-indigo dark:hover:text-queva-purple transition-colors">Hakkımızda</a>
+                    <a href="#blog" data-lang="nav_blog" class="hover:text-queva-indigo dark:hover:text-queva-purple transition-colors">Blog</a>
+                    <a href="#contact" data-lang="nav_contact" class="hover:text-queva-indigo dark:hover:text-queva-purple transition-colors">İletişim</a>
+                </nav>
+
+                <!-- Controls: Language, Theme, Mobile Menu -->
+                <div class="flex items-center">
+                     <!-- Language Switcher -->
+                    <div class="lang-switcher text-sm font-semibold mr-4">
+                        <button id="lang-tr" class="p-1">TR</button>
+                        <span>/</span>
+                        <button id="lang-en" class="p-1">EN</button>
+                    </div>
+                    <!-- Theme Toggle -->
+                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                        <svg id="theme-toggle-dark-icon" class="hidden h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                        <svg id="theme-toggle-light-icon" class="hidden h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                    </button>
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-button" class="md:hidden p-2 ml-2">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-queva-dark shadow-lg">
+            <a href="#products" data-lang="nav_products_mobile" class="block py-2 px-4 text-sm hover:bg-queva-light dark:hover:bg-gray-800">Ürünler</a>
+            <a href="#solutions" data-lang="nav_solutions_mobile" class="block py-2 px-4 text-sm hover:bg-queva-light dark:hover:bg-gray-800">Çözümler</a>
+            <a href="#about" data-lang="nav_about_mobile" class="block py-2 px-4 text-sm hover:bg-queva-light dark:hover:bg-gray-800">Hakkımızda</a>
+            <a href="#blog" data-lang="nav_blog_mobile" class="block py-2 px-4 text-sm hover:bg-queva-light dark:hover:bg-gray-800">Blog</a>
+            <a href="#contact" data-lang="nav_contact_mobile" class="block py-2 px-4 text-sm hover:bg-queva-light dark:hover:bg-gray-800">İletişim</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- 
+        =================================
+        2. Hero Section
+        =================================
+        -->
+        <section class="relative h-screen flex items-center justify-center text-center text-white overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-queva-indigo to-queva-purple z-0"></div>
+            <canvas id="star-canvas" class="absolute inset-0 z-10"></canvas>
+            <div class="relative z-20 p-4" data-aos="fade-up">
+                <h1 data-lang="hero_title" class="text-4xl md:text-6xl font-bold mb-4">Yapay Zekâ ile Geleceği Şekillendiriyoruz</h1>
+                <p data-lang="hero_subtitle" class="text-lg md:text-xl max-w-2xl mx-auto mb-8">
+                    Verilerinizi değere dönüştüren, iş süreçlerinizi otomatize eden yenilikçi AI platformu.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                    <a href="#contact" data-lang="hero_cta1" class="w-full sm:w-auto bg-white text-queva-indigo font-bold py-3 px-8 rounded-full hover:bg-opacity-90 transition-all duration-300">Demo Talep Et</a>
+                    <a href="#" data-lang="hero_cta2" class="w-full sm:w-auto border-2 border-white text-white font-bold py-3 px-8 rounded-full hover:bg-white hover:text-queva-indigo transition-all duration-300">Teknik Doküman</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+        =================================
+        3. Featured Products / Services
+        =================================
+        -->
+        <section id="products" class="py-20">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <h2 data-lang="products_title" class="text-3xl md:text-4xl font-bold">Platformun Gücünü Keşfedin</h2>
+                    <p data-lang="products_subtitle" class="text-lg mt-2 text-gray-600 dark:text-gray-400">QuevaTech, yapay zeka, yazılım, elektronik ve devrimsel TRNG teknolojisiyle dijital rastgeleliğin gücünü ortaya çıkarır.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Card 1 -->
+                    <div class="glass-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="p-8">
+                            <div class="text-queva-indigo dark:text-queva-purple mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                            </div>
+                            <h3 data-lang="product1_title" class="text-xl font-bold mb-2">Veri Analitiği</h3>
+                            <p data-lang="product1_desc" class="text-gray-600 dark:text-gray-300">Büyük veri setlerinizi anlamlı içgörülere dönüştürerek stratejik kararlar almanızı kolaylaştırıyoruz.</p>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="glass-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="p-8">
+                            <div class="text-queva-indigo dark:text-queva-purple mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/><path d="M12 12v9"/></svg>
+                            </div>
+                            <h3 data-lang="product2_title" class="text-xl font-bold mb-2">Makine Öğrenmesi</h3>
+                            <p data-lang="product2_desc" class="text-gray-600 dark:text-gray-300">Öngörüsel modeller ve otomasyon çözümleri ile operasyonel verimliliğinizi en üst seviyeye taşıyoruz.</p>
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="glass-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="p-8">
+                           <div class="text-queva-indigo dark:text-queva-purple mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                            </div>
+                            <h3 data-lang="product3_title" class="text-xl font-bold mb-2">Güvenli Altyapı</h3>
+                            <p data-lang="product3_desc" class="text-gray-600 dark:text-gray-300">Verileriniz, endüstri standardı güvenlik protokolleri ile korunan bulut altyapımızda güvendedir.</p>
+                        </div>
+                    </div>
+                    <!-- Card 4 - TRNG Rastgelelik -->
+                    <div class="glass-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="p-8">
+                           <div class="text-queva-indigo dark:text-queva-purple mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L12 6M12 18L12 22M4.93 4.93L7.76 7.76M16.24 16.24L19.07 19.07M2 12L6 12M18 12L22 12M4.93 19.07L7.76 16.24M16.24 7.76L19.07 4.93M12 8C10.9 8 10 8.9 10 10V14C10 15.1 10.9 16 12 16C13.1 16 14 15.1 14 14V10C14 8.9 13.1 8 12 8Z"/><circle cx="12" cy="12" r="3"/></svg>
+                            </div>
+                            <h3 data-lang="product4_title" class="text-xl font-bold mb-2">Devrimsel TRNG</h3>
+                            <p data-lang="product4_desc" class="text-gray-600 dark:text-gray-300">AI-Hybrid TRNG teknolojisi ile gerçek rastgelelik üretimi. Dijital dünyanın tahmin edilemezliğini avantajınıza çevirin.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+        =================================
+        4. Case Study / Success Story
+        =================================
+        -->
+        <section id="solutions" class="py-20 bg-white dark:bg-queva-dark/50 overflow-hidden">
+            <div class="container mx-auto px-4">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div data-aos="fade-right">
+                        <img src="https://placehold.co/1200x800/4F46E5/FFFFFF?text=QuevaTech+Dashboard" alt="QuevaTech Dashboard Mockup" class="rounded-2xl shadow-2xl">
+                    </div>
+                    <div data-aos="fade-left">
+                        <span data-lang="case_study_tag" class="text-queva-indigo dark:text-queva-purple font-bold">BAŞARI HİKAYESİ</span>
+                        <h2 data-lang="case_study_title" class="text-3xl md:text-4xl font-bold mt-2 mb-4">Finans Sektöründe Devrim</h2>
+                        <p data-lang="case_study_desc" class="text-lg text-gray-600 dark:text-gray-400 mb-6">Lider bir yatırım bankası, QuevaTech platformunu kullanarak pazar analizi süreçlerini otomatize etti ve karar alma hızını önemli ölçüde artırdı.</p>
+                        <div class="bg-queva-light dark:bg-queva-dark p-6 rounded-2xl">
+                            <span class="text-5xl font-bold text-queva-indigo dark:text-queva-purple">75%</span>
+                            <p data-lang="case_study_stat" class="mt-2 font-semibold">Raporlama Sürelerinde Azalma</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+        =================================
+        5. Customer Testimonials
+        =================================
+        -->
+        <section id="about" class="py-20">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <h2 data-lang="testimonials_title" class="text-3xl md:text-4xl font-bold">Müşterilerimiz Ne Diyor?</h2>
+                </div>
+                <!-- Swiper -->
+                <div class="swiper-container" data-aos="fade-up">
+                    <div class="swiper-wrapper">
+                        <!-- Slide 1 -->
+                        <div class="swiper-slide">
+                            <div class="glass-card p-8 h-full">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-12 h-12 rounded-full mr-4 bg-gradient-to-br from-queva-indigo to-queva-purple flex items-center justify-center text-white font-bold">
+                                        T
+                                    </div>
+                                    <div>
+                                        <p class="font-bold" data-lang="testimonial1_name">Teknoloji Şirketi CEO'su</p>
+                                        <p data-lang="testimonial1_title" class="text-sm text-gray-500 dark:text-gray-400">Fintech Sektörü</p>
+                                    </div>
+                                </div>
+                                <div class="flex text-yellow-400 mb-4">★★★★★</div>
+                                <p data-lang="testimonial1_desc" class="text-gray-600 dark:text-gray-300">"QuevaTech, veri analizi konusundaki tüm beklentilerimizi aştı. Ekip, projenin her aşamasında inanılmaz derecede destekleyiciydi."</p>
+                            </div>
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="swiper-slide">
+                            <div class="glass-card p-8 h-full">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-12 h-12 rounded-full mr-4 bg-gradient-to-br from-queva-purple to-queva-sky flex items-center justify-center text-white font-bold">
+                                        L
+                                    </div>
+                                    <div>
+                                        <p class="font-bold" data-lang="testimonial2_name">Lojistik Şirketi CTO'su</p>
+                                        <p data-lang="testimonial2_title" class="text-sm text-gray-500 dark:text-gray-400">E-ticaret Sektörü</p>
+                                    </div>
+                                </div>
+                                <div class="flex text-yellow-400 mb-4">★★★★★</div>
+                                <p data-lang="testimonial2_desc" class="text-gray-600 dark:text-gray-300">"Makine öğrenmesi modelleri sayesinde operasyonel maliyetlerimizi %40 oranında düşürdük. Kesinlikle tavsiye ederim."</p>
+                            </div>
+                        </div>
+                        <!-- Slide 3 -->
+                        <div class="swiper-slide">
+                            <div class="glass-card p-8 h-full">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-12 h-12 rounded-full mr-4 bg-gradient-to-br from-queva-sky to-queva-indigo flex items-center justify-center text-white font-bold">
+                                        V
+                                    </div>
+                                    <div>
+                                        <p class="font-bold" data-lang="testimonial3_name">Veri Bilimi Uzmanı</p>
+                                        <p data-lang="testimonial3_title" class="text-sm text-gray-500 dark:text-gray-400">Danışmanlık Sektörü</p>
+                                    </div>
+                                </div>
+                                <div class="flex text-yellow-400 mb-4">★★★★☆</div>
+                                <p data-lang="testimonial3_desc" class="text-gray-600 dark:text-gray-300">"Platformun kullanım kolaylığı ve esnekliği, veri bilimi ekibimizin verimliliğini inanılmaz artırdı."</p>
+                            </div>
+                        </div>
+                         <!-- Slide 4 -->
+                        <div class="swiper-slide">
+                            <div class="glass-card p-8 h-full">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-12 h-12 rounded-full mr-4 bg-gradient-to-br from-queva-indigo to-queva-purple flex items-center justify-center text-white font-bold">
+                                        Ü
+                                    </div>
+                                    <div>
+                                        <p class="font-bold" data-lang="testimonial4_name">Ürün Geliştirme Müdürü</p>
+                                        <p data-lang="testimonial4_title" class="text-sm text-gray-500 dark:text-gray-400">Yazılım Sektörü</p>
+                                    </div>
+                                </div>
+                                <div class="flex text-yellow-400 mb-4">★★★★★</div>
+                                <p data-lang="testimonial4_desc" class="text-gray-600 dark:text-gray-300">"Hızlı entegrasyon ve mükemmel teknik destek sayesinde projemizi zamanında hayata geçirebildik. Harika bir iş."</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add Pagination -->
+                    <div class="swiper-pagination mt-12"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+        =================================
+        6. Technology Stack
+        =================================
+        -->
+        <section class="py-12 bg-white dark:bg-queva-dark/50">
+            <div class="container mx-auto px-4" data-aos="fade-up">
+                <p data-lang="tech_stack_title" class="text-center text-gray-500 dark:text-gray-400 font-semibold mb-6">Entegre Olduğumuz Teknolojiler</p>
+                <div class="flex justify-center items-center flex-wrap gap-x-12 gap-y-6">
+                    <img src="https://placehold.co/120x40/FFFFFF/000000?text=Python" alt="Python Logo" class="h-10 opacity-60 hover:opacity-100 transition-opacity">
+                    <img src="https://placehold.co/120x40/FFFFFF/000000?text=TensorFlow" alt="TensorFlow Logo" class="h-10 opacity-60 hover:opacity-100 transition-opacity">
+                    <img src="https://placehold.co/120x40/FFFFFF/000000?text=PyTorch" alt="PyTorch Logo" class="h-10 opacity-60 hover:opacity-100 transition-opacity">
+                    <img src="https://placehold.co/120x40/FFFFFF/000000?text=C%2B%2B" alt="C++ Logo" class="h-10 opacity-60 hover:opacity-100 transition-opacity">
+                    <img src="https://placehold.co/120x40/FFFFFF/000000?text=AWS" alt="AWS Logo" class="h-10 opacity-60 hover:opacity-100 transition-opacity">
+                    <img src="https://placehold.co/120x40/FFFFFF/000000?text=Docker" alt="Docker Logo" class="h-10 opacity-60 hover:opacity-100 transition-opacity">
+                    <img src="https://placehold.co/120x40/FFFFFF/000000?text=Kubernetes" alt="Kubernetes Logo" class="h-10 opacity-60 hover:opacity-100 transition-opacity">
+                    <img src="https://placehold.co/120x40/FFFFFF/000000?text=Spark" alt="Spark Logo" class="h-10 opacity-60 hover:opacity-100 transition-opacity">
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+        =================================
+        7. Latest Blog Posts
+        =================================
+        -->
+        <section id="blog" class="py-20">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <h2 data-lang="blog_title" class="text-3xl md:text-4xl font-bold">Blog'dan Son Yazılar</h2>
+                    <p data-lang="blog_subtitle" class="text-lg mt-2 text-gray-600 dark:text-gray-400">Yapay zekâ dünyasındaki en son trendler ve analizler.</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Blog Post 1 -->
+                    <div class="bg-white dark:bg-queva-dark/50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="AI Future 2025" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <div class="flex items-center text-xs text-gray-500 dark:text-gray-400 mb-2">
+                                <span>1 Ağustos 2025</span>
+                                <span class="mx-2">•</span>
+                                <span>5 dk okuma</span>
+                            </div>
+                            <h3 data-lang="blog1_title" class="text-xl font-bold mb-2">2025'te Yapay Zekânın Geleceği</h3>
+                            <p data-lang="blog1_desc" class="text-gray-600 dark:text-gray-300 mb-4">2025 yılı yapay zeka için dönüm noktası olacak. Multimodal AI, agentic AI sistemleri ve edge computing ile birleşen yapay zeka, iş dünyasında köklü değişimler yaratacak. GPT-5'ten Claude 4'e kadar yeni nesil modeller, insan-AI işbirliğini yeniden tanımlıyor. Özellikle healthcare, fintech ve manufacturing sektörlerinde AI adoption %300 artış gösteriyor.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-2 py-1 bg-queva-indigo/10 text-queva-indigo text-xs rounded-full">AI Trends</span>
+                                <span class="px-2 py-1 bg-queva-purple/10 text-queva-purple text-xs rounded-full">Future Tech</span>
+                                <span class="px-2 py-1 bg-queva-sky/10 text-queva-sky text-xs rounded-full">Innovation</span>
+                            </div>
+                            <a href="blog/ai-future-2025.html" data-lang="blog_readmore" class="font-bold text-queva-indigo dark:text-queva-purple hover:underline flex items-center">
+                                Devamını Oku 
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Blog Post 2 -->
+                    <div class="bg-white dark:bg-queva-dark/50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="200">
+                        <img src="https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="Data Security" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <div class="flex items-center text-xs text-gray-500 dark:text-gray-400 mb-2">
+                                <span>25 Temmuz 2025</span>
+                                <span class="mx-2">•</span>
+                                <span>7 dk okuma</span>
+                            </div>
+                            <h3 data-lang="blog2_title" class="text-xl font-bold mb-2">Büyük Veri Çağında Güvenlik</h3>
+                            <p data-lang="blog2_desc" class="text-gray-600 dark:text-gray-300 mb-4">Cyber security landscape 2025'te dramatik değişimler yaşıyor. Zero-trust architecture, quantum-resistant encryption ve AI-powered threat detection artık zorunluluk. GDPR, KVKV ve yeni regulation'lar data governance'ı yeniden şekillendiriyor. Özellikle TRNG teknolojisi ile enhanced cryptographic security, modern enterprise'ların vazgeçilmez savunma stratejisi haline geliyor.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-2 py-1 bg-queva-sky/10 text-queva-sky text-xs rounded-full">Cybersecurity</span>
+                                <span class="px-2 py-1 bg-queva-indigo/10 text-queva-indigo text-xs rounded-full">Data Protection</span>
+                                <span class="px-2 py-1 bg-queva-purple/10 text-queva-purple text-xs rounded-full">TRNG</span>
+                            </div>
+                            <a href="blog/data-security-2025.html" data-lang="blog_readmore2" class="font-bold text-queva-indigo dark:text-queva-purple hover:underline flex items-center">
+                                Devamını Oku 
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Blog Post 3 -->
+                    <div class="bg-white dark:bg-queva-dark/50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="300">
+                        <img src="https://images.pexels.com/photos/325229/pexels-photo-325229.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="MLOps Pipeline" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <div class="flex items-center text-xs text-gray-500 dark:text-gray-400 mb-2">
+                                <span>18 Temmuz 2025</span>
+                                <span class="mx-2">•</span>
+                                <span>6 dk okuma</span>
+                            </div>
+                            <h3 data-lang="blog3_title" class="text-xl font-bold mb-2">MLOps: Modellerinizi Hayata Geçirin</h3>
+                            <p data-lang="blog3_desc" class="text-gray-600 dark:text-gray-300 mb-4">MLOps 2025'te enterprise AI'ın omurgası haline geldi. Continuous integration, automated model training ve production monitoring ile model lifecycle management devrim yaşıyor. Kubernetes-native ML pipelines, feature stores ve model registries ile deployment süreçleri %80 hızlandı. Docker containers, MLflow tracking ve comprehensive monitoring dashboards modern ML stack'in temel bileşenleri.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-2 py-1 bg-queva-purple/10 text-queva-purple text-xs rounded-full">MLOps</span>
+                                <span class="px-2 py-1 bg-queva-indigo/10 text-queva-indigo text-xs rounded-full">DevOps</span>
+                                <span class="px-2 py-1 bg-queva-sky/10 text-queva-sky text-xs rounded-full">Production</span>
+                            </div>
+                            <a href="blog/mlops-2025.html" data-lang="blog_readmore3" class="font-bold text-queva-indigo dark:text-queva-purple hover:underline flex items-center">
+                                Devamını Oku 
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+        =================================
+        8. Contact Form & Map
+        =================================
+        -->
+        <section id="contact" class="py-20 bg-white dark:bg-queva-dark/50">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <h2 data-lang="contact_title" class="text-3xl md:text-4xl font-bold">Bizimle İletişime Geçin</h2>
+                    <p data-lang="contact_subtitle" class="text-lg mt-2 text-gray-600 dark:text-gray-400">Projeniz hakkında konuşmak veya demo talep etmek için formu doldurun.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-12">
+                    <form id="contact-form" class="space-y-6" data-aos="fade-right">
+                        <div>
+                            <label for="name" data-lang="form_name" class="block mb-2 text-sm font-medium">Adınız Soyadınız</label>
+                            <input type="text" id="name" class="contact-input" placeholder="John Doe" required>
+                        </div>
+                        <div>
+                            <label for="email" data-lang="form_email" class="block mb-2 text-sm font-medium">E-posta Adresiniz</label>
+                            <input type="email" id="email" class="contact-input" placeholder="john.doe@example.com" required>
+                        </div>
+                        <div>
+                            <label for="message" data-lang="form_message" class="block mb-2 text-sm font-medium">Mesajınız</label>
+                            <textarea id="message" rows="6" class="contact-input" data-lang-placeholder="form_placeholder"></textarea>
+                        </div>
+                        <button type="submit" id="send-email-btn" data-lang="form_submit" class="w-full bg-queva-indigo text-white font-bold py-3 px-8 rounded-full hover:bg-queva-purple transition-all duration-300">Mesajı Gönder</button>
+                        
+                        <!-- Alternative Email Contact -->
+                        <div class="mt-6 p-4 bg-queva-light dark:bg-queva-dark/50 rounded-lg border border-gray-200 dark:border-gray-700">
+                            <p data-lang="form_alt_text" class="text-sm text-gray-600 dark:text-gray-400 mb-3">Form çalışmıyor mu? Doğrudan e-posta gönderin:</p>
+                            <a href="mailto:info@queva.tech?subject=QuevaTech İletişim&body=Merhaba QuevaTech ekibi,%0D%0A%0D%0AProjem hakkında bilgi almak istiyorum.%0D%0A%0D%0AAdım: [Adınızı yazın]%0D%0AE-posta: [E-posta adresinizi yazın]%0D%0AMesajım: [Mesajınızı yazın]%0D%0A%0D%0ATeşekkürler." 
+                               class="inline-flex items-center px-4 py-2 bg-queva-purple text-white rounded-lg hover:bg-queva-indigo transition-colors">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <span data-lang="form_email_direct">E-posta Gönder</span>
+                            </a>
+                        </div>
+                    </form>
+                    <div class="rounded-2xl overflow-hidden shadow-lg" data-aos="fade-left">
+                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3174.123456789!2d28.341234567890123!3d37.02345678901234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14be123456789abc%3A0xabcdef123456789!2sAkyaka%2C%20Ula%2FMu%C4%9Fla%2C%20T%C3%BCrkiye!5e0!3m2!1str!2str!4v1672851025098!5m2!1str!2str" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 
+    =================================
+    9. Footer
+    =================================
+    -->
+    <footer class="bg-queva-dark text-queva-light">
+        <div class="container mx-auto px-4 py-12">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Queva<span class="text-queva-purple">Tech</span></h3>
+                    <p data-lang="footer_tagline" class="text-gray-400">Yapay zekâ ile geleceği şekillendiriyoruz.</p>
+                </div>
+                <div>
+                    <h4 data-lang="footer_menu_quick" class="font-bold mb-4">Hızlı Menü</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#products" data-lang="footer_nav_products" class="text-gray-400 hover:text-white">Ürünler</a></li>
+                        <li><a href="#solutions" data-lang="footer_nav_solutions" class="text-gray-400 hover:text-white">Çözümler</a></li>
+                        <li><a href="#blog" data-lang="footer_nav_blog" class="text-gray-400 hover:text-white">Blog</a></li>
+                        <li><a href="#contact" data-lang="footer_nav_contact" class="text-gray-400 hover:text-white">İletişim</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 data-lang="footer_menu_legal" class="font-bold mb-4">Yasal</h4>
+                    <ul class="space-y-2">
+                        <li><a href="privacy-policy.html" data-lang="footer_nav_privacy" class="text-gray-400 hover:text-white">Gizlilik Politikası</a></li>
+                        <li><a href="terms-of-service.html" data-lang="footer_nav_terms" class="text-gray-400 hover:text-white">Kullanım Şartları</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 data-lang="footer_menu_contact" class="font-bold mb-4">İletişim</h4>
+                    <div class="mb-4">
+                        <a href="mailto:info@queva.tech" class="text-gray-400 hover:text-white flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            info@queva.tech
+                        </a>
+                    </div>
+                    <h4 data-lang="footer_menu_social" class="font-bold mb-4">Bizi Takip Edin</h4>
+                    <div class="flex space-x-4">
+                        <a href="https://instagram.com/quevatech" target="_blank" class="text-gray-400 hover:text-white" title="Instagram">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12.017 0C8.396 0 7.989.013 7.041.048 6.094.082 5.52.204 5.012.428a5.918 5.918 0 0 0-2.134 1.39A5.918 5.918 0 0 0 .49 4.951C.266 5.46.144 6.033.11 6.98.075 7.929.062 8.336.062 11.957c0 3.621.013 4.028.048 4.976.034.947.156 1.521.38 2.029a5.918 5.918 0 0 0 1.389 2.134 5.918 5.918 0 0 0 2.134 1.389c.508.224 1.082.346 2.029.38.948.035 1.355.048 4.976.048 3.621 0 4.028-.013 4.976-.048.947-.034 1.521-.156 2.029-.38a5.918 5.918 0 0 0 2.134-1.389 5.918 5.918 0 0 0 1.389-2.134c.224-.508.346-1.082.38-2.029.035-.948.048-1.355.048-4.976 0-3.621-.013-4.028-.048-4.976-.034-.947-.156-1.521-.38-2.029a5.918 5.918 0 0 0-1.389-2.134A5.918 5.918 0 0 0 19.938.49c-.508-.224-1.082-.346-2.029-.38C16.961.013 16.554 0 12.933 0h-.916zm-.076 1.626c3.534 0 3.95.013 5.343.048.781.035 1.204.166 1.486.276.374.145.64.318.92.598.28.28.453.546.598.92.11.282.241.705.276 1.486.035 1.394.048 1.81.048 5.343 0 3.534-.013 3.95-.048 5.343-.035.781-.166 1.204-.276 1.486a2.477 2.477 0 0 1-.598.92 2.477 2.477 0 0 1-.92.598c-.282.11-.705.241-1.486.276-1.394.035-1.81.048-5.343.048-3.534 0-3.95-.013-5.343-.048-.781-.035-1.204-.166-1.486-.276a2.477 2.477 0 0 1-.92-.598 2.477 2.477 0 0 1-.598-.92c-.11-.282-.241-.705-.276-1.486-.035-1.394-.048-1.81-.048-5.343 0-3.534.013-3.95.048-5.343.035-.781.166-1.204.276-1.486.145-.374.318-.64.598-.92.28-.28.546-.453.92-.598.282-.11.705-.241 1.486-.276 1.394-.035 1.81-.048 5.343-.048z"/>
+                                <path d="M12.017 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12.017 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"/>
+                                <circle cx="18.406" cy="5.594" r="1.44"/>
+                            </svg>
+                        </a>
+                        <a href="https://x.com/quevatech" target="_blank" class="text-gray-400 hover:text-white" title="X (Twitter)">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                            </svg>
+                        </a>
+                        <a href="https://linkedin.com/company/quevatech2" target="_blank" class="text-gray-400 hover:text-white" title="LinkedIn">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H6.328C3.965 1 2 2.985 2 5.337v13.326C2 21.015 3.965 23 6.328 23h11.34c2.363 0 4.328-1.985 4.328-4.337V5.337C22 2.985 20.031 1 17.668 1z" clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 border-t border-gray-700 pt-8 text-center text-gray-400">
+                <p data-lang="footer_copyright">&copy; 2025 QuevaTech. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        // =================================
+        // Language Data
+        // =================================
+        const langData = {
+            tr: {
+                // Navigation
+                nav_products: "Ürünler",
+                nav_solutions: "Çözümler",
+                nav_about: "Hakkımızda",
+                nav_blog: "Blog",
+                nav_contact: "İletişim",
+                nav_products_mobile: "Ürünler",
+                nav_solutions_mobile: "Çözümler",
+                nav_about_mobile: "Hakkımızda",
+                nav_blog_mobile: "Blog",
+                nav_contact_mobile: "İletişim",
+                // Hero
+                hero_title: "Yapay Zekâ ile Geleceği ve Dijital Dünyanın Rastsallığını Şekillendiriyoruz",
+                hero_subtitle: "Verilerinizi değere dönüştüren, iş süreçlerinizi otomatize eden ve dijital dünyanın karmaşıklığını çözen yenilikçi AI platformu.",
+                hero_cta1: "Demo Talep Et",
+                hero_cta2: "Teknik Doküman",
+                // Products
+                products_title: "Platformun Gücünü Keşfedin",
+                products_subtitle: "QuevaTech, yapay zeka, yazılım, elektronik ve devrimsel TRNG teknolojisiyle dijital rastgeleliğin gücünü ortaya çıkarır.",
+                product1_title: "Veri Analitiği",
+                product1_desc: "Büyük veri setlerinizi anlamlı içgörülere dönüştürerek stratejik kararlar almanızı kolaylaştırıyoruz.",
+                product2_title: "Makine Öğrenmesi",
+                product2_desc: "Öngörüsel modeller ve otomasyon çözümleri ile operasyonel verimliliğinizi en üst seviyeye taşıyoruz.",
+                product3_title: "Güvenli Altyapı",
+                product3_desc: "Verileriniz, endüstri standardı güvenlik protokolleri ile korunan bulut altyapımızda güvendedir.",
+                product4_title: "Devrimsel TRNG",
+                product4_desc: "AI-Hybrid TRNG teknolojisi ile gerçek rastgelelik üretimi. Dijital dünyanın tahmin edilemezliğini avantajınıza çevirin.",
+                // Case Study
+                case_study_tag: "BAŞARI HİKAYESİ",
+                case_study_title: "Finansal Analizde Rastgelelik Devrimi",
+                case_study_desc: "Lider yatırım bankası, QuevaTech'in AI-Hybrid TRNG akışını iç sistemlerine entegre ederek pazar analizinde kullandığı tüm senaryolara gerçek rastgelelik kattı. QuevaTech – Karar modellerinizi tahmin edilemez rastgelelikle güçlendirin; belirsizlik artık avantaja dönüşsün.",
+                case_study_stat: "Finansal Analizde Rastgelelik Devrimi",
+                // Testimonials
+                testimonials_title: "Müşterilerimiz Ne Diyor?",
+                testimonial1_name: "Teknoloji Şirketi CEO'su",
+                testimonial1_title: "Fintech Sektörü",
+                testimonial1_desc: "\"QuevaTech, veri analizi konusundaki tüm beklentilerimizi aştı. Ekip, projenin her aşamasında inanılmaz derecede destekleyiciydi.\"",
+                testimonial2_name: "Lojistik Şirketi CTO'su",
+                testimonial2_title: "E-ticaret Sektörü",
+                testimonial2_desc: "\"Makine öğrenmesi modelleri sayesinde operasyonel maliyetlerimizi %40 oranında düşürdük. Kesinlikle tavsiye ederim.\"",
+                testimonial3_name: "Veri Bilimi Uzmanı",
+                testimonial3_title: "Danışmanlık Sektörü",
+                testimonial3_desc: "\"Platformun kullanım kolaylığı ve esnekliği, veri bilimi ekibimizin verimliliğini inanılmaz artırdı.\"",
+                testimonial4_name: "Ürün Geliştirme Müdürü",
+                testimonial4_title: "Yazılım Sektörü",
+                testimonial4_desc: "\"Hızlı entegrasyon ve mükemmel teknik destek sayesinde projemizi zamanında hayata geçirebildik. Harika bir iş.\"",
+                // Tech Stack
+                tech_stack_title: "Entegre Olduğumuz Teknolojiler",
+                // Blog
+                blog_title: "Blog'dan Son Yazılar",
+                blog_subtitle: "Yapay zekâ dünyasındaki en son trendler ve analizler.",
+                blog1_title: "2025'te Yapay Zekânın Geleceği",
+                blog1_desc: "2025 yılı yapay zeka için dönüm noktası olacak. Multimodal AI, agentic AI sistemleri ve edge computing ile birleşen yapay zeka, iş dünyasında köklü değişimler yaratacak. GPT-5'ten Claude 4'e kadar yeni nesil modeller, insan-AI işbirliğini yeniden tanımlıyor. Özellikle healthcare, fintech ve manufacturing sektörlerinde AI adoption %300 artış gösteriyor.",
+                blog2_title: "Büyük Veri Çağında Güvenlik",
+                blog2_desc: "Cyber security landscape 2025'te dramatik değişimler yaşıyor. Zero-trust architecture, quantum-resistant encryption ve AI-powered threat detection artık zorunluluk. GDPR, KVKV ve yeni regulation'lar data governance'ı yeniden şekillendiriyor. Özellikle TRNG teknolojisi ile enhanced cryptographic security, modern enterprise'ların vazgeçilmez savunma stratejisi haline geliyor.",
+                blog3_title: "MLOps: Modellerinizi Hayata Geçirin",
+                blog3_desc: "MLOps 2025'te enterprise AI'ın omurgası haline geldi. Continuous integration, automated model training ve production monitoring ile model lifecycle management devrim yaşıyor. Kubernetes-native ML pipelines, feature stores ve model registries ile deployment süreçleri %80 hızlandı. Docker containers, MLflow tracking ve comprehensive monitoring dashboards modern ML stack'in temel bileşenleri.",
+                blog_readmore: "Devamını Oku →",
+                blog_readmore2: "Devamını Oku →",
+                blog_readmore3: "Devamını Oku →",
+                // Contact
+                contact_title: "Bizimle İletişime Geçin",
+                contact_subtitle: "Projeniz hakkında konuşmak veya demo talep etmek için formu doldurun.",
+                form_name: "Adınız Soyadınız",
+                form_email: "E-posta Adresiniz",
+                form_message: "Mesajınız",
+                form_placeholder: "Projenizden bahsedin...",
+                form_submit: "Mesajı Gönder",
+                form_alt_text: "Form çalışmıyor mu? Doğrudan e-posta gönderin:",
+                form_email_direct: "E-posta Gönder",
+                // Footer
+                footer_tagline: "Yapay zekâ ile geleceği şekillendiriyoruz.",
+                footer_menu_quick: "Hızlı Menü",
+                footer_nav_products: "Ürünler",
+                footer_nav_solutions: "Çözümler",
+                footer_nav_blog: "Blog",
+                footer_nav_contact: "İletişim",
+                footer_menu_legal: "Yasal",
+                footer_nav_privacy: "Gizlilik Politikası",
+                footer_nav_terms: "Kullanım Şartları",
+                footer_menu_contact: "İletişim",
+                footer_menu_social: "Bizi Takip Edin",
+                footer_copyright: "© 2025 QuevaTech. Tüm hakları saklıdır.",
+            },
+            en: {
+                // Navigation
+                nav_products: "Products",
+                nav_solutions: "Solutions",
+                nav_about: "About Us",
+                nav_blog: "Blog",
+                nav_contact: "Contact",
+                nav_products_mobile: "Products",
+                nav_solutions_mobile: "Solutions",
+                nav_about_mobile: "About Us",
+                nav_blog_mobile: "Blog",
+                nav_contact_mobile: "Contact",
+                // Hero
+                hero_title: "Shaping the Future and Digital World's Randomness with Artificial Intelligence",
+                hero_subtitle: "The innovative AI platform that transforms your data into value, automates your business processes, and solves the complexity of the digital world.",
+                hero_cta1: "Request a Demo",
+                hero_cta2: "Technical Docs",
+                // Products
+                products_title: "Discover the Power of the Platform",
+                products_subtitle: "QuevaTech unleashes the power of digital randomness through artificial intelligence, software, electronics, and revolutionary TRNG technology.",
+                product1_title: "Data Analytics",
+                product1_desc: "We make it easy for you to make strategic decisions by turning your big data sets into meaningful insights.",
+                product2_title: "Machine Learning",
+                product2_desc: "We maximize your operational efficiency with predictive models and automation solutions.",
+                product3_title: "Secure Infrastructure",
+                product3_desc: "Your data is safe in our cloud infrastructure, protected by industry-standard security protocols.",
+                product4_title: "Revolutionary TRNG",
+                product4_desc: "True randomness generation with AI-Hybrid TRNG technology. Turn digital world's unpredictability to your advantage.",
+                // Case Study
+                case_study_tag: "SUCCESS STORY",
+                case_study_title: "Randomness Revolution in Financial Analysis",
+                case_study_desc: "A leading investment bank integrated QuevaTech's AI-Hybrid TRNG flow into their internal systems, adding true randomness to all scenarios used in market analysis. QuevaTech – Strengthen your decision models with unpredictable randomness; let uncertainty become your advantage.",
+                case_study_stat: "Randomness Revolution in Financial Analysis",
+                // Testimonials
+                testimonials_title: "What Our Customers Say",
+                testimonial1_name: "Technology Company CEO",
+                testimonial1_title: "Fintech Sector",
+                testimonial1_desc: "\"QuevaTech exceeded all our expectations in data analysis. The team was incredibly supportive at every stage of the project.\"",
+                testimonial2_name: "Logistics Company CTO",
+                testimonial2_title: "E-commerce Sector",
+                testimonial2_desc: "\"Thanks to their machine learning models, we reduced our operational costs by 40%. I would definitely recommend them.\"",
+                testimonial3_name: "Data Science Expert",
+                testimonial3_title: "Consulting Sector",
+                testimonial3_desc: "\"The platform's ease of use and flexibility have incredibly increased our data science team's productivity.\"",
+                testimonial4_name: "Product Development Manager",
+                testimonial4_title: "Software Sector",
+                testimonial4_desc: "\"We were able to launch our project on time thanks to fast integration and excellent technical support. Great job.\"",
+                // Tech Stack
+                tech_stack_title: "Technologies We Integrate With",
+                // Blog
+                blog_title: "Latest From The Blog",
+                blog_subtitle: "The latest trends and analysis in the world of artificial intelligence.",
+                blog1_title: "The Future of AI in 2025",
+                blog1_desc: "2025 will be a turning point for artificial intelligence. AI combined with multimodal AI, agentic AI systems, and edge computing will create radical changes in the business world. Next-generation models from GPT-5 to Claude 4 are redefining human-AI collaboration. AI adoption is showing a 300% increase, especially in healthcare, fintech, and manufacturing sectors.",
+                blog2_title: "Security in the Age of Big Data",
+                blog2_desc: "The cyber security landscape is experiencing dramatic changes in 2025. Zero-trust architecture, quantum-resistant encryption, and AI-powered threat detection are now necessities. GDPR, KVKK, and new regulations are reshaping data governance. Enhanced cryptographic security with TRNG technology is becoming an indispensable defense strategy for modern enterprises.",
+                blog3_title: "MLOps: Bring Your Models to Life",
+                blog3_desc: "MLOps has become the backbone of enterprise AI in 2025. Model lifecycle management is revolutionizing with continuous integration, automated model training, and production monitoring. Deployment processes have accelerated by 80% with Kubernetes-native ML pipelines, feature stores, and model registries. Docker containers, MLflow tracking, and comprehensive monitoring dashboards are essential components of the modern ML stack.",
+                blog_readmore: "Read More →",
+                blog_readmore2: "Read More →",
+                blog_readmore3: "Read More →",
+                // Contact
+                contact_title: "Get In Touch",
+                contact_subtitle: "Fill out the form to talk about your project or to request a demo.",
+                form_name: "Your Name",
+                form_email: "Your Email",
+                form_message: "Your Message",
+                form_placeholder: "Tell us about your project...",
+                form_submit: "Send Message",
+                form_alt_text: "Form not working? Send email directly:",
+                form_email_direct: "Send Email",
+                // Footer
+                footer_tagline: "Shaping the future with artificial intelligence.",
+                footer_menu_quick: "Quick Menu",
+                footer_nav_products: "Products",
+                footer_nav_solutions: "Solutions",
+                footer_nav_blog: "Blog",
+                footer_nav_contact: "Contact",
+                footer_menu_legal: "Legal",
+                footer_nav_privacy: "Privacy Policy",
+                footer_nav_terms: "Terms of Use",
+                footer_menu_contact: "Contact",
+                footer_menu_social: "Follow Us",
+                footer_copyright: "© 2025 QuevaTech. All rights reserved.",
+            }
+        };
+
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true, // Animation happens only once
+        });
+
+        // Initialize Swiper
+        const swiper = new Swiper('.swiper-container', {
+            loop: true,
+            slidesPerView: 1,
+            spaceBetween: 30,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 3,
+                }
+            }
+        });
+
+        // =================================
+        // Language Switcher Logic
+        // =================================
+        const langTrBtn = document.getElementById('lang-tr');
+        const langEnBtn = document.getElementById('lang-en');
+
+        const updateLanguage = (lang) => {
+            document.documentElement.lang = lang;
+            localStorage.setItem('language', lang);
+
+            // Update button styles
+            langTrBtn.classList.toggle('active', lang === 'tr');
+            langEnBtn.classList.toggle('active', lang === 'en');
+
+            // Update text content
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                const key = el.getAttribute('data-lang');
+                if (langData[lang][key]) {
+                    el.innerHTML = langData[lang][key];
+                }
+            });
+            
+            // Update placeholders
+            document.querySelectorAll('[data-lang-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-lang-placeholder');
+                 if (langData[lang][key]) {
+                    el.placeholder = langData[lang][key];
+                }
+            });
+        };
+
+        langTrBtn.addEventListener('click', () => updateLanguage('tr'));
+        langEnBtn.addEventListener('click', () => updateLanguage('en'));
+
+        // Load initial language
+        const initialLang = localStorage.getItem('language') || 'tr';
+        updateLanguage(initialLang);
+
+
+        // =================================
+        // Theme Toggle Logic
+        // =================================
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            themeToggleLightIcon.classList.remove('hidden');
+        } else {
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        themeToggleBtn.addEventListener('click', function() {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+
+
+        // =================================
+        // Mobile Menu Logic
+        // =================================
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+
+        // =================================
+        // Contact Form Email Redirect Logic
+        // =================================
+        const contactForm = document.getElementById('contact-form');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            // Get current language for email template
+            const currentLang = localStorage.getItem('language') || 'tr';
+            
+            let subject, body;
+            
+            if (currentLang === 'tr') {
+                subject = 'QuevaTech İletişim - ' + name;
+                body = `Merhaba QuevaTech ekibi,
+
+${message}
+
+İletişim Bilgileri:
+Ad: ${name}
+E-posta: ${email}
+
+Teşekkürler.`;
+            } else {
+                subject = 'QuevaTech Contact - ' + name;
+                body = `Hello QuevaTech team,
+
+${message}
+
+Contact Information:
+Name: ${name}
+Email: ${email}
+
+Thank you.`;
+            }
+            
+            // Create mailto link
+            const mailtoLink = `mailto:info@queva.tech?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+        });
+
+
+        // =================================
+        <!-- Sticky Navbar Logic -->
+        const navbar = document.getElementById('navbar');
+        window.onscroll = function() {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-white', 'dark:bg-queva-dark', 'shadow-md');
+                // Make logo colored when navbar has background
+                const logo = navbar.querySelector('a');
+                logo.className = 'text-2xl font-bold text-gray-900 dark:text-white';
+                const techSpan = logo.querySelector('span');
+                techSpan.className = 'text-queva-indigo dark:text-queva-purple font-extrabold';
+            } else {
+                navbar.classList.remove('bg-white', 'dark:bg-queva-dark', 'shadow-md');
+                // Make logo white when navbar is transparent over hero
+                const logo = navbar.querySelector('a');
+                logo.className = 'text-2xl font-bold text-white';
+                const techSpan = logo.querySelector('span');
+                techSpan.className = 'text-white font-extrabold';
+            }
+        };
+
+
+        // =================================
+        // Parallax Star Canvas Logic
+        // =================================
+        const canvas = document.getElementById('star-canvas');
+        const ctx = canvas.getContext('2d');
+        let stars = [];
+        let numStars = 200;
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            stars = [];
+            for (let i = 0; i < numStars; i++) {
+                stars.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    radius: Math.random() * 1.5,
+                    vx: Math.floor(Math.random() * 50) - 25,
+                    vy: Math.floor(Math.random() * 50) - 25
+                });
+            }
+        }
+        
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.globalCompositeOperation = "lighter";
+            
+            for (let i = 0, x = stars.length; i < x; i++) {
+                let s = stars[i];
+                ctx.fillStyle = "#fff";
+                ctx.beginPath();
+                ctx.arc(s.x, s.y, s.radius, 0, 2 * Math.PI);
+                ctx.fill();
+            }
+        }
+
+        function update() {
+            for (let i = 0, x = stars.length; i < x; i++) {
+                let s = stars[i];
+                s.x += s.vx / 60;
+                s.y += s.vy / 60;
+                
+                if (s.x < 0 || s.x > canvas.width) s.vx = -s.vx;
+                if (s.y < 0 || s.y > canvas.height) s.vy = -s.vy;
+            }
+        }
+
+        function tick() {
+            draw();
+            update();
+            requestAnimationFrame(tick);
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+        tick();
+        
+        // =================================
+        // Custom CSS class definitions
+        // =================================
+        const style = document.createElement('style');
+        style.innerHTML = `
+            .glass-card {
+                background: rgba(255, 255, 255, 0.5);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                border-radius: 1.5rem; /* 2xl */
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                transition: all 0.3s ease-in-out;
+                box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+            }
+            .dark .glass-card {
+                background: rgba(30, 41, 59, 0.5); /* slate-800/50 */
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+            }
+            .glass-card:hover {
+                transform: scale(1.04);
+                box-shadow: 0 16px 40px 0 rgba(31, 38, 135, 0.2);
+            }
+            .dark .glass-card:hover {
+                box-shadow: 0 16px 40px 0 rgba(0, 0, 0, 0.3);
+            }
+            .contact-input {
+                width: 100%;
+                padding: 0.75rem;
+                border-radius: 0.75rem; /* 2xl */
+                border: 1px solid #D1D5DB; /* gray-300 */
+                background-color: #F9FAFB; /* gray-50 */
+                transition: border-color 0.2s, box-shadow 0.2s;
+            }
+            .dark .contact-input {
+                background-color: #1F2937; /* gray-800 */
+                border-color: #4B5563; /* gray-600 */
+                color: #F3F4F6; /* gray-100 */
+            }
+            .contact-input:focus {
+                outline: none;
+                border-color: #4F46E5; /* queva-indigo */
+                box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.3);
+            }
+            .dark .contact-input:focus {
+                border-color: #A855F7; /* queva-purple */
+                box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.3);
+            }
+            .swiper-pagination-bullet-active {
+                background: #4F46E5 !important;
+            }
+            .dark .swiper-pagination-bullet-active {
+                background: #A855F7 !important;
+            }
+            .swiper-pagination {
+                position: relative !important;
+                bottom: auto !important;
+                left: auto !important;
+                width: auto !important;
+                text-align: center;
+                padding-top: 1rem;
+            }
+            .swiper-pagination-bullet {
+                margin: 0 8px !important;
+                width: 12px !important;
+                height: 12px !important;
+                opacity: 0.4;
+            }
+            .swiper-pagination-bullet-active {
+                opacity: 1 !important;
+            }
+        `;
+        document.head.appendChild(style);
+
+    </script>
+</body>
+</html>

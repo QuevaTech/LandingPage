@@ -1,0 +1,779 @@
+ <!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kullanım Şartları | QuevaTech</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Custom scrollbar for a more modern look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4F46E5;
+            border-radius: 10px;
+        }
+        .dark ::-webkit-scrollbar-track {
+            background: #111827;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: #A855F7;
+        }
+        /* Style for active language */
+        .lang-switcher .active {
+            color: #4F46E5;
+            font-weight: 700;
+        }
+        .dark .lang-switcher .active {
+            color: #A855F7;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'queva-indigo': '#4F46E5',
+                        'queva-purple': '#A855F7',
+                        'queva-sky': '#0EA5E9',
+                        'queva-dark': '#1E293B',
+                        'queva-light': '#F3F4F6',
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-inter bg-queva-light dark:bg-queva-dark text-queva-dark dark:text-queva-light transition-colors duration-500">
+
+    <!-- Navigation Bar -->
+    <header id="navbar" class="fixed top-0 left-0 w-full z-50 bg-white dark:bg-queva-dark shadow-md transition-all duration-300">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="index.html" class="text-2xl font-bold text-gray-900 dark:text-white">Queva<span class="text-queva-indigo dark:text-queva-purple font-extrabold">Tech</span></a>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex items-center space-x-6">
+                    <a href="index.html#products" data-lang="nav_products" class="hover:text-queva-indigo dark:hover:text-queva-purple transition-colors">Ürünler</a>
+                    <a href="index.html#solutions" data-lang="nav_solutions" class="hover:text-queva-indigo dark:hover:text-queva-purple transition-colors">Çözümler</a>
+                    <a href="index.html#about" data-lang="nav_about" class="hover:text-queva-indigo dark:hover:text-queva-purple transition-colors">Hakkımızda</a>
+                    <a href="index.html#blog" data-lang="nav_blog" class="hover:text-queva-indigo dark:hover:text-queva-purple transition-colors">Blog</a>
+                    <a href="index.html#contact" data-lang="nav_contact" class="hover:text-queva-indigo dark:hover:text-queva-purple transition-colors">İletişim</a>
+                </nav>
+
+                <!-- Controls: Language, Theme -->
+                <div class="flex items-center">
+                     <!-- Language Switcher -->
+                    <div class="lang-switcher text-sm font-semibold mr-4">
+                        <button id="lang-tr" class="p-1">TR</button>
+                        <span>/</span>
+                        <button id="lang-en" class="p-1">EN</button>
+                    </div>
+                    <!-- Theme Toggle -->
+                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                        <svg id="theme-toggle-dark-icon" class="hidden h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                        <svg id="theme-toggle-light-icon" class="hidden h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-20">
+        <!-- Header Section -->
+        <section class="bg-gradient-to-br from-queva-indigo to-queva-purple py-16">
+            <div class="container mx-auto px-4 text-center text-white">
+                <h1 data-lang="terms_title" class="text-4xl md:text-5xl font-bold mb-4">Kullanım Şartları</h1>
+                <p data-lang="terms_subtitle" class="text-lg md:text-xl max-w-2xl mx-auto">QuevaTech hizmetlerinin kullanımına ilişkin şartlar ve koşullar.</p>
+                <p data-lang="terms_date" class="text-sm mt-4 opacity-90">Son güncelleme: 1 Ağustos 2025</p>
+            </div>
+        </section>
+
+        <!-- Terms of Service Content -->
+        <section class="py-16">
+            <div class="container mx-auto px-4 max-w-4xl">
+                
+                <!-- Introduction -->
+                <div class="mb-12">
+                    <h2 data-lang="terms_intro_title" class="text-2xl font-bold mb-4 text-queva-indigo dark:text-queva-purple">Giriş</h2>
+                    <p data-lang="terms_intro_text" class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                        Bu Kullanım Şartları ("Şartlar"), QuevaTech ("biz", "bizim", "şirketimiz") tarafından sunulan web sitesi, hizmetler ve ürünlerin kullanımını düzenler. Bu şartları kabul ederek, hizmetlerimizi kullanma konusunda yasal olarak bağlayıcı bir anlaşmaya girmiş olursunuz.
+                    </p>
+                </div>
+
+                <!-- Acceptance of Terms -->
+                <div class="mb-12">
+                    <h2 data-lang="terms_acceptance_title" class="text-2xl font-bold mb-4 text-queva-indigo dark:text-queva-purple">Şartların Kabulü</h2>
+                    <div class="space-y-4 text-gray-600 dark:text-gray-300 leading-relaxed">
+                        <p data-lang="terms_acceptance_intro">Bu hizmetleri kullanarak aşağıdakileri kabul etmiş olursunuz:</p>
+                        <ul class="list-disc list-inside space-y-2 ml-4">
+                            <li data-lang="terms_acceptance_agree">Bu kullanım şartlarının tamamını okuyup anladığınızı</li>
+                            <li data-lang="terms_acceptance_bound">Bu şartlara uymayı kabul ettiğinizi</li>
+                            <li data-lang="terms_acceptance_legal">Yasal olarak bağlayıcı bir anlaşma oluşturduğunu</li>
+                            <li data-lang="terms_acceptance_age">18 yaşından büyük olduğunuzu veya yasal temsilcinizin iznini aldığınızı</li>
+                            <li data-lang="terms_acceptance_authority">Bir organizasyon adına hareket ediyorsanız, bunu yapmaya yetkili olduğunuzu</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Platform Power Section -->
+                <div class="mb-12">
+                    <h2 data-lang="terms_platform_title" class="text-2xl font-bold mb-4 text-queva-indigo dark:text-queva-purple">Platformun Gücünü Keşfedin</h2>
+                    <div class="space-y-6 text-gray-600 dark:text-gray-300 leading-relaxed">
+                        <p data-lang="terms_platform_intro">
+                            QuevaTech, yapay zeka, yazılım, elektronik ve devrimsel TRNG teknolojisiyle dijital rastgeleliğin gücünü ortaya çıkarır.
+                        </p>
+                        
+                        <div class="grid md:grid-cols-3 gap-6">
+                            <!-- AI Section -->
+                            <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
+                                <h3 data-lang="terms_platform_ai_title" class="text-lg font-semibold mb-3 text-queva-indigo dark:text-queva-purple">Yapay Zeka</h3>
+                                <p data-lang="terms_platform_ai_desc" class="text-sm">
+                                    İleri makine öğrenmesi algoritmaları ve derin öğrenme modelleri ile karmaşık veri analizi, pattern recognition ve predictive analytics çözümleri sunuyoruz. Neural network mimarilerinde uzmanlaşmış ekibimiz, sektörünüze özel AI çözümleri geliştirir.
+                                </p>
+                            </div>
+                            
+                            <!-- Electronics Section -->
+                            <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
+                                <h3 data-lang="terms_platform_electronics_title" class="text-lg font-semibold mb-3 text-queva-indigo dark:text-queva-purple">Elektronik</h3>
+                                <p data-lang="terms_platform_electronics_desc" class="text-sm">
+                                    Donanım tasarımından mikroişlemci programlamaya, embedded sistemlerden IoT cihazlarına kadar geniş yelpazede elektronik çözümler geliştiriyoruz. FPGA, MCU ve custom chip tasarımlarında deneyimli kadromuzla yenilikçi projeler hayata geçiriyoruz.
+                                </p>
+                            </div>
+                            
+                            <!-- Software Section -->
+                            <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
+                                <h3 data-lang="terms_platform_software_title" class="text-lg font-semibold mb-3 text-queva-indigo dark:text-queva-purple">Yazılım</h3>
+                                <p data-lang="terms_platform_software_desc" class="text-sm">
+                                    Modern yazılım geliştirme metodolojileri ile scalable, secure ve high-performance uygulamalar geliştirir. Cloud-native architectures, microservices, containerization ve DevOps practices konularında expertise sahibiyiz.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gradient-to-r from-queva-indigo/10 to-queva-purple/10 p-6 rounded-lg border border-queva-indigo/20">
+                            <h3 data-lang="terms_platform_trng_title" class="text-lg font-semibold mb-3 text-queva-indigo dark:text-queva-purple">🎲 Devrimsel TRNG Teknolojisi</h3>
+                            <p data-lang="terms_platform_trng_desc">
+                                True Random Number Generator (TRNG) teknolojimiz, fiziksel entropi kaynaklarından gerçek rastgelelik üretir. Kriptografik güvenlik, simülasyon sistemleri ve finansal analizlerde kritik öneme sahip bu teknoloji, AI-Hybrid yaklaşımımızla güçlendirilmiştir. Dijital dünyada güvenilir rastgelelik sağlayarak, blockchain, cybersecurity ve scientific computing alanlarında çığır açan çözümler sunuyoruz.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Services Description -->
+                <div class="mb-12">
+                    <h2 data-lang="terms_services_title" class="text-2xl font-bold mb-4 text-queva-indigo dark:text-queva-purple">Hizmet Açıklaması</h2>
+                    <div class="space-y-4 text-gray-600 dark:text-gray-300 leading-relaxed">
+                        <p data-lang="terms_services_intro">QuevaTech aşağıdaki hizmetleri sunar:</p>
+                        <ul class="list-disc list-inside space-y-2 ml-4">
+                            <li data-lang="terms_services_ai">Yapay zeka ve makine öğrenmesi çözümleri</li>
+                            <li data-lang="terms_services_trng">AI-Hybrid TRNG teknolojisi ve rastgelelik çözümleri</li>
+                            <li data-lang="terms_services_analytics">Veri analitiği ve iş zekası hizmetleri</li>
+                            <li data-lang="terms_services_consulting">Teknik danışmanlık ve eğitim hizmetleri</li>
+                            <li data-lang="terms_services_integration">Sistem entegrasyonu ve özelleştirme</li>
+                            <li data-lang="terms_services_support">Teknik destek ve bakım hizmetleri</li>
+                        </ul>
+                        <p data-lang="terms_services_note">Hizmetlerimiz sürekli geliştirilmekte olup, önceden bildirimde bulunmaksızın değiştirilebilir.</p>
+                    </div>
+                </div>
+
+                <!-- User Responsibilities -->
+                <div class="mb-12">
+                    <h2 data-lang="terms_user_title" class="text-2xl font-bold mb-4 text-queva-indigo dark:text-queva-purple">Kullanıcı Sorumlulukları</h2>
+                    <div class="space-y-4 text-gray-600 dark:text-gray-300 leading-relaxed">
+                        <p data-lang="terms_user_intro">Hizmetlerimizi kullanırken aşağıdaki kurallara uymanız gerekmektedir:</p>
+                        <h3 data-lang="terms_user_permitted" class="text-lg font-semibold">İzin Verilen Kullanımlar</h3>
+                        <ul class="list-disc list-inside space-y-2 ml-4">
+                            <li data-lang="terms_user_legal">Yasal ve meşru amaçlar için kullanım</li>
+                            <li data-lang="terms_user_business">İş süreçlerinizi geliştirmek için kullanım</li>
+                            <li data-lang="terms_user_research">Araştırma ve geliştirme faaliyetleri</li>
+                            <li data-lang="terms_user_educational">Eğitim ve öğretim amaçları</li>
+                        </ul>
+                        
+                        <h3 data-lang="terms_user_prohibited" class="text-lg font-semibold mt-6">Yasaklanan Kullanımlar</h3>
+                        <ul class="list-disc list-inside space-y-2 ml-4">
+                            <li data-lang="terms_user_illegal">Yasadışı faaliyetler için kullanım</li>
+                            <li data-lang="terms_user_harmful">Zararlı, istismarcı veya saldırgan içerik oluşturma</li>
+                            <li data-lang="terms_user_reverse">Ters mühendislik veya kopyalama</li>
+                            <li data-lang="terms_user_interference">Hizmetlerin çalışmasına müdahale etme</li>
+                            <li data-lang="terms_user_unauthorized">Yetkisiz erişim girişimleri</li>
+                            <li data-lang="terms_user_spam">Spam veya istenmeyen içerik gönderme</li>
+                            <li data-lang="terms_user_malware">Virüs, malware veya zararlı kod yükleme</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Intellectual Property -->
+                <div class="mb-12">
+                    <h2 data-lang="terms_ip_title" class="text-2xl font-bold mb-4 text-queva-indigo dark:text-queva-purple">Fikri Mülkiyet Hakları</h2>
+                    <div class="space-y-4 text-gray-600 dark:text-gray-300 leading-relaxed">
+                        <h3 data-lang="terms_ip_our_rights" class="text-lg font-semibold">Bizim Haklarımız</h3>
+                        <p data-lang="terms_ip_our_desc">
+                            QuevaTech hizmetleri, teknolojisi, yazılımı ve içeriği dahil olmak üzere tüm fikri mülkiyet hakları QuevaTech'e aittir. Bu haklar şunları içerir:
+                        </p>
+                        <ul class="list-disc list-inside space-y-2 ml-4">
+                            <li data-lang="terms_ip_patents">Patent hakları</li>
+                            <li data-lang="terms_ip_trademarks">Marka hakları</li>
+                            <li data-lang="terms_ip_copyrights">Telif hakları</li>
+                            <li data-lang="terms_ip_trade_secrets">Ticari sırlar</li>
+                            <li data-lang="terms_ip_algorithms">Algoritmalar ve metodolojiler</li>
+                        </ul>
+                        
+                        <h3 data-lang="terms_ip_user_rights" class="text-lg font-semibold mt-6">Kullanıcı Hakları</h3>
+                        <p data-lang="terms_ip_user_desc">
+                            Hizmetlerimizi kullanırken sizin sağladığınız veriler ve içerikler üzerindeki haklar size aittir. Ancak bize aşağıdaki yetkileri vermiş olursunuz:
+                        </p>
+                        <ul class="list-disc list-inside space-y-2 ml-4">
+                            <li data-lang="terms_ip_license">Hizmetleri sunabilmek için gerekli lisans hakları</li>
+                            <li data-lang="terms_ip_processing">Veri işleme ve analiz yapma yetkisi</li>
+                            <li data-lang="terms_ip_improvement">Hizmet kalitesini artırmak için kullanma yetkisi</li>
+                            <li data-lang="terms_ip_backup">Yedekleme ve arşivleme yetkisi</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Data and Privacy -->
+                <div class="mb-12">
+                    <h2 data-lang="terms_privacy_title" class="text-2xl font-bold mb-4 text-queva-indigo dark:text-queva-purple">Veri ve Gizlilik</h2>
+                    <div class="space-y-4 text-gray-600 dark:text-gray-300 leading-relaxed">
+                        <p data-lang="terms_privacy_intro">
+                            Kişisel verilerinizin korunması bizim için önemlidir. Veri işleme faaliyetlerimiz hakkında detaylı bilgi için 
+                            <a href="privacy-policy.html" class="text-queva-indigo dark:text-queva-purple hover:underline" data-lang="terms_privacy_link">Gizlilik Politikamızı</a> 
+                            inceleyiniz.
+                        </p>
+                        <h3 data-lang="terms_privacy_commitments" class="text-lg font-semibold">Taahhütlerimiz</h3>
+                        <ul class="list-disc list-inside space-y-2 ml-4">
+                            <li data-lang="terms_privacy_security">Verilerinizi güvenli bir şekilde saklama</li>
+                            <li data-lang="terms_privacy_confidentiality">Gizlilik ilkelerine uyma</li>
+                            <li data-lang="terms_privacy_compliance">KVKK ve GDPR uyumluluğu</li>
+                            <li data-lang="terms_privacy_transparency">Şeffaf veri işleme</li>
+                            <li data-lang="terms_privacy_rights">Kullanıcı haklarına saygı</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Service Availability -->
+                <div class="mb-12">
+                    <h2 data-lang="terms_availability_title" class="text-2xl font-bold mb-4 text-queva-indigo dark:text-queva-purple">Hizmet Erişilebilirliği</h2>
+                    <div class="space-y-4 text-gray-600 dark:text-gray-300 leading-relaxed">
+                        <p data-lang="terms_availability_intro">Hizmetlerimizin kesintisiz erişilebilirliği için çaba göstermekle birlikte:</p>
+                        <ul class="list-disc list-inside space-y-2 ml-4">
+                            <li data-lang="terms_availability_maintenance">Planlı bakım çalışmaları yapılabilir</li>
+                            <li data-lang="terms_availability_updates">Sistem güncellemeleri gerekebilir</li>
+                            <li data-lang="terms_availability_technical">Teknik sorunlar yaşanabilir</li>
+                            <li data-lang="terms_availability_force_majeure">Mücbir sebep durumları oluşabilir</li>
+                            <li data-lang="terms_availability_notice">Önemli kesintiler önceden duyurulur</li>
+                        </ul>
+                        <p data-lang="terms_availability_target">Hedef uptime oranımız %99.5'dir, ancak bu garanti edilmez.</p>
+                    </div>
+                </div>
+
+                <!-- Payment and Fees -->
+                <div class="mb-12">
+                    <h2 data-lang="terms_payment_title" class="text-2xl font-bold mb-4 text-queva-indigo dark:text-queva-purple">Ödeme ve Ücretler</h2>
+                    <div class="space-y-4 text-gray-600 dark:text-gray-300 leading-relaxed">
+                        <h3 data-lang="terms_payment_pricing" class="text-lg font-semibold">Fiyatlandırma</h3>
+                        <ul class="list-disc list-inside space-y-2 ml-4">
+                            <li data-lang="terms_payment_custom">Özel projeler için bireysel fiyatlandırma</li>
+                            <li data-lang="terms_payment_subscription">Abonelik bazlı hizmet modelleri</li>
+                            <li data-lang="terms_payment_usage">Kullanım bazlı ücretlendirme</li>
+                            <li data-lang="terms_payment_consultation">Danışmanlık hizmetleri için saatlik ücret</li>
+                        </ul>
+                        
+                        <h3 data-lang="terms_payment_terms" class="text-lg font-semibold mt-6">Ödeme Şartları</h3>
+                        <ul class="list-disc list-inside space-y-2 ml-4">
+                            <li data-lang="terms_payment_advance">Proje başlangıcında %50 avans ödemesi</li>
+                            <li data-lang="terms_payment_completion">Proje tamamlandığında kalan tutar</li>
+                            <li data-lang="terms_payment_monthly">Aylık abonelik ödemeleri ay başında</li>
+                            <li data-lang="terms_payment_currency">Ödemeler Türk Lirası veya USD olarak yapılır</li>
+                            <li data-lang="terms_payment_late">Geç ödeme durumunda faiz uygulanabilir</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Disclaimers and Limitations -->
+                <div class="mb-12">
+                    <h2 data-lang="terms_disclaimers_title" class="text-2xl font-bold mb-4 text-queva-indigo dark:text-queva-purple">Sorumluluk Reddi ve Sınırlamalar</h2>
+                    <div class="space-y-4 text-gray-600 dark:text-gray-300 leading-relaxed">
+                        <h3 data-lang="terms_disclaimers_warranty" class="text-lg font-semibold">Garanti Reddi</h3>
+                        <p data-lang="terms_disclaimers_warranty_desc">
+                            Hizmetlerimiz "olduğu gibi" sunulur. Aşağıdaki garantileri vermemekteyiz:
+                        </p>
+                        <ul class="list-disc list-inside space-y-2 ml-4">
+                            <li data-lang="terms_disclaimers_uninterrupted">Kesintisiz hizmet garantisi</li>
+                            <li data-lang="terms_disclaimers_error_free">Hatasız çalışma garantisi</li>
+                            <li data-lang="terms_disclaimers_results">Belirli sonuçlar elde etme garantisi</li>
+                            <li data-lang="terms_disclaimers_compatibility">Üçüncü taraf sistemlerle uyumluluk</li>
+                        </ul>
+                        
+                        <h3 data-lang="terms_disclaimers_liability" class="text-lg font-semibold mt-6">Sorumluluk Sınırlaması</h3>
+                        <p data-lang="terms_disclaimers_liability_desc">QuevaTech'in sorumluluğu aşağıdakilerle sınırlıdır:</p>
+                        <ul class="list-disc list-inside space-y-2 ml-4">
+                            <li data-lang="terms_disclaimers_direct_damages">Doğrudan zararlar ile sınırlı sorumluluk</li>
+                            <li data-lang="terms_disclaimers_amount_paid">Ödenen ücret tutarı kadar tazminat</li>
+                            <li data-lang="terms_disclaimers_no_indirect">Dolaylı zararlardan sorumluluk yok</li>
+                            <li data-lang="terms_disclaimers_no_loss_profits">Kar kaybından sorumluluk yok</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Termination -->
+                <div class="mb-12">
+                    <h2 data-lang="terms_termination_title" class="text-2xl font-bold mb-4 text-queva-indigo dark:text-queva-purple">Sözleşme Feshi</h2>
+                    <div class="space-y-4 text-gray-600 dark:text-gray-300 leading-relaxed">
+                        <h3 data-lang="terms_termination_by_user" class="text-lg font-semibold">Kullanıcı Tarafından Fesih</h3>
+                        <ul class="list-disc list-inside space-y-2 ml-4">
+                            <li data-lang="terms_termination_user_notice">30 gün önceden yazılı bildirim</li>
+                            <li data-lang="terms_termination_user_data">Veri yedekleme sorumluluğu kullanıcıya aittir</li>
+                            <li data-lang="terms_termination_user_outstanding">Ödenmemiş tutarların kapatılması gerekir</li>
+                        </ul>
+                        
+                        <h3 data-lang="terms_termination_by_us" class="text-lg font-semibold mt-6">QuevaTech Tarafından Fesih</h3>
+                        <p data-lang="terms_termination_by_us_desc">Aşağıdaki durumlarda anlaşmayı feshedebiliriz:</p>
+                        <ul class="list-disc list-inside space-y-2 ml-4">
+                            <li data-lang="terms_termination_breach">Kullanım şartlarının ihlali</li>
+                            <li data-lang="terms_termination_non_payment">Ödeme yükümlülüklerinin yerine getirilmemesi</li>
+                            <li data-lang="terms_termination_illegal">Yasadışı faaliyetler</li>
+                            <li data-lang="terms_termination_reputation">Şirket itibarına zarar verme</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Governing Law -->
+                <div class="mb-12">
+                    <h2 data-lang="terms_law_title" class="text-2xl font-bold mb-4 text-queva-indigo dark:text-queva-purple">Uygulanacak Hukuk ve Yargı</h2>
+                    <div class="space-y-4 text-gray-600 dark:text-gray-300 leading-relaxed">
+                        <p data-lang="terms_law_turkish">Bu anlaşma Türkiye Cumhuriyeti yasalarına tabidir.</p>
+                        <p data-lang="terms_law_jurisdiction">Bu anlaşmadan doğan uyuşmazlıklar Muğla Mahkemeleri ve İcra Müdürlüklerinin yargı yetkisindedir.</p>
+                        <p data-lang="terms_law_mediation">Uyuşmazlıkların çözümünde öncelikle arabuluculuk yolu denenecektir.</p>
+                    </div>
+                </div>
+
+                <!-- Changes to Terms -->
+                <div class="mb-12">
+                    <h2 data-lang="terms_changes_title" class="text-2xl font-bold mb-4 text-queva-indigo dark:text-queva-purple">Şartlarda Değişiklik</h2>
+                    <div class="space-y-4 text-gray-600 dark:text-gray-300 leading-relaxed">
+                        <p data-lang="terms_changes_intro">Bu kullanım şartlarını zaman zaman güncelleyebiliriz:</p>
+                        <ul class="list-disc list-inside space-y-2 ml-4">
+                            <li data-lang="terms_changes_notification">Önemli değişiklikler e-posta ile bildirilir</li>
+                            <li data-lang="terms_changes_website">Güncellemeler web sitesinde yayınlanır</li>
+                            <li data-lang="terms_changes_effective">Değişiklikler yayın tarihinde yürürlüğe girer</li>
+                            <li data-lang="terms_changes_continued_use">Hizmetleri kullanmaya devam etmek kabul anlamına gelir</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="mb-12">
+                    <h2 data-lang="terms_contact_title" class="text-2xl font-bold mb-4 text-queva-indigo dark:text-queva-purple">İletişim</h2>
+                    <div class="space-y-4 text-gray-600 dark:text-gray-300 leading-relaxed">
+                        <p data-lang="terms_contact_intro">
+                            Bu kullanım şartları hakkında sorularınız varsa bizimle iletişime geçebilirsiniz:
+                        </p>
+                        <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
+                            <p><strong data-lang="terms_contact_company">QuevaTech</strong></p>
+                            <p data-lang="terms_contact_legal">Hukuki: <a href="mailto:legal@queva.tech" class="text-queva-indigo dark:text-queva-purple hover:underline">legal@queva.tech</a></p>
+                            <p data-lang="terms_contact_general">Genel: <a href="mailto:info@queva.tech" class="text-queva-indigo dark:text-queva-purple hover:underline">info@queva.tech</a></p>
+                            <p data-lang="terms_contact_address">Adres: Akyaka, Ula/Muğla, Türkiye</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-queva-dark text-queva-light">
+        <div class="container mx-auto px-4 py-8">
+            <div class="text-center">
+                <h3 class="text-xl font-bold mb-4">Queva<span class="text-queva-purple">Tech</span></h3>
+                <p data-lang="footer_tagline" class="text-gray-400 mb-4">Yapay zekâ ile geleceği şekillendiriyoruz.</p>
+                <div class="flex justify-center space-x-6">
+                    <a href="index.html" data-lang="footer_home" class="text-gray-400 hover:text-white">Ana Sayfa</a>
+                    <a href="privacy-policy.html" data-lang="footer_privacy" class="text-gray-400 hover:text-white">Gizlilik Politikası</a>
+                    <a href="terms-of-service.html" data-lang="footer_terms" class="text-gray-400 hover:text-white">Kullanım Şartları</a>
+                </div>
+                <div class="mt-6 border-t border-gray-700 pt-6 text-gray-400">
+                    <p data-lang="footer_copyright">&copy; 2025 QuevaTech. Tüm hakları saklıdır.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Language Data
+        const langData = {
+            tr: {
+                // Navigation
+                nav_products: "Ürünler",
+                nav_solutions: "Çözümler",
+                nav_about: "Hakkımızda",
+                nav_blog: "Blog",
+                nav_contact: "İletişim",
+                // Terms of Service
+                terms_title: "Kullanım Şartları",
+                terms_subtitle: "QuevaTech hizmetlerinin kullanımına ilişkin şartlar ve koşullar.",
+                terms_date: "Son güncelleme: 1 Ağustos 2025",
+                terms_intro_title: "Giriş",
+                terms_intro_text: "Bu Kullanım Şartları (\"Şartlar\"), QuevaTech (\"biz\", \"bizim\", \"şirketimiz\") tarafından sunulan web sitesi, hizmetler ve ürünlerin kullanımını düzenler. Bu şartları kabul ederek, hizmetlerimizi kullanma konusunda yasal olarak bağlayıcı bir anlaşmaya girmiş olursunuz.",
+                // Platform Power Section
+                terms_platform_title: "Platformun Gücünü Keşfedin",
+                terms_platform_intro: "QuevaTech, yapay zeka, yazılım, elektronik ve devrimsel TRNG teknolojisiyle dijital rastgeleliğin gücünü ortaya çıkarır.",
+                terms_platform_ai_title: "Yapay Zeka",
+                terms_platform_ai_desc: "İleri makine öğrenmesi algoritmaları ve derin öğrenme modelleri ile karmaşık veri analizi, pattern recognition ve predictive analytics çözümleri sunuyoruz. Neural network mimarilerinde uzmanlaşmış ekibimiz, sektörünüze özel AI çözümleri geliştirir.",
+                terms_platform_electronics_title: "Elektronik",
+                terms_platform_electronics_desc: "Donanım tasarımından mikroişlemci programlamaya, embedded sistemlerden IoT cihazlarına kadar geniş yelpazede elektronik çözümler geliştiriyoruz. FPGA, MCU ve custom chip tasarımlarında deneyimli kadromuzla yenilikçi projeler hayata geçiriyoruz.",
+                terms_platform_software_title: "Yazılım",
+                terms_platform_software_desc: "Modern yazılım geliştirme metodolojileri ile scalable, secure ve high-performance uygulamalar geliştirir. Cloud-native architectures, microservices, containerization ve DevOps practices konularında expertise sahibiyiz.",
+                terms_platform_trng_title: "🎲 Devrimsel TRNG Teknolojisi",
+                terms_platform_trng_desc: "True Random Number Generator (TRNG) teknolojimiz, fiziksel entropi kaynaklarından gerçek rastgelelik üretir. Kriptografik güvenlik, simülasyon sistemleri ve finansal analizlerde kritik öneme sahip bu teknoloji, AI-Hybrid yaklaşımımızla güçlendirilmiştir. Dijital dünyada güvenilir rastgelelik sağlayarak, blockchain, cybersecurity ve scientific computing alanlarında çığır açan çözümler sunuyoruz.",
+                terms_acceptance_title: "Şartların Kabulü",
+                terms_acceptance_intro: "Bu hizmetleri kullanarak aşağıdakileri kabul etmiş olursunuz:",
+                terms_acceptance_agree: "Bu kullanım şartlarının tamamını okuyup anladığınızı",
+                terms_acceptance_bound: "Bu şartlara uymayı kabul ettiğinizi",
+                terms_acceptance_legal: "Yasal olarak bağlayıcı bir anlaşma oluşturduğunu",
+                terms_acceptance_age: "18 yaşından büyük olduğunuzu veya yasal temsilcinizin iznini aldığınızı",
+                terms_acceptance_authority: "Bir organizasyon adına hareket ediyorsanız, bunu yapmaya yetkili olduğunuzu",
+                terms_services_title: "Hizmet Açıklaması",
+                terms_services_intro: "QuevaTech aşağıdaki hizmetleri sunar:",
+                terms_services_ai: "Yapay zeka ve makine öğrenmesi çözümleri",
+                terms_services_trng: "AI-Hybrid TRNG teknolojisi ve rastgelelik çözümleri",
+                terms_services_analytics: "Veri analitiği ve iş zekası hizmetleri",
+                terms_services_consulting: "Teknik danışmanlık ve eğitim hizmetleri",
+                terms_services_integration: "Sistem entegrasyonu ve özelleştirme",
+                terms_services_support: "Teknik destek ve bakım hizmetleri",
+                terms_services_note: "Hizmetlerimiz sürekli geliştirilmekte olup, önceden bildirimde bulunmaksızın değiştirilebilir.",
+                terms_user_title: "Kullanıcı Sorumlulukları",
+                terms_user_intro: "Hizmetlerimizi kullanırken aşağıdaki kurallara uymanız gerekmektedir:",
+                terms_user_permitted: "İzin Verilen Kullanımlar",
+                terms_user_legal: "Yasal ve meşru amaçlar için kullanım",
+                terms_user_business: "İş süreçlerinizi geliştirmek için kullanım",
+                terms_user_research: "Araştırma ve geliştirme faaliyetleri",
+                terms_user_educational: "Eğitim ve öğretim amaçları",
+                terms_user_prohibited: "Yasaklanan Kullanımlar",
+                terms_user_illegal: "Yasadışı faaliyetler için kullanım",
+                terms_user_harmful: "Zararlı, istismarcı veya saldırgan içerik oluşturma",
+                terms_user_reverse: "Ters mühendislik veya kopyalama",
+                terms_user_interference: "Hizmetlerin çalışmasına müdahale etme",
+                terms_user_unauthorized: "Yetkisiz erişim girişimleri",
+                terms_user_spam: "Spam veya istenmeyen içerik gönderme",
+                terms_user_malware: "Virüs, malware veya zararlı kod yükleme",
+                terms_ip_title: "Fikri Mülkiyet Hakları",
+                terms_ip_our_rights: "Bizim Haklarımız",
+                terms_ip_our_desc: "QuevaTech hizmetleri, teknolojisi, yazılımı ve içeriği dahil olmak üzere tüm fikri mülkiyet hakları QuevaTech'e aittir. Bu haklar şunları içerir:",
+                terms_ip_patents: "Patent hakları",
+                terms_ip_trademarks: "Marka hakları",
+                terms_ip_copyrights: "Telif hakları",
+                terms_ip_trade_secrets: "Ticari sırlar",
+                terms_ip_algorithms: "Algoritmalar ve metodolojiler",
+                terms_ip_user_rights: "Kullanıcı Hakları",
+                terms_ip_user_desc: "Hizmetlerimizi kullanırken sizin sağladığınız veriler ve içerikler üzerindeki haklar size aittir. Ancak bize aşağıdaki yetkileri vermiş olursunuz:",
+                terms_ip_license: "Hizmetleri sunabilmek için gerekli lisans hakları",
+                terms_ip_processing: "Veri işleme ve analiz yapma yetkisi",
+                terms_ip_improvement: "Hizmet kalitesini artırmak için kullanma yetkisi",
+                terms_ip_backup: "Yedekleme ve arşivleme yetkisi",
+                terms_privacy_title: "Veri ve Gizlilik",
+                terms_privacy_intro: "Kişisel verilerinizin korunması bizim için önemlidir. Veri işleme faaliyetlerimiz hakkında detaylı bilgi için",
+                terms_privacy_link: "Gizlilik Politikamızı",
+                terms_privacy_commitments: "Taahhütlerimiz",
+                terms_privacy_security: "Verilerinizi güvenli bir şekilde saklama",
+                terms_privacy_confidentiality: "Gizlilik ilkelerine uyma",
+                terms_privacy_compliance: "KVKK ve GDPR uyumluluğu",
+                terms_privacy_transparency: "Şeffaf veri işleme",
+                terms_privacy_rights: "Kullanıcı haklarına saygı",
+                terms_availability_title: "Hizmet Erişilebilirliği",
+                terms_availability_intro: "Hizmetlerimizin kesintisiz erişilebilirliği için çaba göstermekle birlikte:",
+                terms_availability_maintenance: "Planlı bakım çalışmaları yapılabilir",
+                terms_availability_updates: "Sistem güncellemeleri gerekebilir",
+                terms_availability_technical: "Teknik sorunlar yaşanabilir",
+                terms_availability_force_majeure: "Mücbir sebep durumları oluşabilir",
+                terms_availability_notice: "Önemli kesintiler önceden duyurulur",
+                terms_availability_target: "Hedef uptime oranımız %99.5'dir, ancak bu garanti edilmez.",
+                terms_payment_title: "Ödeme ve Ücretler",
+                terms_payment_pricing: "Fiyatlandırma",
+                terms_payment_custom: "Özel projeler için bireysel fiyatlandırma",
+                terms_payment_subscription: "Abonelik bazlı hizmet modelleri",
+                terms_payment_usage: "Kullanım bazlı ücretlendirme",
+                terms_payment_consultation: "Danışmanlık hizmetleri için saatlik ücret",
+                terms_payment_terms: "Ödeme Şartları",
+                terms_payment_advance: "Proje başlangıcında %50 avans ödemesi",
+                terms_payment_completion: "Proje tamamlandığında kalan tutar",
+                terms_payment_monthly: "Aylık abonelik ödemeleri ay başında",
+                terms_payment_currency: "Ödemeler Türk Lirası veya USD olarak yapılır",
+                terms_payment_late: "Geç ödeme durumunda faiz uygulanabilir",
+                terms_disclaimers_title: "Sorumluluk Reddi ve Sınırlamalar",
+                terms_disclaimers_warranty: "Garanti Reddi",
+                terms_disclaimers_warranty_desc: "Hizmetlerimiz \"olduğu gibi\" sunulur. Aşağıdaki garantileri vermemekteyiz:",
+                terms_disclaimers_uninterrupted: "Kesintisiz hizmet garantisi",
+                terms_disclaimers_error_free: "Hatasız çalışma garantisi",
+                terms_disclaimers_results: "Belirli sonuçlar elde etme garantisi",
+                terms_disclaimers_compatibility: "Üçüncü taraf sistemlerle uyumluluk",
+                terms_disclaimers_liability: "Sorumluluk Sınırlaması",
+                terms_disclaimers_liability_desc: "QuevaTech'in sorumluluğu aşağıdakilerle sınırlıdır:",
+                terms_disclaimers_direct_damages: "Doğrudan zararlar ile sınırlı sorumluluk",
+                terms_disclaimers_amount_paid: "Ödenen ücret tutarı kadar tazminat",
+                terms_disclaimers_no_indirect: "Dolaylı zararlardan sorumluluk yok",
+                terms_disclaimers_no_loss_profits: "Kar kaybından sorumluluk yok",
+                terms_termination_title: "Sözleşme Feshi",
+                terms_termination_by_user: "Kullanıcı Tarafından Fesih",
+                terms_termination_user_notice: "30 gün önceden yazılı bildirim",
+                terms_termination_user_data: "Veri yedekleme sorumluluğu kullanıcıya aittir",
+                terms_termination_user_outstanding: "Ödenmemiş tutarların kapatılması gerekir",
+                terms_termination_by_us: "QuevaTech Tarafından Fesih",
+                terms_termination_by_us_desc: "Aşağıdaki durumlarda anlaşmayı feshedebiliriz:",
+                terms_termination_breach: "Kullanım şartlarının ihlali",
+                terms_termination_non_payment: "Ödeme yükümlülüklerinin yerine getirilmemesi",
+                terms_termination_illegal: "Yasadışı faaliyetler",
+                terms_termination_reputation: "Şirket itibarına zarar verme",
+                terms_law_title: "Uygulanacak Hukuk ve Yargı",
+                terms_law_turkish: "Bu anlaşma Türkiye Cumhuriyeti yasalarına tabidir.",
+                terms_law_jurisdiction: "Bu anlaşmadan doğan uyuşmazlıklar Muğla Mahkemeleri ve İcra Müdürlüklerinin yargı yetkisindedir.",
+                terms_law_mediation: "Uyuşmazlıkların çözümünde öncelikle arabuluculuk yolu denenecektir.",
+                terms_changes_title: "Şartlarda Değişiklik",
+                terms_changes_intro: "Bu kullanım şartlarını zaman zaman güncelleyebiliriz:",
+                terms_changes_notification: "Önemli değişiklikler e-posta ile bildirilir",
+                terms_changes_website: "Güncellemeler web sitesinde yayınlanır",
+                terms_changes_effective: "Değişiklikler yayın tarihinde yürürlüğe girer",
+                terms_changes_continued_use: "Hizmetleri kullanmaya devam etmek kabul anlamına gelir",
+                terms_contact_title: "İletişim",
+                terms_contact_intro: "Bu kullanım şartları hakkında sorularınız varsa bizimle iletişime geçebilirsiniz:",
+                terms_contact_company: "QuevaTech",
+                terms_contact_legal: "Hukuki: legal@queva.tech",
+                terms_contact_general: "Genel: info@queva.tech",
+                terms_contact_address: "Adres: Akyaka, Ula/Muğla, Türkiye",
+                // Footer
+                footer_tagline: "Yapay zekâ ile geleceği şekillendiriyoruz.",
+                footer_home: "Ana Sayfa",
+                footer_privacy: "Gizlilik Politikası",
+                footer_terms: "Kullanım Şartları",
+                footer_copyright: "© 2025 QuevaTech. Tüm hakları saklıdır.",
+            },
+            en: {
+                // Navigation
+                nav_products: "Products",
+                nav_solutions: "Solutions",
+                nav_about: "About Us",
+                nav_blog: "Blog",
+                nav_contact: "Contact",
+                // Terms of Service
+                terms_title: "Terms of Service",
+                terms_subtitle: "Terms and conditions for using QuevaTech services.",
+                terms_date: "Last updated: August 1, 2025",
+                terms_intro_title: "Introduction",
+                terms_intro_text: "These Terms of Service (\"Terms\") govern the use of the website, services, and products provided by QuevaTech (\"we\", \"our\", \"company\"). By accepting these terms, you enter into a legally binding agreement regarding the use of our services.",
+                // Platform Power Section
+                terms_platform_title: "Discover the Platform's Power",
+                terms_platform_intro: "QuevaTech unleashes the power of digital randomness through artificial intelligence, software, electronics, and revolutionary TRNG technology.",
+                terms_platform_ai_title: "Artificial Intelligence",
+                terms_platform_ai_desc: "We provide complex data analysis, pattern recognition, and predictive analytics solutions with advanced machine learning algorithms and deep learning models. Our team specialized in neural network architectures develops sector-specific AI solutions.",
+                terms_platform_electronics_title: "Electronics",
+                terms_platform_electronics_desc: "We develop a wide range of electronic solutions from hardware design to microprocessor programming, from embedded systems to IoT devices. With our experienced team in FPGA, MCU, and custom chip designs, we bring innovative projects to life.",
+                terms_platform_software_title: "Software",
+                terms_platform_software_desc: "We develop scalable, secure, and high-performance applications with modern software development methodologies. We have expertise in cloud-native architectures, microservices, containerization, and DevOps practices.",
+                terms_platform_trng_title: "🎲 Revolutionary TRNG Technology",
+                terms_platform_trng_desc: "Our True Random Number Generator (TRNG) technology produces genuine randomness from physical entropy sources. This technology, critical in cryptographic security, simulation systems, and financial analysis, is enhanced with our AI-Hybrid approach. By providing reliable randomness in the digital world, we offer groundbreaking solutions in blockchain, cybersecurity, and scientific computing fields.",
+                terms_acceptance_title: "Acceptance of Terms",
+                terms_acceptance_intro: "By using these services, you accept the following:",
+                terms_acceptance_agree: "That you have read and understood these terms of service in their entirety",
+                terms_acceptance_bound: "That you agree to comply with these terms",
+                terms_acceptance_legal: "That this creates a legally binding agreement",
+                terms_acceptance_age: "That you are over 18 years old or have permission from your legal representative",
+                terms_acceptance_authority: "If acting on behalf of an organization, that you have the authority to do so",
+                terms_services_title: "Service Description",
+                terms_services_intro: "QuevaTech provides the following services:",
+                terms_services_ai: "Artificial intelligence and machine learning solutions",
+                terms_services_trng: "AI-Hybrid TRNG technology and randomness solutions",
+                terms_services_analytics: "Data analytics and business intelligence services",
+                terms_services_consulting: "Technical consulting and training services",
+                terms_services_integration: "System integration and customization",
+                terms_services_support: "Technical support and maintenance services",
+                terms_services_note: "Our services are continuously developed and may be changed without prior notice.",
+                terms_user_title: "User Responsibilities",
+                terms_user_intro: "When using our services, you must comply with the following rules:",
+                terms_user_permitted: "Permitted Uses",
+                terms_user_legal: "Use for legal and legitimate purposes",
+                terms_user_business: "Use to improve your business processes",
+                terms_user_research: "Research and development activities",
+                terms_user_educational: "Educational and teaching purposes",
+                terms_user_prohibited: "Prohibited Uses",
+                terms_user_illegal: "Use for illegal activities",
+                terms_user_harmful: "Creating harmful, abusive, or aggressive content",
+                terms_user_reverse: "Reverse engineering or copying",
+                terms_user_interference: "Interfering with the operation of services",
+                terms_user_unauthorized: "Unauthorized access attempts",
+                terms_user_spam: "Sending spam or unwanted content",
+                terms_user_malware: "Uploading viruses, malware, or malicious code",
+                terms_ip_title: "Intellectual Property Rights",
+                terms_ip_our_rights: "Our Rights",
+                terms_ip_our_desc: "All intellectual property rights, including QuevaTech services, technology, software, and content, belong to QuevaTech. These rights include:",
+                terms_ip_patents: "Patent rights",
+                terms_ip_trademarks: "Trademark rights",
+                terms_ip_copyrights: "Copyright",
+                terms_ip_trade_secrets: "Trade secrets",
+                terms_ip_algorithms: "Algorithms and methodologies",
+                terms_ip_user_rights: "User Rights",
+                terms_ip_user_desc: "You retain rights to the data and content you provide when using our services. However, you grant us the following authorities:",
+                terms_ip_license: "Necessary license rights to provide services",
+                terms_ip_processing: "Authority to process and analyze data",
+                terms_ip_improvement: "Authority to use for improving service quality",
+                terms_ip_backup: "Backup and archiving authority",
+                terms_privacy_title: "Data and Privacy",
+                terms_privacy_intro: "Protecting your personal data is important to us. For detailed information about our data processing activities, please review our",
+                terms_privacy_link: "Privacy Policy",
+                terms_privacy_commitments: "Our Commitments",
+                terms_privacy_security: "Securely storing your data",
+                terms_privacy_confidentiality: "Adhering to privacy principles",
+                terms_privacy_compliance: "GDPR and KVKK compliance",
+                terms_privacy_transparency: "Transparent data processing",
+                terms_privacy_rights: "Respect for user rights",
+                terms_availability_title: "Service Availability",
+                terms_availability_intro: "While we strive for uninterrupted accessibility of our services:",
+                terms_availability_maintenance: "Scheduled maintenance may be performed",
+                terms_availability_updates: "System updates may be required",
+                terms_availability_technical: "Technical issues may occur",
+                terms_availability_force_majeure: "Force majeure situations may arise",
+                terms_availability_notice: "Major interruptions are announced in advance",
+                terms_availability_target: "Our target uptime rate is 99.5%, but this is not guaranteed.",
+                terms_payment_title: "Payment and Fees",
+                terms_payment_pricing: "Pricing",
+                terms_payment_custom: "Individual pricing for custom projects",
+                terms_payment_subscription: "Subscription-based service models",
+                terms_payment_usage: "Usage-based billing",
+                terms_payment_consultation: "Hourly rate for consulting services",
+                terms_payment_terms: "Payment Terms",
+                terms_payment_advance: "50% advance payment at project start",
+                terms_payment_completion: "Remaining amount upon project completion",
+                terms_payment_monthly: "Monthly subscription payments at the beginning of the month",
+                terms_payment_currency: "Payments are made in Turkish Lira or USD",
+                terms_payment_late: "Interest may be applied for late payments",
+                terms_disclaimers_title: "Disclaimers and Limitations",
+                terms_disclaimers_warranty: "Warranty Disclaimer",
+                terms_disclaimers_warranty_desc: "Our services are provided \"as is\". We do not provide the following warranties:",
+                terms_disclaimers_uninterrupted: "Uninterrupted service guarantee",
+                terms_disclaimers_error_free: "Error-free operation guarantee",
+                terms_disclaimers_results: "Guarantee of achieving specific results",
+                terms_disclaimers_compatibility: "Compatibility with third-party systems",
+                terms_disclaimers_liability: "Liability Limitation",
+                terms_disclaimers_liability_desc: "QuevaTech's liability is limited to the following:",
+                terms_disclaimers_direct_damages: "Liability limited to direct damages",
+                terms_disclaimers_amount_paid: "Compensation up to the amount paid",
+                terms_disclaimers_no_indirect: "No liability for indirect damages",
+                terms_disclaimers_no_loss_profits: "No liability for loss of profits",
+                terms_termination_title: "Contract Termination",
+                terms_termination_by_user: "Termination by User",
+                terms_termination_user_notice: "30 days prior written notice",
+                terms_termination_user_data: "Data backup responsibility belongs to the user",
+                terms_termination_user_outstanding: "Outstanding amounts must be settled",
+                terms_termination_by_us: "Termination by QuevaTech",
+                terms_termination_by_us_desc: "We may terminate the agreement in the following cases:",
+                terms_termination_breach: "Violation of terms of service",
+                terms_termination_non_payment: "Non-fulfillment of payment obligations",
+                terms_termination_illegal: "Illegal activities",
+                terms_termination_reputation: "Damage to company reputation",
+                terms_law_title: "Governing Law and Jurisdiction",
+                terms_law_turkish: "This agreement is subject to the laws of the Republic of Turkey.",
+                terms_law_jurisdiction: "Disputes arising from this agreement are under the jurisdiction of Muğla Courts and Enforcement Offices.",
+                terms_law_mediation: "Mediation will be attempted first in resolving disputes.",
+                terms_changes_title: "Changes to Terms",
+                terms_changes_intro: "We may update these terms of service from time to time:",
+                terms_changes_notification: "Significant changes are notified via email",
+                terms_changes_website: "Updates are published on the website",
+                terms_changes_effective: "Changes take effect on the publication date",
+                terms_changes_continued_use: "Continued use of services implies acceptance",
+                terms_contact_title: "Contact",
+                terms_contact_intro: "If you have questions about these terms of service, you can contact us:",
+                terms_contact_company: "QuevaTech",
+                terms_contact_legal: "Legal: legal@queva.tech",
+                terms_contact_general: "General: info@queva.tech",
+                terms_contact_address: "Address: Akyaka, Ula/Muğla, Turkey",
+                // Footer
+                footer_tagline: "Shaping the future with artificial intelligence.",
+                footer_home: "Home",
+                footer_privacy: "Privacy Policy",
+                footer_terms: "Terms of Service",
+                footer_copyright: "© 2025 QuevaTech. All rights reserved.",
+            }
+        };
+
+        // Language Switcher Logic
+        const langTrBtn = document.getElementById('lang-tr');
+        const langEnBtn = document.getElementById('lang-en');
+
+        const updateLanguage = (lang) => {
+            document.documentElement.lang = lang;
+            localStorage.setItem('language', lang);
+
+            // Update button styles
+            langTrBtn.classList.toggle('active', lang === 'tr');
+            langEnBtn.classList.toggle('active', lang === 'en');
+
+            // Update text content
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                const key = el.getAttribute('data-lang');
+                if (langData[lang][key]) {
+                    el.innerText = langData[lang][key];
+                }
+            });
+        };
+
+        langTrBtn.addEventListener('click', () => updateLanguage('tr'));
+        langEnBtn.addEventListener('click', () => updateLanguage('en'));
+
+        // Load initial language
+        const initialLang = localStorage.getItem('language') || 'tr';
+        updateLanguage(initialLang);
+
+        // Theme Toggle Logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            themeToggleLightIcon.classList.remove('hidden');
+        } else {
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        themeToggleBtn.addEventListener('click', function() {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
