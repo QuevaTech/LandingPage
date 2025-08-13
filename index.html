@@ -21,22 +21,50 @@
 
     <!-- Custom Styles & Tailwind Config -->
     <style>
-        /* Custom scrollbar for a more modern look (optional) */
+        /* Horizontal overflow fix */
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+        }
+        
+        /* Container overflow control */
+        .container {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+        
+        /* Grid responsive fixes */
+        .grid {
+            overflow-x: hidden;
+        }
+        
+        /* Ensure sections don't overflow */
+        section {
+            overflow-x: hidden;
+            width: 100%;
+        }
+        
+        /* Fix for any potential margin/padding issues */
+        * {
+            box-sizing: border-box;
+        }
+        
+        /* Hide scrollbars for cleaner look */
         ::-webkit-scrollbar {
-            width: 8px;
+            display: none;
+            width: 0px;
         }
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
+        
+        /* Hide scrollbars in Firefox */
+        * {
+            scrollbar-width: none;
         }
-        ::-webkit-scrollbar-thumb {
-            background: #4F46E5;
-            border-radius: 10px;
-        }
-        .dark ::-webkit-scrollbar-track {
-            background: #111827;
-        }
-        .dark ::-webkit-scrollbar-thumb {
-            background: #A855F7;
+        
+        /* Ensure smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+            -ms-overflow-style: none; /* Internet Explorer 10+ */
         }
         /* Style for active language */
         .lang-switcher .active {
@@ -166,7 +194,7 @@
                     <h2 data-lang="products_title" class="text-3xl md:text-4xl font-bold">Ürün Portföyümüz</h2>
                     <p data-lang="products_subtitle" class="text-lg mt-2 text-gray-600 dark:text-gray-400">Gerçek rastgelelik teknolojisi ile güvenli çözümler</p>
                 </div>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                     <!-- Parola API -->
                     <div class="glass-card" data-aos="fade-up" data-aos-delay="100">
                         <div class="p-8">
@@ -251,7 +279,7 @@
                 <!-- Core Technology Stack -->
                 <div class="mb-16" data-aos="fade-up">
                     <h3 data-lang="platform_tech_title" class="text-2xl font-bold text-center mb-12">Nasıl Yaptığımız: Core Technology Stack</h3>
-                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
                         <div class="glass-card" data-aos="fade-up" data-aos-delay="100">
                             <div class="p-6">
                                 <div class="text-queva-indigo dark:text-queva-purple mb-4">
@@ -310,7 +338,7 @@
                 <!-- Enterprise Architecture -->
                 <div class="mb-16" data-aos="fade-up">
                     <h3 data-lang="platform_arch_title" class="text-2xl font-bold text-center mb-12">Altyapımız: Enterprise-Grade Architecture</h3>
-                    <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
                         <div class="text-center" data-aos="fade-up" data-aos-delay="100">
                             <div class="bg-gradient-to-br from-queva-indigo to-queva-purple text-white p-4 rounded-xl mb-4 mx-auto w-16 h-16 flex items-center justify-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -375,7 +403,7 @@
                 <!-- Platform Features -->
                 <div class="mb-16" data-aos="fade-up">
                     <h3 data-lang="platform_features_title" class="text-2xl font-bold text-center mb-12">Platform Features</h3>
-                    <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
                         <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow" data-aos="fade-up" data-aos-delay="100">
                             <div class="text-queva-indigo dark:text-queva-purple mb-4">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -440,7 +468,7 @@
                 <!-- Integration Capabilities -->
                 <div data-aos="fade-up">
                     <h3 data-lang="platform_integration_title" class="text-2xl font-bold text-center mb-12">Integration Capabilities</h3>
-                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
                         <div class="text-center" data-aos="fade-up" data-aos-delay="100">
                             <div class="bg-queva-indigo/10 dark:bg-queva-purple/10 p-6 rounded-xl mb-4">
                                 <h4 data-lang="platform_int_data" class="font-semibold mb-2">Data Sources</h4>
@@ -661,7 +689,7 @@
                     <h2 data-lang="blog_title" class="text-3xl md:text-4xl font-bold">Blog'dan Son Yazılar</h2>
                     <p data-lang="blog_subtitle" class="text-lg mt-2 text-gray-600 dark:text-gray-400">Yapay zekâ dünyasındaki en son trendler ve analizler.</p>
                 </div>
-                <div class="grid md:grid-cols-3 gap-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                     <!-- Blog Post 1 -->
                     <div class="bg-white dark:bg-queva-dark/50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="100">
                         <img src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="AI Future 2025" class="w-full h-48 object-cover">
