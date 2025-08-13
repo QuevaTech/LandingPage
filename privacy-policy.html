@@ -14,22 +14,133 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
+        /* Apple macOS ve visionOS saydam cam efekti */
+        body {
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.1) 0%, 
+                rgba(255, 255, 255, 0.05) 50%, 
+                rgba(255, 255, 255, 0.1) 100%);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        
+        .dark body {
+            background: linear-gradient(135deg, 
+                rgba(15, 23, 42, 0.9) 0%, 
+                rgba(30, 41, 59, 0.8) 50%, 
+                rgba(15, 23, 42, 0.9) 100%);
+        }
+        
+        /* Navigation bar saydam cam */
+        #navbar {
+            background: rgba(255, 255, 255, 0.1) !important;
+            backdrop-filter: blur(20px) !important;
+            -webkit-backdrop-filter: blur(20px) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+        }
+        
+        .dark #navbar {
+            background: rgba(15, 23, 42, 0.3) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+        }
+        
+        /* Sections için saydam arka plan */
+        section {
+            background: rgba(255, 255, 255, 0.05) !important;
+            backdrop-filter: blur(10px) !important;
+            -webkit-backdrop-filter: blur(10px) !important;
+        }
+        
+        .dark section {
+            background: rgba(15, 23, 42, 0.2) !important;
+        }
+        
+        /* Footer saydam cam */
+        footer {
+            background: rgba(15, 23, 42, 0.8) !important;
+            backdrop-filter: blur(20px) !important;
+            -webkit-backdrop-filter: blur(20px) !important;
+            border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+        }
+        
+        /* İçerik kutuları saydam cam */
+        .bg-gray-50 {
+            background: rgba(255, 255, 255, 0.1) !important;
+            backdrop-filter: blur(10px) !important;
+            -webkit-backdrop-filter: blur(10px) !important;
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+        }
+        
+        .dark .bg-gray-50,
+        .dark .bg-gray-800 {
+            background: rgba(15, 23, 42, 0.3) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        }
+        
+        /* Uyarı kutuları saydam cam */
+        .bg-red-50 {
+            background: rgba(239, 68, 68, 0.1) !important;
+            backdrop-filter: blur(10px) !important;
+            -webkit-backdrop-filter: blur(10px) !important;
+        }
+        
+        .bg-yellow-50 {
+            background: rgba(245, 158, 11, 0.1) !important;
+            backdrop-filter: blur(10px) !important;
+            -webkit-backdrop-filter: blur(10px) !important;
+        }
+        
+        .bg-blue-50 {
+            background: rgba(59, 130, 246, 0.1) !important;
+            backdrop-filter: blur(10px) !important;
+            -webkit-backdrop-filter: blur(10px) !important;
+        }
+        
+        .bg-green-50 {
+            background: rgba(34, 197, 94, 0.1) !important;
+            backdrop-filter: blur(10px) !important;
+            -webkit-backdrop-filter: blur(10px) !important;
+        }
+        
+        /* Dark mode uyarı kutuları */
+        .dark .bg-red-50,
+        .dark .bg-red-900\/20 {
+            background: rgba(127, 29, 29, 0.3) !important;
+        }
+        
+        .dark .bg-yellow-50,
+        .dark .bg-yellow-900\/20 {
+            background: rgba(120, 53, 15, 0.3) !important;
+        }
+        
+        .dark .bg-blue-50,
+        .dark .bg-blue-900\/20 {
+            background: rgba(30, 58, 138, 0.3) !important;
+        }
+        
+        .dark .bg-green-50,
+        .dark .bg-green-900\/20 {
+            background: rgba(20, 83, 45, 0.3) !important;
+        }
+        
         /* Custom scrollbar for a more modern look */
         ::-webkit-scrollbar {
             width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #f1f1f1;
+            background: rgba(241, 245, 249, 0.1);
+            backdrop-filter: blur(10px);
         }
         ::-webkit-scrollbar-thumb {
-            background: #4F46E5;
+            background: rgba(79, 70, 229, 0.6);
             border-radius: 10px;
+            backdrop-filter: blur(10px);
         }
         .dark ::-webkit-scrollbar-track {
-            background: #111827;
+            background: rgba(15, 23, 42, 0.3);
         }
         .dark ::-webkit-scrollbar-thumb {
-            background: #A855F7;
+            background: rgba(168, 85, 247, 0.6);
         }
         /* Style for active language */
         .lang-switcher .active {
@@ -146,13 +257,6 @@
                             <li data-lang="privacy_pages">Ziyaret edilen sayfalar</li>
                             <li data-lang="privacy_time">Ziyaret süresi</li>
                         </ul>
-                        
-                        <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg mt-4">
-                            <p class="text-sm text-blue-800 dark:text-blue-200">
-                                <strong data-lang="privacy_github_note_title">Not:</strong>
-                                <span data-lang="privacy_github_note_desc">Bu site GitHub Pages üzerinde barındırılmaktadır. GitHub'ın kendi gizlilik politikası geçerli olabilir.</span>
-                            </p>
-                        </div>
                     </div>
                 </div>
 
@@ -435,13 +539,11 @@
                 privacy_message: "İletişim mesajları",
                 privacy_technical_info: "Teknik Bilgiler",
                 privacy_technical_desc: "Web sitemizi ziyaret ettiğinizde toplanabilecek bilgiler:",
-                privacy_ip: "IP adresi (GitHub Pages tarafından)",
+                privacy_ip: "IP adresi (sunucu logları)",
                 privacy_browser: "Tarayıcı türü ve sürümü (opsiyonel)",
                 privacy_device: "Cihaz bilgileri (genel)",
                 privacy_pages: "Ziyaret edilen sayfalar (genel)",
                 privacy_time: "Ziyaret süresi (yaklaşık)",
-                privacy_github_note_title: "Not:",
-                privacy_github_note_desc: "Bu site GitHub Pages üzerinde barındırılmaktadır. GitHub'ın kendi gizlilik politikası geçerli olabilir.",
                 privacy_use_title: "Bilgileri Nasıl Kullanırız",
                 privacy_use_intro: "Topladığımız kişisel bilgileri aşağıdaki amaçlarla kullanırız:",
                 privacy_use_contact: "İletişim taleplerinize yanıt vermek",
@@ -571,13 +673,11 @@
                 privacy_message: "Contact messages",
                 privacy_technical_info: "Technical Information",
                 privacy_technical_desc: "Information that may be collected when you visit our website:",
-                privacy_ip: "IP address (by GitHub Pages)",
+                privacy_ip: "IP address (server logs)",
                 privacy_browser: "Browser type and version (optional)",
                 privacy_device: "Device information (general)",
                 privacy_pages: "Pages visited (general)",
                 privacy_time: "Visit duration (approximate)",
-                privacy_github_note_title: "Note:",
-                privacy_github_note_desc: "This site is hosted on GitHub Pages. GitHub's own privacy policy may apply.",
                 privacy_use_title: "How We Use Information",
                 privacy_use_intro: "We use the personal information we collect for the following purposes:",
                 privacy_use_contact: "Respond to your contact requests",

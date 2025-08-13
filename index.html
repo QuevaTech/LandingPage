@@ -21,23 +21,132 @@
 
     <!-- Custom Styles & Tailwind Config -->
     <style>
-        /* Custom scrollbar for a more modern look (optional) */
+        /* Horizontal overflow fix */
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+        }
+        
+        /* Container overflow control */
+        .container {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+        
+        /* Grid responsive fixes */
+        .grid {
+            overflow-x: hidden;
+        }
+        
+        /* Ensure sections don't overflow */
+        section {
+            overflow-x: hidden;
+            width: 100%;
+        }
+        
+        /* Fix for any potential margin/padding issues */
+        * {
+            box-sizing: border-box;
+        }
+        
+        /* Hide scrollbars for cleaner look */
         ::-webkit-scrollbar {
-            width: 8px;
+            display: none;
+            width: 0px;
         }
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
+        
+        /* Hide scrollbars in Firefox */
+        * {
+            scrollbar-width: none;
         }
-        ::-webkit-scrollbar-thumb {
-            background: #4F46E5;
-            border-radius: 10px;
+        
+        /* Ensure smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+            -ms-overflow-style: none; /* Internet Explorer 10+ */
         }
-        .dark ::-webkit-scrollbar-track {
-            background: #111827;
+        /* Apple macOS ve visionOS saydam cam efekti */
+        body {
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.1) 0%, 
+                rgba(255, 255, 255, 0.05) 50%, 
+                rgba(255, 255, 255, 0.1) 100%);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
         }
-        .dark ::-webkit-scrollbar-thumb {
-            background: #A855F7;
+        
+        .dark body {
+            background: linear-gradient(135deg, 
+                rgba(15, 23, 42, 0.9) 0%, 
+                rgba(30, 41, 59, 0.8) 50%, 
+                rgba(15, 23, 42, 0.9) 100%);
         }
+        
+        /* Saydam cam kartları */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.15) !important;
+            backdrop-filter: blur(25px) !important;
+            -webkit-backdrop-filter: blur(25px) !important;
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+            box-shadow: 
+                0 8px 32px 0 rgba(31, 38, 135, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+        }
+        
+        .dark .glass-card {
+            background: rgba(15, 23, 42, 0.3) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            box-shadow: 
+                0 8px 32px 0 rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+        }
+        
+        /* Navigation bar saydam cam */
+        #navbar {
+            background: rgba(255, 255, 255, 0.1) !important;
+            backdrop-filter: blur(20px) !important;
+            -webkit-backdrop-filter: blur(20px) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+        }
+        
+        .dark #navbar {
+            background: rgba(15, 23, 42, 0.3) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+        }
+        
+        /* Sections için saydam arka plan */
+        section {
+            background: rgba(255, 255, 255, 0.05) !important;
+            backdrop-filter: blur(10px) !important;
+            -webkit-backdrop-filter: blur(10px) !important;
+        }
+        
+        .dark section {
+            background: rgba(15, 23, 42, 0.2) !important;
+        }
+        
+        /* Footer saydam cam */
+        footer {
+            background: rgba(15, 23, 42, 0.8) !important;
+            backdrop-filter: blur(20px) !important;
+            -webkit-backdrop-filter: blur(20px) !important;
+            border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+        }
+        
+        /* Form elemanları saydam cam */
+        .contact-input {
+            background: rgba(255, 255, 255, 0.1) !important;
+            backdrop-filter: blur(10px) !important;
+            -webkit-backdrop-filter: blur(10px) !important;
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+        }
+        
+        .dark .contact-input {
+            background: rgba(15, 23, 42, 0.3) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        }
+        
         /* Style for active language */
         .lang-switcher .active {
             color: #4F46E5;
@@ -149,8 +258,8 @@
                     Verilerinizi değere dönüştüren, iş süreçlerinizi otomatize eden yenilikçi AI platformu.
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
-                    <a href="#contact" data-lang="hero_cta1" class="w-full sm:w-auto bg-white text-queva-indigo font-bold py-3 px-8 rounded-full hover:bg-opacity-90 transition-all duration-300">Demo Talep Et</a>
-                    <a href="#" data-lang="hero_cta2" class="w-full sm:w-auto border-2 border-white text-white font-bold py-3 px-8 rounded-full hover:bg-white hover:text-queva-indigo transition-all duration-300">Teknik Doküman</a>
+                    <a href="#contact" data-lang="hero_cta1" class="glass-button-primary w-full sm:w-auto font-bold py-4 px-8 rounded-full transition-all duration-300 text-center">Demo Talep Et</a>
+                    <a href="#" data-lang="hero_cta2" class="glass-button glass-button-white w-full sm:w-auto font-bold py-4 px-8 rounded-full transition-all duration-300 text-center">Teknik Doküman</a>
                 </div>
             </div>
         </section>
@@ -166,7 +275,7 @@
                     <h2 data-lang="products_title" class="text-3xl md:text-4xl font-bold">Ürün Portföyümüz</h2>
                     <p data-lang="products_subtitle" class="text-lg mt-2 text-gray-600 dark:text-gray-400">Gerçek rastgelelik teknolojisi ile güvenli çözümler</p>
                 </div>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                     <!-- Parola API -->
                     <div class="glass-card" data-aos="fade-up" data-aos-delay="100">
                         <div class="p-8">
@@ -251,7 +360,7 @@
                 <!-- Core Technology Stack -->
                 <div class="mb-16" data-aos="fade-up">
                     <h3 data-lang="platform_tech_title" class="text-2xl font-bold text-center mb-12">Nasıl Yaptığımız: Core Technology Stack</h3>
-                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
                         <div class="glass-card" data-aos="fade-up" data-aos-delay="100">
                             <div class="p-6">
                                 <div class="text-queva-indigo dark:text-queva-purple mb-4">
@@ -310,7 +419,7 @@
                 <!-- Enterprise Architecture -->
                 <div class="mb-16" data-aos="fade-up">
                     <h3 data-lang="platform_arch_title" class="text-2xl font-bold text-center mb-12">Altyapımız: Enterprise-Grade Architecture</h3>
-                    <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
                         <div class="text-center" data-aos="fade-up" data-aos-delay="100">
                             <div class="bg-gradient-to-br from-queva-indigo to-queva-purple text-white p-4 rounded-xl mb-4 mx-auto w-16 h-16 flex items-center justify-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -375,7 +484,7 @@
                 <!-- Platform Features -->
                 <div class="mb-16" data-aos="fade-up">
                     <h3 data-lang="platform_features_title" class="text-2xl font-bold text-center mb-12">Platform Features</h3>
-                    <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
                         <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow" data-aos="fade-up" data-aos-delay="100">
                             <div class="text-queva-indigo dark:text-queva-purple mb-4">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -440,7 +549,7 @@
                 <!-- Integration Capabilities -->
                 <div data-aos="fade-up">
                     <h3 data-lang="platform_integration_title" class="text-2xl font-bold text-center mb-12">Integration Capabilities</h3>
-                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
                         <div class="text-center" data-aos="fade-up" data-aos-delay="100">
                             <div class="bg-queva-indigo/10 dark:bg-queva-purple/10 p-6 rounded-xl mb-4">
                                 <h4 data-lang="platform_int_data" class="font-semibold mb-2">Data Sources</h4>
@@ -634,18 +743,102 @@
         6. Technology Stack
         =================================
         -->
-        <section class="py-12 bg-white dark:bg-queva-dark/50">
+        <section class="py-20">
             <div class="container mx-auto px-4" data-aos="fade-up">
-                <p data-lang="tech_stack_title" class="text-center text-gray-500 dark:text-gray-400 font-semibold mb-6">Entegre Olduğumuz Teknolojiler</p>
-                <div class="flex justify-center items-center flex-wrap gap-x-12 gap-y-6">
-                    <img src="https://placehold.co/120x40/FFFFFF/000000?text=Python" alt="Python Logo" class="h-10 opacity-60 hover:opacity-100 transition-opacity">
-                    <img src="https://placehold.co/120x40/FFFFFF/000000?text=TensorFlow" alt="TensorFlow Logo" class="h-10 opacity-60 hover:opacity-100 transition-opacity">
-                    <img src="https://placehold.co/120x40/FFFFFF/000000?text=PyTorch" alt="PyTorch Logo" class="h-10 opacity-60 hover:opacity-100 transition-opacity">
-                    <img src="https://placehold.co/120x40/FFFFFF/000000?text=C%2B%2B" alt="C++ Logo" class="h-10 opacity-60 hover:opacity-100 transition-opacity">
-                    <img src="https://placehold.co/120x40/FFFFFF/000000?text=AWS" alt="AWS Logo" class="h-10 opacity-60 hover:opacity-100 transition-opacity">
-                    <img src="https://placehold.co/120x40/FFFFFF/000000?text=Docker" alt="Docker Logo" class="h-10 opacity-60 hover:opacity-100 transition-opacity">
-                    <img src="https://placehold.co/120x40/FFFFFF/000000?text=Kubernetes" alt="Kubernetes Logo" class="h-10 opacity-60 hover:opacity-100 transition-opacity">
-                    <img src="https://placehold.co/120x40/FFFFFF/000000?text=Spark" alt="Spark Logo" class="h-10 opacity-60 hover:opacity-100 transition-opacity">
+                <div class="text-center mb-12">
+                    <h2 data-lang="tech_stack_title" class="text-3xl md:text-4xl font-bold mb-4">Entegre Olduğumuz Teknolojiler</h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-400">Modern ve güvenilir teknolojilerle güçlü çözümler</p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <!-- Python -->
+                    <div class="tech-card group">
+                        <div class="flex flex-col items-center p-6">
+                            <div class="w-16 h-16 mb-4 rounded-xl bg-gradient-to-br from-blue-500 to-yellow-500 flex items-center justify-center text-white font-bold text-xl group-hover:scale-110 transition-transform duration-300">
+                                Py
+                            </div>
+                            <h3 class="font-semibold text-gray-900 dark:text-white">Python</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400 text-center mt-2">AI/ML Development</p>
+                        </div>
+                    </div>
+                    
+                    <!-- TensorFlow -->
+                    <div class="tech-card group">
+                        <div class="flex flex-col items-center p-6">
+                            <div class="w-16 h-16 mb-4 rounded-xl bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center text-white font-bold text-lg group-hover:scale-110 transition-transform duration-300">
+                                TF
+                            </div>
+                            <h3 class="font-semibold text-gray-900 dark:text-white">TensorFlow</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400 text-center mt-2">Deep Learning</p>
+                        </div>
+                    </div>
+                    
+                    <!-- PyTorch -->
+                    <div class="tech-card group">
+                        <div class="flex flex-col items-center p-6">
+                            <div class="w-16 h-16 mb-4 rounded-xl bg-gradient-to-br from-red-500 to-pink-500 flex items-center justify-center text-white font-bold text-lg group-hover:scale-110 transition-transform duration-300">
+                                PT
+                            </div>
+                            <h3 class="font-semibold text-gray-900 dark:text-white">PyTorch</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400 text-center mt-2">Neural Networks</p>
+                        </div>
+                    </div>
+                    
+                    <!-- C++ -->
+                    <div class="tech-card group">
+                        <div class="flex flex-col items-center p-6">
+                            <div class="w-16 h-16 mb-4 rounded-xl bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center text-white font-bold text-lg group-hover:scale-110 transition-transform duration-300">
+                                C++
+                            </div>
+                            <h3 class="font-semibold text-gray-900 dark:text-white">C++</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400 text-center mt-2">Performance</p>
+                        </div>
+                    </div>
+                    
+                    <!-- AWS -->
+                    <div class="tech-card group">
+                        <div class="flex flex-col items-center p-6">
+                            <div class="w-16 h-16 mb-4 rounded-xl bg-gradient-to-br from-orange-400 to-yellow-500 flex items-center justify-center text-white font-bold text-lg group-hover:scale-110 transition-transform duration-300">
+                                AWS
+                            </div>
+                            <h3 class="font-semibold text-gray-900 dark:text-white">AWS</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400 text-center mt-2">Cloud Platform</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Docker -->
+                    <div class="tech-card group">
+                        <div class="flex flex-col items-center p-6">
+                            <div class="w-16 h-16 mb-4 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white font-bold text-lg group-hover:scale-110 transition-transform duration-300">
+                                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M13.983 11.078h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.185v1.888c0 .102.083.185.185.185m-2.954-5.43h2.118a.186.186 0 00.186-.186V3.574a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.186"/>
+                                </svg>
+                            </div>
+                            <h3 class="font-semibold text-gray-900 dark:text-white">Docker</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400 text-center mt-2">Containerization</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Kubernetes -->
+                    <div class="tech-card group">
+                        <div class="flex flex-col items-center p-6">
+                            <div class="w-16 h-16 mb-4 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center text-white font-bold text-lg group-hover:scale-110 transition-transform duration-300">
+                                K8s
+                            </div>
+                            <h3 class="font-semibold text-gray-900 dark:text-white">Kubernetes</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400 text-center mt-2">Orchestration</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Spark -->
+                    <div class="tech-card group">
+                        <div class="flex flex-col items-center p-6">
+                            <div class="w-16 h-16 mb-4 rounded-xl bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center text-white font-bold text-lg group-hover:scale-110 transition-transform duration-300">
+                                ⚡
+                            </div>
+                            <h3 class="font-semibold text-gray-900 dark:text-white">Apache Spark</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400 text-center mt-2">Big Data</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -661,7 +854,7 @@
                     <h2 data-lang="blog_title" class="text-3xl md:text-4xl font-bold">Blog'dan Son Yazılar</h2>
                     <p data-lang="blog_subtitle" class="text-lg mt-2 text-gray-600 dark:text-gray-400">Yapay zekâ dünyasındaki en son trendler ve analizler.</p>
                 </div>
-                <div class="grid md:grid-cols-3 gap-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                     <!-- Blog Post 1 -->
                     <div class="bg-white dark:bg-queva-dark/50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="100">
                         <img src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="AI Future 2025" class="w-full h-48 object-cover">
@@ -678,12 +871,14 @@
                                 <span class="px-2 py-1 bg-queva-purple/10 text-queva-purple text-xs rounded-full">Future Tech</span>
                                 <span class="px-2 py-1 bg-queva-sky/10 text-queva-sky text-xs rounded-full">Innovation</span>
                             </div>
-                            <a href="blog/ai-future-2025.html" data-lang="blog_readmore" class="font-bold text-queva-indigo dark:text-queva-purple hover:underline flex items-center">
-                                Devamını Oku 
-                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                                </svg>
-                            </a>
+                            <div class="mt-4">
+                                <a href="blog/ai-future-2025.html" data-lang="blog_readmore" class="glass-button inline-flex items-center px-6 py-3 rounded-full font-semibold transition-all duration-300 group">
+                                    <span>Devamını Oku</span>
+                                    <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                    </svg>
+                                </a>
+                            </div>
                         </div>
                     </div>
                     <!-- Blog Post 2 -->
@@ -702,12 +897,14 @@
                                 <span class="px-2 py-1 bg-queva-indigo/10 text-queva-indigo text-xs rounded-full">Data Protection</span>
                                 <span class="px-2 py-1 bg-queva-purple/10 text-queva-purple text-xs rounded-full">TRNG</span>
                             </div>
-                            <a href="blog/data-security-2025.html" data-lang="blog_readmore2" class="font-bold text-queva-indigo dark:text-queva-purple hover:underline flex items-center">
-                                Devamını Oku 
-                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                                </svg>
-                            </a>
+                            <div class="mt-4">
+                                <a href="blog/data-security-2025.html" data-lang="blog_readmore2" class="glass-button inline-flex items-center px-6 py-3 rounded-full font-semibold transition-all duration-300 group">
+                                    <span>Devamını Oku</span>
+                                    <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                    </svg>
+                                </a>
+                            </div>
                         </div>
                     </div>
                     <!-- Blog Post 3 -->
@@ -726,12 +923,14 @@
                                 <span class="px-2 py-1 bg-queva-indigo/10 text-queva-indigo text-xs rounded-full">DevOps</span>
                                 <span class="px-2 py-1 bg-queva-sky/10 text-queva-sky text-xs rounded-full">Production</span>
                             </div>
-                            <a href="blog/mlops-2025.html" data-lang="blog_readmore3" class="font-bold text-queva-indigo dark:text-queva-purple hover:underline flex items-center">
-                                Devamını Oku 
-                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                                </svg>
-                            </a>
+                            <div class="mt-4">
+                                <a href="blog/mlops-2025.html" data-lang="blog_readmore3" class="glass-button inline-flex items-center px-6 py-3 rounded-full font-semibold transition-all duration-300 group">
+                                    <span>Devamını Oku</span>
+                                    <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                    </svg>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -763,13 +962,13 @@
                             <label for="message" data-lang="form_message" class="block mb-2 text-sm font-medium">Mesajınız</label>
                             <textarea id="message" rows="6" class="contact-input" data-lang-placeholder="form_placeholder"></textarea>
                         </div>
-                        <button type="submit" id="send-email-btn" data-lang="form_submit" class="w-full bg-queva-indigo text-white font-bold py-3 px-8 rounded-full hover:bg-queva-purple transition-all duration-300">Mesajı Gönder</button>
+                        <button type="submit" id="send-email-btn" data-lang="form_submit" class="glass-button w-full py-4 px-8 rounded-full font-bold transition-all duration-300">Mesajı Gönder</button>
                         
                         <!-- Alternative Email Contact -->
                         <div class="mt-6 p-4 bg-queva-light dark:bg-queva-dark/50 rounded-lg border border-gray-200 dark:border-gray-700">
                             <p data-lang="form_alt_text" class="text-sm text-gray-600 dark:text-gray-400 mb-3">Form çalışmıyor mu? Doğrudan e-posta gönderin:</p>
                             <a href="mailto:info@queva.tech?subject=QuevaTech İletişim&body=Merhaba QuevaTech ekibi,%0D%0A%0D%0AProjem hakkında bilgi almak istiyorum.%0D%0A%0D%0AAdım: [Adınızı yazın]%0D%0AE-posta: [E-posta adresinizi yazın]%0D%0AMesajım: [Mesajınızı yazın]%0D%0A%0D%0ATeşekkürler." 
-                               class="inline-flex items-center px-4 py-2 bg-queva-purple text-white rounded-lg hover:bg-queva-indigo transition-colors">
+                               class="glass-button inline-flex items-center px-4 py-2 rounded-lg transition-all duration-300">
                                 <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
@@ -977,9 +1176,9 @@
                 blog2_desc: "Cyber security landscape 2025'te dramatik değişimler yaşıyor. Zero-trust architecture, quantum-resistant encryption ve AI-powered threat detection artık zorunluluk. GDPR, KVKV ve yeni regulation'lar data governance'ı yeniden şekillendiriyor. Özellikle TRNG teknolojisi ile enhanced cryptographic security, modern enterprise'ların vazgeçilmez savunma stratejisi haline geliyor.",
                 blog3_title: "MLOps: Modellerinizi Hayata Geçirin",
                 blog3_desc: "MLOps 2025'te enterprise AI'ın omurgası haline geldi. Continuous integration, automated model training ve production monitoring ile model lifecycle management devrim yaşıyor. Kubernetes-native ML pipelines, feature stores ve model registries ile deployment süreçleri %80 hızlandı. Docker containers, MLflow tracking ve comprehensive monitoring dashboards modern ML stack'in temel bileşenleri.",
-                blog_readmore: "Devamını Oku →",
-                blog_readmore2: "Devamını Oku →",
-                blog_readmore3: "Devamını Oku →",
+                blog_readmore: "Devamını Oku",
+                blog_readmore2: "Devamını Oku",
+                blog_readmore3: "Devamını Oku",
                 // Contact
                 contact_title: "Bizimle İletişime Geçin",
                 contact_subtitle: "Projeniz hakkında konuşmak veya demo talep etmek için formu doldurun.",
@@ -1121,9 +1320,9 @@
                 blog2_desc: "The cyber security landscape is experiencing dramatic changes in 2025. Zero-trust architecture, quantum-resistant encryption, and AI-powered threat detection are now necessities. GDPR, KVKK, and new regulations are reshaping data governance. Enhanced cryptographic security with TRNG technology is becoming an indispensable defense strategy for modern enterprises.",
                 blog3_title: "MLOps: Bring Your Models to Life",
                 blog3_desc: "MLOps has become the backbone of enterprise AI in 2025. Model lifecycle management is revolutionizing with continuous integration, automated model training, and production monitoring. Deployment processes have accelerated by 80% with Kubernetes-native ML pipelines, feature stores, and model registries. Docker containers, MLflow tracking, and comprehensive monitoring dashboards are essential components of the modern ML stack.",
-                blog_readmore: "Read More →",
-                blog_readmore2: "Read More →",
-                blog_readmore3: "Read More →",
+                blog_readmore: "Read More",
+                blog_readmore2: "Read More",
+                blog_readmore3: "Read More",
                 // Contact
                 contact_title: "Get In Touch",
                 contact_subtitle: "Fill out the form to talk about your project or to request a demo.",
@@ -1149,6 +1348,18 @@
                 footer_copyright: "© 2025 QuevaTech. All rights reserved.",
             }
         };
+
+        // Sayfa yenilendiğinde üst kısma scroll yap
+        window.addEventListener('load', function() {
+            // URL'deki hash'i temizle ve üst kısma scroll yap
+            if (window.location.hash) {
+                history.replaceState(null, null, window.location.pathname);
+            }
+            // Kısa bir gecikme ile üst kısma scroll yap
+            setTimeout(function() {
+                window.scrollTo(0, 0);
+            }, 100);
+        });
 
         // Initialize AOS
         AOS.init({
@@ -1394,47 +1605,186 @@ Thank you.`;
         const style = document.createElement('style');
         style.innerHTML = `
             .glass-card {
-                background: rgba(255, 255, 255, 0.5);
-                backdrop-filter: blur(10px);
-                -webkit-backdrop-filter: blur(10px);
+                background: rgba(255, 255, 255, 0.15);
+                backdrop-filter: blur(25px);
+                -webkit-backdrop-filter: blur(25px);
                 border-radius: 1.5rem; /* 2xl */
                 border: 1px solid rgba(255, 255, 255, 0.2);
                 transition: all 0.3s ease-in-out;
-                box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+                box-shadow: 
+                    0 8px 32px 0 rgba(31, 38, 135, 0.15),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.3);
             }
             .dark .glass-card {
-                background: rgba(30, 41, 59, 0.5); /* slate-800/50 */
+                background: rgba(15, 23, 42, 0.3); /* slate-900/30 */
                 border: 1px solid rgba(255, 255, 255, 0.1);
-                box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+                box-shadow: 
+                    0 8px 32px 0 rgba(0, 0, 0, 0.3),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.1);
             }
             .glass-card:hover {
                 transform: scale(1.04);
-                box-shadow: 0 16px 40px 0 rgba(31, 38, 135, 0.2);
+                box-shadow: 
+                    0 16px 40px 0 rgba(31, 38, 135, 0.25),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.4);
             }
             .dark .glass-card:hover {
-                box-shadow: 0 16px 40px 0 rgba(0, 0, 0, 0.3);
+                box-shadow: 
+                    0 16px 40px 0 rgba(0, 0, 0, 0.4),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.15);
             }
             .contact-input {
                 width: 100%;
                 padding: 0.75rem;
                 border-radius: 0.75rem; /* 2xl */
-                border: 1px solid #D1D5DB; /* gray-300 */
-                background-color: #F9FAFB; /* gray-50 */
-                transition: border-color 0.2s, box-shadow 0.2s;
+                background: rgba(255, 255, 255, 0.25);
+                backdrop-filter: blur(15px);
+                -webkit-backdrop-filter: blur(15px);
+                border: 1.5px solid rgba(79, 70, 229, 0.3);
+                transition: all 0.3s ease;
+                color: #374151;
+                box-shadow: 
+                    0 4px 16px 0 rgba(79, 70, 229, 0.1),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.4);
             }
             .dark .contact-input {
-                background-color: #1F2937; /* gray-800 */
-                border-color: #4B5563; /* gray-600 */
+                background: rgba(15, 23, 42, 0.4);
+                border: 1.5px solid rgba(168, 85, 247, 0.3);
                 color: #F3F4F6; /* gray-100 */
+                box-shadow: 
+                    0 4px 16px 0 rgba(168, 85, 247, 0.1),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            }
+            .contact-input::placeholder {
+                color: rgba(107, 114, 128, 0.7);
+            }
+            .dark .contact-input::placeholder {
+                color: rgba(156, 163, 175, 0.7);
             }
             .contact-input:focus {
                 outline: none;
                 border-color: #4F46E5; /* queva-indigo */
-                box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.3);
+                background: rgba(255, 255, 255, 0.35);
+                box-shadow: 
+                    0 0 0 3px rgba(79, 70, 229, 0.2),
+                    0 8px 25px 0 rgba(79, 70, 229, 0.15),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+                transform: translateY(-1px);
             }
             .dark .contact-input:focus {
                 border-color: #A855F7; /* queva-purple */
-                box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.3);
+                background: rgba(15, 23, 42, 0.5);
+                box-shadow: 
+                    0 0 0 3px rgba(168, 85, 247, 0.2),
+                    0 8px 25px 0 rgba(168, 85, 247, 0.15),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+            }
+            /* Tech Cards saydam cam */
+            .tech-card {
+                background: rgba(255, 255, 255, 0.15);
+                backdrop-filter: blur(25px);
+                -webkit-backdrop-filter: blur(25px);
+                border-radius: 1rem;
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                transition: all 0.3s ease-in-out;
+                box-shadow: 
+                    0 8px 32px 0 rgba(31, 38, 135, 0.15),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            }
+            .dark .tech-card {
+                background: rgba(15, 23, 42, 0.3);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                box-shadow: 
+                    0 8px 32px 0 rgba(0, 0, 0, 0.3),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            }
+            .tech-card:hover {
+                transform: translateY(-4px);
+                box-shadow: 
+                    0 16px 40px 0 rgba(31, 38, 135, 0.25),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            }
+            .dark .tech-card:hover {
+                box-shadow: 
+                    0 16px 40px 0 rgba(0, 0, 0, 0.4),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+            }
+            /* Glass Button saydam cam buton */
+            .glass-button {
+                background: rgba(79, 70, 229, 0.15);
+                backdrop-filter: blur(15px);
+                -webkit-backdrop-filter: blur(15px);
+                border: 1px solid rgba(79, 70, 229, 0.3);
+                color: #4F46E5;
+                box-shadow: 
+                    0 4px 16px 0 rgba(79, 70, 229, 0.25),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            }
+            .dark .glass-button {
+                background: rgba(168, 85, 247, 0.15);
+                border: 1px solid rgba(168, 85, 247, 0.3);
+                color: #A855F7;
+                box-shadow: 
+                    0 4px 16px 0 rgba(168, 85, 247, 0.25),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+            }
+            .glass-button:hover {
+                background: rgba(79, 70, 229, 0.25);
+                border-color: rgba(79, 70, 229, 0.4);
+                transform: translateY(-2px);
+                box-shadow: 
+                    0 8px 25px 0 rgba(79, 70, 229, 0.35),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+            }
+            .dark .glass-button:hover {
+                background: rgba(168, 85, 247, 0.25);
+                border-color: rgba(168, 85, 247, 0.4);
+                box-shadow: 
+                    0 8px 25px 0 rgba(168, 85, 247, 0.35),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            }
+            
+            /* Primary Glass Button - Ana CTA buton için */
+            .glass-button-primary {
+                background: rgba(79, 70, 229, 0.35);
+                backdrop-filter: blur(15px);
+                -webkit-backdrop-filter: blur(15px);
+                border: 1px solid rgba(79, 70, 229, 0.5);
+                color: #ffffff;
+                box-shadow: 
+                    0 6px 20px 0 rgba(79, 70, 229, 0.4),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+            }
+            .dark .glass-button-primary {
+                background: rgba(168, 85, 247, 0.35);
+                border: 1px solid rgba(168, 85, 247, 0.5);
+                color: #ffffff;
+                box-shadow: 
+                    0 6px 20px 0 rgba(168, 85, 247, 0.4),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            }
+            .glass-button-primary:hover {
+                background: rgba(79, 70, 229, 0.5);
+                border-color: rgba(79, 70, 229, 0.6);
+                transform: translateY(-3px);
+                box-shadow: 
+                    0 12px 35px 0 rgba(79, 70, 229, 0.5),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+            }
+            .dark .glass-button-primary:hover {
+                background: rgba(168, 85, 247, 0.5);
+                border-color: rgba(168, 85, 247, 0.6);
+                box-shadow: 
+                    0 12px 35px 0 rgba(168, 85, 247, 0.5),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            }
+            
+            /* White Text Glass Button */
+            .glass-button-white {
+                color: #ffffff !important;
+            }
+            .dark .glass-button-white {
+                color: #ffffff !important;
             }
             .swiper-pagination-bullet-active {
                 background: #4F46E5 !important;
