@@ -14,22 +14,100 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
+        /* Apple macOS ve visionOS saydam cam efekti */
+        body {
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.1) 0%, 
+                rgba(255, 255, 255, 0.05) 50%, 
+                rgba(255, 255, 255, 0.1) 100%);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        
+        .dark body {
+            background: linear-gradient(135deg, 
+                rgba(15, 23, 42, 0.9) 0%, 
+                rgba(30, 41, 59, 0.8) 50%, 
+                rgba(15, 23, 42, 0.9) 100%);
+        }
+        
+        /* Navigation bar saydam cam */
+        #navbar {
+            background: rgba(255, 255, 255, 0.1) !important;
+            backdrop-filter: blur(20px) !important;
+            -webkit-backdrop-filter: blur(20px) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+        }
+        
+        .dark #navbar {
+            background: rgba(15, 23, 42, 0.3) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+        }
+        
+        /* Sections için saydam arka plan */
+        section {
+            background: rgba(255, 255, 255, 0.05) !important;
+            backdrop-filter: blur(10px) !important;
+            -webkit-backdrop-filter: blur(10px) !important;
+        }
+        
+        .dark section {
+            background: rgba(15, 23, 42, 0.2) !important;
+        }
+        
+        /* Footer saydam cam */
+        footer {
+            background: rgba(15, 23, 42, 0.8) !important;
+            backdrop-filter: blur(20px) !important;
+            -webkit-backdrop-filter: blur(20px) !important;
+            border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+        }
+        
+        /* Blog container saydam cam */
+        .blog-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 1rem;
+        }
+        
+        .dark .blog-container {
+            background: rgba(15, 23, 42, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Related posts saydam cam */
+        .related-post {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .dark .related-post {
+            background: rgba(15, 23, 42, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
         /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #f1f1f1;
+            background: rgba(241, 245, 249, 0.1);
+            backdrop-filter: blur(10px);
         }
         ::-webkit-scrollbar-thumb {
-            background: #4F46E5;
+            background: rgba(79, 70, 229, 0.6);
             border-radius: 10px;
+            backdrop-filter: blur(10px);
         }
         .dark ::-webkit-scrollbar-track {
-            background: #111827;
+            background: rgba(15, 23, 42, 0.3);
         }
         .dark ::-webkit-scrollbar-thumb {
-            background: #A855F7;
+            background: rgba(168, 85, 247, 0.6);
         }
         /* Active language styling */
         .lang-switcher .active {
@@ -196,7 +274,7 @@
         <!-- Blog Content -->
         <section class="py-16">
             <div class="container mx-auto px-4">
-                <div class="max-w-4xl mx-auto">
+                <div class="max-w-4xl mx-auto blog-container p-8">
                     <!-- Featured Image -->
                     <div class="mb-8 rounded-2xl overflow-hidden shadow-lg">
                         <img src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&fit=crop" alt="AI Future 2025" class="w-full h-64 md:h-80 object-cover">
@@ -369,7 +447,7 @@
                         <h3 data-lang="related_posts" class="text-2xl font-bold mb-8">İlgili Yazılar</h3>
                         <div class="grid md:grid-cols-2 gap-8">
                             <a href="data-security-2025.html" class="block group">
-                                <div class="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                                <div class="related-post rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                                     <img src="https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop" alt="Data Security" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
                                     <div class="p-6">
                                         <h4 class="font-bold text-lg mb-2 group-hover:text-queva-indigo dark:group-hover:text-queva-purple transition-colors">Büyük Veri Çağında Güvenlik</h4>
@@ -378,7 +456,7 @@
                                 </div>
                             </a>
                             <a href="mlops-2025.html" class="block group">
-                                <div class="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                                <div class="related-post rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                                     <img src="https://images.pexels.com/photos/325229/pexels-photo-325229.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop" alt="MLOps" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
                                     <div class="p-6">
                                         <h4 class="font-bold text-lg mb-2 group-hover:text-queva-indigo dark:group-hover:text-queva-purple transition-colors">MLOps: Modellerinizi Hayata Geçirin</h4>
