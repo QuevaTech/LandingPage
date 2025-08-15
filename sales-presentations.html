@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Satış Sunumları - QuevaTech</title>
+    <meta name="description" content="QuevaTech AI platformu satış sunumları - Kurumsal güvenlik, finans ve diğer sektörlere özel sunumlar">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS (Animate on Scroll) Library -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
+    <!-- Custom Styles & Tailwind Config -->
+    <style>
+        /* Horizontal overflow fix */
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+            /* Mobile scroll improvements */
+            -webkit-overflow-scrolling: touch;
+            touch-action: pan-y;
+            overscroll-behavior: contain;
+        }
+        
+        /* Container overflow control */
+        .container {
+            max-width: 100%;
+            overflow-x: hidden;
+            /* Ensure touch scrolling works properly */
+            touch-action: pan-y;
+        }
+        
+        /* Grid responsive fixes */
+        .grid {
+            overflow-x: hidden;
+        }
+        
+        /* Ensure sections don't overflow */
+        section {
+            overflow-x: hidden;
+            width: 100%;
+        }
+        
+        /* Fix for any potential margin/padding issues */
+        * {
+            box-sizing: border-box;
+        }
+        
+        /* Hide scrollbars for cleaner look */
+        ::-webkit-scrollbar {
+            width: 0;
+            background: transparent;
+        }
+        
+        /* Hide scrollbars in Firefox */
+        html {
+            scrollbar-width: none;
+        }
+        
+        /* Ensure smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+            -ms-overflow-style: none; /* Internet Explorer 10+ */
+        }
+        
+        /* Mobile scroll optimization */
+        @media (max-width: 768px) {
+            body {
+                /* Better momentum scrolling on iOS */
+                -webkit-overflow-scrolling: touch;
+                /* Prevent horizontal scroll issues */
+                touch-action: pan-y;
+                /* Improve scroll performance */
+                will-change: scroll-position;
+            }
+            
+            /* Ensure all sections allow proper touch scrolling */
+            section {
+                touch-action: pan-y;
+                -webkit-overflow-scrolling: touch;
+            }
+        }
+
+        /* Custom QuevaTech Colors */
+        .text-queva-indigo { color: #4F46E5; }
+        .bg-queva-indigo { background-color: #4F46E5; }
+        .border-queva-indigo { border-color: #4F46E5; }
+        .text-queva-purple { color: #A855F7; }
+        .bg-queva-purple { background-color: #A855F7; }
+        .bg-queva-dark { background-color: #0F172A; }
+
+        /* Glass morphism effects */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 
+                0 8px 32px 0 rgba(31, 38, 135, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+        .dark .glass-card {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 
+                0 8px 32px 0 rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        /* Presentation Card Styles */
+        .presentation-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(79, 70, 229, 0.2);
+            box-shadow: 
+                0 8px 32px 0 rgba(31, 38, 135, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+        .dark .presentation-card {
+            background: rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(168, 85, 247, 0.2);
+            box-shadow: 
+                0 8px 32px 0 rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+        .presentation-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 
+                0 16px 40px 0 rgba(79, 70, 229, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+        }
+        .dark .presentation-card:hover {
+            box-shadow: 
+                0 16px 40px 0 rgba(168, 85, 247, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.15);
+        }
+
+        /* Download Button Styles */
+        .download-btn {
+            background: rgba(79, 70, 229, 0.2);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(79, 70, 229, 0.3);
+            color: #ffffff;
+            box-shadow: 
+                0 4px 16px 0 rgba(79, 70, 229, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            transition: all 0.3s ease;
+        }
+        .dark .download-btn {
+            background: rgba(168, 85, 247, 0.2);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            box-shadow: 
+                0 4px 16px 0 rgba(168, 85, 247, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+        .download-btn:hover {
+            background: rgba(79, 70, 229, 0.3);
+            border-color: rgba(79, 70, 229, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 
+                0 8px 25px 0 rgba(79, 70, 229, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+        }
+        .dark .download-btn:hover {
+            background: rgba(168, 85, 247, 0.3);
+            border-color: rgba(168, 85, 247, 0.4);
+            box-shadow: 
+                0 8px 25px 0 rgba(168, 85, 247, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.25);
+        }
+
+        /* Language selector */
+        .lang-selector {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .dark .lang-selector {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Mobile optimizations for glass effects */
+        @media (max-width: 768px) {
+            .glass-card,
+            .presentation-card,
+            .download-btn {
+                /* Reduce blur for better mobile performance */
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                /* Optimize rendering */
+                transform: translateZ(0);
+                -webkit-transform: translateZ(0);
+                /* Improve touch interaction */
+                -webkit-tap-highlight-color: transparent;
+            }
+        }
+        
+        /* Navigation bar saydam cam */
+        #navbar {
+            background: rgba(255, 255, 255, 0.1) !important;
+            backdrop-filter: blur(20px) !important;
+            -webkit-backdrop-filter: blur(20px) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+        }
+        
+        .dark #navbar {
+            background: rgba(15, 23, 42, 0.3) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+        }
+    </style>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        // Marka Kimliği Renkleri
+                        'queva-indigo': '#4F46E5',
+                        'queva-purple': '#A855F7',
+                        'queva-sky': '#0EA5E9',
+                        'queva-dark': '#111827',
+                        'queva-light': '#F3F4F6',
+                    },
+                    transitionDuration: {
+                        '500': '500ms',
+                    },
+                    transformOrigin: {
+                        '0': '0%',
+                    },
+                    zIndex: {
+                        '-1': '-1',
+                    },
+                    scale: {
+                        '104': '1.04',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="font-inter bg-queva-light dark:bg-queva-dark text-queva-dark dark:text-queva-light transition-colors duration-500">
+    
+    <!-- Navigation -->
+    <header id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="index.html" class="text-2xl font-bold">
+                    <span class="text-queva-indigo dark:text-white">Queva</span><span class="text-queva-purple dark:text-queva-purple font-extrabold">Tech</span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex items-center space-x-6">
+                    <a href="index.html#products" data-lang="nav_products" class="hover:text-queva-indigo dark:hover:text-queva-purple transition-colors">Ürünler</a>
+                    <a href="index.html#platform" data-lang="nav_platform" class="hover:text-queva-indigo dark:hover:text-queva-purple transition-colors">Platform</a>
+                    <a href="index.html#solutions" data-lang="nav_solutions" class="hover:text-queva-indigo dark:hover:text-queva-purple transition-colors">Çözümler</a>
+                    <a href="index.html#about" data-lang="nav_about" class="hover:text-queva-indigo dark:hover:text-queva-purple transition-colors">Hakkımızda</a>
+                    <a href="index.html#blog" data-lang="nav_blog" class="hover:text-queva-indigo dark:hover:text-queva-purple transition-colors">Blog</a>
+                    <a href="index.html#contact" data-lang="nav_contact" class="hover:text-queva-indigo dark:hover:text-queva-purple transition-colors">İletişim</a>
+                </nav>
+
+                <!-- Controls: Language, Theme, Mobile Menu -->
+                <div class="flex items-center">
+                     <!-- Language Switcher -->
+                    <div class="lang-switcher text-sm font-semibold mr-4">
+                        <button id="lang-tr" class="p-1">TR</button>
+                        <span>/</span>
+                        <button id="lang-en" class="p-1">EN</button>
+                    </div>
+                    <!-- Theme Toggle -->
+                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                        <svg id="theme-toggle-dark-icon" class="hidden h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                        <svg id="theme-toggle-light-icon" class="hidden h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                    </button>
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-button" class="md:hidden p-2 ml-2">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-black/90 backdrop-blur-lg border-t border-white/10">
+            <div class="px-4 py-2 space-y-1">
+                <a href="index.html#products" data-lang="nav_products_mobile" class="block px-3 py-2 text-white hover:bg-white/10 rounded">Ürünler</a>
+                <a href="index.html#platform" data-lang="nav_platform_mobile" class="block px-3 py-2 text-white hover:bg-white/10 rounded">Platform</a>
+                <a href="index.html#solutions" data-lang="nav_solutions_mobile" class="block px-3 py-2 text-white hover:bg-white/10 rounded">Çözümler</a>
+                <a href="index.html#about" data-lang="nav_about_mobile" class="block px-3 py-2 text-white hover:bg-white/10 rounded">Hakkımızda</a>
+                <a href="index.html#blog" data-lang="nav_blog_mobile" class="block px-3 py-2 text-white hover:bg-white/10 rounded">Blog</a>
+                <a href="index.html#contact" data-lang="nav_contact_mobile" class="block px-3 py-2 text-white hover:bg-white/10 rounded">İletişim</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-4 sm:px-6">
+        <div class="container mx-auto text-center">
+            <div class="glass-card rounded-3xl p-12 max-w-4xl mx-auto" data-aos="fade-up">
+                <div class="w-20 h-20 bg-gradient-to-r from-queva-indigo to-queva-purple rounded-2xl flex items-center justify-center mx-auto mb-8">
+                    <i class="fas fa-file-powerpoint text-3xl text-white"></i>
+                </div>
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-queva-indigo to-queva-purple bg-clip-text text-transparent" data-lang="presentations_title">
+                    Satış Sunumları
+                </h1>
+                <p class="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto" data-lang="presentations_subtitle">
+                    QuevaTech AI platformu hakkında sektöre özel hazırlanmış profesyonel satış sunumlarını inceleyin ve indirin.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Presentations Grid -->
+    <section class="py-20 px-4 sm:px-6">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Corporate Security Presentation -->
+                <div class="presentation-card rounded-2xl p-8" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-gradient-to-r from-red-500 to-pink-500 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-shield-alt text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white" data-lang="security_title">
+                        Kurumsal Güvenlik
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6" data-lang="security_desc">
+                        Siber güvenlik ve veri koruma çözümlerimizi anlatan kapsamlı sunum.
+                    </p>
+                    <div class="space-y-3">
+                        <a href="salesPre/Corporate_Security_SP_TR.pdf" target="_blank" class="download-btn w-full py-3 px-4 rounded-lg font-semibold flex items-center justify-center space-x-2">
+                            <i class="fas fa-download"></i>
+                            <span data-lang="download_tr">Türkçe İndir</span>
+                        </a>
+                        <button class="download-btn w-full py-3 px-4 rounded-lg font-semibold flex items-center justify-center space-x-2">
+                            <i class="fas fa-download"></i>
+                            <span data-lang="download_en">English Download</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Finance Presentation -->
+                <div class="presentation-card rounded-2xl p-8" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-chart-line text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white" data-lang="finance_title">
+                        Finans & Bankacılık
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6" data-lang="finance_desc">
+                        Finansal kurumlara özel AI çözümlerimizi detaylandıran sunum.
+                    </p>
+                    <div class="space-y-3">
+                        <button class="download-btn w-full py-3 px-4 rounded-lg font-semibold flex items-center justify-center space-x-2">
+                            <i class="fas fa-download"></i>
+                            <span data-lang="download_tr">Türkçe İndir</span>
+                        </button>
+                        <button class="download-btn w-full py-3 px-4 rounded-lg font-semibold flex items-center justify-center space-x-2">
+                            <i class="fas fa-download"></i>
+                            <span data-lang="download_en">English Download</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Healthcare Presentation -->
+                <div class="presentation-card rounded-2xl p-8" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-heartbeat text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white" data-lang="healthcare_title">
+                        Sağlık & Tıp
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6" data-lang="healthcare_desc">
+                        Sağlık sektörüne yönelik AI ve veri analizi çözümlerimiz.
+                    </p>
+                    <div class="space-y-3">
+                        <button class="download-btn w-full py-3 px-4 rounded-lg font-semibold flex items-center justify-center space-x-2">
+                            <i class="fas fa-download"></i>
+                            <span data-lang="download_tr">Türkçe İndir</span>
+                        </button>
+                        <button class="download-btn w-full py-3 px-4 rounded-lg font-semibold flex items-center justify-center space-x-2">
+                            <i class="fas fa-download"></i>
+                            <span data-lang="download_en">English Download</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Manufacturing Presentation -->
+                <div class="presentation-card rounded-2xl p-8" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-industry text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white" data-lang="manufacturing_title">
+                        Üretim & Sanayi
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6" data-lang="manufacturing_desc">
+                        Endüstri 4.0 ve akıllı üretim çözümlerimizi anlatan sunum.
+                    </p>
+                    <div class="space-y-3">
+                        <button class="download-btn w-full py-3 px-4 rounded-lg font-semibold flex items-center justify-center space-x-2">
+                            <i class="fas fa-download"></i>
+                            <span data-lang="download_tr">Türkçe İndir</span>
+                        </button>
+                        <button class="download-btn w-full py-3 px-4 rounded-lg font-semibold flex items-center justify-center space-x-2">
+                            <i class="fas fa-download"></i>
+                            <span data-lang="download_en">English Download</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Retail Presentation -->
+                <div class="presentation-card rounded-2xl p-8" data-aos="fade-up" data-aos-delay="500">
+                    <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-shopping-cart text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white" data-lang="retail_title">
+                        Perakende & E-ticaret
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6" data-lang="retail_desc">
+                        Müşteri deneyimi ve satış optimizasyonu çözümlerimiz.
+                    </p>
+                    <div class="space-y-3">
+                        <button class="download-btn w-full py-3 px-4 rounded-lg font-semibold flex items-center justify-center space-x-2">
+                            <i class="fas fa-download"></i>
+                            <span data-lang="download_tr">Türkçe İndir</span>
+                        </button>
+                        <button class="download-btn w-full py-3 px-4 rounded-lg font-semibold flex items-center justify-center space-x-2">
+                            <i class="fas fa-download"></i>
+                            <span data-lang="download_en">English Download</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- General Overview Presentation -->
+                <div class="presentation-card rounded-2xl p-8" data-aos="fade-up" data-aos-delay="600">
+                    <div class="w-16 h-16 bg-gradient-to-r from-queva-indigo to-queva-purple rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-rocket text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white" data-lang="overview_title">
+                        Genel Platform Tanıtımı
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6" data-lang="overview_desc">
+                        QuevaTech platformunun tüm özelliklerini kapsayan genel sunum.
+                    </p>
+                    <div class="space-y-3">
+                        <button class="download-btn w-full py-3 px-4 rounded-lg font-semibold flex items-center justify-center space-x-2">
+                            <i class="fas fa-download"></i>
+                            <span data-lang="download_tr">Türkçe İndir</span>
+                        </button>
+                        <button class="download-btn w-full py-3 px-4 rounded-lg font-semibold flex items-center justify-center space-x-2">
+                            <i class="fas fa-download"></i>
+                            <span data-lang="download_en">English Download</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Resources Section -->
+    <section class="py-20 px-4 sm:px-6">
+        <div class="container mx-auto">
+            <div class="glass-card rounded-3xl p-12 text-center" data-aos="fade-up">
+                <h2 class="text-3xl font-bold mb-6 text-gray-800 dark:text-white" data-lang="additional_title">
+                    Ek Kaynaklar
+                </h2>
+                <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto" data-lang="additional_desc">
+                    Daha fazla bilgi almak veya özel sunum talebinde bulunmak için bizimle iletişime geçin.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="index.html#contact" class="download-btn px-8 py-4 rounded-full font-bold transition-all duration-300 text-center">
+                        <span data-lang="contact_us">Bizimle İletişime Geçin</span>
+                    </a>
+                    <a href="index.html" class="download-btn px-8 py-4 rounded-full font-bold transition-all duration-300 text-center">
+                        <span data-lang="back_home">Ana Sayfaya Dön</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-queva-dark text-queva-light">
+        <div class="container mx-auto px-4 py-12">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Queva<span class="text-queva-purple">Tech</span></h3>
+                    <p data-lang="footer_tagline" class="text-gray-400">Yapay zekâ ile geleceği şekillendiriyoruz.</p>
+                </div>
+                <div>
+                    <h4 data-lang="footer_menu_quick" class="font-bold mb-4">Hızlı Menü</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html#products" data-lang="footer_nav_products" class="text-gray-400 hover:text-white">Ürünler</a></li>
+                        <li><a href="index.html#solutions" data-lang="footer_nav_solutions" class="text-gray-400 hover:text-white">Çözümler</a></li>
+                        <li><a href="index.html#blog" data-lang="footer_nav_blog" class="text-gray-400 hover:text-white">Blog</a></li>
+                        <li><a href="index.html#contact" data-lang="footer_nav_contact" class="text-gray-400 hover:text-white">İletişim</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 data-lang="footer_menu_legal" class="font-bold mb-4">Yasal</h4>
+                    <ul class="space-y-2">
+                        <li><a href="privacy-policy.html" data-lang="footer_nav_privacy" class="text-gray-400 hover:text-white">Gizlilik Politikası</a></li>
+                        <li><a href="terms-of-service.html" data-lang="footer_nav_terms" class="text-gray-400 hover:text-white">Kullanım Şartları</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 data-lang="footer_menu_contact" class="font-bold mb-4">İletişim</h4>
+                    <div class="mb-4">
+                        <a href="mailto:info@queva.tech" class="text-gray-400 hover:text-white flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            info@queva.tech
+                        </a>
+                    </div>
+                    <h4 data-lang="footer_menu_social" class="font-bold mb-4">Bizi Takip Edin</h4>
+                    <div class="flex space-x-4">
+                        <a href="https://instagram.com/quevatech" target="_blank" class="text-gray-400 hover:text-white" title="Instagram">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12.017 0C8.396 0 7.989.013 7.041.048 6.094.082 5.52.204 5.012.428a5.918 5.918 0 0 0-2.134 1.39A5.918 5.918 0 0 0 .49 4.951C.266 5.46.144 6.033.11 6.98.075 7.929.062 8.336.062 11.957c0 3.621.013 4.028.048 4.976.034.947.156 1.521.38 2.029a5.918 5.918 0 0 0 1.389 2.134 5.918 5.918 0 0 0 2.134 1.389c.508.224 1.082.346 2.029.38.948.035 1.355.048 4.976.048 3.621 0 4.028-.013 4.976-.048.947-.034 1.521-.156 2.029-.38a5.918 5.918 0 0 0 2.134-1.389 5.918 5.918 0 0 0 1.389-2.134c.224-.508.346-1.082.38-2.029.035-.948.048-1.355.048-4.976 0-3.621-.013-4.028-.048-4.976-.034-.947-.156-1.521-.38-2.029a5.918 5.918 0 0 0-1.389-2.134A5.918 5.918 0 0 0 19.938.49c-.508-.224-1.082-.346-2.029-.38C16.961.013 16.554 0 12.933 0h-.916zm-.076 1.626c3.534 0 3.95.013 5.343.048.781.035 1.204.166 1.486.276.374.145.64.318.92.598.28.28.453.546.598.92.11.282.241.705.276 1.486.035 1.394.048 1.81.048 5.343 0 3.534-.013 3.95-.048 5.343-.035.781-.166 1.204-.276 1.486a2.477 2.477 0 0 1-.598.92 2.477 2.477 0 0 1-.92.598c-.282.11-.705.241-1.486.276-1.394.035-1.81.048-5.343.048-3.534 0-3.95-.013-5.343-.048-.781-.035-1.204-.166-1.486-.276a2.477 2.477 0 0 1-.92-.598 2.477 2.477 0 0 1-.598-.92c-.11-.282-.241-.705-.276-1.486-.035-1.394-.048-1.81-.048-5.343 0-3.534.013-3.95.048-5.343.035-.781.166-1.204.276-1.486.145-.374.318-.64.598-.92.28-.28.546-.453.92-.598.282-.11.705-.241 1.486-.276 1.394-.035 1.81-.048 5.343-.048z"/>
+                                <path d="M12.017 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12.017 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"/>
+                                <circle cx="18.406" cy="5.594" r="1.44"/>
+                            </svg>
+                        </a>
+                        <a href="https://x.com/quevatech" target="_blank" class="text-gray-400 hover:text-white" title="X (Twitter)">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                            </svg>
+                        </a>
+                        <a href="https://linkedin.com/company/quevatech2" target="_blank" class="text-gray-400 hover:text-white" title="LinkedIn">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H6.328C3.965 1 2 2.985 2 5.337v13.326C2 21.015 3.965 23 6.328 23h11.34c2.363 0 4.328-1.985 4.328-4.337V5.337C22 2.985 20.031 1 17.668 1z" clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 border-t border-gray-700 pt-8 text-center text-gray-400">
+                <p data-lang="footer_copyright">&copy; 2025 QuevaTech. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // =================================
+        // Language Data
+        // =================================
+        const langData = {
+            tr: {
+                // Navigation (index.html ile aynı)
+                nav_products: "Ürünler",
+                nav_platform: "Platform",
+                nav_solutions: "Çözümler",
+                nav_about: "Hakkımızda",
+                nav_blog: "Blog",
+                nav_contact: "İletişim",
+                nav_products_mobile: "Ürünler",
+                nav_platform_mobile: "Platform",
+                nav_solutions_mobile: "Çözümler",
+                nav_about_mobile: "Hakkımızda",
+                nav_blog_mobile: "Blog",
+                nav_contact_mobile: "İletişim",
+                // Footer (index.html ile aynı)
+                footer_tagline: "Yapay zekâ ile geleceği şekillendiriyoruz.",
+                footer_menu_quick: "Hızlı Menü",
+                footer_nav_products: "Ürünler",
+                footer_nav_solutions: "Çözümler",
+                footer_nav_blog: "Blog",
+                footer_nav_contact: "İletişim",
+                footer_menu_legal: "Yasal",
+                footer_nav_privacy: "Gizlilik Politikası",
+                footer_nav_terms: "Kullanım Şartları",
+                footer_menu_contact: "İletişim",
+                footer_menu_social: "Bizi Takip Edin",
+                footer_copyright: "&copy; 2025 QuevaTech. Tüm hakları saklıdır.",
+                // Presentations
+                presentations_title: "Satış Sunumları",
+                presentations_subtitle: "QuevaTech AI platformu hakkında sektöre özel hazırlanmış profesyonel satış sunumlarını inceleyin ve indirin.",
+                // Categories
+                security_title: "Kurumsal Güvenlik",
+                security_desc: "Siber güvenlik ve veri koruma çözümlerimizi anlatan kapsamlı sunum.",
+                finance_title: "Finans & Bankacılık",
+                finance_desc: "Finansal kurumlara özel AI çözümlerimizi detaylandıran sunum.",
+                healthcare_title: "Sağlık & Tıp",
+                healthcare_desc: "Sağlık sektörüne yönelik AI ve veri analizi çözümlerimiz.",
+                manufacturing_title: "Üretim & Sanayi",
+                manufacturing_desc: "Endüstri 4.0 ve akıllı üretim çözümlerimizi anlatan sunum.",
+                retail_title: "Perakende & E-ticaret",
+                retail_desc: "Müşteri deneyimi ve satış optimizasyonu çözümlerimiz.",
+                overview_title: "Genel Platform Tanıtımı",
+                overview_desc: "QuevaTech platformunun tüm özelliklerini kapsayan genel sunum.",
+                // Buttons
+                download_tr: "Türkçe İndir",
+                download_en: "English Download",
+                // Additional Resources
+                additional_title: "Ek Kaynaklar",
+                additional_desc: "Daha fazla bilgi almak veya özel sunum talebinde bulunmak için bizimle iletişime geçin.",
+                contact_us: "Bizimle İletişime Geçin",
+                back_home: "Ana Sayfaya Dön"
+            },
+            en: {
+                // Navigation (index.html ile aynı)
+                nav_products: "Products",
+                nav_platform: "Platform", 
+                nav_solutions: "Solutions",
+                nav_about: "About Us",
+                nav_blog: "Blog",
+                nav_contact: "Contact",
+                nav_products_mobile: "Products",
+                nav_platform_mobile: "Platform",
+                nav_solutions_mobile: "Solutions",
+                nav_about_mobile: "About Us",
+                nav_blog_mobile: "Blog",
+                nav_contact_mobile: "Contact",
+                // Footer (index.html ile aynı)
+                footer_tagline: "Shaping the future with artificial intelligence.",
+                footer_menu_quick: "Quick Menu",
+                footer_nav_products: "Products",
+                footer_nav_solutions: "Solutions",
+                footer_nav_blog: "Blog",
+                footer_nav_contact: "Contact",
+                footer_menu_legal: "Legal",
+                footer_nav_privacy: "Privacy Policy",
+                footer_nav_terms: "Terms of Service",
+                footer_menu_contact: "Contact",
+                footer_menu_social: "Follow Us",
+                footer_copyright: "&copy; 2025 QuevaTech. All rights reserved.",
+                // Presentations
+                presentations_title: "Sales Presentations",
+                presentations_subtitle: "Review and download professional sales presentations specifically prepared for different industries about the QuevaTech AI platform.",
+                // Categories
+                security_title: "Corporate Security",
+                security_desc: "Comprehensive presentation explaining our cybersecurity and data protection solutions.",
+                finance_title: "Finance & Banking",
+                finance_desc: "Presentation detailing our AI solutions specifically for financial institutions.",
+                healthcare_title: "Healthcare & Medical",
+                healthcare_desc: "Our AI and data analysis solutions for the healthcare sector.",
+                manufacturing_title: "Manufacturing & Industry",
+                manufacturing_desc: "Presentation explaining our Industry 4.0 and smart manufacturing solutions.",
+                retail_title: "Retail & E-commerce",
+                retail_desc: "Our customer experience and sales optimization solutions.",
+                overview_title: "General Platform Overview",
+                overview_desc: "General presentation covering all features of the QuevaTech platform.",
+                // Buttons
+                download_tr: "Download Turkish",
+                download_en: "Download English",
+                // Additional Resources
+                additional_title: "Additional Resources",
+                additional_desc: "Contact us for more information or to request a custom presentation.",
+                contact_us: "Contact Us",
+                back_home: "Back to Home"
+            }
+        };
+
+        // =================================
+        // Language Management (index.html ile aynı)
+        // =================================
+        let currentLang = localStorage.getItem('language') || 'tr';
+
+        const langTrBtn = document.getElementById('lang-tr');
+        const langEnBtn = document.getElementById('lang-en');
+
+        const updateLanguage = (lang) => {
+            // Remove active class from all buttons
+            langTrBtn.classList.remove('text-queva-indigo', 'dark:text-queva-purple', 'font-bold');
+            langEnBtn.classList.remove('text-queva-indigo', 'dark:text-queva-purple', 'font-bold');
+
+            // Add active class to current language button
+            if (lang === 'tr') {
+                langTrBtn.classList.add('text-queva-indigo', 'dark:text-queva-purple', 'font-bold');
+            } else {
+                langEnBtn.classList.add('text-queva-indigo', 'dark:text-queva-purple', 'font-bold');
+            }
+
+            // Update page content
+            document.querySelectorAll('[data-lang]').forEach(element => {
+                const key = element.getAttribute('data-lang');
+                if (langData[lang] && langData[lang][key]) {
+                    if (key === 'footer_copyright') {
+                        element.innerHTML = langData[lang][key];
+                    } else {
+                        element.textContent = langData[lang][key];
+                    }
+                }
+            });
+
+            // Save language preference
+            localStorage.setItem('language', lang);
+        };
+
+        langTrBtn.addEventListener('click', () => updateLanguage('tr'));
+        langEnBtn.addEventListener('click', () => updateLanguage('en'));
+
+        // Load initial language
+        const initialLang = localStorage.getItem('language') || 'tr';
+        updateLanguage(initialLang);
+
+        // =================================
+        // Theme Toggle Logic (index.html ile aynı)
+        // =================================
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            themeToggleLightIcon.classList.remove('hidden');
+        } else {
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        themeToggleBtn.addEventListener('click', function() {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+
+        // =================================
+        // Mobile Menu Toggle (index.html ile aynı)
+        // =================================
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // =================================
+        // Page Load Event Handlers
+        // =================================
+        window.addEventListener('load', function() {
+            // Clear any hash from URL and scroll to top
+            if (window.location.hash) {
+                history.replaceState(null, null, window.location.pathname);
+            }
+            setTimeout(function() {
+                window.scrollTo(0, 0);
+            }, 100);
+        });
+
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+        });
+
+        // Event Listeners
+        document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+        document.getElementById('language-selector').addEventListener('change', function(e) {
+            updateLanguage(e.target.value);
+        });
+
+        // =================================
+        // Download Button Handlers
+        // =================================
+        document.querySelectorAll('.download-btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Get the presentation type and language from button context
+                const card = this.closest('.presentation-card');
+                const isEnglish = this.querySelector('[data-lang="download_en"]');
+                const language = isEnglish ? 'en' : 'tr';
+                
+                // You can implement actual download functionality here
+                alert(`Bu özellik yakında aktif olacak. ${language.toUpperCase()} versiyonu indirilecek.`);
+                
+                // Example: window.open(`/downloads/presentation-${category}-${language}.pdf`, '_blank');
+            });
+        });
+    </script>
+</body>
+</html>
