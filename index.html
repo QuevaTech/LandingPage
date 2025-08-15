@@ -26,12 +26,18 @@
             overflow-x: hidden;
             width: 100%;
             position: relative;
+            /* Mobile scroll improvements */
+            -webkit-overflow-scrolling: touch;
+            touch-action: pan-y;
+            overscroll-behavior: contain;
         }
         
         /* Container overflow control */
         .container {
             max-width: 100%;
             overflow-x: hidden;
+            /* Ensure touch scrolling works properly */
+            touch-action: pan-y;
         }
         
         /* Grid responsive fixes */
@@ -65,6 +71,33 @@
         html {
             scroll-behavior: smooth;
             -ms-overflow-style: none; /* Internet Explorer 10+ */
+        }
+        
+        /* Mobile scroll optimization */
+        @media (max-width: 768px) {
+            body {
+                /* Better momentum scrolling on iOS */
+                -webkit-overflow-scrolling: touch;
+                /* Prevent horizontal scroll issues */
+                touch-action: pan-y;
+                /* Improve scroll performance */
+                will-change: scroll-position;
+            }
+            
+            /* Ensure all sections allow proper touch scrolling */
+            section {
+                touch-action: pan-y;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            /* Fix any potential touch conflicts with interactive elements */
+            .glass-button, 
+            .glass-button-primary,
+            .tech-card,
+            button,
+            a {
+                touch-action: manipulation;
+            }
         }
         /* Apple macOS ve visionOS saydam cam efekti */
         body {
@@ -258,8 +291,8 @@
                     Verilerinizi değere dönüştüren, iş süreçlerinizi otomatize eden yenilikçi AI platformu.
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
-                    <a href="#contact" data-lang="hero_cta1" class="w-full sm:w-auto bg-white text-queva-indigo font-bold py-3 px-8 rounded-full hover:bg-opacity-90 transition-all duration-300">Demo Talep Et</a>
-                    <a href="#" data-lang="hero_cta2" class="w-full sm:w-auto border-2 border-white text-white font-bold py-3 px-8 rounded-full hover:bg-white hover:text-queva-indigo transition-all duration-300">Teknik Doküman</a>
+                    <a href="#contact" data-lang="hero_cta1" class="glass-button-primary w-full sm:w-auto font-bold py-4 px-8 rounded-full transition-all duration-300 text-center">Demo Talep Et</a>
+                    <a href="sales-presentations.html" data-lang="hero_cta2" class="glass-button glass-button-white w-full sm:w-auto font-bold py-4 px-8 rounded-full transition-all duration-300 text-center">Satış Sunumları</a>
                 </div>
             </div>
         </section>
@@ -871,12 +904,14 @@
                                 <span class="px-2 py-1 bg-queva-purple/10 text-queva-purple text-xs rounded-full">Future Tech</span>
                                 <span class="px-2 py-1 bg-queva-sky/10 text-queva-sky text-xs rounded-full">Innovation</span>
                             </div>
-                            <a href="blog/ai-future-2025.html" data-lang="blog_readmore" class="font-bold text-queva-indigo dark:text-queva-purple hover:underline flex items-center">
-                                Devamını Oku 
-                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                                </svg>
-                            </a>
+                            <div class="mt-4">
+                                <a href="blog/ai-future-2025.html" data-lang="blog_readmore" class="glass-button inline-flex items-center px-6 py-3 rounded-full font-semibold transition-all duration-300 group">
+                                    <span>Devamını Oku</span>
+                                    <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                    </svg>
+                                </a>
+                            </div>
                         </div>
                     </div>
                     <!-- Blog Post 2 -->
@@ -895,12 +930,14 @@
                                 <span class="px-2 py-1 bg-queva-indigo/10 text-queva-indigo text-xs rounded-full">Data Protection</span>
                                 <span class="px-2 py-1 bg-queva-purple/10 text-queva-purple text-xs rounded-full">TRNG</span>
                             </div>
-                            <a href="blog/data-security-2025.html" data-lang="blog_readmore2" class="font-bold text-queva-indigo dark:text-queva-purple hover:underline flex items-center">
-                                Devamını Oku 
-                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                                </svg>
-                            </a>
+                            <div class="mt-4">
+                                <a href="blog/data-security-2025.html" data-lang="blog_readmore2" class="glass-button inline-flex items-center px-6 py-3 rounded-full font-semibold transition-all duration-300 group">
+                                    <span>Devamını Oku</span>
+                                    <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                    </svg>
+                                </a>
+                            </div>
                         </div>
                     </div>
                     <!-- Blog Post 3 -->
@@ -919,12 +956,14 @@
                                 <span class="px-2 py-1 bg-queva-indigo/10 text-queva-indigo text-xs rounded-full">DevOps</span>
                                 <span class="px-2 py-1 bg-queva-sky/10 text-queva-sky text-xs rounded-full">Production</span>
                             </div>
-                            <a href="blog/mlops-2025.html" data-lang="blog_readmore3" class="font-bold text-queva-indigo dark:text-queva-purple hover:underline flex items-center">
-                                Devamını Oku 
-                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                                </svg>
-                            </a>
+                            <div class="mt-4">
+                                <a href="blog/mlops-2025.html" data-lang="blog_readmore3" class="glass-button inline-flex items-center px-6 py-3 rounded-full font-semibold transition-all duration-300 group">
+                                    <span>Devamını Oku</span>
+                                    <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                    </svg>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -956,13 +995,13 @@
                             <label for="message" data-lang="form_message" class="block mb-2 text-sm font-medium">Mesajınız</label>
                             <textarea id="message" rows="6" class="contact-input" data-lang-placeholder="form_placeholder"></textarea>
                         </div>
-                        <button type="submit" id="send-email-btn" data-lang="form_submit" class="w-full bg-queva-indigo text-white font-bold py-3 px-8 rounded-full hover:bg-queva-purple transition-all duration-300">Mesajı Gönder</button>
+                        <button type="submit" id="send-email-btn" data-lang="form_submit" class="glass-button w-full py-4 px-8 rounded-full font-bold transition-all duration-300">Mesajı Gönder</button>
                         
                         <!-- Alternative Email Contact -->
                         <div class="mt-6 p-4 bg-queva-light dark:bg-queva-dark/50 rounded-lg border border-gray-200 dark:border-gray-700">
                             <p data-lang="form_alt_text" class="text-sm text-gray-600 dark:text-gray-400 mb-3">Form çalışmıyor mu? Doğrudan e-posta gönderin:</p>
                             <a href="mailto:info@queva.tech?subject=QuevaTech İletişim&body=Merhaba QuevaTech ekibi,%0D%0A%0D%0AProjem hakkında bilgi almak istiyorum.%0D%0A%0D%0AAdım: [Adınızı yazın]%0D%0AE-posta: [E-posta adresinizi yazın]%0D%0AMesajım: [Mesajınızı yazın]%0D%0A%0D%0ATeşekkürler." 
-                               class="inline-flex items-center px-4 py-2 bg-queva-purple text-white rounded-lg hover:bg-queva-indigo transition-colors">
+                               class="glass-button inline-flex items-center px-4 py-2 rounded-lg transition-all duration-300">
                                 <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
@@ -1071,7 +1110,7 @@
                 hero_title: "Yapay Zekâ ile Geleceği ve Dijital Dünyanın Rastsallığını Şekillendiriyoruz",
                 hero_subtitle: "Verilerinizi değere dönüştüren, iş süreçlerinizi otomatize eden ve dijital dünyanın karmaşıklığını çözen yenilikçi AI platformu.",
                 hero_cta1: "Demo Talep Et",
-                hero_cta2: "Teknik Doküman",
+                hero_cta2: "Satış Sunumları",
                 // Products
                 products_title: "Ürün Portföyümüz",
                 products_subtitle: "Gerçek rastgelelik teknolojisi ile güvenli çözümler",
@@ -1170,9 +1209,9 @@
                 blog2_desc: "Cyber security landscape 2025'te dramatik değişimler yaşıyor. Zero-trust architecture, quantum-resistant encryption ve AI-powered threat detection artık zorunluluk. GDPR, KVKV ve yeni regulation'lar data governance'ı yeniden şekillendiriyor. Özellikle TRNG teknolojisi ile enhanced cryptographic security, modern enterprise'ların vazgeçilmez savunma stratejisi haline geliyor.",
                 blog3_title: "MLOps: Modellerinizi Hayata Geçirin",
                 blog3_desc: "MLOps 2025'te enterprise AI'ın omurgası haline geldi. Continuous integration, automated model training ve production monitoring ile model lifecycle management devrim yaşıyor. Kubernetes-native ML pipelines, feature stores ve model registries ile deployment süreçleri %80 hızlandı. Docker containers, MLflow tracking ve comprehensive monitoring dashboards modern ML stack'in temel bileşenleri.",
-                blog_readmore: "Devamını Oku →",
-                blog_readmore2: "Devamını Oku →",
-                blog_readmore3: "Devamını Oku →",
+                blog_readmore: "Devamını Oku",
+                blog_readmore2: "Devamını Oku",
+                blog_readmore3: "Devamını Oku",
                 // Contact
                 contact_title: "Bizimle İletişime Geçin",
                 contact_subtitle: "Projeniz hakkında konuşmak veya demo talep etmek için formu doldurun.",
@@ -1215,7 +1254,7 @@
                 hero_title: "Shaping the Future and Digital World's Randomness with Artificial Intelligence",
                 hero_subtitle: "The innovative AI platform that transforms your data into value, automates your business processes, and solves the complexity of the digital world.",
                 hero_cta1: "Request a Demo",
-                hero_cta2: "Technical Docs",
+                hero_cta2: "Sales Presentations",
                 // Products
                 products_title: "Our Product Portfolio",
                 products_subtitle: "Secure solutions with true randomness technology",
@@ -1314,9 +1353,9 @@
                 blog2_desc: "The cyber security landscape is experiencing dramatic changes in 2025. Zero-trust architecture, quantum-resistant encryption, and AI-powered threat detection are now necessities. GDPR, KVKK, and new regulations are reshaping data governance. Enhanced cryptographic security with TRNG technology is becoming an indispensable defense strategy for modern enterprises.",
                 blog3_title: "MLOps: Bring Your Models to Life",
                 blog3_desc: "MLOps has become the backbone of enterprise AI in 2025. Model lifecycle management is revolutionizing with continuous integration, automated model training, and production monitoring. Deployment processes have accelerated by 80% with Kubernetes-native ML pipelines, feature stores, and model registries. Docker containers, MLflow tracking, and comprehensive monitoring dashboards are essential components of the modern ML stack.",
-                blog_readmore: "Read More →",
-                blog_readmore2: "Read More →",
-                blog_readmore3: "Read More →",
+                blog_readmore: "Read More",
+                blog_readmore2: "Read More",
+                blog_readmore3: "Read More",
                 // Contact
                 contact_title: "Get In Touch",
                 contact_subtitle: "Fill out the form to talk about your project or to request a demo.",
@@ -1342,6 +1381,18 @@
                 footer_copyright: "© 2025 QuevaTech. All rights reserved.",
             }
         };
+
+        // Sayfa yenilendiğinde üst kısma scroll yap
+        window.addEventListener('load', function() {
+            // URL'deki hash'i temizle ve üst kısma scroll yap
+            if (window.location.hash) {
+                history.replaceState(null, null, window.location.pathname);
+            }
+            // Kısa bir gecikme ile üst kısma scroll yap
+            setTimeout(function() {
+                window.scrollTo(0, 0);
+            }, 100);
+        });
 
         // Initialize AOS
         AOS.init({
@@ -1619,25 +1670,47 @@ Thank you.`;
                 width: 100%;
                 padding: 0.75rem;
                 border-radius: 0.75rem; /* 2xl */
-                background: rgba(255, 255, 255, 0.1);
-                backdrop-filter: blur(10px);
-                -webkit-backdrop-filter: blur(10px);
-                border: 1px solid rgba(255, 255, 255, 0.2);
-                transition: border-color 0.2s, box-shadow 0.2s;
+                background: rgba(255, 255, 255, 0.25);
+                backdrop-filter: blur(15px);
+                -webkit-backdrop-filter: blur(15px);
+                border: 1.5px solid rgba(79, 70, 229, 0.3);
+                transition: all 0.3s ease;
+                color: #374151;
+                box-shadow: 
+                    0 4px 16px 0 rgba(79, 70, 229, 0.1),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.4);
             }
             .dark .contact-input {
-                background: rgba(15, 23, 42, 0.3);
-                border-color: rgba(255, 255, 255, 0.1);
+                background: rgba(15, 23, 42, 0.4);
+                border: 1.5px solid rgba(168, 85, 247, 0.3);
                 color: #F3F4F6; /* gray-100 */
+                box-shadow: 
+                    0 4px 16px 0 rgba(168, 85, 247, 0.1),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            }
+            .contact-input::placeholder {
+                color: rgba(107, 114, 128, 0.7);
+            }
+            .dark .contact-input::placeholder {
+                color: rgba(156, 163, 175, 0.7);
             }
             .contact-input:focus {
                 outline: none;
                 border-color: #4F46E5; /* queva-indigo */
-                box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.3);
+                background: rgba(255, 255, 255, 0.35);
+                box-shadow: 
+                    0 0 0 3px rgba(79, 70, 229, 0.2),
+                    0 8px 25px 0 rgba(79, 70, 229, 0.15),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+                transform: translateY(-1px);
             }
             .dark .contact-input:focus {
                 border-color: #A855F7; /* queva-purple */
-                box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.3);
+                background: rgba(15, 23, 42, 0.5);
+                box-shadow: 
+                    0 0 0 3px rgba(168, 85, 247, 0.2),
+                    0 8px 25px 0 rgba(168, 85, 247, 0.15),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.15);
             }
             /* Tech Cards saydam cam */
             .tech-card {
@@ -1668,6 +1741,101 @@ Thank you.`;
                 box-shadow: 
                     0 16px 40px 0 rgba(0, 0, 0, 0.4),
                     inset 0 1px 0 rgba(255, 255, 255, 0.15);
+            }
+            
+            /* Mobile optimizations for glass effects */
+            @media (max-width: 768px) {
+                .glass-card,
+                .glass-button,
+                .glass-button-primary,
+                .tech-card {
+                    /* Reduce blur for better mobile performance */
+                    backdrop-filter: blur(10px);
+                    -webkit-backdrop-filter: blur(10px);
+                    /* Optimize rendering */
+                    transform: translateZ(0);
+                    -webkit-transform: translateZ(0);
+                    /* Improve touch interaction */
+                    -webkit-tap-highlight-color: transparent;
+                }
+            }
+            
+            /* Glass Button saydam cam buton */
+            .glass-button {
+                background: rgba(79, 70, 229, 0.15);
+                backdrop-filter: blur(15px);
+                -webkit-backdrop-filter: blur(15px);
+                border: 1px solid rgba(79, 70, 229, 0.3);
+                color: #4F46E5;
+                box-shadow: 
+                    0 4px 16px 0 rgba(79, 70, 229, 0.25),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            }
+            .dark .glass-button {
+                background: rgba(168, 85, 247, 0.15);
+                border: 1px solid rgba(168, 85, 247, 0.3);
+                color: #A855F7;
+                box-shadow: 
+                    0 4px 16px 0 rgba(168, 85, 247, 0.25),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+            }
+            .glass-button:hover {
+                background: rgba(79, 70, 229, 0.25);
+                border-color: rgba(79, 70, 229, 0.4);
+                transform: translateY(-2px);
+                box-shadow: 
+                    0 8px 25px 0 rgba(79, 70, 229, 0.35),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+            }
+            .dark .glass-button:hover {
+                background: rgba(168, 85, 247, 0.25);
+                border-color: rgba(168, 85, 247, 0.4);
+                box-shadow: 
+                    0 8px 25px 0 rgba(168, 85, 247, 0.35),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            }
+            
+            /* Primary Glass Button - Ana CTA buton için */
+            .glass-button-primary {
+                background: rgba(79, 70, 229, 0.35);
+                backdrop-filter: blur(15px);
+                -webkit-backdrop-filter: blur(15px);
+                border: 1px solid rgba(79, 70, 229, 0.5);
+                color: #ffffff;
+                box-shadow: 
+                    0 6px 20px 0 rgba(79, 70, 229, 0.4),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+            }
+            .dark .glass-button-primary {
+                background: rgba(168, 85, 247, 0.35);
+                border: 1px solid rgba(168, 85, 247, 0.5);
+                color: #ffffff;
+                box-shadow: 
+                    0 6px 20px 0 rgba(168, 85, 247, 0.4),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            }
+            .glass-button-primary:hover {
+                background: rgba(79, 70, 229, 0.5);
+                border-color: rgba(79, 70, 229, 0.6);
+                transform: translateY(-3px);
+                box-shadow: 
+                    0 12px 35px 0 rgba(79, 70, 229, 0.5),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+            }
+            .dark .glass-button-primary:hover {
+                background: rgba(168, 85, 247, 0.5);
+                border-color: rgba(168, 85, 247, 0.6);
+                box-shadow: 
+                    0 12px 35px 0 rgba(168, 85, 247, 0.5),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            }
+            
+            /* White Text Glass Button */
+            .glass-button-white {
+                color: #ffffff !important;
+            }
+            .dark .glass-button-white {
+                color: #ffffff !important;
             }
             .swiper-pagination-bullet-active {
                 background: #4F46E5 !important;
