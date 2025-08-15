@@ -135,17 +135,23 @@
                 inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
         }
         
-        /* Navigation bar saydam cam */
+        /* Navigation bar saydam cam - Enhanced glass effect */
         #navbar {
-            background: rgba(255, 255, 255, 0.1) !important;
-            backdrop-filter: blur(20px) !important;
-            -webkit-backdrop-filter: blur(20px) !important;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+            background: rgba(255, 255, 255, 0.05) !important;
+            backdrop-filter: blur(25px) !important;
+            -webkit-backdrop-filter: blur(25px) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
+            box-shadow: 
+                0 8px 32px 0 rgba(31, 38, 135, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
         }
         
         .dark #navbar {
-            background: rgba(15, 23, 42, 0.3) !important;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+            background: rgba(0, 0, 0, 0.2) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+            box-shadow: 
+                0 8px 32px 0 rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
         }
         
         /* Sections için saydam arka plan */
@@ -233,7 +239,9 @@
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center h-20">
                 <!-- Logo -->
-                <a href="#" class="text-2xl font-bold text-white">Queva<span class="text-white font-extrabold">Tech</span></a>
+                <a href="#" class="text-2xl font-bold">
+                    <span class="text-black dark:text-white">Queva</span><span class="text-queva-purple dark:text-queva-purple font-extrabold">Tech</span>
+                </a>
 
                 <!-- Desktop Menu -->
                 <nav class="hidden md:flex items-center space-x-6">
@@ -292,7 +300,7 @@
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
                     <a href="#contact" data-lang="hero_cta1" class="glass-button-primary w-full sm:w-auto font-bold py-4 px-8 rounded-full transition-all duration-300 text-center">Demo Talep Et</a>
-                    <a href="#" data-lang="hero_cta2" class="glass-button glass-button-white w-full sm:w-auto font-bold py-4 px-8 rounded-full transition-all duration-300 text-center">Teknik Doküman</a>
+                    <a href="sales-presentations.html" data-lang="hero_cta2" class="glass-button glass-button-white w-full sm:w-auto font-bold py-4 px-8 rounded-full transition-all duration-300 text-center">Satış Sunumları</a>
                 </div>
             </div>
         </section>
@@ -1110,7 +1118,7 @@
                 hero_title: "Yapay Zekâ ile Geleceği ve Dijital Dünyanın Rastsallığını Şekillendiriyoruz",
                 hero_subtitle: "Verilerinizi değere dönüştüren, iş süreçlerinizi otomatize eden ve dijital dünyanın karmaşıklığını çözen yenilikçi AI platformu.",
                 hero_cta1: "Demo Talep Et",
-                hero_cta2: "Teknik Doküman",
+                hero_cta2: "Satış Sunumları",
                 // Products
                 products_title: "Ürün Portföyümüz",
                 products_subtitle: "Gerçek rastgelelik teknolojisi ile güvenli çözümler",
@@ -1254,7 +1262,7 @@
                 hero_title: "Shaping the Future and Digital World's Randomness with Artificial Intelligence",
                 hero_subtitle: "The innovative AI platform that transforms your data into value, automates your business processes, and solves the complexity of the digital world.",
                 hero_cta1: "Request a Demo",
-                hero_cta2: "Technical Docs",
+                hero_cta2: "Sales Presentations",
                 // Products
                 products_title: "Our Product Portfolio",
                 products_subtitle: "Secure solutions with true randomness technology",
