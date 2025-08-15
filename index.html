@@ -26,12 +26,18 @@
             overflow-x: hidden;
             width: 100%;
             position: relative;
+            /* Mobile scroll improvements */
+            -webkit-overflow-scrolling: touch;
+            touch-action: pan-y;
+            overscroll-behavior: contain;
         }
         
         /* Container overflow control */
         .container {
             max-width: 100%;
             overflow-x: hidden;
+            /* Ensure touch scrolling works properly */
+            touch-action: pan-y;
         }
         
         /* Grid responsive fixes */
@@ -65,6 +71,33 @@
         html {
             scroll-behavior: smooth;
             -ms-overflow-style: none; /* Internet Explorer 10+ */
+        }
+        
+        /* Mobile scroll optimization */
+        @media (max-width: 768px) {
+            body {
+                /* Better momentum scrolling on iOS */
+                -webkit-overflow-scrolling: touch;
+                /* Prevent horizontal scroll issues */
+                touch-action: pan-y;
+                /* Improve scroll performance */
+                will-change: scroll-position;
+            }
+            
+            /* Ensure all sections allow proper touch scrolling */
+            section {
+                touch-action: pan-y;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            /* Fix any potential touch conflicts with interactive elements */
+            .glass-button, 
+            .glass-button-primary,
+            .tech-card,
+            button,
+            a {
+                touch-action: manipulation;
+            }
         }
         /* Apple macOS ve visionOS saydam cam efekti */
         body {
@@ -1709,6 +1742,24 @@ Thank you.`;
                     0 16px 40px 0 rgba(0, 0, 0, 0.4),
                     inset 0 1px 0 rgba(255, 255, 255, 0.15);
             }
+            
+            /* Mobile optimizations for glass effects */
+            @media (max-width: 768px) {
+                .glass-card,
+                .glass-button,
+                .glass-button-primary,
+                .tech-card {
+                    /* Reduce blur for better mobile performance */
+                    backdrop-filter: blur(10px);
+                    -webkit-backdrop-filter: blur(10px);
+                    /* Optimize rendering */
+                    transform: translateZ(0);
+                    -webkit-transform: translateZ(0);
+                    /* Improve touch interaction */
+                    -webkit-tap-highlight-color: transparent;
+                }
+            }
+            
             /* Glass Button saydam cam buton */
             .glass-button {
                 background: rgba(79, 70, 229, 0.15);
