@@ -205,6 +205,19 @@
                 -webkit-tap-highlight-color: transparent;
             }
         }
+        
+        /* Navigation bar saydam cam */
+        #navbar {
+            background: rgba(255, 255, 255, 0.1) !important;
+            backdrop-filter: blur(20px) !important;
+            -webkit-backdrop-filter: blur(20px) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+        }
+        
+        .dark #navbar {
+            background: rgba(15, 23, 42, 0.3) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+        }
     </style>
 
     <script>
@@ -248,7 +261,9 @@
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center h-20">
                 <!-- Logo -->
-                <a href="index.html" class="text-2xl font-bold text-white">Queva<span class="text-white font-extrabold">Tech</span></a>
+                <a href="index.html" class="text-2xl font-bold">
+                    <span class="text-queva-indigo dark:text-white">Queva</span><span class="text-queva-purple dark:text-queva-purple font-extrabold">Tech</span>
+                </a>
 
                 <!-- Desktop Menu -->
                 <nav class="hidden md:flex items-center space-x-6">
