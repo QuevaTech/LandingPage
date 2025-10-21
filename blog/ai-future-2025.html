@@ -51,8 +51,19 @@
             -webkit-backdrop-filter: blur(10px) !important;
         }
         
+        /* Hero section override */
+        section.bg-gradient-to-br {
+            background: linear-gradient(135deg, #4F46E5 0%, #A855F7 100%) !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+        }
+        
         .dark section {
             background: rgba(15, 23, 42, 0.2) !important;
+        }
+        
+        .dark section.bg-gradient-to-br {
+            background: linear-gradient(135deg, #4F46E5 0%, #A855F7 100%) !important;
         }
         
         /* Footer saydam cam */
@@ -123,20 +134,20 @@
             font-weight: 700;
             margin-top: 2rem;
             margin-bottom: 1rem;
-            color: #111827;
+            color: #0f172a;
         }
         .dark .blog-content h2 {
-            color: white;
+            color: #f8fafc;
         }
         .blog-content h3 {
             font-size: 1.25rem;
             font-weight: 600;
             margin-top: 1.5rem;
             margin-bottom: 0.75rem;
-            color: #1f2937;
+            color: #1e293b;
         }
         .dark .blog-content h3 {
-            color: #e5e7eb;
+            color: #e2e8f0;
         }
         .blog-content p {
             margin-bottom: 1rem;
@@ -252,15 +263,15 @@
             <div class="container mx-auto px-4">
                 <div class="max-w-4xl mx-auto text-center text-white">
                     <div class="flex items-center justify-center mb-4">
-                        <a href="../index.html#blog" class="flex items-center text-white/80 hover:text-white transition-colors">
+                        <a href="../index.html#blog" class="flex items-center text-white/70 hover:text-white dark:text-white/80 dark:hover:text-white transition-colors">
                             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
                             </svg>
                             <span data-lang="back_to_blog">Blog'a Dön</span>
                         </a>
                     </div>
-                    <h1 data-lang="blog_title" class="text-4xl md:text-5xl font-bold mb-4">2025'te Yapay Zekânın Geleceği</h1>
-                    <div class="flex items-center justify-center space-x-4 text-white/90">
+                    <h1 data-lang="blog_title" class="text-4xl md:text-5xl font-bold mb-4 text-white dark:text-white">2025'te Yapay Zekânın Geleceği</h1>
+                    <div class="flex items-center justify-center space-x-4 text-white/80 dark:text-white/90">
                         <span data-lang="blog_date">1 Ağustos 2025</span>
                         <span>•</span>
                         <span data-lang="blog_read_time">5 dakika okuma</span>
@@ -297,23 +308,128 @@
                         </div>
 
                         <div data-lang="blog_content">
-                            <h2>Multimodal AI: Yeni Nesil İnsan-Makine Etkileşimi</h2>
-                            <p>
-                                2025'in en önemli gelişmelerinden biri, multimodal AI sistemlerinin ana akım haline gelmesi olacak. GPT-5, Claude 4, ve Gemini Ultra gibi yeni nesil modeller, metin, görsel, ses ve video verilerini aynı anda işleyebilen entegre sistemler sunuyor.
-                            </p>
-                            
-                            <p>
-                                Bu gelişme özellikle şu alanlarda devrim yaratıyor:
-                            </p>
-                            
-                            <ul>
-                                <li><strong>Healthcare:</strong> Medikal görüntüleme, hasta geçmişi ve semptom analizini birleştiren holistik tanı sistemleri</li>
-                                <li><strong>Education:</strong> Öğrenci davranışı, performans verileri ve öğrenme stillerini analiz eden kişiselleştirilmiş eğitim platformları</li>
-                                <li><strong>Fintech:</strong> Çok kanallı veri analiziyle gelişmiş fraud detection ve risk assessment</li>
-                                <li><strong>Manufacturing:</strong> Sensör verileri, görsel kalite kontrolü ve predictive maintenance'in entegre yönetimi</li>
-                            </ul>
+                blog_content: `
+                    <h2>Çok Modlu Yapay Zeka: Yeni Nesil İnsan-Makine Etkileşimi</h2>
+                    <p>
+                        2025'in en önemli gelişmelerinden biri, çok modlu yapay zeka sistemlerinin ana akım haline gelmesi olacak. GPT-5, Claude 4 ve Gemini Ultra gibi yeni nesil modeller, metin, görüntü, ses ve video verilerini aynı anda işleyebilen entegre sistemler sunuyor.
+                    </p>
+                    
+                    <p>
+                        Bu gelişme özellikle şu alanlarda devrim yaratıyor:
+                    </p>
+                    
+                    <ul>
+                        <li><strong>Sağlık Hizmetleri:</strong> Tıbbi görüntüleme, hasta geçmişi ve semptom analizini birleştiren bütünsel tanı sistemleri</li>
+                        <li><strong>Eğitim:</strong> Öğrenci davranışı, performans verileri ve öğrenme stillerini analiz eden kişiselleştirilmiş eğitim platformları</li>
+                        <li><strong>Fintek:</strong> Çok kanallı veri analizi aracılığıyla gelişmiş dolandırıcılık tespit ve risk değerlendirmesi</li>
+                        <li><strong>İmalat:</strong> Sensör verileri, görsel kalite kontrol ve kestirimci bakımın entegre yönetimi</li>
+                    </ul>
 
-                            <h2>Agentic AI: Otonom Karar Verme Sistemleri</h2>
+                    <h2>Otonom Ajanlar Yapay Zeka: Bağımsız Karar Verme Sistemleri</h2>
+                    <p>
+                        Otonom ajanlar yapay zeka, 2025'te kurumsal dünyanın en büyük değişim yaratıcısı olacak. Bu sistemler sadece yanıt üretmekle kalmayıp, karmaşık görevleri bağımsız olarak planlayıp yürütebiliyor.
+                    </p>
+
+                    <blockquote>
+                        "Otonom ajanlar yapay zeka sistemleri, insan müdahalesi olmadan karmaşık iş süreçlerini yönetebilen, öğrenen ve kendini optimize eden dijital çalışanlar olarak düşünülebilir."
+                    </blockquote>
+
+                    <h3>Kurumsal Uygulamalar</h3>
+                    <p>
+                        Otonom ajanlar yapay zeka için kritik uygulama alanları:
+                    </p>
+                    
+                    <ul>
+                        <li><strong>Müşteri Hizmetleri:</strong> %90 otomasyon oranıyla 7/24 müşteri desteği</li>
+                        <li><strong>Tedarik Zinciri Yönetimi:</strong> Gerçek zamanlı optimizasyon ve proaktif sorun çözme</li>
+                        <li><strong>Mali Planlama:</strong> Dinamik bütçe tahsisi ve risk yönetimi</li>
+                        <li><strong>İnsan Kaynakları İşlemleri:</strong> Akıllı işe alım ve çalışan deneyimi optimizasyonu</li>
+                    </ul>
+
+                    <h2>Kenar Bilişim + Yapay Zeka: Gerçek Zamanlı İşleme Devrimi</h2>
+                    <p>
+                        Bulut-öncelikli yapay zeka modellerinden kenar-yerli çözümlere geçiş, 2025'te hızlanıyor. Bu değişim özellikle gecikme açısından kritik uygulamalar için büyük avantajlar sunuyor.
+                    </p>
+
+                    <p>
+                        Kenar Yapay Zekasının kritik avantajları:
+                    </p>
+                    
+                    <ul>
+                        <li><strong>Çok Düşük Gecikme:</strong> Milisaniye seviyesinde yanıt süresi</li>
+                        <li><strong>Veri Gizliliği:</strong> Hassas verilerin yerel işleme ile korunması</li>
+                        <li><strong>Bant Genişliği Verimliliği:</strong> Ağ trafiğinde %70'e kadar azalma</li>
+                        <li><strong>Çevrimdışı Yetenek:</strong> İnternet bağlantısı olmadan çalışabilme</li>
+                    </ul>
+
+                    <h2>Sektörel Dönüşüm: %300 Benimseme Artışı</h2>
+                    <p>
+                        2025 verilerine göre, özellikle üç kritik sektörde yapay zeka benimseme oranları dramatik artış gösteriyor:
+                    </p>
+
+                    <h3>Sağlık Hizmetleri Sektörü</h3>
+                    <p>
+                        Tıbbi yapay zeka uygulamaları %320 büyüme gösteriyor. Özellikle:
+                    </p>
+                    <ul>
+                        <li>Yapay zeka tarafından desteklenen tanısal görüntüleme</li>
+                        <li>Kişiselleştirilmiş tedavi önerileri</li>
+                        <li>İlaç keşfinin hızlandırılması</li>
+                        <li>Klinik deneme optimizasyonu</li>
+                    </ul>
+
+                    <h3>Fintek İnovasyonu</h3>
+                    <p>
+                        Mali hizmetlerde yapay zeka entegrasyonu %280 artış kaydediyor:
+                    </p>
+                    <ul>
+                        <li>Algoritma alım satım sofistikasyonu</li>
+                        <li>Gerçek zamanlı dolandırıcılık tespit</li>
+                        <li>Kredi puanlaması devrimi</li>
+                        <li>Düzenleyici uyum otomasyonu</li>
+                    </ul>
+
+                    <h3>İmalat 4.0</h3>
+                    <p>
+                        Endüstriyel yapay zeka uygulamaları %350 büyüme yaşıyor:
+                    </p>
+                    <ul>
+                        <li>Kestirimci bakım sistemleri</li>
+                        <li>Kalite kontrol otomasyonu</li>
+                        <li>Tedarik zinciri optimizasyonu</li>
+                        <li>Enerji verimliliği yönetimi</li>
+                    </ul>
+
+                    <h2>Kuantum Geliştirilmiş Yapay Zeka: Geleceğin Teknolojisi</h2>
+                    <p>
+                        2025'te kuantum bilişimin yapay zeka ile entegrasyonu ilk pratik uygulamalarını görmeye başlıyor. Özellikle optimizasyon problemleri ve kriptografik uygulamalar alanında atılım yaşanıyor.
+                    </p>
+
+                    <h2>QuevaTech'in 2025 Vizyonu</h2>
+                    <p>
+                        Bu dönüşüm dönemi sırasında, QuevaTech'in Yapay Zeka-Hibrit Gerçek Rastgele Sayı Üreticisi teknolojisi kritik önem kazanıyor. Özellikle mali modelleme, kriptografik güvenlik ve bilimsel simülasyon alanlarında, gerçek rastgelelik ihtiyacı exponential büyüyor.
+                    </p>
+
+                    <blockquote>
+                        "Dijital dünyanın artan karmaşıklığında, tahmin edilebilir algoritmalar yerine gerçek rastgelelik geçiyor. QuevaTech'in Gerçek Rastgele Sayı Üreticisi teknolojisi, bu ihtiyacın merkezinde yer alıyor."
+                    </blockquote>
+
+                    <h2>Sonuç: Hazırlanma Zamanı</h2>
+                    <p>
+                        2025'te yapay zeka dönüşümü sadece teknoloji değişimi değil, iş modeli evrimini gerektiriyor. Kuruluşlar şu konulara odaklanmalı:
+                    </p>
+                    
+                    <ul>
+                        <li><strong>Beceri Geliştirme:</strong> Yapay zeka okuryazarlığı ve teknik yetenek geliştirme</li>
+                        <li><strong>Altyapı Modernizasyonu:</strong> Kenar bilişim ve bulut-hibrit mimariler</li>
+                        <li><strong>Veri Stratejisi:</strong> Kalite, yönetişim ve gizlilik-öncelikli yaklaşımlar</li>
+                        <li><strong>Etik Çerçeveler:</strong> Sorumlu yapay zeka uygulama standartları</li>
+                    </ul>
+
+                    <p>
+                        Yapay zekânın 2025'teki gelişimi, sadece teknolojik bir evrim değil, çalışma şeklimizin temel dönüşümünü temsil ediyor. Bu dönüşüme hazır olmak, rekabetçi avantajın anahtarı olacak.
+                    </p>
+                `,                            <h2>Agentic AI: Otonom Karar Verme Sistemleri</h2>
                             <p>
                                 Agentic AI, 2025'te enterprise dünyasının en büyük game-changer'ı olacak. Bu sistemler, sadece yanıt üretmekle kalmayıp, karmaşık görevleri bağımsız olarak planlayıp execute edebiliyor.
                             </p>
@@ -450,8 +566,8 @@
                                 <div class="related-post rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                                     <img src="https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop" alt="Data Security" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
                                     <div class="p-6">
-                                        <h4 class="font-bold text-lg mb-2 group-hover:text-queva-indigo dark:group-hover:text-queva-purple transition-colors">Büyük Veri Çağında Güvenlik</h4>
-                                        <p class="text-gray-600 dark:text-gray-400 text-sm">Cyber security landscape 2025'te dramatik değişimler yaşıyor...</p>
+                                        <h4 id="related-title-1" class="font-bold text-lg mb-2 group-hover:text-queva-indigo dark:group-hover:text-queva-purple transition-colors">Büyük Veri Çağında Güvenlik</h4>
+                                        <p id="related-desc-1" class="text-gray-600 dark:text-gray-400 text-sm">Cyber security landscape 2025'te dramatik değişimler yaşıyor...</p>
                                     </div>
                                 </div>
                             </a>
@@ -459,8 +575,8 @@
                                 <div class="related-post rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                                     <img src="https://images.pexels.com/photos/325229/pexels-photo-325229.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop" alt="MLOps" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
                                     <div class="p-6">
-                                        <h4 class="font-bold text-lg mb-2 group-hover:text-queva-indigo dark:group-hover:text-queva-purple transition-colors">MLOps: Modellerinizi Hayata Geçirin</h4>
-                                        <p class="text-gray-600 dark:text-gray-400 text-sm">MLOps 2025'te enterprise AI'ın omurgası haline geldi...</p>
+                                        <h4 id="related-title-2" class="font-bold text-lg mb-2 group-hover:text-queva-indigo dark:group-hover:text-queva-purple transition-colors">MLOps: Modellerinizi Hayata Geçirin</h4>
+                                        <p id="related-desc-2" class="text-gray-600 dark:text-gray-400 text-sm">MLOps 2025'te enterprise AI'ın omurgası haline geldi...</p>
                                     </div>
                                 </div>
                             </a>
@@ -529,7 +645,7 @@
                 
                 blog_intro: `
                     <p class="text-xl text-gray-600 dark:text-gray-400 mb-8 font-medium">
-                        2025 yılı yapay zeka teknolojisi için gerçek bir dönüm noktası olacak. Multimodal AI sistemlerinden agentic AI çözümlerine, edge computing entegrasyonundan quantum-enhanced algoritmalarına kadar, bu yıl iş dünyasında köklü değişimler yaşanacak.
+                        2025 yılı yapay zeka teknolojisi için gerçek bir dönüm noktası olacak. Çok modlu yapay zeka sistemlerinden otonom ajanlar çözümlerine, kenar bilişim entegrasyonundan kuantum geliştirilmiş algoritmalarına kadar, bu yıl iş dünyasında köklü değişimler yaşanacak.
                     </p>
                 `,
                 
@@ -537,6 +653,10 @@
                 share_title: "Bu yazıyı paylaş",
                 author_info: "QuevaTech AI Research Team tarafından yazıldı",
                 related_posts: "İlgili Yazılar",
+                related_title_1: "Büyük Veri Çağında Güvenlik",
+                related_desc_1: "Cyber security landscape 2025'te dramatik değişimler yaşıyor...",
+                related_title_2: "MLOps: Modellerinizi Hayata Geçirin",
+                related_desc_2: "MLOps 2025'te enterprise AI'ın omurgası haline geldi...",
                 
                 // Footer
                 footer_tagline: "Yapay zekâ ile geleceği şekillendiriyoruz.",
@@ -572,10 +692,137 @@
                     </p>
                 `,
                 
+                blog_content: `
+                    <h2>Multimodal AI: The New Generation of Human-Machine Interaction</h2>
+                    <p>
+                        One of the most significant developments in 2025 will be the mainstream adoption of multimodal AI systems. New generation models like GPT-5, Claude 4, and Gemini Ultra offer integrated systems capable of processing text, images, audio, and video data simultaneously.
+                    </p>
+                    
+                    <p>
+                        This development is particularly revolutionary in these areas:
+                    </p>
+                    
+                    <ul>
+                        <li><strong>Healthcare:</strong> Holistic diagnostic systems combining medical imaging, patient history, and symptom analysis</li>
+                        <li><strong>Education:</strong> Personalized education platforms analyzing student behavior, performance data, and learning styles</li>
+                        <li><strong>Fintech:</strong> Advanced fraud detection and risk assessment through multi-channel data analysis</li>
+                        <li><strong>Manufacturing:</strong> Integrated management of sensor data, visual quality control, and predictive maintenance</li>
+                    </ul>
+
+                    <h2>Agentic AI: Autonomous Decision-Making Systems</h2>
+                    <p>
+                        Agentic AI will be the biggest game-changer in the enterprise world in 2025. These systems not only generate responses but can independently plan and execute complex tasks.
+                    </p>
+
+                    <blockquote>
+                        "Agentic AI systems can be thought of as digital workers who can manage complex business processes without human intervention, learning and optimizing themselves."
+                    </blockquote>
+
+                    <h3>Enterprise Applications</h3>
+                    <p>
+                        Critical application areas for Agentic AI:
+                    </p>
+                    
+                    <ul>
+                        <li><strong>Customer Service:</strong> 24/7 customer support with 90% automation rate</li>
+                        <li><strong>Supply Chain Management:</strong> Real-time optimization and proactive problem solving</li>
+                        <li><strong>Financial Planning:</strong> Dynamic budget allocation and risk management</li>
+                        <li><strong>HR Operations:</strong> Intelligent recruitment and employee experience optimization</li>
+                    </ul>
+
+                    <h2>Edge Computing + AI: The Real-Time Processing Revolution</h2>
+                    <p>
+                        The shift from cloud-first AI models to edge-native solutions is accelerating in 2025. This change offers major advantages, especially for latency-critical applications.
+                    </p>
+
+                    <p>
+                        Critical advantages of Edge AI:
+                    </p>
+                    
+                    <ul>
+                        <li><strong>Ultra-low Latency:</strong> Response time at millisecond level</li>
+                        <li><strong>Data Privacy:</strong> Protection of sensitive data through local processing</li>
+                        <li><strong>Bandwidth Efficiency:</strong> Up to 70% reduction in network traffic</li>
+                        <li><strong>Offline Capability:</strong> Ability to work without internet connection</li>
+                    </ul>
+
+                    <h2>Sectoral Transformation: 300% Adoption Increase</h2>
+                    <p>
+                        According to 2025 data, AI adoption rates show dramatic increases particularly in three critical sectors:
+                    </p>
+
+                    <h3>Healthcare Sector</h3>
+                    <p>
+                        Medical AI applications show 320% growth. Particularly:
+                    </p>
+                    <ul>
+                        <li>AI-powered diagnostic imaging</li>
+                        <li>Personalized treatment recommendations</li>
+                        <li>Drug discovery acceleration</li>
+                        <li>Clinical trial optimization</li>
+                    </ul>
+
+                    <h3>Fintech Innovation</h3>
+                    <p>
+                        Financial services AI integration records 280% increase:
+                    </p>
+                    <ul>
+                        <li>Algorithmic trading sophistication</li>
+                        <li>Real-time fraud detection</li>
+                        <li>Credit scoring revolution</li>
+                        <li>Regulatory compliance automation</li>
+                    </ul>
+
+                    <h3>Manufacturing 4.0</h3>
+                    <p>
+                        Industrial AI applications experiencing 350% growth:
+                    </p>
+                    <ul>
+                        <li>Predictive maintenance systems</li>
+                        <li>Quality control automation</li>
+                        <li>Supply chain optimization</li>
+                        <li>Energy efficiency management</li>
+                    </ul>
+
+                    <h2>Quantum-Enhanced AI: The Technology of the Future</h2>
+                    <p>
+                        In 2025, the integration of quantum computing with AI is beginning to see its first practical applications. Particularly breakthroughs are occurring in optimization problems and cryptographic applications.
+                    </p>
+
+                    <h2>QuevaTech's 2025 Vision</h2>
+                    <p>
+                        During this transformation period, QuevaTech's AI-Hybrid TRNG technology becomes critically important. Especially in financial modeling, cryptographic security, and scientific simulation areas, the need for true randomness is growing exponentially.
+                    </p>
+
+                    <blockquote>
+                        "In the increasing complexity of the digital world, predictable algorithms are being replaced by true randomness. QuevaTech's TRNG technology is at the center of this need."
+                    </blockquote>
+
+                    <h2>Conclusion: Time to Prepare</h2>
+                    <p>
+                        AI transformation in 2025 is not just about technology change, it requires business model evolution. Organizations should focus on:
+                    </p>
+                    
+                    <ul>
+                        <li><strong>Skills Development:</strong> AI literacy and technical capability building</li>
+                        <li><strong>Infrastructure Modernization:</strong> Edge computing and cloud-hybrid architectures</li>
+                        <li><strong>Data Strategy:</strong> Quality, governance and privacy-first approaches</li>
+                        <li><strong>Ethical Frameworks:</strong> Responsible AI implementation standards</li>
+                    </ul>
+
+                    <p>
+                        The 2025 development of artificial intelligence is not just a technological evolution, it represents a fundamental transformation in how we work. Being prepared for this transformation will be the key to competitive advantage.
+                    </p>
+                `,
+                
                 // Share and related
-                share_title: "Share this article",
+                share_title: "This article",
                 author_info: "Written by QuevaTech AI Research Team",
                 related_posts: "Related Articles",
+                related_title_1: "Data Security in the Big Data Era",
+                related_desc_1: "The cyber security landscape is experiencing dramatic changes in 2025...",
+                related_title_2: "MLOps: Bring Your Models to Life",
+                related_desc_2: "MLOps has become the backbone of enterprise AI in 2025...",
                 
                 // Footer
                 footer_tagline: "Shaping the future with artificial intelligence.",
@@ -611,6 +858,17 @@
                     el.innerHTML = langData[lang][key];
                 }
             });
+
+            // Update related posts titles and descriptions
+            const relatedTitle1 = document.getElementById('related-title-1');
+            const relatedDesc1 = document.getElementById('related-desc-1');
+            const relatedTitle2 = document.getElementById('related-title-2');
+            const relatedDesc2 = document.getElementById('related-desc-2');
+
+            if (relatedTitle1) relatedTitle1.textContent = langData[lang]['related_title_1'];
+            if (relatedDesc1) relatedDesc1.textContent = langData[lang]['related_desc_1'];
+            if (relatedTitle2) relatedTitle2.textContent = langData[lang]['related_title_2'];
+            if (relatedDesc2) relatedDesc2.textContent = langData[lang]['related_desc_2'];
 
             // Update page title
             if (lang === 'tr') {

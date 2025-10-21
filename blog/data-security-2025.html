@@ -51,8 +51,19 @@
             -webkit-backdrop-filter: blur(10px) !important;
         }
         
+        /* Hero section override */
+        section.bg-gradient-to-br {
+            background: linear-gradient(135deg, #4F46E5 0%, #A855F7 100%) !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+        }
+        
         .dark section {
             background: rgba(15, 23, 42, 0.2) !important;
+        }
+        
+        .dark section.bg-gradient-to-br {
+            background: linear-gradient(135deg, #4F46E5 0%, #A855F7 100%) !important;
         }
         
         /* Footer saydam cam */
@@ -123,20 +134,20 @@
             font-weight: 700;
             margin-top: 2rem;
             margin-bottom: 1rem;
-            color: #111827;
+            color: #0f172a;
         }
         .dark .blog-content h2 {
-            color: white;
+            color: #f8fafc;
         }
         .blog-content h3 {
             font-size: 1.25rem;
             font-weight: 600;
             margin-top: 1.5rem;
             margin-bottom: 0.75rem;
-            color: #1f2937;
+            color: #1e293b;
         }
         .dark .blog-content h3 {
-            color: #e5e7eb;
+            color: #e2e8f0;
         }
         .blog-content p {
             margin-bottom: 1rem;
@@ -252,15 +263,15 @@
             <div class="container mx-auto px-4">
                 <div class="max-w-4xl mx-auto text-center text-white">
                     <div class="flex items-center justify-center mb-4">
-                        <a href="../index.html#blog" class="flex items-center text-white/80 hover:text-white transition-colors">
+                        <a href="../index.html#blog" class="flex items-center text-white/70 hover:text-white dark:text-white/80 dark:hover:text-white transition-colors">
                             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
                             </svg>
                             <span data-lang="back_to_blog">Blog'a Dön</span>
                         </a>
                     </div>
-                    <h1 data-lang="blog_title" class="text-4xl md:text-5xl font-bold mb-4">Büyük Veri Çağında Güvenlik</h1>
-                    <div class="flex items-center justify-center space-x-4 text-white/90">
+                    <h1 data-lang="blog_title" class="text-4xl md:text-5xl font-bold mb-4 text-white dark:text-white">Büyük Veri Çağında Güvenlik</h1>
+                    <div class="flex items-center justify-center space-x-4 text-white/80 dark:text-white/90">
                         <span data-lang="blog_date">5 Ağustos 2025</span>
                         <span>•</span>
                         <span data-lang="blog_read_time">7 dakika okuma</span>
@@ -291,9 +302,11 @@
                     <!-- Article Content -->
                     <div class="blog-content prose prose-lg max-w-none">
                         <div data-lang="blog_intro">
-                            <p class="text-xl text-gray-600 dark:text-gray-400 mb-8 font-medium">
-                                Cyber security landscape 2025'te dramatik değişimler yaşıyor. Geleneksel güvenlik protokolleri yetersiz kalırken, True Random Number Generator (TRNG) teknolojileri kritik önem kazanıyor. QuevaTech'in AI-Hybrid TRNG çözümleri ile güvenlik paradigması yeniden tanımlanıyor.
-                            </p>
+                            blog_intro: `
+                    <p class="text-xl text-gray-600 dark:text-gray-400 mb-8 font-medium">
+                        2025'te siber güvenlik ortamında köklü değişimler yaşanıyor. Yapay zeka ile güçlendirilmiş saldırılar, kuantum bilişim tehditleri ve İnternet ağında güvenlik açıkları, geleneksel güvenlik önlemlerini yetersiz kılıyor. Gerçek Rastgele Sayı Üreticisi teknolojisi, bu yeni dönemin güvenlik temelini oluşturuyor.
+                    </p>
+                `,
                         </div>
 
                         <div data-lang="blog_content">
@@ -544,8 +557,8 @@
                                 <div class="related-post rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                                     <img src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop" alt="AI Future" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
                                     <div class="p-6">
-                                        <h4 class="font-bold text-lg mb-2 group-hover:text-queva-indigo dark:group-hover:text-queva-purple transition-colors">2025'te Yapay Zekânın Geleceği</h4>
-                                        <p class="text-gray-600 dark:text-gray-400 text-sm">2025 yılı yapay zeka teknolojisi için gerçek bir dönüm noktası olacak...</p>
+                                        <h4 id="related-title-1" class="font-bold text-lg mb-2 group-hover:text-queva-indigo dark:group-hover:text-queva-purple transition-colors">2025'te Yapay Zekânın Geleceği</h4>
+                                        <p id="related-desc-1" class="text-gray-600 dark:text-gray-400 text-sm">2025 yılı yapay zeka teknolojisi için gerçek bir dönüm noktası olacak...</p>
                                     </div>
                                 </div>
                             </a>
@@ -553,8 +566,8 @@
                                 <div class="related-post rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                                     <img src="https://images.pexels.com/photos/325229/pexels-photo-325229.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop" alt="MLOps" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
                                     <div class="p-6">
-                                        <h4 class="font-bold text-lg mb-2 group-hover:text-queva-indigo dark:group-hover:text-queva-purple transition-colors">MLOps: Modellerinizi Hayata Geçirin</h4>
-                                        <p class="text-gray-600 dark:text-gray-400 text-sm">MLOps 2025'te enterprise AI'ın omurgası haline geldi...</p>
+                                        <h4 id="related-title-2" class="font-bold text-lg mb-2 group-hover:text-queva-indigo dark:group-hover:text-queva-purple transition-colors">MLOps: Modellerinizi Hayata Geçirin</h4>
+                                        <p id="related-desc-2" class="text-gray-600 dark:text-gray-400 text-sm">MLOps 2025'te enterprise AI'ın omurgası haline geldi...</p>
                                     </div>
                                 </div>
                             </a>
@@ -623,14 +636,83 @@
                 
                 blog_intro: `
                     <p class="text-xl text-gray-600 dark:text-gray-400 mb-8 font-medium">
-                        Cyber security landscape 2025'te dramatik değişimler yaşıyor. Geleneksel güvenlik protokolleri yetersiz kalırken, True Random Number Generator (TRNG) teknolojileri kritik önem kazanıyor. QuevaTech'in AI-Hybrid TRNG çözümleri ile güvenlik paradigması yeniden tanımlanıyor.
+                        2025'te siber güvenlik ortamında köklü değişimler yaşanıyor. Yapay zeka ile güçlendirilmiş saldırılar, kuantum bilişim tehditleri ve İnternet ağında güvenlik açıkları, geleneksel güvenlik önlemlerini yetersiz kılıyor. Gerçek Rastgele Sayı Üreticisi teknolojisi, bu yeni dönemin güvenlik temelini oluşturuyor.
                     </p>
+                `,
+                
+                blog_content: `
+                    <h2>Güvenlik Tehditleri: Yeni Boyut</h2>
+                    <p>2025'te siber saldırı sofistikasyonu exponential büyüme gösteriyor. Yapay zeka ile güçlendirilmiş saldırılar, kuantum bilişim tehditleri ve İnternet ağında güvenlik açıkları, geleneksel güvenlik önlemlerini yetersiz kılıyor.</p>
+                    <p>Kritik tehdit vektörleri: Yapay Zeka Geliştirilmiş Saldırılar, Kuantum Kriptografi Tehditleri, İnternet Ağında Botnet Ağları, Derin Sahte Zeka, Tedarik Zinciri Sızması</p>
+
+                    <h2>Gerçek Rastgele Sayı Üreticisi Teknolojisi: Güvenliğin Yeni Temeli</h2>
+                    <p>Sözde rastgele sayı üreticilerinin tahmin edilebilirliği kritik güvenlik açığı yaratıyor. Gerçek Rastgele Sayı Üretimi, kriptografik güvenliğin temel gereksinimi haline geliyor.</p>
+
+                    <h3>QuevaTech Yapay Zeka-Hibrit Gerçek Rastgele Sayı Üreticisi Avantajları</h3>
+                    <ul>
+                        <li><strong>Donanım Tabanlı Entropi:</strong> Fiziksel olaylardan gerçek rastgelelik çıkarılması</li>
+                        <li><strong>Yapay Zeka Kalite Güvencesi:</strong> Makine öğrenmesi ile rastgelelik kalitesi izlenmesi</li>
+                        <li><strong>Gerçek Zamanlı Uyum:</strong> Çevre değişikliklerine uyarlanabilir tepki</li>
+                        <li><strong>Yüksek Hızlı Üretim:</strong> Kurumsal seviye iş kapasitesi gereksinimleri</li>
+                        <li><strong>Sertifikasyon Uyumluluğu:</strong> NIST, Ortak Kriterler ve endüstri standartları</li>
+                    </ul>
+
+                    <h2>Mali Hizmetler Sektörü: Kritik Uygulamalar</h2>
+                    <p>Mali kuruluşlarda Gerçek Rastgele Sayı Üreticisi teknolojisi benimseme %450 artış gösteriyor.</p>
+
+                    <h3>Kriptografik Anahtar Üretimi</h3>
+                    <ul>
+                        <li>SSL/TLS sertifikası üretimi</li>
+                        <li>Dijital imza orijinalliği</li>
+                        <li>Blokzincir işlem güvenliği</li>
+                        <li>Çok faktörlü kimlik doğrulama jetonları</li>
+                    </ul>
+
+                    <h3>Dolandırıcılık Tespit Geliştirme</h3>
+                    <ul>
+                        <li>İşlem deseni analizi</li>
+                        <li>Davranışsal biyometrik</li>
+                        <li>Risk puanlama algoritmaları</li>
+                        <li>Gerçek zamanlı anomali tespit</li>
+                    </ul>
+
+                    <h2>Sağlık Hizmetleri Veri Koruma Devrimi</h2>
+                    <p>Sağlık hizmetleri sektöründe veri hassasiyeti maksimum seviyededir. HIPAA uyumluluğu ve hasta gizliliğinin kritik önemi, Gerçek Rastgele Sayı Üreticisi benimsemesini hızlandırıyor.</p>
+
+                    <h3>Tıbbi Cihaz Güvenliği</h3>
+                    <ul>
+                        <li>Hasta izleme sistemleri</li>
+                        <li>Implante cihaz iletişimi</li>
+                        <li>Uzaktan tıp platformları</li>
+                        <li>Elektronik sağlık kayıtları</li>
+                    </ul>
+
+                    <h2>Kenar Bilişim Güvenlik Zorlukları</h2>
+                    <p>Kenar bilişim dağıtımının exponential büyümesi, yeni güvenlik paradigmaları gerektiriyor.</p>
+
+                    <h3>Kenar-Yerli Gerçek Rastgele Sayı Üreticisi Çözümleri</h3>
+                    <ul>
+                        <li><strong>Düşük Güç Çalışması:</strong> Pil kısıtlı ortamlar için optimizasyon</li>
+                        <li><strong>Minimal Ayak İzi:</strong> Kaynak kısıtlı kenar cihazlarda dağıtım</li>
+                        <li><strong>Çevrimdışı Yetenek:</strong> Ağ bağlantısı olmadan çalışma</li>
+                        <li><strong>Fiziksel Saldırı Direnci:</strong> Fiziksel saldırılara karşı koruma</li>
+                    </ul>
+
+                    <h2>Uyum Sağlama & Uygulama</h2>
+                    <p>Kurumsal Gerçek Rastgele Sayı Üreticisi dağıtımı için kapsamlı strateji gereklidir. Değerlendirme, Entegrasyon Planlama ve İzleme & Bakım aşamalarında başarı kritik öneme sahiptir.</p>
+
+                    <h2>Sonuç: Güvenliğin Geleceği</h2>
+                    <p>2025'te Gerçek Rastgele Sayı Üreticisi teknolojileri sadece bir seçenek değil, bir zorunluluk haline geliyor. Kuruluşlar bu dönüşüme hazırlanmalı ve güvenlik stratejilerine Gerçek Rastgele Sayı Üreticisi tabanlı çözümleri entegre etmelidirler.</p>
                 `,
                 
                 // Share and related
                 share_title: "Bu yazıyı paylaş",
                 author_info: "QuevaTech Güvenlik Uzmanları tarafından yazıldı",
                 related_posts: "İlgili Yazılar",
+                related_title_1: "2025'te Yapay Zekânın Geleceği",
+                related_desc_1: "2025 yılı yapay zeka teknolojisi için gerçek bir dönüm noktası olacak...",
+                related_title_2: "MLOps: Modellerinizi Hayata Geçirin",
+                related_desc_2: "MLOps 2025'te enterprise AI'ın omurgası haline geldi...",
                 
                 // Footer
                 footer_tagline: "Yapay zekâ ile geleceği şekillendiriyoruz.",
@@ -666,10 +748,78 @@
                     </p>
                 `,
                 
+                blog_content: `
+                    <h2>Security Threats: A New Dimension</h2>
+                    <p>In 2025, cyber attack sophistication shows exponential growth. AI-powered attacks, quantum computing threats, and IoT vulnerabilities render traditional security measures insufficient.</p>
+
+                    <h2>TRNG Technology: The New Foundation of Security</h2>
+                    <p>The predictability of pseudo-random generators creates critical security vulnerabilities. True Random Number Generation becomes a fundamental requirement for cryptographic security.</p>
+
+                    <h3>QuevaTech AI-Hybrid TRNG Advantages</h3>
+                    <ul>
+                        <li><strong>Hardware-Based Entropy:</strong> True randomness extraction from physical phenomena</li>
+                        <li><strong>AI Quality Assurance:</strong> Randomness quality monitoring through machine learning</li>
+                        <li><strong>Real-time Adaptation:</strong> Adaptive response to environmental changes</li>
+                        <li><strong>High-Speed Generation:</strong> Enterprise-grade throughput requirements</li>
+                        <li><strong>Certification Compliance:</strong> NIST, Common Criteria and industry standards</li>
+                    </ul>
+
+                    <h2>Financial Sector: Critical Applications</h2>
+                    <p>TRNG technology adoption in financial institutions shows 450% growth.</p>
+
+                    <h3>Cryptographic Key Generation</h3>
+                    <ul>
+                        <li>SSL/TLS certificate generation</li>
+                        <li>Digital signature authenticity</li>
+                        <li>Blockchain transaction security</li>
+                        <li>Multi-factor authentication tokens</li>
+                    </ul>
+
+                    <h3>Fraud Detection Enhancement</h3>
+                    <ul>
+                        <li>Transaction pattern analysis</li>
+                        <li>Behavioral biometrics</li>
+                        <li>Risk scoring algorithms</li>
+                        <li>Real-time anomaly detection</li>
+                    </ul>
+
+                    <h2>Healthcare Data Protection Revolution</h2>
+                    <p>Data sensitivity reaches maximum levels in the healthcare sector. Critical importance of HIPAA compliance and patient privacy accelerates TRNG adoption.</p>
+
+                    <h3>Medical Device Security</h3>
+                    <ul>
+                        <li>Patient monitoring systems</li>
+                        <li>Implantable device communication</li>
+                        <li>Telemedicine platforms</li>
+                        <li>Electronic health records</li>
+                    </ul>
+
+                    <h2>Edge Computing Security Challenges</h2>
+                    <p>The exponential growth of edge computing deployment requires new security paradigms.</p>
+
+                    <h3>Edge-Native TRNG Solutions</h3>
+                    <ul>
+                        <li><strong>Low-Power Operation:</strong> Optimization for battery-constrained environments</li>
+                        <li><strong>Minimal Footprint:</strong> Deployment on resource-limited edge devices</li>
+                        <li><strong>Offline Capability:</strong> Operation without network connectivity</li>
+                        <li><strong>Tamper Resistance:</strong> Protection against physical attacks</li>
+                    </ul>
+
+                    <h2>Compliance & Implementation</h2>
+                    <p>Enterprise TRNG deployment requires a comprehensive strategy. Success in Assessment, Integration Planning, and Monitoring & Maintenance phases is critical.</p>
+
+                    <h2>Conclusion: The Future of Security</h2>
+                    <p>In 2025, TRNG technologies are becoming not just an option, but a necessity. Organizations must prepare for this transformation and integrate TRNG-based solutions into their security strategies.</p>
+                `,
+                
                 // Share and related
                 share_title: "Share this article",
                 author_info: "Written by QuevaTech Security Experts",
                 related_posts: "Related Articles",
+                related_title_1: "The Future of AI in 2025",
+                related_desc_1: "2025 will be a true turning point for artificial intelligence technology...",
+                related_title_2: "MLOps: Bring Your Models to Life",
+                related_desc_2: "MLOps has become the backbone of enterprise AI in 2025...",
                 
                 // Footer
                 footer_tagline: "Shaping the future with artificial intelligence.",
@@ -705,6 +855,17 @@
                     el.innerHTML = langData[lang][key];
                 }
             });
+
+            // Update related posts titles and descriptions
+            const relatedTitle1 = document.getElementById('related-title-1');
+            const relatedDesc1 = document.getElementById('related-desc-1');
+            const relatedTitle2 = document.getElementById('related-title-2');
+            const relatedDesc2 = document.getElementById('related-desc-2');
+
+            if (relatedTitle1) relatedTitle1.textContent = langData[lang]['related_title_1'];
+            if (relatedDesc1) relatedDesc1.textContent = langData[lang]['related_desc_1'];
+            if (relatedTitle2) relatedTitle2.textContent = langData[lang]['related_title_2'];
+            if (relatedDesc2) relatedDesc2.textContent = langData[lang]['related_desc_2'];
 
             // Update page title
             if (lang === 'tr') {

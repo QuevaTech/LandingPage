@@ -194,6 +194,317 @@
         .dark .lang-switcher .active {
             color: #A855F7;
         }
+
+        /* Navbar text colors optimization */
+        #navbar nav a {
+            color: #ffffff;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .dark #navbar nav a {
+            color: #ffffff;
+        }
+
+        #navbar nav a:hover {
+            color: #4F46E5;
+            font-weight: 700;
+        }
+
+        .dark #navbar nav a:hover {
+            color: #A855F7;
+            font-weight: 700;
+        }
+
+        /* Mobile menu links */
+        #mobile-menu a {
+            color: #ffffff;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .dark #mobile-menu a {
+            color: #ffffff;
+        }
+
+        #mobile-menu a:hover {
+            color: #4F46E5;
+            font-weight: 700;
+        }
+
+        .dark #mobile-menu a:hover {
+            color: #A855F7;
+            font-weight: 700;
+        }
+
+        /* Language switcher styling */
+        #navbar .lang-switcher {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        #navbar .lang-switcher button {
+            color: #ffffff;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        #navbar .lang-switcher button:hover {
+            color: #4F46E5;
+        }
+
+        .dark #navbar .lang-switcher button:hover {
+            color: #A855F7;
+        }
+
+        #navbar .lang-switcher .active {
+            color: #4F46E5;
+            font-weight: 700;
+        }
+
+        .dark #navbar .lang-switcher .active {
+            color: #A855F7;
+            font-weight: 700;
+        }
+
+        /* Space Theme Animations */
+        @keyframes space-glow {
+            0%, 100% {
+                text-shadow: 0 0 10px rgba(100, 200, 255, 0.4),
+                             0 0 20px rgba(150, 100, 255, 0.2);
+                color: #ffffff;
+            }
+            50% {
+                text-shadow: 0 0 20px rgba(100, 200, 255, 0.6),
+                             0 0 40px rgba(150, 100, 255, 0.4),
+                             0 0 60px rgba(79, 70, 229, 0.3);
+                color: #e0e7ff;
+            }
+        }
+
+        .hero-glow-text {
+            text-shadow: 0 0 10px rgba(100, 200, 255, 0.4),
+                         0 0 20px rgba(150, 100, 255, 0.3),
+                         0 0 40px rgba(79, 70, 229, 0.2);
+            animation: space-glow 4s ease-in-out infinite;
+        }
+
+        /* Animated section titles - Gradient text animation */
+        h2[data-lang], h3[data-lang] {
+            background: linear-gradient(90deg, #4F46E5, #A855F7, #4F46E5);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradient-shift 8s ease infinite;
+        }
+
+        @keyframes gradient-shift {
+            0% {
+                background-position: 0% center;
+            }
+            50% {
+                background-position: 100% center;
+            }
+            100% {
+                background-position: 0% center;
+            }
+        }
+
+        /* ===================================
+           GRADIENT OVERLAY GEÇIŞLERI & SHIMMER
+           =================================== */
+        
+        /* Section geçişleri için gradient background animation */
+        section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Hero section animated gradient background */
+        section:nth-of-type(1) {
+            background: linear-gradient(-45deg, #4F46E5, #A855F7, #0EA5E9, #4F46E5);
+            background-size: 400% 400%;
+            animation: gradient-flow 15s ease infinite;
+        }
+
+        @keyframes gradient-flow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Platform section animated gradient */
+        #platform {
+            background: linear-gradient(45deg, rgba(79, 70, 229, 0.05), rgba(168, 85, 247, 0.05));
+            background-size: 200% 200%;
+            animation: gradient-pulse 10s ease-in-out infinite;
+        }
+
+        @keyframes gradient-pulse {
+            0%, 100% { background-position: 0% 0%; }
+            50% { background-position: 100% 100%; }
+        }
+
+        /* Canvas animation fade-in */
+        #star-canvas {
+            opacity: 0.85;
+            animation: fade-in 2s ease-in;
+        }
+
+        @keyframes fade-in {
+            from { opacity: 0; }
+            to { opacity: 0.85; }
+        }
+
+        /* ===================================
+           MICRO-INTERACTIONS & BUTTON EFFECTS
+           =================================== */
+        
+        /* Interactive glow effect */
+        .interactive-glow {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .interactive-glow:hover {
+            box-shadow: 0 0 20px rgba(100, 200, 255, 0.5),
+                        0 0 40px rgba(150, 100, 255, 0.3),
+                        inset 0 0 15px rgba(100, 200, 255, 0.1);
+            transform: scale(1.02);
+        }
+
+        /* Button ripple effect */
+        .glass-button::after,
+        .glass-button-primary::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+
+        .glass-button:active::after,
+        .glass-button-primary:active::after {
+            animation: ripple 0.6s ease-out;
+        }
+
+        @keyframes ripple {
+            0% {
+                width: 0;
+                height: 0;
+                opacity: 1;
+            }
+            100% {
+                width: 300px;
+                height: 300px;
+                opacity: 0;
+            }
+        }
+
+        /* ===================================
+           FLOATING PARTICLES & ICONS
+           =================================== */
+        
+        /* Floating particle class */
+        .floating-particle {
+            position: fixed;
+            pointer-events: none;
+            opacity: 0.4;
+            animation: float-around 20s infinite linear;
+            mix-blend-mode: screen;
+        }
+
+        .floating-particle:nth-child(1) { animation-duration: 20s; }
+        .floating-particle:nth-child(2) { animation-duration: 25s; }
+        .floating-particle:nth-child(3) { animation-duration: 30s; }
+        .floating-particle:nth-child(4) { animation-duration: 22s; }
+        .floating-particle:nth-child(5) { animation-duration: 28s; }
+
+        @keyframes float-around {
+            0% {
+                transform: translateX(0) translateY(0) rotate(0deg);
+            }
+            25% {
+                transform: translateX(100px) translateY(-100px) rotate(90deg);
+            }
+            50% {
+                transform: translateX(0) translateY(-200px) rotate(180deg);
+            }
+            75% {
+                transform: translateX(-100px) translateY(-100px) rotate(270deg);
+            }
+            100% {
+                transform: translateX(0) translateY(0) rotate(360deg);
+            }
+        }
+
+        /* Pulsing badge effect */
+        .pulsing-badge {
+            animation: pulse-badge 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-badge {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.8;
+            }
+        }
+
+        /* Animated SVG icons */
+        .animated-icon {
+            animation: icon-float 3s ease-in-out infinite;
+        }
+
+        @keyframes icon-float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(5deg); }
+        }
+
+        /* ===================================
+           SCROLL-TRIGGERED PARALLAX
+           =================================== */
+        
+        /* Hero parallax background */
+        .hero-parallax {
+            position: relative;
+            z-index: 1;
+            animation: parallax-scroll 10s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
+
+        /* Parallax scroll animation (will be triggered via JavaScript) */
+        @keyframes parallax-scroll {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(-20px) scale(1.02);
+            }
+            100% {
+                transform: translateY(-40px) scale(1.04);
+            }
+        }
+
+        /* Canvas parallax effect */
+        #star-canvas {
+            animation: canvas-parallax 12s ease-in-out infinite;
+        }
+
+        @keyframes canvas-parallax {
+            0%, 100% { transform: translateZ(0); }
+            50% { transform: translateZ(20px); }
+        }
     </style>
     <script>
         tailwind.config = {
@@ -245,26 +556,26 @@
 
                 <!-- Desktop Menu -->
                 <nav class="hidden md:flex items-center space-x-6">
-                    <a href="#products" data-lang="nav_products" class="hover:text-queva-indigo dark:hover:text-queva-purple transition-colors">Ürünler</a>
-                    <a href="#platform" data-lang="nav_platform" class="hover:text-queva-indigo dark:hover:text-queva-purple transition-colors">Platform</a>
-                    <a href="#solutions" data-lang="nav_solutions" class="hover:text-queva-indigo dark:hover:text-queva-purple transition-colors">Çözümler</a>
-                    <a href="#about" data-lang="nav_about" class="hover:text-queva-indigo dark:hover:text-queva-purple transition-colors">Hakkımızda</a>
-                    <a href="#blog" data-lang="nav_blog" class="hover:text-queva-indigo dark:hover:text-queva-purple transition-colors">Blog</a>
-                    <a href="#contact" data-lang="nav_contact" class="hover:text-queva-indigo dark:hover:text-queva-purple transition-colors">İletişim</a>
+                    <a href="#products" data-lang="nav_products" class="font-semibold text-white hover:text-queva-indigo dark:hover:text-queva-purple transition-all duration-300">Ürünler</a>
+                    <a href="#platform" data-lang="nav_platform" class="font-semibold text-white hover:text-queva-indigo dark:hover:text-queva-purple transition-all duration-300">Platform</a>
+                    <a href="#solutions" data-lang="nav_solutions" class="font-semibold text-white hover:text-queva-indigo dark:hover:text-queva-purple transition-all duration-300">Çözümler</a>
+                    <a href="#about" data-lang="nav_about" class="font-semibold text-white hover:text-queva-indigo dark:hover:text-queva-purple transition-all duration-300">Hakkımızda</a>
+                    <a href="#blog" data-lang="nav_blog" class="font-semibold text-white hover:text-queva-indigo dark:hover:text-queva-purple transition-all duration-300">Blog</a>
+                    <a href="#contact" data-lang="nav_contact" class="font-semibold text-white hover:text-queva-indigo dark:hover:text-queva-purple transition-all duration-300">İletişim</a>
                 </nav>
 
                 <!-- Controls: Language, Theme, Mobile Menu -->
                 <div class="flex items-center">
                      <!-- Language Switcher -->
-                    <div class="lang-switcher text-sm font-semibold mr-4">
-                        <button id="lang-tr" class="p-1">TR</button>
-                        <span>/</span>
-                        <button id="lang-en" class="p-1">EN</button>
+                    <div class="lang-switcher text-sm font-semibold mr-4 text-white">
+                        <button id="lang-tr" class="p-1 text-white">TR</button>
+                        <span class="text-white">/</span>
+                        <button id="lang-en" class="p-1 text-white">EN</button>
                     </div>
                     <!-- Theme Toggle -->
                     <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
-                        <svg id="theme-toggle-dark-icon" class="hidden h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-                        <svg id="theme-toggle-light-icon" class="hidden h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                        <svg id="theme-toggle-dark-icon" class="hidden h-5 w-5 text-white dark:text-gray-900" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                        <svg id="theme-toggle-light-icon" class="hidden h-5 w-5 text-white dark:text-gray-900" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
                     </button>
                     <!-- Mobile Menu Button -->
                     <button id="mobile-menu-button" class="md:hidden p-2 ml-2">
@@ -275,12 +586,12 @@
         </div>
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-queva-dark shadow-lg">
-            <a href="#products" data-lang="nav_products_mobile" class="block py-2 px-4 text-sm hover:bg-queva-light dark:hover:bg-gray-800">Ürünler</a>
-            <a href="#platform" data-lang="nav_platform_mobile" class="block py-2 px-4 text-sm hover:bg-queva-light dark:hover:bg-gray-800">Platform</a>
-            <a href="#solutions" data-lang="nav_solutions_mobile" class="block py-2 px-4 text-sm hover:bg-queva-light dark:hover:bg-gray-800">Çözümler</a>
-            <a href="#about" data-lang="nav_about_mobile" class="block py-2 px-4 text-sm hover:bg-queva-light dark:hover:bg-gray-800">Hakkımızda</a>
-            <a href="#blog" data-lang="nav_blog_mobile" class="block py-2 px-4 text-sm hover:bg-queva-light dark:hover:bg-gray-800">Blog</a>
-            <a href="#contact" data-lang="nav_contact_mobile" class="block py-2 px-4 text-sm hover:bg-queva-light dark:hover:bg-gray-800">İletişim</a>
+            <a href="#products" data-lang="nav_products_mobile" class="block py-3 px-4 text-sm font-semibold text-white hover:text-queva-indigo dark:hover:text-queva-purple hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300">Ürünler</a>
+            <a href="#platform" data-lang="nav_platform_mobile" class="block py-3 px-4 text-sm font-semibold text-white hover:text-queva-indigo dark:hover:text-queva-purple hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300">Platform</a>
+            <a href="#solutions" data-lang="nav_solutions_mobile" class="block py-3 px-4 text-sm font-semibold text-white hover:text-queva-indigo dark:hover:text-queva-purple hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300">Çözümler</a>
+            <a href="#about" data-lang="nav_about_mobile" class="block py-3 px-4 text-sm font-semibold text-white hover:text-queva-indigo dark:hover:text-queva-purple hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300">Hakkımızda</a>
+            <a href="#blog" data-lang="nav_blog_mobile" class="block py-3 px-4 text-sm font-semibold text-white hover:text-queva-indigo dark:hover:text-queva-purple hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300">Blog</a>
+            <a href="#contact" data-lang="nav_contact_mobile" class="block py-3 px-4 text-sm font-semibold text-white hover:text-queva-indigo dark:hover:text-queva-purple hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300">İletişim</a>
         </div>
     </header>
 
@@ -294,13 +605,13 @@
             <div class="absolute inset-0 bg-gradient-to-br from-queva-indigo to-queva-purple z-0"></div>
             <canvas id="star-canvas" class="absolute inset-0 z-10"></canvas>
             <div class="relative z-20 p-4" data-aos="fade-up">
-                <h1 data-lang="hero_title" class="text-4xl md:text-6xl font-bold mb-4">Yapay Zekâ ile Geleceği Şekillendiriyoruz</h1>
+                <h1 data-lang="hero_title" class="text-4xl md:text-6xl font-bold mb-4 hero-glow-text">Yapay Zekâ ile Geleceği Şekillendiriyoruz</h1>
                 <p data-lang="hero_subtitle" class="text-lg md:text-xl max-w-2xl mx-auto mb-8">
                     Verilerinizi değere dönüştüren, iş süreçlerinizi otomatize eden yenilikçi AI platformu.
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
-                    <a href="#contact" data-lang="hero_cta1" class="glass-button-primary w-full sm:w-auto font-bold py-4 px-8 rounded-full transition-all duration-300 text-center">Demo Talep Et</a>
-                    <a href="sales-presentations.html" data-lang="hero_cta2" class="glass-button glass-button-white w-full sm:w-auto font-bold py-4 px-8 rounded-full transition-all duration-300 text-center">Satış Sunumları</a>
+                    <a href="#contact" data-lang="hero_cta1" class="glass-button-primary interactive-glow w-full sm:w-auto font-bold py-4 px-8 rounded-full transition-all duration-300 text-center">Demo Talep Et</a>
+                    <a href="sales-presentations.html" data-lang="hero_cta2" class="glass-button glass-button-white interactive-glow w-full sm:w-auto font-bold py-4 px-8 rounded-full transition-all duration-300 text-center">Satış Sunumları</a>
                 </div>
             </div>
         </section>
@@ -316,9 +627,9 @@
                     <h2 data-lang="products_title" class="text-3xl md:text-4xl font-bold">Ürün Portföyümüz</h2>
                     <p data-lang="products_subtitle" class="text-lg mt-2 text-gray-600 dark:text-gray-400">Gerçek rastgelelik teknolojisi ile güvenli çözümler</p>
                 </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8" style="perspective: 1200px;">
                     <!-- Parola API -->
-                    <div class="glass-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="glass-card floating-card" data-aos="fade-up" data-aos-delay="100">
                         <div class="p-8">
                             <div class="text-queva-indigo dark:text-queva-purple mb-4">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
@@ -329,7 +640,7 @@
                     </div>
                     
                     <!-- RNG Hizmeti -->
-                    <div class="glass-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="glass-card floating-card" data-aos="fade-up" data-aos-delay="200">
                         <div class="p-8">
                             <div class="text-queva-indigo dark:text-queva-purple mb-4">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L12 6M12 18L12 22M4.93 4.93L7.76 7.76M16.24 16.24L19.07 19.07M2 12L6 12M18 12L22 12M4.93 19.07L7.76 16.24M16.24 7.76L19.07 4.93"/></svg>
@@ -593,29 +904,29 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
                         <div class="text-center" data-aos="fade-up" data-aos-delay="100">
                             <div class="bg-queva-indigo/10 dark:bg-queva-purple/10 p-6 rounded-xl mb-4">
-                                <h4 data-lang="platform_int_data" class="font-semibold mb-2">Data Sources</h4>
-                                <p data-lang="platform_int_data_desc" class="text-sm text-gray-600 dark:text-gray-400">Databases, data lakes, streaming platforms</p>
+                                <h4 data-lang="platform_int_data" class="font-semibold mb-2">Veri Kaynakları</h4>
+                                <p data-lang="platform_int_data_desc" class="text-sm text-gray-600 dark:text-gray-400">Veritabanları, veri gölleri, akış platformları</p>
                             </div>
                         </div>
 
                         <div class="text-center" data-aos="fade-up" data-aos-delay="200">
                             <div class="bg-queva-indigo/10 dark:bg-queva-purple/10 p-6 rounded-xl mb-4">
-                                <h4 data-lang="platform_int_dev" class="font-semibold mb-2">Development Tools</h4>
-                                <p data-lang="platform_int_dev_desc" class="text-sm text-gray-600 dark:text-gray-400">Jupyter, VS Code, popular ML frameworks</p>
+                                <h4 data-lang="platform_int_dev" class="font-semibold mb-2">Geliştirme Araçları</h4>
+                                <p data-lang="platform_int_dev_desc" class="text-sm text-gray-600 dark:text-gray-400">Jupyter, VS Code, popüler makine öğrenmesi çerçeveleri</p>
                             </div>
                         </div>
 
                         <div class="text-center" data-aos="fade-up" data-aos-delay="300">
                             <div class="bg-queva-indigo/10 dark:bg-queva-purple/10 p-6 rounded-xl mb-4">
-                                <h4 data-lang="platform_int_deploy" class="font-semibold mb-2">Deployment Targets</h4>
-                                <p data-lang="platform_int_deploy_desc" class="text-sm text-gray-600 dark:text-gray-400">Cloud, on-premise, edge environments</p>
+                                <h4 data-lang="platform_int_deploy" class="font-semibold mb-2">Dağıtım Hedefleri</h4>
+                                <p data-lang="platform_int_deploy_desc" class="text-sm text-gray-600 dark:text-gray-400">Bulut, şirket içi, uç ortamlar</p>
                             </div>
                         </div>
 
                         <div class="text-center" data-aos="fade-up" data-aos-delay="400">
                             <div class="bg-queva-indigo/10 dark:bg-queva-purple/10 p-6 rounded-xl mb-4">
-                                <h4 data-lang="platform_int_monitor" class="font-semibold mb-2">Monitoring Systems</h4>
-                                <p data-lang="platform_int_monitor_desc" class="text-sm text-gray-600 dark:text-gray-400">Enterprise monitoring ve logging tools</p>
+                                <h4 data-lang="platform_int_monitor" class="font-semibold mb-2">İzleme Sistemleri</h4>
+                                <p data-lang="platform_int_monitor_desc" class="text-sm text-gray-600 dark:text-gray-400">Kurumsal izleme ve günlükleme araçları</p>
                             </div>
                         </div>
                     </div>
@@ -640,7 +951,7 @@
                         <p data-lang="case_study_desc" class="text-lg text-gray-600 dark:text-gray-400 mb-6">QuevaTech'in AI-Hybrid TRNG yaklaşımı, Monte Carlo tabanlı risk modelleme, stres testleri ve portföy optimizasyonu süreçlerinde senaryo çeşitliliğini artırır, örneklemler arasındaki bağımsızlığı güçlendirir ve konverjansı hızlandırmayı hedefler.</p>
                         <div class="bg-queva-light dark:bg-queva-dark p-6 rounded-2xl">
                             <span class="text-5xl font-bold text-queva-indigo dark:text-queva-purple">Hızlı</span>
-                            <p data-lang="case_study_stat" class="mt-2 font-semibold">Risk Ölçümünde Konverjans</p>
+                            <p data-lang="case_study_stat" class="mt-2 font-semibold">Risk Ölçümünde Hızlandırılmış Konverjans</p>
                         </div>
                     </div>
                 </div>
@@ -656,9 +967,9 @@
             <div class="container mx-auto px-4">
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div data-aos="fade-left">
-                        <span data-lang="gaming_case_study_tag" class="text-queva-indigo dark:text-queva-purple font-bold">POTANSIYEL ANALIZ</span>
-                        <h2 data-lang="gaming_case_study_title" class="text-3xl md:text-4xl font-bold mt-2 mb-4">Oyun Stüdyoları İçin: AI-Hybrid TRNG ile Procedural Generation'da Tekrar Oranını Düşürün</h2>
-                        <p data-lang="gaming_case_study_desc" class="text-lg text-gray-600 dark:text-gray-400 mb-6">QuevaTech'in AI-Hybrid TRNG yaklaşımı; dünya/level üretimi, loot dağılımı ve AI director sistemlerinde tohum kalitesini ve örneklem bağımsızlığını artırarak tekrar eden desenleri azaltmayı ve senaryo çeşitliliğini yükseltmeyi hedefler.</p>
+                        <span data-lang="gaming_case_study_tag" class="text-queva-indigo dark:text-queva-purple font-bold">POTANSİYEL ANALİZ</span>
+                        <h2 data-lang="gaming_case_study_title" class="text-3xl md:text-4xl font-bold mt-2 mb-4">Oyun Stüdyoları İçin: AI-Hybrid TRNG ile Prosedürel Üretimde Tekrarı Azaltın, Çeşitliliği Artırın</h2>
+                        <p data-lang="gaming_case_study_desc" class="text-lg text-gray-600 dark:text-gray-400 mb-6">QuevaTech'in AI-Hybrid TRNG yaklaşımı, dünya/seviye üretimi, loot dağıtımı ve yapay zeka yönetici sistemlerinde tekrarlanan desenleri azaltmayı ve senaryo çeşitliliğini artırmayı amaçlar. Sonuç: daha geniş desen kapsamı, daha düşük seed çarpışması ve hedef drop oranlarına daha yakın dağılımlar.</p>
                         <div class="bg-queva-light dark:bg-queva-dark p-6 rounded-2xl">
                             <span class="text-5xl font-bold text-queva-indigo dark:text-queva-purple">POC</span>
                             <p data-lang="gaming_case_study_stat" class="mt-2 font-semibold">Desen Çeşitliliği ve Tekrar Azaltma</p>
@@ -1137,46 +1448,46 @@
                 // Platform
                 platform_title: "QuevaTech: Platformun Gücünü Keşfedin",
                 platform_subtitle: "Yapay zeka, yazılım, elektronik ve devrimsel TRNG teknolojisiyle dijital rastgeleliğin gücünü ortaya çıkarır",
-                platform_tech_title: "Nasıl Yaptığımız: Core Technology Stack",
+                platform_tech_title: "Nasıl Yaptığımız: Temel Teknoloji Yığını",
                 platform_analytics_title: "Veri Analitiği",
-                platform_analytics_desc: "Büyük veri setlerinizi anlamlı içgörülere dönüştürerek stratejik kararlar almanızı kolaylaştırıyoruz. Advanced analytics engine ile real-time processing ve predictive insights sağlıyor.",
+                platform_analytics_desc: "Büyük veri setlerinizi anlamlı içgörülere dönüştürerek stratejik kararlar almanızı kolaylaştırıyoruz. Gelişmiş analitik motoru ile gerçek zamanlı işleme ve tahmine dayalı içgörüler sağlıyoruz.",
                 platform_ml_title: "Makine Öğrenmesi",
-                platform_ml_desc: "Öngörüsel modeller ve otomasyon çözümleri ile operasyonel verimliliğinizi en üst seviyeye taşıyoruz. AutoML capabilities ile democratized AI development enabling ediyoruz.",
+                platform_ml_desc: "Öngörüsel modeller ve otomasyon çözümleri ile operasyonel verimliliğinizi en üst seviyeye taşıyoruz. Otomatik makine öğrenmesi (AutoML) yetenekleri ile demokratikleştirilmiş yapay zeka geliştirmesi sunuyoruz.",
                 platform_security_title: "Güvenli Altyapı",
-                platform_security_desc: "Verileriniz, endüstri standardı güvenlik protokolleri ile korunan bulut altyapımızda güvendedir. Zero-trust architecture ile comprehensive security ensuring ediyoruz.",
+                platform_security_desc: "Verileriniz, endüstri standardı güvenlik protokolleri ile korunan bulut altyapımızda güvendedir. Sıfır güven mimarisi ile kapsamlı güvenlik sağlıyoruz.",
                 platform_trng_title: "Devrimsel TRNG",
-                platform_trng_desc: "AI-Hybrid TRNG teknolojisi ile gerçek rastgelelik üretimi. Dijital dünyanın tahmin edilemezliğini avantajınıza çevirin. True randomness through physical entropy ile cryptographic-grade security sağlıyor.",
-                platform_arch_title: "Altyapımız: Enterprise-Grade Architecture",
-                platform_arch_hybrid: "Hybrid Cloud Deployment",
-                platform_arch_hybrid_desc: "Multi-cloud strategy ile vendor lock-in elimination",
-                platform_arch_micro: "Microservices Architecture",
-                platform_arch_micro_desc: "Scalable, maintainable service-oriented design",
-                platform_arch_k8s: "Kubernetes Orchestration",
-                platform_arch_k8s_desc: "Container-based deployment ile high availability",
-                platform_arch_realtime: "Real-time Processing",
-                platform_arch_realtime_desc: "Stream processing capabilities ile low-latency operations",
-                platform_arch_secure: "Secure by Design",
-                platform_arch_secure_desc: "End-to-end encryption ile data protection at every layer",
-                platform_features_title: "Platform Features",
-                platform_feature_dashboard: "Unified Dashboard",
-                platform_feature_dashboard_desc: "Single pane of glass for all ML operations",
-                platform_feature_pipeline: "Automated Pipelines",
-                platform_feature_pipeline_desc: "Code-free pipeline creation ve management",
-                platform_feature_marketplace: "Model Marketplace",
-                platform_feature_marketplace_desc: "Pre-trained models ve components sharing",
-                platform_feature_collab: "Collaboration Tools",
-                platform_feature_collab_desc: "Team coordination ve knowledge sharing",
-                platform_feature_compliance: "Compliance Framework",
-                platform_feature_compliance_desc: "Regulatory requirements'ı automated compliance",
-                platform_integration_title: "Integration Capabilities",
-                platform_int_data: "Data Sources",
-                platform_int_data_desc: "Databases, data lakes, streaming platforms",
-                platform_int_dev: "Development Tools",
-                platform_int_dev_desc: "Jupyter, VS Code, popular ML frameworks",
-                platform_int_deploy: "Deployment Targets",
-                platform_int_deploy_desc: "Cloud, on-premise, edge environments",
-                platform_int_monitor: "Monitoring Systems",
-                platform_int_monitor_desc: "Enterprise monitoring ve logging tools",
+                platform_trng_desc: "AI-Hybrid TRNG teknolojisi ile gerçek rastgelelik üretimi. Dijital dünyanın tahmin edilemezliğini avantajınıza çevirin. Fiziksel entropi ile gerçek rastgelelik yoluyla kriptografik düzeyde güvenlik sağlıyoruz.",
+                platform_arch_title: "Altyapımız: Kurumsal Düzeyde Mimari",
+                platform_arch_hybrid: "Hibrit Bulut Dağıtımı",
+                platform_arch_hybrid_desc: "Çoklu bulut stratejisi ile satıcı kilitlenmesini ortadan kaldırma",
+                platform_arch_micro: "Mikro Hizmetler Mimarisi",
+                platform_arch_micro_desc: "Ölçeklenebilir, sürdürülebilir hizmet odaklı tasarım",
+                platform_arch_k8s: "Kubernetes Orkestrasyonu",
+                platform_arch_k8s_desc: "Konteyner tabanlı dağıtım ile yüksek erişilebilirlik",
+                platform_arch_realtime: "Gerçek Zamanlı İşleme",
+                platform_arch_realtime_desc: "Akış işleme yetenekleri ile düşük gecikmeli operasyonlar",
+                platform_arch_secure: "Tasarımdan Güvenli",
+                platform_arch_secure_desc: "Uçtan uca şifreleme ile her katmanda veri koruması",
+                platform_features_title: "Platform Özellikleri",
+                platform_feature_dashboard: "Birleşik Gösterge Paneli",
+                platform_feature_dashboard_desc: "Tüm makine öğrenmesi operasyonları için tek cam",
+                platform_feature_pipeline: "Otomatik Boru Hatları",
+                platform_feature_pipeline_desc: "Kodsuz boru hattı oluşturma ve yönetim",
+                platform_feature_marketplace: "Model Pazarı",
+                platform_feature_marketplace_desc: "Önceden eğitilmiş modeller ve bileşen paylaşımı",
+                platform_feature_collab: "İşbirliği Araçları",
+                platform_feature_collab_desc: "Takım koordinasyonu ve bilgi paylaşımı",
+                platform_feature_compliance: "Uyumluluk Çerçevesi",
+                platform_feature_compliance_desc: "Düzenleyici gerekliliklere otomatik uyumluluk",
+                platform_integration_title: "Entegrasyon Yetenekleri",
+                platform_int_data: "Veri Kaynakları",
+                platform_int_data_desc: "Veritabanları, veri gölleri, akış platformları",
+                platform_int_dev: "Geliştirme Araçları",
+                platform_int_dev_desc: "Jupyter, VS Code, popüler makine öğrenmesi çerçeveleri",
+                platform_int_deploy: "Dağıtım Hedefleri",
+                platform_int_deploy_desc: "Bulut, şirket içi, uç ortamlar",
+                platform_int_monitor: "İzleme Sistemleri",
+                platform_int_monitor_desc: "Kurumsal izleme ve günlükleme araçları",
                 // Case Study
                 case_study_tag: "POTANSIYEL ANALIZ",
                 case_study_title: "Finansal Kurumlar İçin: AI-Hybrid TRNG ile Risk Ölçümünde Hızlı ve İstikrarlı Konverjans",
@@ -1280,7 +1591,7 @@
                 product6_desc: "Integration and customization consulting",
                 // Platform
                 platform_title: "QuevaTech: Discover the Power of the Platform",
-                platform_subtitle: "Unleashing the power of digital randomness with artificial intelligence, software, electronics and revolutionary TRNG technology",
+                platform_subtitle: "Unleashing the power of digital randomness with AI, software, electronics, and revolutionary TRNG technology",
                 platform_tech_title: "How We Do It: Core Technology Stack",
                 platform_analytics_title: "Data Analytics",
                 platform_analytics_desc: "We make it easy for you to make strategic decisions by transforming your large data sets into meaningful insights. Providing real-time processing and predictive insights with advanced analytics engine.",
@@ -1340,7 +1651,7 @@
                 testimonials_title: "What Industry Experts Say",
                 testimonial1_name: "Risk Management Expert",
                 testimonial1_title: "Investment Banking Research",
-                testimonial1_desc: "\"Our simulations prove that TRNG technology can provide 70%+ accuracy improvement in risk modeling. Using true randomness in Monte Carlo analysis could revolutionize market volatility prediction.\"",
+                testimonial1_desc: "\"Our simulations prove that TRNG technology can provide over 70% accuracy improvements in risk modeling. Using true randomness in Monte Carlo analysis could revolutionize market volatility prediction.\"",
                 testimonial2_name: "Cybersecurity Expert",
                 testimonial2_title: "Ethical Hacking & Penetration Testing",
                 testimonial2_desc: "\"Our security lab tests proved that using physical entropy could increase cryptographic key strength by 95%+. Critical technology for futureproof encryption against quantum computing threats.\"",
@@ -1360,7 +1671,7 @@
                 blog2_title: "Security in the Age of Big Data",
                 blog2_desc: "The cyber security landscape is experiencing dramatic changes in 2025. Zero-trust architecture, quantum-resistant encryption, and AI-powered threat detection are now necessities. GDPR, KVKK, and new regulations are reshaping data governance. Enhanced cryptographic security with TRNG technology is becoming an indispensable defense strategy for modern enterprises.",
                 blog3_title: "MLOps: Bring Your Models to Life",
-                blog3_desc: "MLOps has become the backbone of enterprise AI in 2025. Model lifecycle management is revolutionizing with continuous integration, automated model training, and production monitoring. Deployment processes have accelerated by 80% with Kubernetes-native ML pipelines, feature stores, and model registries. Docker containers, MLflow tracking, and comprehensive monitoring dashboards are essential components of the modern ML stack.",
+                blog3_desc: "MLOps has become the backbone of enterprise AI in 2025. Model lifecycle management is revolutionizing with continuous integration, automated model training, and production monitoring. Deployment processes have accelerated by 80% with Kubernetes-native ML pipelines, feature stores, and model registries. Docker containers, MLflow tracking, and comprehensive monitoring dashboards are core components of the modern ML stack.",
                 blog_readmore: "Read More",
                 blog_readmore2: "Read More",
                 blog_readmore3: "Read More",
@@ -1504,6 +1815,90 @@
 
 
         // =================================
+        // Floating Particles Generator
+        // =================================
+        const createFloatingParticles = () => {
+            const hero = document.querySelector('section:first-of-type');
+            if (!hero) return;
+
+            const particleCount = 5;
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'floating-particle';
+                
+                // Random size
+                const size = Math.random() * 40 + 20;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                
+                // Random starting position
+                particle.style.left = Math.random() * window.innerWidth + 'px';
+                particle.style.top = Math.random() * window.innerHeight + 'px';
+                
+                // Random background gradient
+                const colors = [
+                    'radial-gradient(circle, rgba(79, 70, 229, 0.3), transparent)',
+                    'radial-gradient(circle, rgba(168, 85, 247, 0.3), transparent)',
+                    'radial-gradient(circle, rgba(14, 165, 233, 0.3), transparent)',
+                ];
+                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.borderRadius = '50%';
+                
+                // Random animation duration
+                const duration = Math.random() * 15 + 15;
+                particle.style.animationDuration = duration + 's';
+                
+                // Random animation delay
+                const delay = Math.random() * 5;
+                particle.style.animationDelay = delay + 's';
+                
+                hero.appendChild(particle);
+            }
+        };
+        createFloatingParticles();
+
+
+        // =================================
+        // Scroll-triggered Parallax Effect
+        // =================================
+        const initParallax = () => {
+            const parallaxElements = document.querySelectorAll('[data-aos]');
+            
+            window.addEventListener('scroll', () => {
+                parallaxElements.forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    const scrollPercent = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
+                    
+                    if (scrollPercent > 0 && scrollPercent < 1) {
+                        // Apply parallax transform based on scroll position
+                        const translateY = (scrollPercent - 0.5) * 30;
+                        const scale = 0.95 + (scrollPercent * 0.1);
+                        el.style.transform = `translateY(${translateY}px) scale(${scale})`;
+                    }
+                });
+            });
+        };
+        initParallax();
+
+
+        // =================================
+        // Micro-interactions: Mouse position tracking for gradient
+        // =================================
+        document.addEventListener('mousemove', (e) => {
+            const glass_buttons = document.querySelectorAll('.glass-button, .glass-button-primary');
+            
+            glass_buttons.forEach(button => {
+                const rect = button.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                // Store mouse position for potential future effects
+                button.style.setProperty('--mouse-x', x + 'px');
+                button.style.setProperty('--mouse-y', y + 'px');
+            });
+        });
+
+
         // Mobile Menu Logic
         // =================================
         const mobileMenuButton = document.getElementById('mobile-menu-button');
@@ -1584,49 +1979,176 @@ Thank you.`;
 
 
         // =================================
-        // Parallax Star Canvas Logic
+        // Space Theme Animation - Lightweight & Fast
         // =================================
         const canvas = document.getElementById('star-canvas');
         const ctx = canvas.getContext('2d');
         let stars = [];
-        let numStars = 200;
+        let meteors = [];
+        let numStars = 150;
+        let numMeteors = 3;
+        let time = 0;
 
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            stars = [];
-            for (let i = 0; i < numStars; i++) {
-                stars.push({
-                    x: Math.random() * canvas.width,
-                    y: Math.random() * canvas.height,
-                    radius: Math.random() * 1.5,
-                    vx: Math.floor(Math.random() * 50) - 25,
-                    vy: Math.floor(Math.random() * 50) - 25
-                });
+        class Star {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.z = Math.random() * 1000;
+                this.radius = Math.random() * 0.5 + 0.2;
+                this.opacity = Math.random() * 0.5 + 0.3;
+                this.twinkleSpeed = Math.random() * 0.02 + 0.01;
+                this.twinklePhase = Math.random() * Math.PI * 2;
+            }
+
+            update(time) {
+                // Z-axis hareketi (3D depth illusion)
+                this.z -= 2;
+                
+                if (this.z <= 0) {
+                    this.z = 1000;
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                }
+
+                // Screen konumu (perspektif)
+                const scale = this.z / 1000;
+                this.screenX = (this.x - canvas.width / 2) * scale + canvas.width / 2;
+                this.screenY = (this.y - canvas.height / 2) * scale + canvas.height / 2;
+
+                // Twinkle animasyonu
+                this.opacity = Math.sin(time * this.twinkleSpeed + this.twinklePhase) * 0.3 + 0.5;
+            }
+
+            draw(ctx) {
+                const scale = this.z / 1000;
+                const actualRadius = this.radius * (1 - scale * 0.5);
+                
+                // Parlak yıldız efekti
+                ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
+                ctx.beginPath();
+                ctx.arc(this.screenX, this.screenY, actualRadius, 0, Math.PI * 2);
+                ctx.fill();
+
+                // İç ışık (inner glow)
+                if (this.opacity > 0.6) {
+                    ctx.fillStyle = `rgba(200, 220, 255, ${this.opacity * 0.5})`;
+                    ctx.beginPath();
+                    ctx.arc(this.screenX, this.screenY, actualRadius * 0.5, 0, Math.PI * 2);
+                    ctx.fill();
+                }
             }
         }
-        
-        function draw() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.globalCompositeOperation = "lighter";
-            
-            for (let i = 0, x = stars.length; i < x; i++) {
-                let s = stars[i];
-                ctx.fillStyle = "#fff";
+
+        class Meteor {
+            constructor() {
+                this.reset();
+            }
+
+            reset() {
+                this.x = Math.random() * canvas.width * 1.5 - canvas.width * 0.25;
+                this.y = Math.random() * canvas.height * 1.5 - canvas.height * 0.25;
+                this.vx = Math.random() * 2 + 1;
+                this.vy = Math.random() * 2 + 1;
+                this.length = Math.random() * 40 + 30;
+                this.opacity = Math.random() * 0.4 + 0.3;
+                this.color = Math.random() > 0.5 ? 
+                    'rgba(100, 200, 255, ' : // Blue
+                    'rgba(150, 100, 255, '; // Purple
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                
+                if (this.x > canvas.width + 100 || this.y > canvas.height + 100) {
+                    this.reset();
+                }
+            }
+
+            draw(ctx) {
+                // Meteor trail (kuyruk)
+                const gradient = ctx.createLinearGradient(
+                    this.x, this.y,
+                    this.x - this.vx * this.length,
+                    this.y - this.vy * this.length
+                );
+
+                const colorStart = this.color + this.opacity + ')';
+                const colorEnd = this.color + '0)';
+
+                gradient.addColorStop(0, colorStart);
+                gradient.addColorStop(1, colorEnd);
+
+                ctx.strokeStyle = gradient;
+                ctx.lineWidth = 1.5;
                 ctx.beginPath();
-                ctx.arc(s.x, s.y, s.radius, 0, 2 * Math.PI);
+                ctx.moveTo(this.x, this.y);
+                ctx.lineTo(
+                    this.x - this.vx * this.length,
+                    this.y - this.vy * this.length
+                );
+                ctx.stroke();
+
+                // Meteor başı (head)
+                ctx.fillStyle = `rgba(255, 200, 100, ${this.opacity})`;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, 1.5, 0, Math.PI * 2);
                 ctx.fill();
             }
         }
 
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            
+            // Yıldızları sadece ilk sefer oluştur
+            if (stars.length === 0) {
+                for (let i = 0; i < numStars; i++) {
+                    stars.push(new Star(
+                        Math.random() * canvas.width,
+                        Math.random() * canvas.height
+                    ));
+                }
+            }
+
+            // Meteorları oluştur
+            meteors = [];
+            for (let i = 0; i < numMeteors; i++) {
+                meteors.push(new Meteor());
+            }
+        }
+
+        function draw() {
+            // Space background (kara delik etkisi)
+            ctx.fillStyle = 'rgba(5, 10, 20, 0.1)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.globalCompositeOperation = "lighter";
+
+            // Yıldızları çiz
+            for (let i = 0; i < stars.length; i++) {
+                stars[i].draw(ctx);
+            }
+
+            // Meteorları çiz
+            for (let i = 0; i < meteors.length; i++) {
+                meteors[i].draw(ctx);
+            }
+
+            ctx.globalCompositeOperation = "source-over";
+        }
+
         function update() {
-            for (let i = 0, x = stars.length; i < x; i++) {
-                let s = stars[i];
-                s.x += s.vx / 60;
-                s.y += s.vy / 60;
-                
-                if (s.x < 0 || s.x > canvas.width) s.vx = -s.vx;
-                if (s.y < 0 || s.y > canvas.height) s.vy = -s.vy;
+            time++;
+
+            // Yıldızları güncelle
+            for (let i = 0; i < stars.length; i++) {
+                stars[i].update(time);
+            }
+
+            // Meteorları güncelle
+            for (let i = 0; i < meteors.length; i++) {
+                meteors[i].update();
             }
         }
 
@@ -1646,34 +2168,116 @@ Thank you.`;
         const style = document.createElement('style');
         style.innerHTML = `
             .glass-card {
-                background: rgba(255, 255, 255, 0.15);
+                background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.08) 100%);
                 backdrop-filter: blur(25px);
                 -webkit-backdrop-filter: blur(25px);
                 border-radius: 1.5rem; /* 2xl */
-                border: 1px solid rgba(255, 255, 255, 0.2);
-                transition: all 0.3s ease-in-out;
+                border: 2px solid rgba(79, 70, 229, 0.25);
+                transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
                 box-shadow: 
                     0 8px 32px 0 rgba(31, 38, 135, 0.15),
-                    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+                    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+                    inset 0 -1px 1px rgba(0, 0, 0, 0.05);
+                position: relative;
+                overflow: hidden;
+            }
+            .glass-card::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+                transition: left 0.5s ease;
+            }
+            .glass-card::after {
+                content: '';
+                position: absolute;
+                top: -50%;
+                right: -50%;
+                width: 200%;
+                height: 200%;
+                background: radial-gradient(circle, rgba(79, 70, 229, 0.1) 0%, transparent 70%);
+                opacity: 0;
+                transition: opacity 0.4s ease;
             }
             .dark .glass-card {
-                background: rgba(15, 23, 42, 0.3); /* slate-900/30 */
-                border: 1px solid rgba(255, 255, 255, 0.1);
+                background: linear-gradient(135deg, rgba(15, 23, 42, 0.35) 0%, rgba(15, 23, 42, 0.25) 100%);
+                border: 2px solid rgba(168, 85, 247, 0.25);
                 box-shadow: 
                     0 8px 32px 0 rgba(0, 0, 0, 0.3),
-                    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+                    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+                    inset 0 -1px 1px rgba(0, 0, 0, 0.2);
             }
             .glass-card:hover {
-                transform: scale(1.04);
+                transform: translateY(-8px) rotateX(5deg);
+                border-color: rgba(79, 70, 229, 0.6);
                 box-shadow: 
-                    0 16px 40px 0 rgba(31, 38, 135, 0.25),
-                    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+                    0 20px 60px 0 rgba(79, 70, 229, 0.35),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+                    0 0 30px rgba(79, 70, 229, 0.2);
+                background: linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.12) 100%);
+            }
+            .glass-card:hover::before {
+                left: 100%;
+            }
+            .glass-card:hover::after {
+                opacity: 1;
+                animation: pulse-glow 0.6s ease-out;
             }
             .dark .glass-card:hover {
+                border-color: rgba(168, 85, 247, 0.6);
                 box-shadow: 
-                    0 16px 40px 0 rgba(0, 0, 0, 0.4),
-                    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+                    0 20px 60px 0 rgba(168, 85, 247, 0.35),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+                    0 0 30px rgba(168, 85, 247, 0.2);
+                background: linear-gradient(135deg, rgba(15, 23, 42, 0.45) 0%, rgba(15, 23, 42, 0.35) 100%);
+                transform: translateY(-8px) rotateX(5deg);
             }
+            @keyframes pulse-glow {
+                0% {
+                    opacity: 0;
+                    transform: scale(0.8);
+                }
+                50% {
+                    opacity: 1;
+                }
+                100% {
+                    opacity: 0;
+                    transform: scale(1.2);
+                }
+            }
+
+            /* Floating card animation */
+            .floating-card {
+                animation: float-up 6s ease-in-out infinite;
+            }
+            .floating-card:nth-child(2) {
+                animation-delay: 0.3s;
+            }
+            .floating-card:nth-child(3) {
+                animation-delay: 0.6s;
+            }
+            .floating-card:nth-child(4) {
+                animation-delay: 0.9s;
+            }
+            .floating-card:nth-child(5) {
+                animation-delay: 1.2s;
+            }
+            .floating-card:nth-child(6) {
+                animation-delay: 1.5s;
+            }
+
+            @keyframes float-up {
+                0%, 100% {
+                    transform: translateY(0px);
+                }
+                50% {
+                    transform: translateY(-12px);
+                }
+            }
+
             .contact-input {
                 width: 100%;
                 padding: 0.75rem;
@@ -1768,74 +2372,134 @@ Thank you.`;
                 }
             }
             
-            /* Glass Button saydam cam buton */
+            /* Glass Button saydam cam buton - Premium İyileştirilmiş */
             .glass-button {
-                background: rgba(79, 70, 229, 0.15);
-                backdrop-filter: blur(15px);
-                -webkit-backdrop-filter: blur(15px);
-                border: 1px solid rgba(79, 70, 229, 0.3);
+                background: linear-gradient(135deg, rgba(79, 70, 229, 0.15) 0%, rgba(79, 70, 229, 0.05) 100%);
+                backdrop-filter: blur(12px) saturate(1.8) brightness(1.1);
+                -webkit-backdrop-filter: blur(12px) saturate(1.8) brightness(1.1);
+                border: 1.5px solid rgba(79, 70, 229, 0.5);
                 color: #4F46E5;
                 box-shadow: 
-                    0 4px 16px 0 rgba(79, 70, 229, 0.25),
-                    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+                    0 8px 32px 0 rgba(79, 70, 229, 0.25),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+                    inset 0 -1px 0 rgba(0, 0, 0, 0.08);
+                position: relative;
+                overflow: hidden;
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+            }
+            .glass-button::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: linear-gradient(180deg, rgba(255, 255, 255, 0.35) 0%, transparent 50%);
+                pointer-events: none;
+                opacity: 0;
+                transition: opacity 0.3s ease;
             }
             .dark .glass-button {
-                background: rgba(168, 85, 247, 0.15);
-                border: 1px solid rgba(168, 85, 247, 0.3);
+                background: linear-gradient(135deg, rgba(168, 85, 247, 0.15) 0%, rgba(168, 85, 247, 0.05) 100%);
+                border: 1.5px solid rgba(168, 85, 247, 0.5);
                 color: #A855F7;
                 box-shadow: 
-                    0 4px 16px 0 rgba(168, 85, 247, 0.25),
-                    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+                    0 8px 32px 0 rgba(168, 85, 247, 0.25),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+                    inset 0 -1px 0 rgba(0, 0, 0, 0.25);
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
             }
             .glass-button:hover {
-                background: rgba(79, 70, 229, 0.25);
-                border-color: rgba(79, 70, 229, 0.4);
-                transform: translateY(-2px);
-                box-shadow: 
-                    0 8px 25px 0 rgba(79, 70, 229, 0.35),
-                    inset 0 1px 0 rgba(255, 255, 255, 0.5);
-            }
-            .dark .glass-button:hover {
-                background: rgba(168, 85, 247, 0.25);
-                border-color: rgba(168, 85, 247, 0.4);
-                box-shadow: 
-                    0 8px 25px 0 rgba(168, 85, 247, 0.35),
-                    inset 0 1px 0 rgba(255, 255, 255, 0.2);
-            }
-            
-            /* Primary Glass Button - Ana CTA buton için */
-            .glass-button-primary {
-                background: rgba(79, 70, 229, 0.35);
-                backdrop-filter: blur(15px);
-                -webkit-backdrop-filter: blur(15px);
-                border: 1px solid rgba(79, 70, 229, 0.5);
-                color: #ffffff;
-                box-shadow: 
-                    0 6px 20px 0 rgba(79, 70, 229, 0.4),
-                    inset 0 1px 0 rgba(255, 255, 255, 0.5);
-            }
-            .dark .glass-button-primary {
-                background: rgba(168, 85, 247, 0.35);
-                border: 1px solid rgba(168, 85, 247, 0.5);
-                color: #ffffff;
-                box-shadow: 
-                    0 6px 20px 0 rgba(168, 85, 247, 0.4),
-                    inset 0 1px 0 rgba(255, 255, 255, 0.3);
-            }
-            .glass-button-primary:hover {
-                background: rgba(79, 70, 229, 0.5);
-                border-color: rgba(79, 70, 229, 0.6);
+                background: linear-gradient(135deg, rgba(79, 70, 229, 0.25) 0%, rgba(79, 70, 229, 0.12) 100%);
+                border-color: rgba(79, 70, 229, 0.7);
                 transform: translateY(-3px);
                 box-shadow: 
-                    0 12px 35px 0 rgba(79, 70, 229, 0.5),
-                    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+                    0 16px 48px 0 rgba(79, 70, 229, 0.35),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.7),
+                    inset 0 -1px 0 rgba(0, 0, 0, 0.12);
+                backdrop-filter: blur(14px) saturate(1.9) brightness(1.15);
+                -webkit-backdrop-filter: blur(14px) saturate(1.9) brightness(1.15);
+            }
+            .glass-button:hover::before {
+                opacity: 1;
+            }
+            .dark .glass-button:hover {
+                background: linear-gradient(135deg, rgba(168, 85, 247, 0.25) 0%, rgba(168, 85, 247, 0.12) 100%);
+                border-color: rgba(168, 85, 247, 0.7);
+                transform: translateY(-3px);
+                box-shadow: 
+                    0 16px 48px 0 rgba(168, 85, 247, 0.35),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+                    inset 0 -1px 0 rgba(0, 0, 0, 0.35);
+                backdrop-filter: blur(14px) saturate(1.9) brightness(1.15);
+                -webkit-backdrop-filter: blur(14px) saturate(1.9) brightness(1.15);
+            }
+            
+            /* Primary Glass Button - Ana CTA buton için - Premium İyileştirilmiş */
+            .glass-button-primary {
+                background: linear-gradient(135deg, rgba(79, 70, 229, 0.3) 0%, rgba(79, 70, 229, 0.15) 100%);
+                backdrop-filter: blur(14px) saturate(1.85) brightness(1.12);
+                -webkit-backdrop-filter: blur(14px) saturate(1.85) brightness(1.12);
+                border: 1.5px solid rgba(79, 70, 229, 0.65);
+                color: #ffffff;
+                box-shadow: 
+                    0 12px 40px 0 rgba(79, 70, 229, 0.4),
+                    inset 0 2px 0 rgba(255, 255, 255, 0.7),
+                    inset 0 -1px 0 rgba(0, 0, 0, 0.12);
+                position: relative;
+                overflow: hidden;
+                font-weight: 700;
+                letter-spacing: 0.5px;
+            }
+            .glass-button-primary::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, transparent 50%);
+                pointer-events: none;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+            .dark .glass-button-primary {
+                background: linear-gradient(135deg, rgba(168, 85, 247, 0.3) 0%, rgba(168, 85, 247, 0.15) 100%);
+                border: 1.5px solid rgba(168, 85, 247, 0.65);
+                color: #ffffff;
+                box-shadow: 
+                    0 12px 40px 0 rgba(168, 85, 247, 0.4),
+                    inset 0 2px 0 rgba(255, 255, 255, 0.35),
+                    inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+                backdrop-filter: blur(14px) saturate(1.85) brightness(1.12);
+                -webkit-backdrop-filter: blur(14px) saturate(1.85) brightness(1.12);
+            }
+            .glass-button-primary:hover {
+                background: linear-gradient(135deg, rgba(79, 70, 229, 0.45) 0%, rgba(79, 70, 229, 0.28) 100%);
+                border-color: rgba(79, 70, 229, 0.85);
+                transform: translateY(-4px);
+                box-shadow: 
+                    0 20px 60px 0 rgba(79, 70, 229, 0.5),
+                    inset 0 2px 0 rgba(255, 255, 255, 0.8),
+                    inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+                backdrop-filter: blur(16px) saturate(1.95) brightness(1.2);
+                -webkit-backdrop-filter: blur(16px) saturate(1.95) brightness(1.2);
+            }
+            .glass-button-primary:hover::before {
+                opacity: 1;
             }
             .dark .glass-button-primary:hover {
-                background: rgba(168, 85, 247, 0.5);
-                border-color: rgba(168, 85, 247, 0.6);
+                background: linear-gradient(135deg, rgba(168, 85, 247, 0.45) 0%, rgba(168, 85, 247, 0.28) 100%);
+                border-color: rgba(168, 85, 247, 0.85);
+                transform: translateY(-4px);
                 box-shadow: 
-                    0 12px 35px 0 rgba(168, 85, 247, 0.5),
-                    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+                    0 20px 60px 0 rgba(168, 85, 247, 0.5),
+                    inset 0 2px 0 rgba(255, 255, 255, 0.45),
+                    inset 0 -1px 0 rgba(0, 0, 0, 0.4);
+                backdrop-filter: blur(16px) saturate(1.95) brightness(1.2);
+                -webkit-backdrop-filter: blur(16px) saturate(1.95) brightness(1.2);
             }
             
             /* White Text Glass Button */

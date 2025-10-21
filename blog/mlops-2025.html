@@ -51,8 +51,19 @@
             -webkit-backdrop-filter: blur(10px) !important;
         }
         
+        /* Hero section override */
+        section.bg-gradient-to-br {
+            background: linear-gradient(135deg, #4F46E5 0%, #A855F7 100%) !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+        }
+        
         .dark section {
             background: rgba(15, 23, 42, 0.2) !important;
+        }
+        
+        .dark section.bg-gradient-to-br {
+            background: linear-gradient(135deg, #4F46E5 0%, #A855F7 100%) !important;
         }
         
         /* Footer saydam cam */
@@ -123,20 +134,20 @@
             font-weight: 700;
             margin-top: 2rem;
             margin-bottom: 1rem;
-            color: #111827;
+            color: #0f172a;
         }
         .dark .blog-content h2 {
-            color: white;
+            color: #f8fafc;
         }
         .blog-content h3 {
             font-size: 1.25rem;
             font-weight: 600;
             margin-top: 1.5rem;
             margin-bottom: 0.75rem;
-            color: #1f2937;
+            color: #1e293b;
         }
         .dark .blog-content h3 {
-            color: #e5e7eb;
+            color: #e2e8f0;
         }
         .blog-content p {
             margin-bottom: 1rem;
@@ -252,15 +263,15 @@
             <div class="container mx-auto px-4">
                 <div class="max-w-4xl mx-auto text-center text-white">
                     <div class="flex items-center justify-center mb-4">
-                        <a href="../index.html#blog" class="flex items-center text-white/80 hover:text-white transition-colors">
+                        <a href="../index.html#blog" class="flex items-center text-white/70 hover:text-white dark:text-white/80 dark:hover:text-white transition-colors">
                             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
                             </svg>
                             <span data-lang="back_to_blog">Blog'a Dön</span>
                         </a>
                     </div>
-                    <h1 data-lang="blog_title" class="text-4xl md:text-5xl font-bold mb-4">MLOps: Modellerinizi Hayata Geçirin</h1>
-                    <div class="flex items-center justify-center space-x-4 text-white/90">
+                    <h1 data-lang="blog_title" class="text-4xl md:text-5xl font-bold mb-4 text-white dark:text-white">MLOps: Modellerinizi Hayata Geçirin</h1>
+                    <div class="flex items-center justify-center space-x-4 text-white/80 dark:text-white/90">
                         <span data-lang="blog_date">10 Ağustos 2025</span>
                         <span>•</span>
                         <span data-lang="blog_read_time">8 dakika okuma</span>
@@ -680,8 +691,8 @@
                                 <div class="related-post rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                                     <img src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop" alt="AI Future" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
                                     <div class="p-6">
-                                        <h4 class="font-bold text-lg mb-2 group-hover:text-queva-indigo dark:group-hover:text-queva-purple transition-colors">2025'te Yapay Zekânın Geleceği</h4>
-                                        <p class="text-gray-600 dark:text-gray-400 text-sm">2025 yılı yapay zeka teknolojisi için gerçek bir dönüm noktası olacak...</p>
+                                        <h4 id="related-title-1" class="font-bold text-lg mb-2 group-hover:text-queva-indigo dark:group-hover:text-queva-purple transition-colors">2025'te Yapay Zekânın Geleceği</h4>
+                                        <p id="related-desc-1" class="text-gray-600 dark:text-gray-400 text-sm">2025 yılı yapay zeka teknolojisi için gerçek bir dönüm noktası olacak...</p>
                                     </div>
                                 </div>
                             </a>
@@ -689,8 +700,8 @@
                                 <div class="related-post rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                                     <img src="https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop" alt="Data Security" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
                                     <div class="p-6">
-                                        <h4 class="font-bold text-lg mb-2 group-hover:text-queva-indigo dark:group-hover:text-queva-purple transition-colors">Büyük Veri Çağında Güvenlik</h4>
-                                        <p class="text-gray-600 dark:text-gray-400 text-sm">Cyber security landscape 2025'te dramatik değişimler yaşıyor...</p>
+                                        <h4 id="related-title-2" class="font-bold text-lg mb-2 group-hover:text-queva-indigo dark:group-hover:text-queva-purple transition-colors">Büyük Veri Çağında Güvenlik</h4>
+                                        <p id="related-desc-2" class="text-gray-600 dark:text-gray-400 text-sm">Cyber security landscape 2025'te dramatik değişimler yaşıyor...</p>
                                     </div>
                                 </div>
                             </a>
@@ -759,14 +770,102 @@
                 
                 blog_intro: `
                     <p class="text-xl text-gray-600 dark:text-gray-400 mb-8 font-medium">
-                        MLOps 2025'te enterprise AI'ın omurgası haline geldi. Model geliştirmeden production deployment'a, monitoring'den scaling'e kadar tüm lifecycle'ı kapsayan systematic approach artık competitive advantage'ın anahtarı. QuevaTech'in comprehensive MLOps solutions ile AI transformation accelerate ediliyor.
+                        Makine Öğrenmesi İşlemleri (MLOps) 2025'te kurumsal yapay zekanın temelini oluşturmaktadır. Modeli geliştirmeden üretim dağıtımına, izlemeden ölçeklendirmeye kadar tüm yaşam döngüsünü kapsayan sistematik yaklaşım artık rekabetçi avantajın anahtarıdır. QuevaTech'in kapsamlı MLOps çözümleri ile yapay zeka dönüşümü hızlanıyor.
                     </p>
+                `,
+                
+                blog_content: `
+                    <h2>Makine Öğrenmesi İşlemleri Evrimi: 2025 Ortamı</h2>
+                    <p>Makine Öğrenmesi İşlemleri (MLOps) deneysel aşamanın ötesine geçerek, üretim hazır kurumsal çözümlerin temel bileşeni haline gelmiştir. Geleneksel Yazılım Hizmetleri İşlemleri (DevOps) uygulamalarını makine öğrenmesi iş akışlarına uyarlamak devrimci sonuçlar yaratıyor.</p>
+                    
+                    <p>2025'te MLOps benimseme istatistikleri: Kurumsal Benimseme %380 artış gösteriyor, Pazara Gidiş Süresi model dağıtımında %75 azalma, Model Performansı %40 daha iyi doğruluk, Operasyonel Verimlilik manuel müdahalede %85 azalma ve Maliyet Optimizasyonu altyapı tasarrufunda %50 azalma.</p>
+
+                    <h2>Makine Öğrenmesi İşlemleri Boru Hattı Mimarisi</h2>
+                    <p>Modern Makine Öğrenmesi İşlemleri borular, uçtan uca otomasyon aracılığıyla manuel darboğazları ortadan kaldırıyor. Kapsamlı iş akışı veri yönetimi, model geliştirme, Sürekli Entegrasyon/Sürekli Dağıtım, izleme ve ölçeklendirme aşamalarını içerir.</p>
+
+                    <h3>Veri Yönetimi & Versiyon Oluşturma</h3>
+                    <ul>
+                        <li><strong>Veri Versiyon Oluşturma:</strong> Veri setleri için Git benzeri sürüm kontrolü</li>
+                        <li><strong>Veri Kökenli Takip:</strong> Kaynaktan modele kadar izlenebilirlik</li>
+                        <li><strong>Veri Kalitesi İzleme:</strong> Otomatik kalite kontrolleri ve sapma tespit</li>
+                        <li><strong>Özellik Deposu Yönetimi:</strong> Merkezi özellik deposu</li>
+                    </ul>
+
+                    <h3>Model Geliştirme & Deneyimlendirme</h3>
+                    <ul>
+                        <li><strong>Deneme Takip:</strong> Hiperparametreler, metrikler ve yapay eserlerin günlüğe kaydedilmesi</li>
+                        <li><strong>Model Kaydı:</strong> Merkezi model versiyon oluşturma ve meta verisi</li>
+                        <li><strong>Otomatik Eğitim:</strong> Zamanlanan yeniden eğitim ve hiperparameter optimizasyonu</li>
+                        <li><strong>Model Doğrulaması:</strong> Otomatik test ve performans karşılaştırması</li>
+                    </ul>
+
+                    <h2>Sürekli Entegrasyon/Sürekli Dağıtım (CI/CD)</h2>
+                    <p>Geleneksel yazılım Sürekli Entegrasyon/Sürekli Dağıtım paradigmaları makine öğrenmesi iş akışlarına uyarlanırken, özel gereksinimler ortaya çıkıyor. Otomatik model derleme, test ve dağıtım süreçleri üretim çevikliğini dramatik bir şekilde iyileştiriyor.</p>
+
+                    <h3>Otomatik Model Testleri</h3>
+                    <ul>
+                        <li>Veri ön işleme boru hatları için birim testler</li>
+                        <li>Model sonuç çıkarma için entegrasyon testleri</li>
+                        <li>Performans regresyon testleri</li>
+                        <li>Adillik ve önyargı tespit testleri</li>
+                        <li>Gölge dağıtım doğrulaması</li>
+                    </ul>
+
+                    <h2>Model İzleme & Gözlenebilirlik</h2>
+                    <p>Üretim makine öğrenmesi sistemleri, geleneksel uygulama metriklerinin ötesinde kapsamlı izleme gerektiriyor. Veri sapması, model sapması ve performans degradasyonu tespit, gerçek zamanlı işlemler başlatıyor.</p>
+
+                    <h3>Temel İzleme Boyutları</h3>
+                    <ul>
+                        <li><strong>Veri Kalitesi Metrikleri:</strong> Eksik değerler, aykırı değerler, dağılım kaymalar</li>
+                        <li><strong>Model Performans Metrikleri:</strong> Üretimde doğruluk, kesinlik, geri çağırma</li>
+                        <li><strong>İşletme Metrikleri:</strong> Gelir etkisi, kullanıcı memnuniyeti, dönüşüm oranları</li>
+                        <li><strong>Altyapı Metrikleri:</strong> Gecikme, verim, kaynak kullanımı</li>
+                        <li><strong>Adillik Metrikleri:</strong> Demografik gruplar arasında önyargı tespit</li>
+                    </ul>
+
+                    <h2>Ölçeklendirme & Orkestrasyonu</h2>
+                    <p>Kurumsal ölçekli Makine Öğrenmesi İşlemleri karmaşık iş akışlarını yönetmek için sofistike orkestrasyonu gerektirir. Kubernetes-yerli çözümler ölçeklenebilirlik, güvenilirlik ve maliyet optimizasyonu sağlar.</p>
+
+                    <h3>Orkestrasyonu Platformları</h3>
+                    <ul>
+                        <li>İş akışı zamanlama ve yönetimi</li>
+                        <li>Dağıtılmış eğitim ve sonuç çıkarma</li>
+                        <li>Kaynak optimizasyonu ve otomatik ölçeklendirme</li>
+                        <li>Çok modelli sunma ve A/B testler</li>
+                        <li>Tekrarlanabilirlik ve denetim izleri</li>
+                    </ul>
+
+                    <h2>Mali Hizmetler için Makine Öğrenmesi İşlemleri</h2>
+                    <p>Makine Öğrenmesi İşlemleri uygulayan mali kurumlar, katı uyum gereksinimleri korurken model dağıtım hızında %420 iyileşme gösteriyor. Düzenleyici çerçeveler kapsamlı model yönetişimi ve açıklanabilirlik gerektiriyor.</p>
+
+                    <h2>Sağlık Hizmetleri için Makine Öğrenmesi İşlemleri</h2>
+                    <p>Sağlık hizmetleri yapay zeka uygulamaları katı veri gizliliği ve düzenleyici uyum gerektiriyor. Sağlık hizmetleri için özel olarak tasarlanan Makine Öğrenmesi İşlemleri çerçeveleri FDA uyumluluğu, HIPAA gereksinimleri ve klinik doğrulama protokollerini sağlıyor.</p>
+
+                    <h2>Zorluklar & En İyi Uygulamalar</h2>
+                    <p>Makine Öğrenmesi İşlemleri olgunluğu teknik, organizasyonel ve kültürel zorlukları ele almayı gerektiriyor. Veri kalitesi sorunları, model tekrarlanabilirliği, takım siloları ve bütçe kısıtları kritik engeller olmaya devam ediyor.</p>
+
+                    <h3>Başarı için En İyi Uygulamalar</h3>
+                    <ul>
+                        <li>Veri altyapısı ve yönetişimine yatırım yapın</li>
+                        <li>Açık model sahipliği ve hesap verebilirliği kurun</li>
+                        <li>Kapsamlı izleme ve uyarı kurallarını uygulayın</li>
+                        <li>Tekrarlanabilir ve sürüm kontrollü iş akışları oluşturun</li>
+                        <li>Veri bilimciler ve mühendisler arasında işbirliğini destekleyin</li>
+                        <li>Modelleri belgelendir ve denetim izleri tutun</li>
+                    </ul>
+
+                    <h2>Sonuç: Makine Öğrenmesi İşlemleri Olgunluğu</h2>
+                    <p>Makine Öğrenmesi İşlemleri benimseme artık rekabetçi avantaj değil, yapay zeka hakkında ciddi olan kuruluşlar için bir zorunluluktur. Başarı sistematik yaklaşım, uygun araçlar, kültürel dönüşüm ve operasyonel mükemmelliğe yönelik sürekli taahhüt gerektirir.</p>
                 `,
                 
                 // Share and related
                 share_title: "Bu yazıyı paylaş",
                 author_info: "QuevaTech MLOps Uzmanları tarafından yazıldı",
                 related_posts: "İlgili Yazılar",
+                related_title_1: "2025'te Yapay Zekânın Geleceği",
+                related_desc_1: "2025 yılı yapay zeka teknolojisi için gerçek bir dönüm noktası olacak...",
+                related_title_2: "Büyük Veri Çağında Güvenlik",
+                related_desc_2: "Cyber security landscape 2025'te dramatik değişimler yaşıyor...",
                 
                 // Footer
                 footer_tagline: "Yapay zekâ ile geleceği şekillendiriyoruz.",
@@ -802,10 +901,98 @@
                     </p>
                 `,
                 
+                blog_content: `
+                    <h2>MLOps Evolution: 2025 Landscape</h2>
+                    <p>Machine Learning Operations (MLOps) has moved beyond the experimental phase and become the core component of production-ready enterprise solutions. Adapting traditional DevOps practices to ML workflows is creating revolutionary results.</p>
+                    
+                    <p>MLOps adoption statistics in 2025: Enterprise Adoption showing 380% increase, Time-to-Market with 75% reduction in model deployment, Model Performance with 40% better accuracy, Operational Efficiency with 85% decrease in manual intervention, and Cost Optimization with 50% infrastructure savings.</p>
+
+                    <h2>MLOps Pipeline Architecture</h2>
+                    <p>Modern MLOps pipelines eliminate manual bottlenecks through end-to-end automation. The comprehensive workflow includes data management, model development, CI/CD, monitoring, and scaling stages.</p>
+
+                    <h3>Data Management & Versioning</h3>
+                    <ul>
+                        <li><strong>Data Versioning:</strong> Git-like version control for datasets</li>
+                        <li><strong>Data Lineage Tracking:</strong> Source-to-model traceability</li>
+                        <li><strong>Data Quality Monitoring:</strong> Automated quality checks and drift detection</li>
+                        <li><strong>Feature Store Management:</strong> Centralized feature repository</li>
+                    </ul>
+
+                    <h3>Model Development & Experimentation</h3>
+                    <ul>
+                        <li><strong>Experiment Tracking:</strong> Hyperparameters, metrics and artifacts logging</li>
+                        <li><strong>Model Registry:</strong> Centralized model versioning and metadata</li>
+                        <li><strong>Automated Training:</strong> Scheduled retraining and hyperparameter optimization</li>
+                        <li><strong>Model Validation:</strong> Automated testing and performance benchmarking</li>
+                    </ul>
+
+                    <h2>Continuous Integration/Continuous Deployment (CI/CD)</h2>
+                    <p>Traditional software CI/CD paradigms are adapted for ML workflows with specialized requirements. Automated model build, test, and deployment processes dramatically improve production agility.</p>
+
+                    <h3>Automated Model Testing</h3>
+                    <ul>
+                        <li>Unit tests for data preprocessing pipelines</li>
+                        <li>Integration tests for model inference</li>
+                        <li>Performance regression tests</li>
+                        <li>Fairness and bias detection tests</li>
+                        <li>Shadow deployment validation</li>
+                    </ul>
+
+                    <h2>Model Monitoring & Observability</h2>
+                    <p>Production ML systems require comprehensive monitoring beyond traditional application metrics. Data drift, model drift, and performance degradation detection trigger real-time actions.</p>
+
+                    <h3>Key Monitoring Dimensions</h3>
+                    <ul>
+                        <li><strong>Data Quality Metrics:</strong> Missing values, outliers, distribution shifts</li>
+                        <li><strong>Model Performance Metrics:</strong> Accuracy, precision, recall in production</li>
+                        <li><strong>Business Metrics:</strong> Revenue impact, user satisfaction, conversion rates</li>
+                        <li><strong>Infrastructure Metrics:</strong> Latency, throughput, resource utilization</li>
+                        <li><strong>Fairness Metrics:</strong> Bias detection across demographic groups</li>
+                    </ul>
+
+                    <h2>Scaling & Orchestration</h2>
+                    <p>Enterprise-scale MLOps requires sophisticated orchestration platforms managing complex workflows. Kubernetes-native solutions provide scalability, reliability, and cost optimization.</p>
+
+                    <h3>Orchestration Platforms</h3>
+                    <ul>
+                        <li>Workflow scheduling and management</li>
+                        <li>Distributed training and inference</li>
+                        <li>Resource optimization and auto-scaling</li>
+                        <li>Multi-model serving and A/B testing</li>
+                        <li>Reproducibility and audit trails</li>
+                    </ul>
+
+                    <h2>MLOps for Financial Services</h2>
+                    <p>Financial institutions adopting MLOps show 420% improvement in model deployment speed while maintaining strict compliance requirements. Regulatory frameworks require comprehensive model governance and explainability.</p>
+
+                    <h2>MLOps for Healthcare</h2>
+                    <p>Healthcare AI applications require stringent data privacy and regulatory compliance. MLOps frameworks specifically designed for healthcare ensure FDA compliance, HIPAA requirements, and clinical validation protocols.</p>
+
+                    <h2>Challenges & Best Practices</h2>
+                    <p>MLOps maturity requires addressing technical, organizational, and cultural challenges. Data quality issues, model reproducibility, team silos, and budget constraints remain critical obstacles.</p>
+
+                    <h3>Best Practices for Success</h3>
+                    <ul>
+                        <li>Invest in data infrastructure and governance</li>
+                        <li>Establish clear model ownership and accountability</li>
+                        <li>Implement comprehensive monitoring and alerting</li>
+                        <li>Create reproducible and version-controlled workflows</li>
+                        <li>Foster collaboration between data scientists and engineers</li>
+                        <li>Document models and maintain audit trails</li>
+                    </ul>
+
+                    <h2>Conclusion: MLOps Maturity</h2>
+                    <p>MLOps adoption is no longer a competitive advantage—it's a necessity for organizations serious about AI. Success requires systematic approach, proper tooling, cultural transformation, and sustained commitment to operational excellence.</p>
+                `,
+                
                 // Share and related
                 share_title: "Share this article",
                 author_info: "Written by QuevaTech MLOps Experts",
                 related_posts: "Related Articles",
+                related_title_1: "The Future of AI in 2025",
+                related_desc_1: "2025 will be a true turning point for artificial intelligence technology...",
+                related_title_2: "Security in the Big Data Era",
+                related_desc_2: "The cyber security landscape is experiencing dramatic changes in 2025...",
                 
                 // Footer
                 footer_tagline: "Shaping the future with artificial intelligence.",
@@ -841,6 +1028,17 @@
                     el.innerHTML = langData[lang][key];
                 }
             });
+
+            // Update related posts titles and descriptions
+            const relatedTitle1 = document.getElementById('related-title-1');
+            const relatedDesc1 = document.getElementById('related-desc-1');
+            const relatedTitle2 = document.getElementById('related-title-2');
+            const relatedDesc2 = document.getElementById('related-desc-2');
+
+            if (relatedTitle1) relatedTitle1.textContent = langData[lang]['related_title_1'];
+            if (relatedDesc1) relatedDesc1.textContent = langData[lang]['related_desc_1'];
+            if (relatedTitle2) relatedTitle2.textContent = langData[lang]['related_title_2'];
+            if (relatedDesc2) relatedDesc2.textContent = langData[lang]['related_desc_2'];
 
             // Update page title
             if (lang === 'tr') {
