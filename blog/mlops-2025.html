@@ -686,22 +686,17 @@
                     <!-- Related Posts -->
                     <div class="mt-16">
                         <h3 data-lang="related_posts" class="text-2xl font-bold mb-8">İlgili Yazılar</h3>
-                        <div class="grid md:grid-cols-2 gap-8">
-                            <a href="ai-future-2025.html" class="block group">
+                        <div class="grid md:grid-cols-1 gap-8 max-w-2xl">
+                            <a href="ai-hybrid-trng.html" class="block group">
                                 <div class="related-post rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-                                    <img src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop" alt="AI Future" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
-                                    <div class="p-6">
-                                        <h4 id="related-title-1" class="font-bold text-lg mb-2 group-hover:text-queva-indigo dark:group-hover:text-queva-purple transition-colors">2025'te Yapay Zekânın Geleceği</h4>
-                                        <p id="related-desc-1" class="text-gray-600 dark:text-gray-400 text-sm">2025 yılı yapay zeka teknolojisi için gerçek bir dönüm noktası olacak...</p>
+                                    <div class="w-full h-48 bg-gradient-to-br from-indigo-600 via-purple-600 to-blue-600 flex items-center justify-center">
+                                        <svg class="w-12 h-12 text-white opacity-80" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                        </svg>
                                     </div>
-                                </div>
-                            </a>
-                            <a href="data-security-2025.html" class="block group">
-                                <div class="related-post rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-                                    <img src="https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop" alt="Data Security" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
                                     <div class="p-6">
-                                        <h4 id="related-title-2" class="font-bold text-lg mb-2 group-hover:text-queva-indigo dark:group-hover:text-queva-purple transition-colors">Büyük Veri Çağında Güvenlik</h4>
-                                        <p id="related-desc-2" class="text-gray-600 dark:text-gray-400 text-sm">Cyber security landscape 2025'te dramatik değişimler yaşıyor...</p>
+                                        <h4 id="related-title-1" class="font-bold text-lg mb-2 group-hover:text-queva-indigo dark:group-hover:text-queva-purple transition-colors">AI-Hybrid TRNG: Fiziksel Gürültüden Kriptografik Rastgelelik</h4>
+                                        <p id="related-desc-1" class="text-gray-600 dark:text-gray-400 text-sm">Gerçek rastgelelik üretimi ve kriptografik güvenlik hakkında yenilikçi araştırma...</p>
                                     </div>
                                 </div>
                             </a>
@@ -1054,6 +1049,29 @@
         // Load initial language
         const initialLang = localStorage.getItem('language') || 'tr';
         updateLanguage(initialLang);
+
+        // Scroll Pozisyonunu Kaydet ve Geri Yükle
+        window.addEventListener('beforeunload', function() {
+            // Sayfa kapatılmadan önce scroll pozisyonunu kaydet
+            localStorage.setItem('blogScrollPosition', window.scrollY);
+        });
+
+        window.addEventListener('load', function() {
+            // Sayfa yüklendiğinde, kaydedilen scroll pozisyonuna git
+            const savedScrollPosition = localStorage.getItem('blogScrollPosition');
+            
+            if (savedScrollPosition !== null) {
+                // Kısa bir gecikme ile kaydedilen pozisyona scroll yap
+                setTimeout(function() {
+                    window.scrollTo(0, parseInt(savedScrollPosition));
+                }, 100);
+            } else {
+                // İlk ziyaretse başa scroll yap
+                setTimeout(function() {
+                    window.scrollTo(0, 0);
+                }, 100);
+            }
+        });
 
         // Theme Toggle Logic
         const themeToggleBtn = document.getElementById('theme-toggle');
