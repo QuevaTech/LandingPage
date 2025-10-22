@@ -852,6 +852,9 @@
         const langEnBtn = document.getElementById('lang-en');
 
         const updateLanguage = (lang) => {
+            // Mevcut scroll pozisyonunu kaydet
+            const currentScrollPos = window.scrollY;
+            
             document.documentElement.lang = lang;
             localStorage.setItem('language', lang);
 
@@ -884,6 +887,11 @@
             } else {
                 document.title = "The Future of AI in 2025 | QuevaTech Blog";
             }
+
+            // Scroll pozisyonunu geri yükle
+            requestAnimationFrame(() => {
+                window.scrollTo(0, currentScrollPos);
+            });
         };
 
         langTrBtn.addEventListener('click', () => updateLanguage('tr'));
@@ -894,6 +902,8 @@
         updateLanguage(initialLang);
 
         // Scroll Pozisyonunu Kaydet ve Geri Yükle
+        let isInitialLoad = true;
+        
         window.addEventListener('beforeunload', function() {
             // Sayfa kapatılmadan önce scroll pozisyonunu kaydet
             localStorage.setItem('blogScrollPosition', window.scrollY);
@@ -907,12 +917,25 @@
                 // Kısa bir gecikme ile kaydedilen pozisyona scroll yap
                 setTimeout(function() {
                     window.scrollTo(0, parseInt(savedScrollPosition));
+                    isInitialLoad = false;
                 }, 100);
             } else {
                 // İlk ziyaretse başa scroll yap
                 setTimeout(function() {
                     window.scrollTo(0, 0);
+                    isInitialLoad = false;
                 }, 100);
+            }
+        });
+
+        // Scroll pozisyonunu düzenli olarak kaydet (her 1 saniyede)
+        let scrollSaveTimeout;
+        window.addEventListener('scroll', function() {
+            if (!isInitialLoad) {
+                clearTimeout(scrollSaveTimeout);
+                scrollSaveTimeout = setTimeout(function() {
+                    localStorage.setItem('blogScrollPosition', window.scrollY);
+                }, 500);
             }
         });
 
