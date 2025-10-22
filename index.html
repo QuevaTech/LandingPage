@@ -505,6 +505,35 @@
             0%, 100% { transform: translateZ(0); }
             50% { transform: translateZ(20px); }
         }
+
+        /* ===================================
+           Blog Card Icon Animations
+           =================================== */
+        
+        /* Pulse glow effect for icons */
+        @keyframes icon-glow {
+            0%, 100% { 
+                filter: drop-shadow(0 0 10px rgba(255,255,255,0.3));
+            }
+            50% { 
+                filter: drop-shadow(0 0 20px rgba(255,255,255,0.6));
+            }
+        }
+
+        /* Apply glow to all blog icons */
+        .blog-card svg {
+            animation: icon-glow 3s ease-in-out infinite;
+        }
+
+        /* Background pattern animation */
+        @keyframes pattern-slide {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(20px, 20px); }
+        }
+
+        .blog-card .absolute svg {
+            animation: pattern-slide 20s linear infinite;
+        }
     </style>
     <script>
         tailwind.config = {
@@ -1200,16 +1229,62 @@
         7. Latest Blog Posts
         =================================
         -->
-        <section id="blog" class="py-20">
+        <section id="blog" class="py-20 overflow-hidden">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-12" data-aos="fade-up">
                     <h2 data-lang="blog_title" class="text-3xl md:text-4xl font-bold">Blog'dan Son Yazılar</h2>
                     <p data-lang="blog_subtitle" class="text-lg mt-2 text-gray-600 dark:text-gray-400">Yapay zekâ dünyasındaki en son trendler ve analizler.</p>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-                    <!-- Blog Post 1 -->
-                    <div class="bg-white dark:bg-queva-dark/50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="100">
-                        <img src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="AI Future 2025" class="w-full h-48 object-cover">
+                
+                <!-- Blog Carousel Container -->
+                <div class="relative">
+                    <!-- Scroll Navigation Buttons -->
+                    <button id="blogScrollLeft" class="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white dark:bg-queva-dark shadow-xl rounded-full p-3 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-300 -ml-4">
+                        <svg class="w-6 h-6 text-queva-indigo" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                    </button>
+                    <button id="blogScrollRight" class="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white dark:bg-queva-dark shadow-xl rounded-full p-3 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-300 -mr-4">
+                        <svg class="w-6 h-6 text-queva-indigo" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </button>
+                    
+                    <!-- Scrollable Blog Grid -->
+                    <div id="blogCarousel" class="flex gap-6 overflow-x-auto scroll-smooth pb-4 snap-x snap-mandatory scrollbar-hide" style="scrollbar-width: none; -ms-overflow-style: none;">
+                        <style>
+                            #blogCarousel::-webkit-scrollbar { display: none; }
+                            .blog-card { min-width: 350px; max-width: 400px; flex-shrink: 0; scroll-snap-align: start; }
+                            @media (max-width: 768px) {
+                                .blog-card { min-width: 300px; max-width: 320px; }
+                            }
+                        </style>
+                        <!-- Blog Post 1 -->
+                        <div class="blog-card bg-white dark:bg-queva-dark/50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="100">
+                            <div class="w-full h-48 bg-gradient-to-br from-pink-500 via-purple-600 to-indigo-600 flex items-center justify-center relative overflow-hidden group">
+                                <!-- Animated Background Pattern -->
+                                <div class="absolute inset-0 opacity-10">
+                                    <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                                        <defs>
+                                            <pattern id="grid1" width="20" height="20" patternUnits="userSpaceOnUse">
+                                                <circle cx="10" cy="10" r="1" fill="white" opacity="0.3"/>
+                                            </pattern>
+                                        </defs>
+                                        <rect width="100%" height="100%" fill="url(#grid1)"/>
+                                    </svg>
+                                </div>
+                                <!-- AI Brain Icon -->
+                                <svg class="w-24 h-24 text-white opacity-90 relative z-10 transform group-hover:scale-110 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                    <circle cx="8" cy="10" r="1.5"/>
+                                    <circle cx="16" cy="10" r="1.5"/>
+                                    <circle cx="12" cy="8" r="1.5"/>
+                                    <circle cx="9.5" cy="13" r="1.5"/>
+                                    <circle cx="14.5" cy="13" r="1.5"/>
+                                    <circle cx="12" cy="16" r="1.5"/>
+                                    <path d="M8 10l4-2m0 0l4 2m-8 3l2.5 3m3 0l2.5-3" stroke="currentColor" stroke-width="0.5" opacity="0.5"/>
+                                </svg>
+                            </div>
                         <div class="p-6">
                             <div class="flex items-center text-xs text-gray-500 dark:text-gray-400 mb-2">
                                 <span>1 Ağustos 2025</span>
@@ -1232,10 +1307,27 @@
                                 </a>
                             </div>
                         </div>
-                    </div>
-                    <!-- Blog Post 2 -->
-                    <div class="bg-white dark:bg-queva-dark/50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="200">
-                        <img src="https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="Data Security" class="w-full h-48 object-cover">
+                        </div>
+                        <!-- Blog Post 2 -->
+                        <div class="blog-card bg-white dark:bg-queva-dark/50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="200">
+                            <div class="w-full h-48 bg-gradient-to-br from-cyan-500 via-blue-600 to-indigo-700 flex items-center justify-center relative overflow-hidden group">
+                                <!-- Animated Background Pattern -->
+                                <div class="absolute inset-0 opacity-10">
+                                    <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                                        <defs>
+                                            <pattern id="grid2" width="30" height="30" patternUnits="userSpaceOnUse">
+                                                <path d="M 30 0 L 0 0 0 30" fill="none" stroke="white" stroke-width="0.5" opacity="0.3"/>
+                                            </pattern>
+                                        </defs>
+                                        <rect width="100%" height="100%" fill="url(#grid2)"/>
+                                    </svg>
+                                </div>
+                                <!-- Shield + Lock Icon -->
+                                <svg class="w-24 h-24 text-white opacity-90 relative z-10 transform group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                                    <circle cx="12" cy="12" r="2" fill="currentColor" opacity="0.8"/>
+                                </svg>
+                            </div>
                         <div class="p-6">
                             <div class="flex items-center text-xs text-gray-500 dark:text-gray-400 mb-2">
                                 <span>25 Temmuz 2025</span>
@@ -1258,34 +1350,50 @@
                                 </a>
                             </div>
                         </div>
-                    </div>
-                    <!-- Blog Post 3 (New: AI-Hybrid TRNG) -->
-                    <div class="bg-white dark:bg-queva-dark/50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="300">
-                        <div class="w-full h-48 bg-gradient-to-br from-indigo-600 via-purple-600 to-blue-600 flex items-center justify-center">
-                            <svg class="w-24 h-24 text-white opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                            </svg>
                         </div>
-                        <div class="p-6">
-                            <div class="flex items-center text-xs text-gray-500 dark:text-gray-400 mb-2">
-                                <span>22 Ekim 2025</span>
-                                <span class="mx-2">•</span>
-                                <span>8 dk okuma</span>
-                            </div>
-                            <h3 data-lang="blog3_title" class="text-xl font-bold mb-2">AI-Hybrid TRNG: Fiziksel Gürültüden Kriptografik Seviyede Rastgele Sayı Üretimi</h3>
-                            <p data-lang="blog3_desc" class="text-gray-600 dark:text-gray-300 mb-4">AI-Hybrid TRNG, fiziksel dünyadaki rastgele gürültüden (örneğin radyo frekansları) neredeyse mükemmel tekdüzelikte ve yüksek kalitede rastgele sayılar çıkaran, yapay zeka tabanlı devrim niteliğinde bir sistemdir. Bu teknoloji, pahalı kuantum cihazlarına olan ihtiyacı ortadan kaldırır.</p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="px-2 py-1 bg-queva-purple/10 text-queva-purple text-xs rounded-full">TRNG</span>
-                                <span class="px-2 py-1 bg-queva-indigo/10 text-queva-indigo text-xs rounded-full">Cryptography</span>
-                                <span class="px-2 py-1 bg-queva-sky/10 text-queva-sky text-xs rounded-full">AI</span>
-                            </div>
-                            <div class="mt-4">
-                                <a href="blog/ai-hybrid-trng.html" data-lang="blog_readmore3" class="glass-button inline-flex items-center px-6 py-3 rounded-full font-semibold transition-all duration-300 group">
-                                    <span>Devamını Oku</span>
-                                    <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        
+                        <!-- Blog Post 3 (MLOps) -->
+                        <div class="blog-card bg-white dark:bg-queva-dark/50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="300">
+                            <div class="w-full h-48 bg-gradient-to-br from-purple-600 via-pink-600 to-red-600 flex items-center justify-center relative overflow-hidden group">
+                                <!-- Animated Background Pattern -->
+                                <div class="absolute inset-0 opacity-10">
+                                    <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                                        <defs>
+                                            <pattern id="grid4" width="20" height="20" patternUnits="userSpaceOnUse">
+                                                <rect x="0" y="0" width="10" height="10" fill="white" opacity="0.2"/>
+                                                <rect x="10" y="10" width="10" height="10" fill="white" opacity="0.2"/>
+                                            </pattern>
+                                        </defs>
+                                        <rect width="100%" height="100%" fill="url(#grid4)"/>
                                     </svg>
-                                </a>
+                                </div>
+                                <!-- Gear + Pipeline Icon -->
+                                <svg class="w-24 h-24 text-white opacity-90 relative z-10 transform group-hover:rotate-180 transition-transform duration-700" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 15.5A3.5 3.5 0 0 1 8.5 12 3.5 3.5 0 0 1 12 8.5a3.5 3.5 0 0 1 3.5 3.5 3.5 3.5 0 0 1-3.5 3.5m7.43-2.53c.04-.32.07-.64.07-.97 0-.33-.03-.66-.07-1l2.11-1.63c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.31-.61-.22l-2.49 1c-.52-.39-1.06-.73-1.69-.98l-.37-2.65A.506.506 0 0 0 14 2h-4c-.25 0-.46.18-.5.42l-.37 2.65c-.63.25-1.17.59-1.69.98l-2.49-1c-.22-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64L4.57 11c-.04.34-.07.67-.07 1 0 .33.03.65.07.97l-2.11 1.66c-.19.15-.25.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1.01c.52.4 1.06.74 1.69.99l.37 2.65c.04.24.25.42.5.42h4c.25 0 .46-.18.5-.42l.37-2.65c.63-.26 1.17-.59 1.69-.99l2.49 1.01c.22.08.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.66z"/>
+                                    <circle cx="12" cy="12" r="1.5" fill="white" opacity="0.8"/>
+                                </svg>
+                            </div>
+                            <div class="p-6">
+                                <div class="flex items-center text-xs text-gray-500 dark:text-gray-400 mb-2">
+                                    <span>10 Ağustos 2025</span>
+                                    <span class="mx-2">•</span>
+                                    <span>8 dk okuma</span>
+                                </div>
+                                <h3 data-lang="blog3_title" class="text-xl font-bold mb-2">MLOps: Modellerinizi Hayata Geçirin</h3>
+                                <p data-lang="blog3_desc" class="text-gray-600 dark:text-gray-300 mb-4">MLOps 2025'te enterprise AI'ın omurgası haline geldi. Production-grade ML pipeline'lar, automated deployment ve continuous monitoring ile model lifecycle yönetimi yeni bir boyut kazanıyor. Kubernetes, MLflow ve Kubeflow ekosistemi ile scalable AI infrastructure artık her şirketin ulaşabileceği bir gerçeklik.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="px-2 py-1 bg-queva-purple/10 text-queva-purple text-xs rounded-full">MLOps</span>
+                                    <span class="px-2 py-1 bg-queva-indigo/10 text-queva-indigo text-xs rounded-full">DevOps</span>
+                                    <span class="px-2 py-1 bg-queva-sky/10 text-queva-sky text-xs rounded-full">ML Pipeline</span>
+                                </div>
+                                <div class="mt-4">
+                                    <a href="blog/mlops-2025.html" data-lang="blog_readmore3" class="glass-button inline-flex items-center px-6 py-3 rounded-full font-semibold transition-all duration-300 group">
+                                        <span>Devamını Oku</span>
+                                        <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                        </svg>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1530,8 +1638,8 @@
                 blog1_desc: "2025 yılı yapay zeka için dönüm noktası olacak. Multimodal AI, agentic AI sistemleri ve edge computing ile birleşen yapay zeka, iş dünyasında köklü değişimler yaratacak. GPT-5'ten Claude 4'e kadar yeni nesil modeller, insan-AI işbirliğini yeniden tanımlıyor. Özellikle healthcare, fintech ve manufacturing sektörlerinde AI adoption %300 artış gösteriyor.",
                 blog2_title: "Büyük Veri Çağında Güvenlik",
                 blog2_desc: "Cyber security landscape 2025'te dramatik değişimler yaşıyor. Zero-trust architecture, quantum-resistant encryption ve AI-powered threat detection artık zorunluluk. GDPR, KVKV ve yeni regulation'lar data governance'ı yeniden şekillendiriyor. Özellikle TRNG teknolojisi ile enhanced cryptographic security, modern enterprise'ların vazgeçilmez savunma stratejisi haline geliyor.",
-                blog3_title: "AI-Hybrid TRNG: Fiziksel Gürültüden Kriptografik Seviyede Rastgele Sayı Üretimi",
-                blog3_desc: "AI-Hybrid TRNG, fiziksel dünyadaki rastgele gürültüden (örneğin radyo frekansları) neredeyse mükemmel tekdüzelikte ve yüksek kalitede rastgele sayılar çıkaran, yapay zeka tabanlı devrim niteliğinde bir sistemdir. Bu teknoloji, pahalı kuantum cihazlarına olan ihtiyacı ortadan kaldırır.",
+                blog3_title: "MLOps: Modellerinizi Hayata Geçirin",
+                blog3_desc: "MLOps 2025'te enterprise AI'ın omurgası haline geldi. Production-grade ML pipeline'lar, automated deployment ve continuous monitoring ile model lifecycle yönetimi yeni bir boyut kazanıyor. Kubernetes, MLflow ve Kubeflow ekosistemi ile scalable AI infrastructure artık her şirketin ulaşabileceği bir gerçeklik.",
                 blog_readmore: "Devamını Oku",
                 blog_readmore2: "Devamını Oku",
                 blog_readmore3: "Devamını Oku",
@@ -1674,8 +1782,8 @@
                 blog1_desc: "2025 will be a turning point for artificial intelligence. AI combined with multimodal AI, agentic AI systems, and edge computing will create radical changes in the business world. Next-generation models from GPT-5 to Claude 4 are redefining human-AI collaboration. AI adoption is showing a 300% increase, especially in healthcare, fintech, and manufacturing sectors.",
                 blog2_title: "Security in the Age of Big Data",
                 blog2_desc: "The cyber security landscape is experiencing dramatic changes in 2025. Zero-trust architecture, quantum-resistant encryption, and AI-powered threat detection are now necessities. GDPR, KVKK, and new regulations are reshaping data governance. Enhanced cryptographic security with TRNG technology is becoming an indispensable defense strategy for modern enterprises.",
-                blog3_title: "AI-Hybrid TRNG: Cryptographic-Level Random Number Generation from Physical Noise",
-                blog3_desc: "AI-Hybrid TRNG is a revolutionary AI-based system that extracts nearly perfect uniform and high-quality random numbers from random noise in the physical world (e.g., radio frequencies). This technology eliminates the need for expensive quantum devices.",
+                blog3_title: "MLOps: Bring Your Models to Life",
+                blog3_desc: "MLOps has become the backbone of enterprise AI in 2025. Model lifecycle management takes on a new dimension with production-grade ML pipelines, automated deployment, and continuous monitoring. Scalable AI infrastructure with Kubernetes, MLflow, and Kubeflow ecosystem is now a reality accessible to every company.",
                 blog_readmore: "Read More",
                 blog_readmore2: "Read More",
                 blog_readmore3: "Read More",
@@ -1733,6 +1841,33 @@
             duration: 800,
             once: true, // Animation happens only once
         });
+
+        // =================================
+        // Blog Carousel Scroll
+        // =================================
+        const blogCarousel = document.getElementById('blogCarousel');
+        const scrollLeftBtn = document.getElementById('blogScrollLeft');
+        const scrollRightBtn = document.getElementById('blogScrollRight');
+        
+        if (blogCarousel && scrollLeftBtn && scrollRightBtn) {
+            scrollLeftBtn.addEventListener('click', () => {
+                blogCarousel.scrollBy({ left: -400, behavior: 'smooth' });
+            });
+            
+            scrollRightBtn.addEventListener('click', () => {
+                blogCarousel.scrollBy({ left: 400, behavior: 'smooth' });
+            });
+            
+            // Update button visibility based on scroll position
+            const updateScrollButtons = () => {
+                const maxScroll = blogCarousel.scrollWidth - blogCarousel.clientWidth;
+                scrollLeftBtn.style.opacity = blogCarousel.scrollLeft > 0 ? '1' : '0.3';
+                scrollRightBtn.style.opacity = blogCarousel.scrollLeft < maxScroll - 10 ? '1' : '0.3';
+            };
+            
+            blogCarousel.addEventListener('scroll', updateScrollButtons);
+            updateScrollButtons();
+        }
 
         // Initialize Swiper
         const swiper = new Swiper('.swiper-container', {
