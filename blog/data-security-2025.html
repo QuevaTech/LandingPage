@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Büyük Veri Çağında Güvenlik | QuevaTech Blog</title>
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../qt-icon.svg">
+    
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -198,6 +201,30 @@
         }
         .dark .blog-content code {
             background-color: #1f2937;
+        }
+        
+        /* Animation delay utilities */
+        .animation-delay-300 {
+            animation-delay: 300ms;
+        }
+        .animation-delay-500 {
+            animation-delay: 500ms;
+        }
+        
+        /* Floating animation for particles */
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-20px) scale(1.1); }
+        }
+        
+        /* Pulse glow animation */
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.2; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(1.2); }
+        }
+        
+        .animate-pulse {
+            animation: pulseGlow 3s ease-in-out infinite;
         }
     </style>
     <script>
@@ -554,11 +581,21 @@
                         <h3 data-lang="related_posts" class="text-2xl font-bold mb-8">İlgili Yazılar</h3>
                         <div class="grid md:grid-cols-2 gap-8">
                             <a href="ai-future-2025.html" class="block group">
-                                <div class="related-post rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-                                    <div class="w-full h-48 bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
-                                        <svg class="w-12 h-12 text-white opacity-60" fill="currentColor" viewBox="0 0 24 24">
-                                            <path d="M13 2.5h-1V1h-1v1.5H8.5V1h-1v1.5H5v15h14V2.5h-3.5V1h-1v1.5zm0 1v2h1v-2zm-8 3v10h12V6.5z"/>
-                                        </svg>
+                                <div class="related-post rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2">
+                                    <div class="w-full h-48 relative overflow-hidden bg-gradient-to-br from-indigo-500 to-purple-600">
+                                        <!-- Animated background particles -->
+                                        <div class="absolute inset-0 opacity-20">
+                                            <div class="absolute top-1/4 left-1/4 w-32 h-32 bg-white rounded-full blur-3xl animate-pulse"></div>
+                                            <div class="absolute bottom-1/3 right-1/4 w-24 h-24 bg-white rounded-full blur-2xl animate-pulse animation-delay-300"></div>
+                                        </div>
+                                        <!-- Icon with animation -->
+                                        <div class="relative z-10 w-full h-full flex items-center justify-center">
+                                            <svg class="w-16 h-16 text-white transform group-hover:scale-110 group-hover:-rotate-12 transition-all duration-500" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/>
+                                            </svg>
+                                        </div>
+                                        <!-- Animated border effect -->
+                                        <div class="absolute inset-0 border-2 border-white opacity-0 group-hover:opacity-30 transition-opacity duration-500"></div>
                                     </div>
                                     <div class="p-6">
                                         <h4 id="related-title-1" class="font-bold text-lg mb-2 group-hover:text-queva-indigo dark:group-hover:text-queva-purple transition-colors">2025'te Yapay Zekânın Geleceği</h4>
@@ -567,11 +604,21 @@
                                 </div>
                             </a>
                             <a href="mlops-2025.html" class="block group">
-                                <div class="related-post rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-                                    <div class="w-full h-48 bg-gradient-to-br from-purple-600 via-pink-600 to-red-600 flex items-center justify-center">
-                                        <svg class="w-12 h-12 text-white opacity-60" fill="currentColor" viewBox="0 0 24 24">
-                                            <path d="M12 15.5A3.5 3.5 0 0 1 8.5 12 3.5 3.5 0 0 1 12 8.5a3.5 3.5 0 0 1 3.5 3.5 3.5 3.5 0 0 1-3.5 3.5m7.43-2.53c.04-.32.07-.64.07-.97 0-.33-.03-.66-.07-1l2.11-1.63c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.31-.61-.22l-2.49 1c-.52-.39-1.06-.73-1.69-.98l-.37-2.65A.506.506 0 0 0 14 2h-4c-.25 0-.46.18-.5.42l-.37 2.65c-.63.25-1.17.59-1.69.98l-2.49-1c-.22-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64L4.57 11c-.04.34-.07.67-.07 1 0 .33.03.65.07.97l-2.11 1.66c-.19.15-.25.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1.01c.52.4 1.06.74 1.69.99l.37 2.65c.04.24.25.42.5.42h4c.25 0 .46-.18.5-.42l.37-2.65c.63-.26 1.17-.59 1.69-.99l2.49 1.01c.22.08.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.66z"/>
-                                        </svg>
+                                <div class="related-post rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2">
+                                    <div class="w-full h-48 relative overflow-hidden bg-gradient-to-br from-purple-600 via-pink-600 to-red-600">
+                                        <!-- Animated background particles -->
+                                        <div class="absolute inset-0 opacity-20">
+                                            <div class="absolute top-1/3 left-1/3 w-28 h-28 bg-white rounded-full blur-3xl animate-pulse animation-delay-500"></div>
+                                            <div class="absolute bottom-1/4 right-1/3 w-32 h-32 bg-white rounded-full blur-2xl animate-pulse"></div>
+                                        </div>
+                                        <!-- Icon with animation -->
+                                        <div class="relative z-10 w-full h-full flex items-center justify-center">
+                                            <svg class="w-16 h-16 text-white transform group-hover:scale-110 group-hover:rotate-180 transition-all duration-700" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M12 15.5A3.5 3.5 0 0 1 8.5 12 3.5 3.5 0 0 1 12 8.5a3.5 3.5 0 0 1 3.5 3.5 3.5 3.5 0 0 1-3.5 3.5m7.43-2.53c.04-.32.07-.64.07-.97 0-.33-.03-.66-.07-1l2.11-1.63c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.31-.61-.22l-2.49 1c-.52-.39-1.06-.73-1.69-.98l-.37-2.65A.506.506 0 0 0 14 2h-4c-.25 0-.46.18-.5.42l-.37 2.65c-.63.25-1.17.59-1.69.98l-2.49-1c-.22-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64L4.57 11c-.04.34-.07.67-.07 1 0 .33.03.65.07.97l-2.11 1.66c-.19.15-.25.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1.01c.52.4 1.06.74 1.69.99l.37 2.65c.04.24.25.42.5.42h4c.25 0 .46-.18.5-.42l.37-2.65c.63-.26 1.17-.59 1.69-.99l2.49 1.01c.22.08.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.66z"/>
+                                            </svg>
+                                        </div>
+                                        <!-- Animated border effect -->
+                                        <div class="absolute inset-0 border-2 border-white opacity-0 group-hover:opacity-30 transition-opacity duration-500"></div>
                                     </div>
                                     <div class="p-6">
                                         <h4 id="related-title-2" class="font-bold text-lg mb-2 group-hover:text-queva-indigo dark:group-hover:text-queva-purple transition-colors">MLOps: Modellerinizi Hayata Geçirin</h4>
