@@ -38,19 +38,18 @@
         /* Container overflow control */
         .container {
             max-width: 100%;
-            overflow-x: hidden;
+            overflow: visible;
             /* Ensure touch scrolling works properly */
             touch-action: pan-y;
         }
         
         /* Grid responsive fixes */
         .grid {
-            overflow-x: hidden;
+            overflow: visible;
         }
         
-        /* Ensure sections don't overflow */
+        /* Ensure sections don't overflow horizontally but allow vertical animation space */
         section {
-            overflow-x: hidden;
             width: 100%;
         }
         
@@ -173,6 +172,7 @@
             background: rgba(255, 255, 255, 0.05) !important;
             backdrop-filter: blur(10px) !important;
             -webkit-backdrop-filter: blur(10px) !important;
+            overflow: visible !important;
         }
         
         .dark section {
@@ -1855,6 +1855,9 @@
         AOS.init({
             duration: 800,
             once: true, // Animation happens only once
+            offset: 50, // Trigger animations earlier
+            disable: false, // Always enable animations
+            anchorPlacement: 'top-bottom', // Trigger when element top hits bottom of viewport
         });
 
         // =================================
