@@ -6,8 +6,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QuevaTech | Yapay Zekâ ile Geleceği Şekillendiriyoruz</title>
 
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="QuevaTech - Derin teknoloji, ileri mühendislik ve yapay zeka alanlarında akademik Ar-Ge projesi. TRNG, siber güvenlik ve kuantum sonrası kriptografi araştırmaları.">
+    <meta name="keywords"
+        content="QuevaTech, TRNG, yapay zeka, siber güvenlik, kriptografi, akademik araştırma, deep tech, Ar-Ge">
+    <meta name="author" content="QuevaTech Research Initiative">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://queva.tech/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://queva.tech/">
+    <meta property="og:title" content="QuevaTech | Deep Tech, Advanced Engineering, AI Solutions">
+    <meta property="og:description"
+        content="Non-profit academic R&D initiative focusing on TRNG, cybersecurity, and post-quantum cryptography research.">
+    <meta property="og:image" content="https://queva.tech/qt-icon.svg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://queva.tech/">
+    <meta name="twitter:title" content="QuevaTech | Deep Tech Research Initiative">
+    <meta name="twitter:description" content="Academic R&D project on TRNG, cybersecurity, and AI architectures.">
+    <meta name="twitter:image" content="https://queva.tech/qt-icon.svg">
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ResearchProject",
+        "name": "QuevaTech",
+        "alternateName": "QuevaTech Research Initiative",
+        "description": "Non-profit academic R&D initiative focusing on deep tech, advanced engineering, and AI solutions including TRNG and post-quantum cryptography.",
+        "url": "https://queva.tech",
+        "logo": "https://queva.tech/qt-icon.svg",
+        "sameAs": [
+            "https://www.youtube.com/@QuevaTech",
+            "https://x.com/quevatech",
+            "https://linkedin.com/company/quevatech2",
+            "https://instagram.com/quevatech"
+        ],
+        "foundingDate": "2024",
+        "location": {
+            "@type": "Place",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Akyaka, Ula",
+                "addressRegion": "Muğla",
+                "addressCountry": "TR"
+            }
+        },
+        "keywords": ["TRNG", "Cybersecurity", "AI", "Deep Tech", "Post-Quantum Cryptography"],
+        "nonprofit": true
+    }
+    </script>
+
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="qt-icon.svg">
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#1e3a8a">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -602,6 +663,71 @@
             fill: #1e293b;
         }
 
+        /* Tech Stack Logo Badges */
+        .tech-logo-badge {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .tech-logo-badge:hover {
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .dark .tech-logo-badge {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .dark .tech-logo-badge:hover {
+            background: rgba(15, 23, 42, 0.8);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Social Link Button Animations */
+        .social-link-btn {
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 10;
+        }
+
+        .social-link-btn svg {
+            pointer-events: none;
+        }
+
+        .social-link-btn:hover {
+            transform: scale(1.05);
+            animation: wiggle 0.5s ease-in-out;
+        }
+
+        @keyframes wiggle {
+
+            0%,
+            100% {
+                transform: rotate(0deg) scale(1.05);
+            }
+
+            25% {
+                transform: rotate(-5deg) scale(1.05);
+            }
+
+            50% {
+                transform: rotate(5deg) scale(1.05);
+            }
+
+            75% {
+                transform: rotate(-3deg) scale(1.05);
+            }
+        }
+
         /* Wave animation */
         .wave-divider svg path {
             animation: wave-motion 8s ease-in-out infinite;
@@ -1060,6 +1186,59 @@
 
         <!-- 
         =================================
+        3.5 Stats Counter Section
+        =================================
+        -->
+        <section id="stats" class="py-16 bg-gray-100 dark:bg-gradient-to-r dark:from-queva-indigo dark:to-queva-purple">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <h2 data-lang="stats_title"
+                        class="text-3xl md:text-4xl font-bold text-queva-indigo dark:text-white">Rakamlarla QuevaTech
+                    </h2>
+                    <p data-lang="stats_subtitle" class="text-lg mt-2 text-gray-600 dark:text-white/80">Akademik Ar-Ge
+                        yolculuğumuzun özeti
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8" data-aos="fade-up" data-aos-delay="200">
+                    <!-- Stat 1: Research Areas -->
+                    <div class="text-center">
+                        <div class="text-5xl md:text-6xl font-bold text-queva-purple dark:text-white mb-2">
+                            <span class="stat-counter" data-target="5">0</span>+
+                        </div>
+                        <p data-lang="stats_research_areas"
+                            class="text-gray-600 dark:text-white/80 text-sm md:text-base">Araştırma Alanı
+                        </p>
+                    </div>
+                    <!-- Stat 2: Publications -->
+                    <div class="text-center">
+                        <div class="text-5xl md:text-6xl font-bold text-queva-purple dark:text-white mb-2">
+                            <span class="stat-counter" data-target="10">0</span>+
+                        </div>
+                        <p data-lang="stats_publications" class="text-gray-600 dark:text-white/80 text-sm md:text-base">
+                            Teknik Doküman</p>
+                    </div>
+                    <!-- Stat 3: Prototypes -->
+                    <div class="text-center">
+                        <div class="text-5xl md:text-6xl font-bold text-queva-purple dark:text-white mb-2">
+                            <span class="stat-counter" data-target="3">0</span>+
+                        </div>
+                        <p data-lang="stats_prototypes" class="text-gray-600 dark:text-white/80 text-sm md:text-base">
+                            Prototip Demo</p>
+                    </div>
+                    <!-- Stat 4: Code Lines -->
+                    <div class="text-center">
+                        <div class="text-5xl md:text-6xl font-bold text-queva-purple dark:text-white mb-2">
+                            <span class="stat-counter" data-target="50">0</span>K+
+                        </div>
+                        <p data-lang="stats_code_lines" class="text-gray-600 dark:text-white/80 text-sm md:text-base">
+                            Satır Kod</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+        =================================
         4. QuevaTech Platform: Core Technology & Infrastructure
         =================================
         -->
@@ -1242,6 +1421,118 @@
                             <h4 data-lang="platform_arch_secure" class="font-semibold mb-2">Secure by Design</h4>
                             <p data-lang="platform_arch_secure_desc" class="text-sm text-gray-600 dark:text-gray-400">
                                 End-to-end encryption ile data protection at every layer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technology Stack -->
+                <div class="mb-16" data-aos="fade-up">
+                    <h3 data-lang="tech_stack_title" class="text-2xl font-bold text-center mb-8">Kullandığımız
+                        Teknolojiler</h3>
+                    <p data-lang="tech_stack_subtitle" class="text-center text-gray-600 dark:text-gray-400 mb-8">
+                        Araştırma ve geliştirme süreçlerimizde kullandığımız temel teknolojiler</p>
+                    <div class="flex flex-wrap justify-center gap-4 md:gap-6">
+                        <!-- Python -->
+                        <div class="tech-logo-badge group" title="Python">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+                                alt="Python" class="w-12 h-12 group-hover:scale-110 transition-transform duration-300"
+                                loading="lazy">
+                            <span class="text-xs mt-2 text-gray-600 dark:text-gray-400">Python</span>
+                        </div>
+                        <!-- TensorFlow -->
+                        <div class="tech-logo-badge group" title="TensorFlow">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg"
+                                alt="TensorFlow"
+                                class="w-12 h-12 group-hover:scale-110 transition-transform duration-300"
+                                loading="lazy">
+                            <span class="text-xs mt-2 text-gray-600 dark:text-gray-400">TensorFlow</span>
+                        </div>
+                        <!-- PyTorch -->
+                        <div class="tech-logo-badge group" title="PyTorch">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg"
+                                alt="PyTorch" class="w-12 h-12 group-hover:scale-110 transition-transform duration-300"
+                                loading="lazy">
+                            <span class="text-xs mt-2 text-gray-600 dark:text-gray-400">PyTorch</span>
+                        </div>
+                        <!-- Kubernetes -->
+                        <div class="tech-logo-badge group" title="Kubernetes">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg"
+                                alt="Kubernetes"
+                                class="w-12 h-12 group-hover:scale-110 transition-transform duration-300"
+                                loading="lazy">
+                            <span class="text-xs mt-2 text-gray-600 dark:text-gray-400">Kubernetes</span>
+                        </div>
+                        <!-- Docker -->
+                        <div class="tech-logo-badge group" title="Docker">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
+                                alt="Docker" class="w-12 h-12 group-hover:scale-110 transition-transform duration-300"
+                                loading="lazy">
+                            <span class="text-xs mt-2 text-gray-600 dark:text-gray-400">Docker</span>
+                        </div>
+                        <!-- C/C++ -->
+                        <div class="tech-logo-badge group" title="C/C++">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg"
+                                alt="C++" class="w-12 h-12 group-hover:scale-110 transition-transform duration-300"
+                                loading="lazy">
+                            <span class="text-xs mt-2 text-gray-600 dark:text-gray-400">C/C++</span>
+                        </div>
+                        <!-- Rust -->
+                        <div class="tech-logo-badge group" title="Rust">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-original.svg"
+                                alt="Rust" class="w-12 h-12 group-hover:scale-110 transition-transform duration-300"
+                                loading="lazy">
+                            <span class="text-xs mt-2 text-gray-600 dark:text-gray-400">Rust</span>
+                        </div>
+                        <!-- Linux -->
+                        <div class="tech-logo-badge group" title="Linux">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg"
+                                alt="Linux" class="w-12 h-12 group-hover:scale-110 transition-transform duration-300"
+                                loading="lazy">
+                            <span class="text-xs mt-2 text-gray-600 dark:text-gray-400">Linux</span>
+                        </div>
+                        <!-- Git -->
+                        <div class="tech-logo-badge group" title="Git">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git"
+                                class="w-12 h-12 group-hover:scale-110 transition-transform duration-300"
+                                loading="lazy">
+                            <span class="text-xs mt-2 text-gray-600 dark:text-gray-400">Git</span>
+                        </div>
+                        <!-- Google Cloud -->
+                        <div class="tech-logo-badge group" title="Google Cloud">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg"
+                                alt="Google Cloud"
+                                class="w-12 h-12 group-hover:scale-110 transition-transform duration-300"
+                                loading="lazy">
+                            <span class="text-xs mt-2 text-gray-600 dark:text-gray-400">GCP</span>
+                        </div>
+                        <!-- Azure -->
+                        <div class="tech-logo-badge group" title="Azure">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg"
+                                alt="Azure" class="w-12 h-12 group-hover:scale-110 transition-transform duration-300"
+                                loading="lazy">
+                            <span class="text-xs mt-2 text-gray-600 dark:text-gray-400">Azure</span>
+                        </div>
+                        <!-- PostgreSQL -->
+                        <div class="tech-logo-badge group" title="PostgreSQL">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
+                                alt="PostgreSQL"
+                                class="w-12 h-12 group-hover:scale-110 transition-transform duration-300"
+                                loading="lazy">
+                            <span class="text-xs mt-2 text-gray-600 dark:text-gray-400">PostgreSQL</span>
+                        </div>
+                        <!-- MongoDB -->
+                        <div class="tech-logo-badge group" title="MongoDB">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
+                                alt="MongoDB" class="w-12 h-12 group-hover:scale-110 transition-transform duration-300"
+                                loading="lazy">
+                            <span class="text-xs mt-2 text-gray-600 dark:text-gray-400">MongoDB</span>
+                        </div>
+                        <!-- Redis -->
+                        <div class="tech-logo-badge group" title="Redis">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg"
+                                alt="Redis" class="w-12 h-12 group-hover:scale-110 transition-transform duration-300"
+                                loading="lazy">
+                            <span class="text-xs mt-2 text-gray-600 dark:text-gray-400">Redis</span>
                         </div>
                     </div>
                 </div>
@@ -1581,121 +1872,6 @@
             </div>
         </section>
 
-        <!-- 
-        =================================
-        6. Technology Stack
-        =================================
-        -->
-        <section class="py-20">
-            <div class="container mx-auto px-4" data-aos="fade-up">
-                <div class="text-center mb-12">
-                    <h2 data-lang="tech_stack_title" class="text-3xl md:text-4xl font-bold mb-4">Entegre Olduğumuz
-                        Teknolojiler</h2>
-                    <p class="text-lg text-gray-600 dark:text-gray-400">Modern ve güvenilir teknolojilerle güçlü
-                        çözümler</p>
-                </div>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                    <!-- Python -->
-                    <div class="tech-card group">
-                        <div class="flex flex-col items-center p-6">
-                            <div
-                                class="w-16 h-16 mb-4 rounded-xl bg-gradient-to-br from-blue-500 to-yellow-500 flex items-center justify-center text-white font-bold text-xl group-hover:scale-110 transition-transform duration-300">
-                                Py
-                            </div>
-                            <h3 class="font-semibold text-gray-900 dark:text-white">Python</h3>
-                            <p class="text-sm text-gray-600 dark:text-gray-400 text-center mt-2">AI/ML Development</p>
-                        </div>
-                    </div>
-
-                    <!-- TensorFlow -->
-                    <div class="tech-card group">
-                        <div class="flex flex-col items-center p-6">
-                            <div
-                                class="w-16 h-16 mb-4 rounded-xl bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center text-white font-bold text-lg group-hover:scale-110 transition-transform duration-300">
-                                TF
-                            </div>
-                            <h3 class="font-semibold text-gray-900 dark:text-white">TensorFlow</h3>
-                            <p class="text-sm text-gray-600 dark:text-gray-400 text-center mt-2">Deep Learning</p>
-                        </div>
-                    </div>
-
-                    <!-- PyTorch -->
-                    <div class="tech-card group">
-                        <div class="flex flex-col items-center p-6">
-                            <div
-                                class="w-16 h-16 mb-4 rounded-xl bg-gradient-to-br from-red-500 to-pink-500 flex items-center justify-center text-white font-bold text-lg group-hover:scale-110 transition-transform duration-300">
-                                PT
-                            </div>
-                            <h3 class="font-semibold text-gray-900 dark:text-white">PyTorch</h3>
-                            <p class="text-sm text-gray-600 dark:text-gray-400 text-center mt-2">Neural Networks</p>
-                        </div>
-                    </div>
-
-                    <!-- C++ -->
-                    <div class="tech-card group">
-                        <div class="flex flex-col items-center p-6">
-                            <div
-                                class="w-16 h-16 mb-4 rounded-xl bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center text-white font-bold text-lg group-hover:scale-110 transition-transform duration-300">
-                                C++
-                            </div>
-                            <h3 class="font-semibold text-gray-900 dark:text-white">C++</h3>
-                            <p class="text-sm text-gray-600 dark:text-gray-400 text-center mt-2">Performance</p>
-                        </div>
-                    </div>
-
-                    <!-- AWS -->
-                    <div class="tech-card group">
-                        <div class="flex flex-col items-center p-6">
-                            <div
-                                class="w-16 h-16 mb-4 rounded-xl bg-gradient-to-br from-orange-400 to-yellow-500 flex items-center justify-center text-white font-bold text-lg group-hover:scale-110 transition-transform duration-300">
-                                AWS
-                            </div>
-                            <h3 class="font-semibold text-gray-900 dark:text-white">AWS</h3>
-                            <p class="text-sm text-gray-600 dark:text-gray-400 text-center mt-2">Cloud Platform</p>
-                        </div>
-                    </div>
-
-                    <!-- Docker -->
-                    <div class="tech-card group">
-                        <div class="flex flex-col items-center p-6">
-                            <div
-                                class="w-16 h-16 mb-4 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white font-bold text-lg group-hover:scale-110 transition-transform duration-300">
-                                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                                    <path
-                                        d="M13.983 11.078h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.185v1.888c0 .102.083.185.185.185m-2.954-5.43h2.118a.186.186 0 00.186-.186V3.574a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.186" />
-                                </svg>
-                            </div>
-                            <h3 class="font-semibold text-gray-900 dark:text-white">Docker</h3>
-                            <p class="text-sm text-gray-600 dark:text-gray-400 text-center mt-2">Containerization</p>
-                        </div>
-                    </div>
-
-                    <!-- Kubernetes -->
-                    <div class="tech-card group">
-                        <div class="flex flex-col items-center p-6">
-                            <div
-                                class="w-16 h-16 mb-4 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center text-white font-bold text-lg group-hover:scale-110 transition-transform duration-300">
-                                K8s
-                            </div>
-                            <h3 class="font-semibold text-gray-900 dark:text-white">Kubernetes</h3>
-                            <p class="text-sm text-gray-600 dark:text-gray-400 text-center mt-2">Orchestration</p>
-                        </div>
-                    </div>
-
-                    <!-- Spark -->
-                    <div class="tech-card group">
-                        <div class="flex flex-col items-center p-6">
-                            <div
-                                class="w-16 h-16 mb-4 rounded-xl bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center text-white font-bold text-lg group-hover:scale-110 transition-transform duration-300">
-                                ⚡
-                            </div>
-                            <h3 class="font-semibold text-gray-900 dark:text-white">Apache Spark</h3>
-                            <p class="text-sm text-gray-600 dark:text-gray-400 text-center mt-2">Big Data</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- 
         =================================
@@ -2012,6 +2188,94 @@
 
         <!-- 
         =================================
+        7.5 Founder & Vision
+        =================================
+        -->
+        <section id="founder" class="py-20">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto">
+                    <div class="glass-card p-8 md:p-12" data-aos="fade-up">
+                        <div class="flex flex-col md:flex-row items-center gap-8">
+                            <!-- Founder Avatar -->
+                            <div class="flex-shrink-0">
+                                <div
+                                    class="w-32 h-32 md:w-40 md:h-40 rounded-full bg-gradient-to-br from-queva-indigo to-queva-purple flex items-center justify-center text-white text-4xl md:text-5xl font-bold shadow-2xl">
+                                    YGT
+                                </div>
+                            </div>
+                            <!-- Founder Info -->
+                            <div class="text-center md:text-left flex-1">
+                                <h2 data-lang="founder_title" class="text-2xl md:text-3xl font-bold mb-2">Baş
+                                    Araştırmacı & İnisiyatif Lideri</h2>
+                                <h3 data-lang="founder_name"
+                                    class="text-xl text-queva-indigo dark:text-queva-purple font-semibold mb-4">Hasan
+                                    Yiğit</h3>
+                                <p data-lang="founder_bio" class="text-gray-600 dark:text-gray-400 mb-6">
+                                    Deep Tech, yapay zeka, siber güvenlik ve kuantum sonrası kriptografi alanlarında
+                                    araştırmalar yürüten QuevaTech inisiyatifinin lideri. TRNG teknolojileri ve 6G
+                                    fiziksel katman güvenliği üzerine çalışmaktadır.
+                                </p>
+                                <div class="flex justify-center md:justify-start gap-4 flex-wrap">
+                                    <a href="https://www.linkedin.com/in/yigithasan/" target="_blank"
+                                        class="social-link-btn flex items-center gap-2 px-4 py-2 rounded-full bg-blue-600 hover:bg-blue-700 text-white text-sm">
+                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                            <path
+                                                d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H6.328C3.965 1 2 2.985 2 5.337v13.326C2 21.015 3.965 23 6.328 23h11.34c2.363 0 4.328-1.985 4.328-4.337V5.337C22 2.985 20.031 1 17.668 1z" />
+                                        </svg>
+                                        LinkedIn
+                                    </a>
+                                    <a href="https://x.com/yigithasan_" target="_blank"
+                                        class="social-link-btn flex items-center gap-2 px-4 py-2 rounded-full bg-black hover:bg-gray-800 text-white text-sm">
+                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                            <path
+                                                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                                        </svg>
+                                        X
+                                    </a>
+                                    <a href="https://www.researchgate.net/profile/Hasan-Yigit-7" target="_blank"
+                                        class="social-link-btn flex items-center gap-2 px-4 py-2 rounded-full bg-teal-600 hover:bg-teal-700 text-white text-sm">
+                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                            <path
+                                                d="M19.586 0c-.818 0-1.508.19-2.073.565-.563.377-.97.936-1.213 1.68a3.193 3.193 0 0 0-.112.364 8.709 8.709 0 0 0-.078.38 3.053 3.053 0 0 0-.05.529c0 .136.006.25.017.34l.019.134h-.032c-.498-.476-1.189-.753-2.05-.753-.728 0-1.362.18-1.906.54-.543.36-.973.853-1.29 1.48a6.6 6.6 0 0 0-.614 1.918c-.129.675-.194 1.29-.194 1.833 0 .867.161 1.6.48 2.2.32.6.755 1.05 1.308 1.35.553.3 1.178.45 1.875.45.64 0 1.185-.13 1.636-.39.45-.26.806-.6 1.068-1.02h.032v.21c0 .283-.013.544-.038.782-.025.238-.085.477-.18.715-.095.24-.252.46-.47.66-.218.2-.52.36-.905.48-.386.12-.85.18-1.394.18-.38 0-.809-.037-1.286-.11A7.03 7.03 0 0 1 8.6 13.15l-.014-.11h-.032v2.82h.032c.45.15.95.27 1.5.35.55.08 1.052.12 1.504.12.803 0 1.52-.103 2.15-.31.63-.206 1.155-.492 1.577-.858.422-.366.737-.792.946-1.28.21-.487.314-1.015.314-1.583v-5.85h-.032c.02-.1.036-.22.05-.36a4.6 4.6 0 0 0 .022-.441c0-.21-.02-.407-.06-.59a2.3 2.3 0 0 0-.172-.495 1.56 1.56 0 0 0-.31-.42 1.2 1.2 0 0 0-.47-.29 1.89 1.89 0 0 0-.65-.103 2.17 2.17 0 0 0-.796.145c-.24.096-.455.24-.648.432a2.41 2.41 0 0 0-.47.64c-.122.236-.21.49-.263.76-.053.27-.08.544-.08.82 0 .283.03.56.09.83.06.27.147.52.263.75.116.23.264.434.445.61.18.176.394.316.64.42.247.104.524.156.833.156.34 0 .64-.063.896-.19.258-.126.473-.303.648-.53.174-.226.305-.49.393-.79.087-.3.131-.62.131-.96 0-.27-.025-.537-.075-.8a2.7 2.7 0 0 0-.215-.693h-.032l.076-.114.066-.115c.35-.62.826-1.11 1.427-1.47.6-.36 1.257-.54 1.968-.54.475 0 .882.056 1.222.168s.62.28.84.504c.22.224.383.5.489.828.106.328.16.7.16 1.116 0 .41-.054.8-.162 1.17-.108.37-.27.7-.486.99-.216.29-.485.523-.808.7-.323.177-.695.265-1.116.265-.26 0-.488-.034-.684-.103a1.41 1.41 0 0 1-.5-.287 1.19 1.19 0 0 1-.315-.44 1.4 1.4 0 0 1-.108-.56c0-.25.054-.47.162-.66.108-.19.262-.34.462-.45.2-.11.44-.165.72-.165.2 0 .38.027.54.08.16.053.294.133.402.24.108.107.191.24.249.4.058.16.087.343.087.55v.05h2.04v-.08c0-.503-.097-.943-.291-1.318a2.514 2.514 0 0 0-.786-.923 3.24 3.24 0 0 0-1.152-.54 5.332 5.332 0 0 0-1.398-.174c-.483 0-.945.062-1.386.186a3.7 3.7 0 0 0-1.175.544 2.81 2.81 0 0 0-.824.89 2.453 2.453 0 0 0-.307 1.235c0 .483.086.897.257 1.242.171.345.404.63.698.855.294.225.636.392 1.026.5.39.108.807.162 1.25.162.583 0 1.14-.1 1.671-.3.531-.2.994-.497 1.389-.89.395-.393.707-.874.936-1.445.229-.57.343-1.223.343-1.96 0-.71-.103-1.35-.31-1.92a4.067 4.067 0 0 0-.878-1.445 3.726 3.726 0 0 0-1.366-.92A4.758 4.758 0 0 0 19.586 0z" />
+                                        </svg>
+                                        ResearchGate
+                                    </a>
+                                    <a href="https://github.com/ygt22" target="_blank"
+                                        class="social-link-btn flex items-center gap-2 px-4 py-2 rounded-full bg-gray-800 hover:bg-gray-900 text-white text-sm">
+                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                            <path
+                                                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                        </svg>
+                                        GitHub
+                                    </a>
+                                    <a href="https://gitlab.com/ygt22" target="_blank"
+                                        class="social-link-btn flex items-center gap-2 px-4 py-2 rounded-full bg-orange-600 hover:bg-orange-700 text-white text-sm">
+                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                            <path
+                                                d="M22.65 14.39L12 22.13 1.35 14.39a.84.84 0 0 1-.3-.94l1.22-3.78 2.44-7.51A.42.42 0 0 1 4.82 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.49h8.1l2.44-7.51A.42.42 0 0 1 18.6 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.51L23 13.45a.84.84 0 0 1-.35.94z" />
+                                        </svg>
+                                        GitLab
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Vision Quote -->
+                        <div class="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700">
+                            <blockquote class="text-center italic text-gray-600 dark:text-gray-400">
+                                <p data-lang="founder_quote">"Queva, Latince 'Quercus'’tan gelir — meşe ağacı, gücün ve
+                                    dayanıklılığın simgesi. Teknoloji, inovasyon ve güvenlik; bu ağacın yapraklarıdır.
+                                    QuevaTech, dijital dünyanın en sağlam temelini inşa etmek için kök salıyor."</p>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- 
+        =================================
         8. Contact Form & Map
         =================================
         -->
@@ -2211,6 +2475,16 @@
                 product5_desc: "Entropi kalitesini ölçen derin öğrenme modelleri",
                 product6_title: "Teknik Danışmanlık ve Bilimsel Destek",
                 product6_desc: "Akademik iş birlikleri ve teknik yetkinlik paylaşımı",
+                // Stats Counter
+                stats_title: "Rakamlarla QuevaTech",
+                stats_subtitle: "Akademik Ar-Ge yolculuğumuzun özeti",
+                stats_research_areas: "Araştırma Alanı",
+                stats_publications: "Teknik Doküman",
+                stats_prototypes: "Prototip Demo",
+                stats_code_lines: "Satır Kod",
+                // Tech Stack
+                tech_stack_title: "Kullandığımız Teknolojiler",
+                tech_stack_subtitle: "Araştırma ve geliştirme süreçlerimizde kullandığımız temel teknolojiler",
                 // Platform (Now Research Areas)
                 platform_title: "Odaklandığımız Araştırma Alanları",
                 platform_subtitle: "Bilimsel temelli teknoloji geliştirme süreçlerimiz",
@@ -2300,6 +2574,11 @@
                 blog_readmore2: "Devamını Oku",
                 blog_readmore3: "Devamını Oku",
                 blog_readmore4: "Devamını Oku",
+                // Founder
+                founder_title: "Baş Araştırmacı & İnisiyatif Lideri",
+                founder_name: "Hasan Yiğit",
+                founder_bio: "Deep Tech, yapay zeka, siber güvenlik ve kuantum sonrası kriptografi alanlarında araştırmalar yürüten QuevaTech inisiyatifinin lideri. TRNG teknolojileri ve 6G fiziksel katman güvenliği üzerine çalışmaktadır.",
+                founder_quote: "Queva, Latince 'Quercus'’tan gelir — meşe ağacı, gücün ve dayanıklılığın simgesi. Teknoloji, inovasyon ve güvenlik; bu ağacın yapraklarıdır. QuevaTech, dijital dünyanın en sağlam temelini inşa etmek için kök salıyor.",
                 // Contact
                 contact_title: "Bizimle İletişime Geçin",
                 contact_subtitle: "Akademik iş birliği veya teknik bilgi talebi için formu doldurun.",
@@ -2357,6 +2636,16 @@
                 product5_desc: "Deep learning models for measuring entropy quality",
                 product6_title: "Technical Consulting and Scientific Support",
                 product6_desc: "Academic collaborations and technical competency sharing",
+                // Stats Counter
+                stats_title: "QuevaTech in Numbers",
+                stats_subtitle: "Summary of our Academic R&D journey",
+                stats_research_areas: "Research Areas",
+                stats_publications: "Technical Documents",
+                stats_prototypes: "Prototype Demos",
+                stats_code_lines: "Lines of Code",
+                // Tech Stack
+                tech_stack_title: "Technologies We Use",
+                tech_stack_subtitle: "Core technologies used in our research and development processes",
                 // Platform (Now Research Areas)
                 platform_title: "Focus Research Areas",
                 platform_subtitle: "Our science-based technology development processes",
@@ -2446,6 +2735,11 @@
                 blog_readmore2: "Read More",
                 blog_readmore3: "Read More",
                 blog_readmore4: "Read More",
+                // Founder
+                founder_title: "Principal Researcher & Initiative Lead",
+                founder_name: "Hasan Yiğit",
+                founder_bio: "Leader of QuevaTech initiative, conducting research in Deep Tech, AI, cybersecurity, and post-quantum cryptography. Working on TRNG technologies and 6G physical layer security.",
+                founder_quote: "Queva comes from Latin 'Quercus' — the oak tree, symbol of strength and resilience. Technology, innovation, and security are the leaves of this tree. QuevaTech is taking root to build the most solid foundation of the digital world.",
                 // Contact
                 contact_title: "Get In Touch",
                 contact_subtitle: "Fill out the form for academic collaboration or technical information requests.",
@@ -2494,6 +2788,44 @@
                 }, 100);
             }
         });
+
+        // =================================
+        // Stats Counter Animation
+        // =================================
+        const statCounters = document.querySelectorAll('.stat-counter');
+        let statsAnimated = false;
+
+        const animateCounter = (counter) => {
+            const target = parseInt(counter.getAttribute('data-target'));
+            const duration = 2000; // 2 seconds
+            const step = target / (duration / 16); // 60fps
+            let current = 0;
+
+            const updateCounter = () => {
+                current += step;
+                if (current < target) {
+                    counter.textContent = Math.floor(current);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    counter.textContent = target;
+                }
+            };
+            updateCounter();
+        };
+
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !statsAnimated) {
+                    statsAnimated = true;
+                    statCounters.forEach(counter => animateCounter(counter));
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const statsSection = document.getElementById('stats');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
 
         // Initialize AOS
         AOS.init({
@@ -3002,6 +3334,7 @@ Thank you.`;
                 height: 100%;
                 background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
                 transition: left 0.5s ease;
+                pointer-events: none;
             }
             .glass-card::after {
                 content: '';
@@ -3013,6 +3346,7 @@ Thank you.`;
                 background: radial-gradient(circle, rgba(79, 70, 229, 0.1) 0%, transparent 70%);
                 opacity: 0;
                 transition: opacity 0.4s ease;
+                pointer-events: none;
             }
             .dark .glass-card {
                 background: linear-gradient(135deg, rgba(15, 23, 42, 0.35) 0%, rgba(15, 23, 42, 0.25) 100%);
