@@ -423,6 +423,73 @@
             transform: scale(1.02);
         }
 
+        /* ===================================
+           NEON GLOW CTA BUTTONS
+           =================================== */
+
+        .glass-button-primary {
+            position: relative;
+            background: linear-gradient(135deg, #1e3a8a 0%, #6b21a8 100%);
+            box-shadow:
+                0 0 20px rgba(30, 58, 138, 0.5),
+                0 0 40px rgba(107, 33, 168, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            animation: neon-pulse 2s ease-in-out infinite;
+            transition: all 0.3s ease;
+        }
+
+        .glass-button-primary:hover {
+            box-shadow:
+                0 0 30px rgba(30, 58, 138, 0.7),
+                0 0 60px rgba(107, 33, 168, 0.5),
+                0 0 80px rgba(14, 165, 233, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px) scale(1.02);
+        }
+
+        @keyframes neon-pulse {
+
+            0%,
+            100% {
+                box-shadow:
+                    0 0 20px rgba(30, 58, 138, 0.5),
+                    0 0 40px rgba(107, 33, 168, 0.3);
+            }
+
+            50% {
+                box-shadow:
+                    0 0 30px rgba(30, 58, 138, 0.7),
+                    0 0 50px rgba(107, 33, 168, 0.4),
+                    0 0 70px rgba(14, 165, 233, 0.2);
+            }
+        }
+
+        /* Shimmer effect on buttons */
+        .glass-button-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.3),
+                    transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                left: -100%;
+            }
+
+            50%,
+            100% {
+                left: 100%;
+            }
+        }
+
         /* Button ripple effect */
         .glass-button::after,
         .glass-button-primary::after {
@@ -454,6 +521,101 @@
                 width: 300px;
                 height: 300px;
                 opacity: 0;
+            }
+        }
+
+        /* ===================================
+           3D CARD TILT EFFECTS
+           =================================== */
+
+        .glass-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-10px) rotateX(5deg) rotateY(-5deg);
+            box-shadow:
+                0 20px 40px rgba(31, 38, 135, 0.2),
+                0 15px 25px rgba(107, 33, 168, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+        }
+
+        .dark .glass-card:hover {
+            box-shadow:
+                0 20px 40px rgba(0, 0, 0, 0.4),
+                0 15px 25px rgba(107, 33, 168, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        /* Card content parallax on hover */
+        .glass-card:hover .text-queva-indigo,
+        .glass-card:hover .text-queva-purple {
+            transform: translateZ(30px);
+            transition: transform 0.4s ease;
+        }
+
+        /* Enhanced icon animation on card hover */
+        .glass-card:hover svg {
+            transform: scale(1.15) rotate(5deg);
+            filter: drop-shadow(0 0 10px currentColor);
+            transition: all 0.4s ease;
+        }
+
+        /* ===================================
+           WAVE SECTION DIVIDERS
+           =================================== */
+
+        .wave-divider {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            z-index: 10;
+        }
+
+        .wave-divider svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 80px;
+        }
+
+        .wave-divider-top {
+            top: 0;
+            bottom: auto;
+            transform: rotate(180deg);
+        }
+
+        .wave-fill-light {
+            fill: #F3F4F6;
+        }
+
+        .wave-fill-dark {
+            fill: #0f172a;
+        }
+
+        .dark .wave-fill-light {
+            fill: #1e293b;
+        }
+
+        /* Wave animation */
+        .wave-divider svg path {
+            animation: wave-motion 8s ease-in-out infinite;
+        }
+
+        @keyframes wave-motion {
+
+            0%,
+            100% {
+                d: path("M0,64L48,69.3C96,75,192,85,288,80C384,75,480,53,576,48C672,43,768,53,864,64C960,75,1056,85,1152,80C1248,75,1344,53,1392,42.7L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z");
+            }
+
+            50% {
+                d: path("M0,32L48,48C96,64,192,96,288,101.3C384,107,480,85,576,69.3C672,53,768,43,864,48C960,53,1056,75,1152,80C1248,85,1344,75,1392,69.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z");
             }
         }
 
@@ -1982,6 +2144,14 @@
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path fill-rule="evenodd"
                                     d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H6.328C3.965 1 2 2.985 2 5.337v13.326C2 21.015 3.965 23 6.328 23h11.34c2.363 0 4.328-1.985 4.328-4.337V5.337C22 2.985 20.031 1 17.668 1z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                        <a href="https://www.youtube.com/@QuevaTech" target="_blank"
+                            class="text-gray-400 hover:text-white" title="YouTube">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path fill-rule="evenodd"
+                                    d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.746 22 12 22 12s0 3.255-.418 4.814a2.504 2.504 0 0 1-1.768 1.768c-1.56.419-7.814.419-7.814.419s-6.255 0-7.814-.419a2.504 2.504 0 0 1-1.768-1.768C2 15.255 2 12 2 12s0-3.255.418-4.814a2.504 2.504 0 0 1 1.768-1.768C5.746 5 12 5 12 5s6.255 0 7.814.418ZM15.194 12 10 15V9l5.194 3Z"
                                     clip-rule="evenodd" />
                             </svg>
                         </a>
