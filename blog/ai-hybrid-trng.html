@@ -54,11 +54,21 @@
             -webkit-backdrop-filter: blur(10px) !important;
         }
         
-        /* Hero section override */
+        /* Hero section override - Soft, eye-friendly gradient */
         section.bg-gradient-to-br {
-            background: linear-gradient(135deg, #4F46E5 0%, #A855F7 100%) !important;
+            background: linear-gradient(135deg, #10b981 0%, #06b6d4 50%, #3b82f6 100%) !important;
             backdrop-filter: none !important;
             -webkit-backdrop-filter: none !important;
+            animation: gentle-gradient 15s ease infinite;
+        }
+        
+        @keyframes gentle-gradient {
+            0%, 100% {
+                background: linear-gradient(135deg, #10b981 0%, #06b6d4 50%, #3b82f6 100%);
+            }
+            50% {
+                background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 50%, #6366f1 100%);
+            }
         }
         
         .dark section {
@@ -66,7 +76,17 @@
         }
         
         .dark section.bg-gradient-to-br {
-            background: linear-gradient(135deg, #4F46E5 0%, #A855F7 100%) !important;
+            background: linear-gradient(135deg, #047857 0%, #164e63 50%, #1e40af 100%) !important;
+            animation: gentle-gradient-dark 15s ease infinite;
+        }
+        
+        @keyframes gentle-gradient-dark {
+            0%, 100% {
+                background: linear-gradient(135deg, #047857 0%, #164e63 50%, #1e40af 100%);
+            }
+            50% {
+                background: linear-gradient(135deg, #164e63 0%, #1e40af 50%, #4c1d95 100%);
+            }
         }
         
         /* Footer saydam cam */
