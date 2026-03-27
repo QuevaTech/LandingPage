@@ -159,8 +159,6 @@
                 -webkit-overflow-scrolling: touch;
                 /* Prevent horizontal scroll issues */
                 touch-action: pan-y;
-                /* Improve scroll performance */
-                will-change: scroll-position;
             }
 
             /* Ensure all sections allow proper touch scrolling */
@@ -185,8 +183,6 @@
                     rgba(255, 255, 255, 0.1) 0%,
                     rgba(255, 255, 255, 0.05) 50%,
                     rgba(255, 255, 255, 0.1) 100%);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
         }
 
         .dark body {
@@ -239,7 +235,6 @@
             background: rgba(255, 255, 255, 0.05) !important;
             backdrop-filter: blur(10px) !important;
             -webkit-backdrop-filter: blur(10px) !important;
-            overflow: visible !important;
         }
 
         .dark section {
@@ -291,12 +286,10 @@
 
         #navbar nav a:hover {
             color: #1e3a8a;
-            font-weight: 700;
         }
 
         .dark #navbar nav a:hover {
             color: #6b21a8;
-            font-weight: 700;
         }
 
         /* Mobile menu links */
@@ -312,12 +305,10 @@
 
         #mobile-menu a:hover {
             color: #1e3a8a;
-            font-weight: 700;
         }
 
         .dark #mobile-menu a:hover {
             color: #6b21a8;
-            font-weight: 700;
         }
 
         /* Language switcher styling */
@@ -751,7 +742,7 @@
 
         /* Floating particle class */
         .floating-particle {
-            position: fixed;
+            position: absolute;
             pointer-events: none;
             opacity: 0.4;
             animation: float-around 20s infinite linear;
@@ -3004,24 +2995,30 @@
 
 
         // =================================
-        // Scroll-triggered Parallax Effect
+        // Scroll-triggered Parallax Effect (throttled with rAF)
         // =================================
         const initParallax = () => {
-            const parallaxElements = document.querySelectorAll('[data-aos]');
+            const parallaxElements = document.querySelectorAll('[data-parallax]');
+            let parallaxTicking = false;
 
             window.addEventListener('scroll', () => {
-                parallaxElements.forEach(el => {
-                    const rect = el.getBoundingClientRect();
-                    const scrollPercent = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
+                if (!parallaxTicking) {
+                    parallaxTicking = true;
+                    requestAnimationFrame(() => {
+                        parallaxElements.forEach(el => {
+                            const rect = el.getBoundingClientRect();
+                            const scrollPercent = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
 
-                    if (scrollPercent > 0 && scrollPercent < 1) {
-                        // Apply parallax transform based on scroll position
-                        const translateY = (scrollPercent - 0.5) * 30;
-                        const scale = 0.95 + (scrollPercent * 0.1);
-                        el.style.transform = `translateY(${translateY}px) scale(${scale})`;
-                    }
-                });
-            });
+                            if (scrollPercent > 0 && scrollPercent < 1) {
+                                const translateY = (scrollPercent - 0.5) * 30;
+                                const scale = 0.95 + (scrollPercent * 0.1);
+                                el.style.transform = `translateY(${translateY}px) scale(${scale})`;
+                            }
+                        });
+                        parallaxTicking = false;
+                    });
+                }
+            }, { passive: true });
         };
         initParallax();
 
@@ -3029,19 +3026,23 @@
         // =================================
         // Micro-interactions: Mouse position tracking for gradient
         // =================================
+        const glass_buttons = document.querySelectorAll('.glass-button, .glass-button-primary');
+        let mouseTicking = false;
         document.addEventListener('mousemove', (e) => {
-            const glass_buttons = document.querySelectorAll('.glass-button, .glass-button-primary');
-
-            glass_buttons.forEach(button => {
-                const rect = button.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-
-                // Store mouse position for potential future effects
-                button.style.setProperty('--mouse-x', x + 'px');
-                button.style.setProperty('--mouse-y', y + 'px');
-            });
-        });
+            if (!mouseTicking) {
+                mouseTicking = true;
+                requestAnimationFrame(() => {
+                    glass_buttons.forEach(button => {
+                        const rect = button.getBoundingClientRect();
+                        const x = e.clientX - rect.left;
+                        const y = e.clientY - rect.top;
+                        button.style.setProperty('--mouse-x', x + 'px');
+                        button.style.setProperty('--mouse-y', y + 'px');
+                    });
+                    mouseTicking = false;
+                });
+            }
+        }, { passive: true });
 
 
         // Mobile Menu Logic
@@ -3050,6 +3051,13 @@
         const mobileMenu = document.getElementById('mobile-menu');
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
         });
 
 
@@ -3102,25 +3110,35 @@ Thank you.`;
 
 
         // =================================
-        <!-- Sticky Navbar Logic -->
+        // Sticky Navbar Logic (throttled with rAF)
+        // =================================
         const navbar = document.getElementById('navbar');
-        window.onscroll = function () {
-            if (window.scrollY > 50) {
-                navbar.classList.add('bg-white', 'dark:bg-queva-dark', 'shadow-md');
-                // Make logo colored when navbar has background
-                const logo = navbar.querySelector('a');
-                logo.className = 'text-2xl font-bold text-gray-900 dark:text-white';
-                const techSpan = logo.querySelector('span');
-                techSpan.className = 'text-queva-indigo dark:text-queva-purple font-extrabold';
-            } else {
-                navbar.classList.remove('bg-white', 'dark:bg-queva-dark', 'shadow-md');
-                // Make logo white when navbar is transparent over hero
-                const logo = navbar.querySelector('a');
-                logo.className = 'text-2xl font-bold text-white';
-                const techSpan = logo.querySelector('span');
-                techSpan.className = 'text-white font-extrabold';
+        const navLogo = navbar.querySelector('a');
+        const navTechSpan = navLogo.querySelector('span');
+        let navbarTicking = false;
+        let lastNavbarState = null;
+
+        window.addEventListener('scroll', () => {
+            if (!navbarTicking) {
+                navbarTicking = true;
+                requestAnimationFrame(() => {
+                    const isScrolled = window.scrollY > 50;
+                    if (isScrolled !== lastNavbarState) {
+                        lastNavbarState = isScrolled;
+                        if (isScrolled) {
+                            navbar.classList.add('bg-white', 'dark:bg-queva-dark', 'shadow-md');
+                            navLogo.className = 'text-2xl font-bold text-gray-900 dark:text-white';
+                            navTechSpan.className = 'text-queva-indigo dark:text-queva-purple font-extrabold';
+                        } else {
+                            navbar.classList.remove('bg-white', 'dark:bg-queva-dark', 'shadow-md');
+                            navLogo.className = 'text-2xl font-bold text-white';
+                            navTechSpan.className = 'text-white font-extrabold';
+                        }
+                    }
+                    navbarTicking = false;
+                });
             }
-        };
+        }, { passive: true });
 
 
         // =================================
@@ -3297,11 +3315,21 @@ Thank you.`;
             }
         }
 
+        let animationId;
         function tick() {
             draw();
             update();
-            requestAnimationFrame(tick);
+            animationId = requestAnimationFrame(tick);
         }
+
+        // Pause canvas animation when tab is not visible
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                cancelAnimationFrame(animationId);
+            } else {
+                tick();
+            }
+        });
 
         window.addEventListener('resize', resizeCanvas);
         resizeCanvas();
