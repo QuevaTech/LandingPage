@@ -898,6 +898,8 @@
                     <a href="#solutions" data-lang="nav_solutions"
                         class="font-semibold text-white hover:text-queva-indigo dark:hover:text-queva-purple transition-all duration-300">Yayınlar
                         & Raporlar</a>
+                    <a href="#projects" data-lang="nav_projects"
+                        class="font-semibold text-white hover:text-queva-indigo dark:hover:text-queva-purple transition-all duration-300">Projeler</a>
                     <a href="#contact" data-lang="nav_contact"
                         class="font-semibold text-white hover:text-queva-indigo dark:hover:text-queva-purple transition-all duration-300">İletişim</a>
                 </nav>
@@ -948,6 +950,8 @@
             <a href="#solutions" data-lang="nav_solutions_mobile"
                 class="block py-3 px-4 text-sm font-semibold text-white hover:text-queva-indigo dark:hover:text-queva-purple hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300">Yayınlar
                 & Raporlar</a>
+            <a href="#projects" data-lang="nav_projects_mobile"
+                class="block py-3 px-4 text-sm font-semibold text-white hover:text-queva-indigo dark:hover:text-queva-purple hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300">Projeler</a>
             <a href="#contact" data-lang="nav_contact_mobile"
                 class="block py-3 px-4 text-sm font-semibold text-white hover:text-queva-indigo dark:hover:text-queva-purple hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300">İletişim</a>
         </div>
@@ -1101,7 +1105,107 @@
             </div>
         </section>
 
-        <!-- 
+        <!--
+        =================================
+        3.5 Open Source Projects Section
+        =================================
+        -->
+        <section id="projects" class="py-20">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <h2 data-lang="projects_title" class="text-3xl md:text-4xl font-bold">Açık Kaynak Projeler</h2>
+                    <p data-lang="projects_subtitle" class="text-lg mt-2 text-gray-600 dark:text-gray-400">Araştırma
+                        altyapımızı destekleyen özgür yazılımlar</p>
+                </div>
+
+                <!-- PassGuard Vault Card -->
+                <div class="max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                    <div class="glass-card rounded-3xl overflow-hidden">
+                        <div class="p-8 md:p-10">
+                            <!-- Header -->
+                            <div class="flex flex-col sm:flex-row sm:items-center gap-4 mb-6">
+                                <img src="https://raw.githubusercontent.com/QuevaTech/PassGuard/main/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_128.png"
+                                     alt="PassGuard Vault"
+                                     class="w-16 h-16 rounded-2xl flex-shrink-0"
+                                     loading="lazy">
+                                <div class="flex-1">
+                                    <div class="flex flex-wrap items-center gap-2 mb-1">
+                                        <h3 class="text-2xl font-bold">PassGuard Vault</h3>
+                                        <span class="text-xs font-semibold px-2 py-1 rounded-full bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400">Open Source</span>
+                                        <span class="text-xs font-semibold px-2 py-1 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400">Flutter</span>
+                                    </div>
+                                    <p data-lang="passguard_tagline" class="text-gray-500 dark:text-gray-400 text-sm">Şifre yöneticisi ve dijital notebook.</p>
+                                </div>
+                                <a href="https://github.com/QuevaTech/PassGuard" target="_blank" rel="noopener noreferrer"
+                                    class="flex items-center gap-2 px-4 py-2 rounded-xl border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-sm font-semibold flex-shrink-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+                                    </svg>
+                                    GitHub
+                                </a>
+                            </div>
+
+                            <!-- Description -->
+                            <p data-lang="passguard_desc" class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                                Şifreleriniz ve dijital notlarınız yalnızca sizin cihazınızda yaşayan, bulut gerektirmeyen, hesap açmayı zorunlu kılmayan açık kaynaklı bir şifre yöneticisi ve dijital notebook. AES-256-GCM şifreleme ve Argon2id anahtar türetme ile askeri düzey güvenlik sunar.
+                            </p>
+
+                            <!-- Feature badges -->
+                            <div class="flex flex-wrap gap-2 mb-8">
+                                <span class="text-xs px-3 py-1.5 rounded-full bg-queva-indigo/10 dark:bg-queva-indigo/20 text-queva-indigo dark:text-blue-300 font-medium">AES-256-GCM</span>
+                                <span class="text-xs px-3 py-1.5 rounded-full bg-queva-indigo/10 dark:bg-queva-indigo/20 text-queva-indigo dark:text-blue-300 font-medium">Argon2id</span>
+                                <span class="text-xs px-3 py-1.5 rounded-full bg-queva-purple/10 dark:bg-queva-purple/20 text-queva-purple dark:text-purple-300 font-medium">iOS · Android</span>
+                                <span class="text-xs px-3 py-1.5 rounded-full bg-queva-purple/10 dark:bg-queva-purple/20 text-queva-purple dark:text-purple-300 font-medium">macOS · Linux · Windows</span>
+                                <span class="text-xs px-3 py-1.5 rounded-full bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-400 font-medium">Sıfır Bulut</span>
+                                <span class="text-xs px-3 py-1.5 rounded-full bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-400 font-medium">Hesap Yok</span>
+                                <span class="text-xs px-3 py-1.5 rounded-full bg-orange-100 dark:bg-orange-900/20 text-orange-700 dark:text-orange-400 font-medium">AGPL-3.0</span>
+                            </div>
+
+                            <!-- Key features grid -->
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                                <div class="flex items-start gap-3">
+                                    <div class="w-8 h-8 rounded-lg bg-queva-indigo/10 dark:bg-queva-indigo/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-queva-indigo dark:text-blue-400">
+                                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p data-lang="passguard_feature1_title" class="font-semibold text-sm mb-0.5">Sıfır Bilgi</p>
+                                        <p data-lang="passguard_feature1_desc" class="text-xs text-gray-500 dark:text-gray-400">Ana şifre hiçbir zaman saklanmaz</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <div class="w-8 h-8 rounded-lg bg-queva-purple/10 dark:bg-queva-purple/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-queva-purple dark:text-purple-400">
+                                            <rect width="20" height="14" x="2" y="3" rx="2" ry="2"/>
+                                            <line x1="8" y1="21" x2="16" y2="21"/>
+                                            <line x1="12" y1="17" x2="12" y2="21"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p data-lang="passguard_feature2_title" class="font-semibold text-sm mb-0.5">Çapraz Platform</p>
+                                        <p data-lang="passguard_feature2_desc" class="text-xs text-gray-500 dark:text-gray-400">Tek kod tabanı, tüm platformlar</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <div class="w-8 h-8 rounded-lg bg-green-100 dark:bg-green-900/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-green-600 dark:text-green-400">
+                                            <polyline points="20 6 9 17 4 12"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p data-lang="passguard_feature3_title" class="font-semibold text-sm mb-0.5">Biyometrik Kilit</p>
+                                        <p data-lang="passguard_feature3_desc" class="text-xs text-gray-500 dark:text-gray-400">Face ID / parmak izi desteği</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--
         =================================
         3.5 Stats Counter Section
         =================================
@@ -1450,6 +1554,13 @@
                                 alt="Redis" class="w-12 h-12 group-hover:scale-110 transition-transform duration-300"
                                 loading="lazy">
                             <span class="text-xs mt-2 text-gray-600 dark:text-gray-400">Redis</span>
+                        </div>
+                        <!-- Flutter -->
+                        <div class="tech-logo-badge group" title="Flutter">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg"
+                                alt="Flutter" class="w-12 h-12 group-hover:scale-110 transition-transform duration-300"
+                                loading="lazy">
+                            <span class="text-xs mt-2 text-gray-600 dark:text-gray-400">Flutter</span>
                         </div>
                     </div>
                 </div>
@@ -2366,11 +2477,13 @@
                 nav_products: "Araştırma Alanları",
                 nav_platform: "Teknolojiler",
                 nav_solutions: "Yayınlar & Raporlar",
+                nav_projects: "Projeler",
                 nav_contact: "İletişim",
                 nav_home_mobile: "Ana Sayfa",
                 nav_products_mobile: "Araştırma Alanları",
                 nav_platform_mobile: "Teknolojiler",
                 nav_solutions_mobile: "Yayınlar & Raporlar",
+                nav_projects_mobile: "Projeler",
                 nav_contact_mobile: "İletişim",
                 // Hero
                 hero_title: "QuevaTech: Deep Tech, İleri Mühendislik ve Yapay Zeka İle Geleceğin Mimarisi.",
@@ -2393,6 +2506,17 @@
                 product5_desc: "Entropi kalitesini ölçen derin öğrenme modelleri",
                 product6_title: "Teknik Danışmanlık ve Bilimsel Destek",
                 product6_desc: "Akademik iş birlikleri ve teknik yetkinlik paylaşımı",
+                // Projects
+                projects_title: "Açık Kaynak Projeler",
+                projects_subtitle: "Araştırma altyapımızı destekleyen özgür yazılımlar",
+                passguard_tagline: "Şifre yöneticisi ve dijital notebook.",
+                passguard_desc: "Şifreleriniz ve dijital notlarınız yalnızca sizin cihazınızda yaşayan, bulut gerektirmeyen, hesap açmayı zorunlu kılmayan açık kaynaklı bir şifre yöneticisi ve dijital notebook. AES-256-GCM şifreleme ve Argon2id anahtar türetme ile askeri düzey güvenlik sunar.",
+                passguard_feature1_title: "Sıfır Bilgi",
+                passguard_feature1_desc: "Ana şifre hiçbir zaman saklanmaz",
+                passguard_feature2_title: "Çapraz Platform",
+                passguard_feature2_desc: "Tek kod tabanı, tüm platformlar",
+                passguard_feature3_title: "Biyometrik Kilit",
+                passguard_feature3_desc: "Face ID / parmak izi desteği",
                 // Stats Counter
                 stats_title: "Rakamlarla QuevaTech",
                 stats_subtitle: "Akademik Ar-Ge yolculuğumuzun özeti",
@@ -2527,11 +2651,13 @@
                 nav_products: "Research Areas",
                 nav_platform: "Technologies",
                 nav_solutions: "Publications & Reports",
+                nav_projects: "Projects",
                 nav_contact: "Contact",
                 nav_home_mobile: "Home",
                 nav_products_mobile: "Research Areas",
                 nav_platform_mobile: "Technologies",
                 nav_solutions_mobile: "Publications & Reports",
+                nav_projects_mobile: "Projects",
                 nav_contact_mobile: "Contact",
                 // Hero
                 hero_title: "QuevaTech: Architecture of the Future with Deep Tech, Advanced Engineering, and AI.",
@@ -2554,6 +2680,17 @@
                 product5_desc: "Deep learning models for measuring entropy quality",
                 product6_title: "Technical Consulting and Scientific Support",
                 product6_desc: "Academic collaborations and technical competency sharing",
+                // Projects
+                projects_title: "Open Source Projects",
+                projects_subtitle: "Free software powering our research infrastructure",
+                passguard_tagline: "Password manager & digital notebook.",
+                passguard_desc: "An open-source password manager and digital notebook where your data lives only on your device — no cloud required, no account needed. Military-grade security with AES-256-GCM encryption and Argon2id key derivation.",
+                passguard_feature1_title: "Zero Knowledge",
+                passguard_feature1_desc: "Master password is never stored",
+                passguard_feature2_title: "Cross-Platform",
+                passguard_feature2_desc: "One codebase, all platforms",
+                passguard_feature3_title: "Biometric Unlock",
+                passguard_feature3_desc: "Face ID / fingerprint support",
                 // Stats Counter
                 stats_title: "QuevaTech in Numbers",
                 stats_subtitle: "Summary of our Academic R&D journey",
