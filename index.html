@@ -92,10 +92,6 @@
             overflow-x: hidden;
             width: 100%;
             position: relative;
-            /* Mobile scroll improvements */
-            -webkit-overflow-scrolling: touch;
-            touch-action: pan-y;
-            overscroll-behavior: contain;
         }
 
         /* Container overflow control */
@@ -132,11 +128,8 @@
             scrollbar-width: none;
         }
 
-        /* Ensure smooth scrolling */
         html {
-            scroll-behavior: smooth;
             -ms-overflow-style: none;
-            /* Internet Explorer 10+ */
         }
 
         /* Dark mode text readability improvements */
@@ -154,19 +147,6 @@
 
         /* Mobile scroll optimization */
         @media (max-width: 768px) {
-            body {
-                /* Better momentum scrolling on iOS */
-                -webkit-overflow-scrolling: touch;
-                /* Prevent horizontal scroll issues */
-                touch-action: pan-y;
-            }
-
-            /* Ensure all sections allow proper touch scrolling */
-            section {
-                touch-action: pan-y;
-                -webkit-overflow-scrolling: touch;
-            }
-
             /* Fix any potential touch conflicts with interactive elements */
             .glass-button,
             .glass-button-primary,
@@ -232,13 +212,11 @@
 
         /* Sections için saydam arka plan */
         section {
-            background: rgba(255, 255, 255, 0.05) !important;
-            backdrop-filter: blur(10px) !important;
-            -webkit-backdrop-filter: blur(10px) !important;
+            background: rgba(255, 255, 255, 0.05);
         }
 
         .dark section {
-            background: rgba(15, 23, 42, 0.5) !important;
+            background: rgba(15, 23, 42, 0.5);
         }
 
         /* Footer saydam cam */
@@ -483,10 +461,9 @@
             position: relative;
             background: linear-gradient(135deg, #1e3a8a 0%, #6b21a8 100%);
             box-shadow:
-                0 0 20px rgba(30, 58, 138, 0.5),
-                0 0 40px rgba(107, 33, 168, 0.3),
+                0 0 25px rgba(30, 58, 138, 0.6),
+                0 0 45px rgba(107, 33, 168, 0.35),
                 inset 0 1px 0 rgba(255, 255, 255, 0.2);
-            animation: neon-pulse 2s ease-in-out infinite;
             transition: all 0.3s ease;
         }
 
@@ -499,46 +476,30 @@
             transform: translateY(-3px) scale(1.02);
         }
 
-        @keyframes neon-pulse {
-
-            0%,
-            100% {
-                box-shadow:
-                    0 0 20px rgba(30, 58, 138, 0.5),
-                    0 0 40px rgba(107, 33, 168, 0.3);
-            }
-
-            50% {
-                box-shadow:
-                    0 0 30px rgba(30, 58, 138, 0.7),
-                    0 0 50px rgba(107, 33, 168, 0.4),
-                    0 0 70px rgba(14, 165, 233, 0.2);
-            }
-        }
-
-        /* Shimmer effect on buttons */
+        /* Shimmer effect on buttons - uses transform for GPU compositing */
         .glass-button-primary::before {
             content: '';
             position: absolute;
             top: 0;
-            left: -100%;
+            left: 0;
             width: 100%;
             height: 100%;
             background: linear-gradient(90deg,
                     transparent,
                     rgba(255, 255, 255, 0.3),
                     transparent);
+            transform: translateX(-100%);
             animation: shimmer 3s infinite;
         }
 
         @keyframes shimmer {
             0% {
-                left: -100%;
+                transform: translateX(-100%);
             }
 
             50%,
             100% {
-                left: 100%;
+                transform: translateX(100%);
             }
         }
 
@@ -719,22 +680,7 @@
             }
         }
 
-        /* Wave animation */
-        .wave-divider svg path {
-            animation: wave-motion 8s ease-in-out infinite;
-        }
-
-        @keyframes wave-motion {
-
-            0%,
-            100% {
-                d: path("M0,64L48,69.3C96,75,192,85,288,80C384,75,480,53,576,48C672,43,768,53,864,64C960,75,1056,85,1152,80C1248,75,1344,53,1392,42.7L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z");
-            }
-
-            50% {
-                d: path("M0,32L48,48C96,64,192,96,288,101.3C384,107,480,85,576,69.3C672,53,768,43,864,48C960,53,1056,75,1152,80C1248,85,1344,75,1392,69.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z");
-            }
-        }
+        /* Wave dividers are static for performance */
 
         /* ===================================
            FLOATING PARTICLES & ICONS
@@ -854,22 +800,7 @@
             }
         }
 
-        /* Canvas parallax effect */
-        #star-canvas {
-            animation: canvas-parallax 12s ease-in-out infinite;
-        }
-
-        @keyframes canvas-parallax {
-
-            0%,
-            100% {
-                transform: translateZ(0);
-            }
-
-            50% {
-                transform: translateZ(20px);
-            }
-        }
+        /* Canvas is animated via JavaScript - no CSS animation needed */
 
         /* ===================================
            Blog Card Icon Animations
@@ -888,10 +819,7 @@
             }
         }
 
-        /* Apply glow to all blog icons */
-        .blog-card svg {
-            animation: icon-glow 3s ease-in-out infinite;
-        }
+        /* Blog icon glow removed for scroll performance */
 
         /* Background pattern animation */
         @keyframes pattern-slide {
@@ -904,9 +832,7 @@
             }
         }
 
-        .blog-card .absolute svg {
-            animation: pattern-slide 20s linear infinite;
-        }
+        /* Blog card background pattern is static for performance */
     </style>
     <script>
         tailwind.config = {
