@@ -134,15 +134,19 @@
 
         /* Dark mode text readability improvements */
         .dark .text-gray-600 {
-            color: #d1d5db !important;
+            color: #cbd5e1 !important;
         }
 
         .dark .text-gray-400 {
-            color: #e5e7eb !important;
+            color: #e2e8f0 !important;
         }
 
         .dark .text-gray-500 {
-            color: #d1d5db !important;
+            color: #cbd5e1 !important;
+        }
+
+        .dark .text-gray-300 {
+            color: #e2e8f0 !important;
         }
 
         /* Mobile scroll optimization */
@@ -184,11 +188,11 @@
         }
 
         .dark .glass-card {
-            background: rgba(15, 23, 42, 0.6) !important;
-            border: 1px solid rgba(255, 255, 255, 0.15) !important;
+            background: rgba(30, 41, 59, 0.75) !important;
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
             box-shadow:
-                0 8px 32px 0 rgba(0, 0, 0, 0.5),
-                inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+                0 8px 32px 0 rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
         }
 
         /* Navigation bar saydam cam - Enhanced glass effect */
@@ -216,7 +220,7 @@
         }
 
         .dark section {
-            background: rgba(15, 23, 42, 0.5);
+            background: rgba(30, 41, 59, 0.6);
         }
 
         /* Footer saydam cam */
@@ -353,6 +357,15 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             animation: gradient-shift 8s ease infinite;
+        }
+
+        .dark h2[data-lang],
+        .dark h3[data-lang] {
+            background: linear-gradient(90deg, #93c5fd, #c084fc, #93c5fd);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         @keyframes gradient-shift {
@@ -847,7 +860,7 @@
                         'queva-indigo': '#1e3a8a',  // Koyu lacivert (blue-900)
                         'queva-purple': '#6b21a8',  // Koyu mor (purple-800)
                         'queva-sky': '#0EA5E9',
-                        'queva-dark': '#0f172a',    // Çok koyu slate (slate-900)
+                        'queva-dark': '#111827',    // slate-800 tonu - daha okunabilir
                         'queva-light': '#F3F4F6',
                     },
                     transitionDuration: {
