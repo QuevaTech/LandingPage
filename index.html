@@ -2684,28 +2684,6 @@
             }
         };
 
-        // Scroll Pozisyonunu Kaydet ve Geri Yükle
-        window.addEventListener('beforeunload', function () {
-            // Sayfa kapatılmadan önce scroll pozisyonunu kaydet
-            localStorage.setItem('scrollPosition', window.scrollY);
-        });
-
-        window.addEventListener('load', function () {
-            // Sayfa yüklendiğinde, kaydedilen scroll pozisyonuna git
-            const savedScrollPosition = localStorage.getItem('scrollPosition');
-
-            if (savedScrollPosition !== null) {
-                // Kısa bir gecikme ile kaydedilen pozisyona scroll yap
-                setTimeout(function () {
-                    window.scrollTo(0, parseInt(savedScrollPosition));
-                }, 100);
-            } else {
-                // İlk ziyaretse başa scroll yap
-                setTimeout(function () {
-                    window.scrollTo(0, 0);
-                }, 100);
-            }
-        });
 
         // =================================
         // Stats Counter Animation
@@ -2746,6 +2724,9 @@
         }
 
         // Initialize AOS
+        // Clear any saved scroll position from previous versions
+        localStorage.removeItem('scrollPosition');
+
         AOS.init({
             duration: 800,
             once: true, // Animation happens only once
