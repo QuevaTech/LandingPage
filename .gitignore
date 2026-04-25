@@ -8,6 +8,7 @@ node_modules/
 .vscode/
 *.swp
 *.swo
+.claude/
 
 # Temporary files
 *.tmp
@@ -15,3 +16,4 @@ node_modules/
 
 # Logs
 *.log
+design/

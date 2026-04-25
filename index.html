@@ -66,17 +66,20 @@
 
     <!-- PWA Manifest -->
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#1e3a8a">
+    <meta name="theme-color" content="#1b1f3b">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
+    <!-- QuevaTech Design System Tokens -->
+    <link rel="stylesheet" href="colors_and_type.css">
+
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- AOS (Animate on Scroll) Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -161,117 +164,105 @@
             }
         }
 
-        /* Apple macOS ve visionOS saydam cam efekti */
+        /* Sayfa arka planı — QuevaTech Design System */
         body {
-            background: linear-gradient(135deg,
-                    rgba(255, 255, 255, 0.1) 0%,
-                    rgba(255, 255, 255, 0.05) 50%,
-                    rgba(255, 255, 255, 0.1) 100%);
+            background-color: var(--bg);
+            color: var(--fg1);
         }
 
-        .dark body {
-            background: linear-gradient(135deg,
-                    rgba(15, 23, 42, 1) 0%,
-                    rgba(17, 24, 39, 1) 50%,
-                    rgba(15, 23, 42, 1) 100%);
-        }
-
-        /* Saydam cam kartları */
+        /* Saydam cam kartları — Design System tokenları */
         .glass-card {
-            background: rgba(255, 255, 255, 0.15) !important;
+            background: var(--glass-bg) !important;
+            backdrop-filter: blur(var(--glass-blur)) !important;
+            -webkit-backdrop-filter: blur(var(--glass-blur)) !important;
+            border: 1px solid var(--glass-border) !important;
+            box-shadow: var(--glass-shadow) !important;
+        }
+
+        /* Navigation bar */
+        #navbar {
+            background: rgba(238, 230, 216, 0.08) !important;
             backdrop-filter: blur(25px) !important;
             -webkit-backdrop-filter: blur(25px) !important;
-            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+            border-bottom: 1px solid rgba(212, 176, 56, 0.15) !important;
             box-shadow:
-                0 8px 32px 0 rgba(31, 38, 135, 0.15),
-                inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
-        }
-
-        .dark .glass-card {
-            background: rgba(30, 41, 59, 0.75) !important;
-            border: 1px solid rgba(255, 255, 255, 0.2) !important;
-            box-shadow:
-                0 8px 32px 0 rgba(0, 0, 0, 0.4),
+                0 8px 32px 0 rgba(27, 31, 59, 0.15),
                 inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
         }
 
-        /* Navigation bar saydam cam - Enhanced glass effect */
-        #navbar {
-            background: rgba(255, 255, 255, 0.05) !important;
-            backdrop-filter: blur(25px) !important;
-            -webkit-backdrop-filter: blur(25px) !important;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
-            box-shadow:
-                0 8px 32px 0 rgba(31, 38, 135, 0.2),
-                inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
-        }
-
         .dark #navbar {
-            background: rgba(15, 23, 42, 0.55) !important;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
+            background: rgba(27, 31, 59, 0.55) !important;
+            border-bottom: 1px solid rgba(212, 176, 56, 0.2) !important;
             box-shadow:
                 0 8px 32px 0 rgba(0, 0, 0, 0.5),
-                inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+                inset 0 1px 0 rgba(212, 176, 56, 0.1) !important;
         }
 
         /* Sections için saydam arka plan */
         section {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(238, 230, 216, 0.04);
         }
 
         .dark section {
-            background: rgba(30, 41, 59, 0.6);
+            background: rgba(27, 31, 59, 0.5);
         }
 
-        /* Footer saydam cam */
+        /* Footer */
         footer {
-            background: rgba(15, 23, 42, 1) !important;
+            background: var(--queva-midnight) !important;
             backdrop-filter: blur(20px) !important;
             -webkit-backdrop-filter: blur(20px) !important;
-            border-top: 1px solid rgba(255, 255, 255, 0.15) !important;
+            border-top: 1px solid rgba(212, 176, 56, 0.2) !important;
         }
 
         /* Form elemanları saydam cam */
         .contact-input {
-            background: rgba(255, 255, 255, 0.1) !important;
+            background: rgba(255, 255, 255, 0.55) !important;
             backdrop-filter: blur(10px) !important;
             -webkit-backdrop-filter: blur(10px) !important;
-            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+            border: 1px solid rgba(212, 176, 56, 0.25) !important;
+            color: var(--fg1) !important;
         }
 
         .dark .contact-input {
-            background: rgba(15, 23, 42, 0.8) !important;
-            border: 1px solid rgba(255, 255, 255, 0.2) !important;
-            color: #f1f5f9 !important;
+            background: rgba(27, 31, 59, 0.8) !important;
+            border: 1px solid rgba(212, 176, 56, 0.25) !important;
+            color: var(--fg1) !important;
         }
 
         /* Style for active language */
         .lang-switcher .active {
-            color: #1e3a8a;
+            color: var(--queva-gold);
             font-weight: 700;
         }
 
-        .dark .lang-switcher .active {
-            color: #6b21a8;
-        }
-
-        /* Navbar text colors optimization */
-        #navbar nav a {
+        /* Navbar text colors */
+        #navbar nav a,
+        #navbar .lang-switcher,
+        #navbar .lang-switcher button {
             color: #ffffff;
             font-weight: 600;
             transition: all 0.3s ease;
         }
 
-        .dark #navbar nav a {
-            color: #ffffff;
+        #navbar nav a:hover,
+        #navbar .lang-switcher button:hover {
+            color: var(--queva-gold);
         }
 
-        #navbar nav a:hover {
-            color: #1e3a8a;
+        #navbar .lang-switcher .active {
+            color: var(--queva-gold);
+            font-weight: 700;
         }
 
-        .dark #navbar nav a:hover {
-            color: #6b21a8;
+        /* Scroll sonrası link renkleri (açık tema) */
+        #navbar.scrolled nav a,
+        #navbar.scrolled .lang-switcher button {
+            color: var(--fg1);
+        }
+        #navbar.scrolled nav a:hover,
+        #navbar.scrolled .lang-switcher button:hover {
+            color: var(--queva-gold);
         }
 
         /* Mobile menu links */
@@ -281,108 +272,114 @@
             transition: all 0.3s ease;
         }
 
-        .dark #mobile-menu a {
-            color: #ffffff;
-        }
-
         #mobile-menu a:hover {
-            color: #1e3a8a;
+            color: var(--queva-gold);
         }
 
-        .dark #mobile-menu a:hover {
-            color: #6b21a8;
-        }
-
-        /* Language switcher styling */
-        #navbar .lang-switcher {
-            color: #ffffff;
-            font-weight: 600;
-        }
-
-        #navbar .lang-switcher button {
-            color: #ffffff;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        #navbar .lang-switcher button:hover {
-            color: #1e3a8a;
-        }
-
-        .dark #navbar .lang-switcher button:hover {
-            color: #6b21a8;
-        }
-
-        #navbar .lang-switcher .active {
-            color: #1e3a8a;
-            font-weight: 700;
-        }
-
-        .dark #navbar .lang-switcher .active {
-            color: #6b21a8;
-            font-weight: 700;
-        }
-
-        /* Space Theme Animations */
-        @keyframes space-glow {
-
-            0%,
-            100% {
-                text-shadow: 0 0 10px rgba(100, 200, 255, 0.4),
-                    0 0 20px rgba(150, 100, 255, 0.2);
-                color: #ffffff;
-            }
-
-            50% {
-                text-shadow: 0 0 20px rgba(100, 200, 255, 0.6),
-                    0 0 40px rgba(150, 100, 255, 0.4),
-                    0 0 60px rgba(79, 70, 229, 0.3);
-                color: #e0e7ff;
-            }
+        /* Hero başlık — altın+lacivert+mor karışım döngüsü */
+        @keyframes hero-title-flow {
+            0%   { background-position: 0% 50%; }
+            50%  { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .hero-glow-text {
-            text-shadow: 0 0 10px rgba(100, 200, 255, 0.4),
-                0 0 20px rgba(150, 100, 255, 0.3),
-                0 0 40px rgba(79, 70, 229, 0.2);
-            animation: space-glow 4s ease-in-out infinite;
-        }
-
-        /* Animated section titles - Gradient text animation */
-        h2[data-lang],
-        h3[data-lang] {
-            background: linear-gradient(90deg, #1e3a8a, #6b21a8, #1e3a8a);
-            background-size: 200% auto;
+            background: linear-gradient(-45deg,
+                #1e3a8a,
+                #d4b038,
+                #6b21a8,
+                #0EA5E9,
+                #d87e37,
+                #1e3a8a);
+            background-size: 400% 400%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            animation: gradient-shift 8s ease infinite;
+            animation: hero-title-flow 12s ease infinite;
         }
 
-        #quercus-path { fill: #1e3a8a; }
-        .dark #quercus-path { fill: #e2e8f0; }
+        /* Section başlıkları — altın başlar, mavi/mor geçer, tekrar altına döner */
+        @keyframes section-title-flow {
+            0%   { background-position: 0% center; }
+            50%  { background-position: 100% center; }
+            100% { background-position: 0% center; }
+        }
+
+        h2[data-lang],
+        h3[data-lang] {
+            background: linear-gradient(90deg,
+                #d4b038,
+                #1e3a8a,
+                #6b21a8,
+                #0EA5E9,
+                #d87e37,
+                #d4b038);
+            background-size: 300% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: section-title-flow 15s ease infinite;
+        }
+
+        /* Koyu temada biraz daha parlak tonlar */
+        .dark h2[data-lang],
+        .dark h3[data-lang] {
+            background: linear-gradient(90deg,
+                #f0c84a,
+                #4f8ef7,
+                #a78bfa,
+                #38bdf8,
+                #f0a050,
+                #f0c84a);
+            background-size: 300% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Stats rakamları — altın gradient */
+        .stat-num {
+            background: linear-gradient(135deg, #f0c84a, #d87e37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* E-posta yedek kutusu — sabit mavi/mor tema */
+        .email-fallback-box {
+            background: rgba(30, 58, 138, 0.08);
+            border: 1px solid rgba(30, 58, 138, 0.25);
+        }
+        .dark .email-fallback-box {
+            background: rgba(30, 58, 138, 0.2);
+            border: 1px solid rgba(107, 33, 168, 0.35);
+        }
+        .email-fallback-btn {
+            background: linear-gradient(135deg, #1e3a8a 0%, #6b21a8 100%);
+            color: #ffffff;
+            font-weight: 600;
+            box-shadow: 0 0 18px rgba(30,58,138,0.45), 0 0 32px rgba(107,33,168,0.25), inset 0 1px 0 rgba(255,255,255,0.2);
+        }
+        .email-fallback-btn:hover {
+            box-shadow: 0 0 25px rgba(30,58,138,0.65), 0 0 50px rgba(107,33,168,0.4), inset 0 1px 0 rgba(255,255,255,0.3);
+            transform: translateY(-2px) scale(1.02);
+        }
+
+        /* Quercus ikon — açık temada midnight, koyu temada altın */
+        #quercus-path { fill: url(#quercus-grad-light); }
+        .dark #quercus-path { fill: url(#quercus-grad-dark); }
 
         /* Navbar logo renkleri — 4 durum */
-        /* Sayfa tepesinde (hero üzerinde): her iki temada beyaz */
         #nav-queva { color: #ffffff; }
         #nav-tech  { color: #ffffff; }
 
-        /* Scroll sonrası açık tema: Queva koyu, Tech indigo */
-        #navbar.scrolled #nav-queva { color: #111827; }
-        #navbar.scrolled #nav-tech  { color: #1e3a8a; }
+        /* Scroll sonrası açık tema: koyu metin */
+        #navbar.scrolled #nav-queva { color: var(--queva-midnight); }
+        #navbar.scrolled #nav-tech  { color: var(--queva-gold); }
 
-        /* Scroll sonrası koyu tema: Queva beyaz, Tech açık mor */
-        .dark #navbar.scrolled #nav-queva { color: #f1f5f9; }
-        .dark #navbar.scrolled #nav-tech  { color: #a78bfa; }
-
-        .dark h2[data-lang],
-        .dark h3[data-lang] {
-            background: linear-gradient(90deg, #93c5fd, #c084fc, #93c5fd);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+        /* Koyu tema: her koşulda açık metin — hero üzerinde de, scroll sonrasında da */
+        .dark #nav-queva { color: #f4ecdb !important; }
+        .dark #nav-tech  { color: var(--queva-gold) !important; }
 
         @keyframes gradient-shift {
             0% {
@@ -410,7 +407,7 @@
 
         /* Hero section animated gradient background */
         section:nth-of-type(1) {
-            background: linear-gradient(-45deg, #1e3a8a, #6b21a8, #0EA5E9, #1e3a8a);
+            background: linear-gradient(-45deg, var(--queva-midnight), #2d2060, var(--queva-midnight), #1a2a5e);
             background-size: 400% 400%;
             animation: gradient-flow 15s ease infinite;
         }
@@ -431,7 +428,7 @@
 
         /* Platform section animated gradient */
         #platform {
-            background: linear-gradient(45deg, rgba(79, 70, 229, 0.05), rgba(168, 85, 247, 0.05));
+            background: linear-gradient(45deg, rgba(212, 176, 56, 0.04), rgba(216, 126, 55, 0.04));
             background-size: 200% 200%;
             animation: gradient-pulse 10s ease-in-out infinite;
         }
@@ -476,9 +473,7 @@
         }
 
         .interactive-glow:hover {
-            box-shadow: 0 0 20px rgba(100, 200, 255, 0.5),
-                0 0 40px rgba(150, 100, 255, 0.3),
-                inset 0 0 15px rgba(100, 200, 255, 0.1);
+            box-shadow: 0 0 20px var(--glow-gold), 0 0 40px var(--glow-ember), inset 0 0 15px rgba(212,176,56,0.08);
             transform: scale(1.02);
         }
 
@@ -488,20 +483,13 @@
 
         .glass-button-primary {
             position: relative;
-            background: linear-gradient(135deg, #1e3a8a 0%, #6b21a8 100%);
-            box-shadow:
-                0 0 25px rgba(30, 58, 138, 0.6),
-                0 0 45px rgba(107, 33, 168, 0.35),
-                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            background: linear-gradient(135deg, var(--queva-midnight) 0%, var(--queva-gold) 50%, var(--queva-ember) 100%);
+            box-shadow: var(--shadow-neon);
             transition: all 0.3s ease;
         }
 
         .glass-button-primary:hover {
-            box-shadow:
-                0 0 30px rgba(30, 58, 138, 0.7),
-                0 0 60px rgba(107, 33, 168, 0.5),
-                0 0 80px rgba(14, 165, 233, 0.3),
-                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            box-shadow: var(--shadow-neon-hover);
             transform: translateY(-3px) scale(1.02);
         }
 
@@ -577,33 +565,65 @@
         }
 
         .glass-card:hover {
-            transform: translateY(-10px) rotateX(5deg) rotateY(-5deg);
+            transform: translateY(-8px) rotateX(3deg) rotateY(-3deg);
             box-shadow:
-                0 20px 40px rgba(31, 38, 135, 0.2),
-                0 15px 25px rgba(107, 33, 168, 0.15),
-                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+                0 20px 40px rgba(212, 176, 56, 0.15),
+                0 15px 25px rgba(216, 126, 55, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
         }
 
         .dark .glass-card:hover {
             box-shadow:
-                0 20px 40px rgba(0, 0, 0, 0.4),
-                0 15px 25px rgba(107, 33, 168, 0.2),
-                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+                0 20px 40px rgba(212, 176, 56, 0.2),
+                0 15px 25px rgba(79, 142, 247, 0.15),
+                inset 0 1px 0 rgba(212, 176, 56, 0.2);
         }
 
-        /* Card content parallax on hover */
-        .glass-card:hover .text-queva-indigo,
-        .glass-card:hover .text-queva-purple {
-            transform: translateZ(30px);
-            transition: transform 0.4s ease;
-        }
+        /* Kart içi içerik ortala */
+        .glass-card .p-8,
+        .glass-card .p-6 { text-align: center; }
+        .glass-card .qt-icon { display: flex; justify-content: center; }
 
-        /* Enhanced icon animation on card hover */
-        .glass-card:hover svg {
-            transform: scale(1.15) rotate(5deg);
-            filter: drop-shadow(0 0 10px currentColor);
+        /* İkon altın glow */
+        .qt-icon {
+            color: var(--queva-gold);
             transition: all 0.4s ease;
         }
+        .glass-card:hover .qt-icon {
+            transform: translateZ(20px) scale(1.1);
+            filter: drop-shadow(0 0 8px rgba(212,176,56,0.6));
+        }
+
+        /* Eyebrow etiket */
+        .qt-eyebrow {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--queva-ember);
+            margin-bottom: 12px;
+        }
+        .dark .qt-eyebrow { color: var(--queva-gold); }
+
+        /* Chip badge'ler */
+        .qt-chip {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 9999px;
+            margin: 3px 3px 0 0;
+        }
+        .qt-chip-gold  { background: rgba(212,176,56,0.13); color: #b8901e; border: 1px solid rgba(212,176,56,0.3); }
+        .qt-chip-blue  { background: rgba(30,58,138,0.10);  color: #1e3a8a; border: 1px solid rgba(30,58,138,0.25); }
+        .qt-chip-purple{ background: rgba(107,33,168,0.10); color: #6b21a8; border: 1px solid rgba(107,33,168,0.25); }
+        .qt-chip-green { background: rgba(22,163,74,0.10);  color: #16a34a; border: 1px solid rgba(22,163,74,0.25); }
+        .qt-chip-gray  { background: rgba(75,85,99,0.08);   color: #4b5563; border: 1px solid rgba(75,85,99,0.2); }
+        .dark .qt-chip-gold   { background: rgba(212,176,56,0.18); color: #f0c84a; border-color: rgba(212,176,56,0.4); }
+        .dark .qt-chip-blue   { background: rgba(79,142,247,0.18); color: #93c5fd; border-color: rgba(79,142,247,0.4); }
+        .dark .qt-chip-purple { background: rgba(167,139,250,0.18);color: #c4b5fd; border-color: rgba(167,139,250,0.4);}
+        .dark .qt-chip-green  { background: rgba(22,163,74,0.18);  color: #4ade80; border-color: rgba(22,163,74,0.4); }
+        .dark .qt-chip-gray   { background: rgba(148,163,184,0.12);color: #94a3b8; border-color: rgba(148,163,184,0.3);}
 
         /* ===================================
            WAVE SECTION DIVIDERS
@@ -872,12 +892,18 @@
                         inter: ['Inter', 'sans-serif'],
                     },
                     colors: {
-                        // Marka Kimliği Renkleri
-                        'queva-indigo': '#1e3a8a',  // Koyu lacivert (blue-900)
-                        'queva-purple': '#6b21a8',  // Koyu mor (purple-800)
-                        'queva-sky': '#0EA5E9',
-                        'queva-dark': '#111827',    // slate-800 tonu - daha okunabilir
-                        'queva-light': '#F3F4F6',
+                        // QuevaTech Design System — sıcak Quercus paleti
+                        'queva-gold':      '#d4b038',  // Birincil — meşe ağacı rengi
+                        'queva-ember':     '#d87e37',  // Amber/turuncu aksan
+                        'queva-signal':    '#ff1e3c',  // Alert/vurgu kırmızı
+                        'queva-midnight':  '#1b1f3b',  // Koyu lacivert — dark yüzey
+                        'queva-parchment': '#eee6d8',  // Sıcak krem — light yüzey
+                        // Legacy aliases (mevcut Tailwind class'ları için)
+                        'queva-indigo': '#1b1f3b',
+                        'queva-purple': '#d87e37',
+                        'queva-sky':    '#d4b038',
+                        'queva-dark':   '#1b1f3b',
+                        'queva-light':  '#eee6d8',
                     },
                     transitionDuration: {
                         '500': '500ms',
@@ -898,7 +924,7 @@
 </head>
 
 <body
-    class="font-inter bg-queva-light dark:bg-queva-dark text-queva-dark dark:text-queva-light transition-colors duration-500">
+    class="font-inter transition-colors duration-500">
 
     <!-- 
     =================================
@@ -916,20 +942,27 @@
                 <!-- Desktop Menu -->
                 <nav class="hidden md:flex items-center space-x-6">
                     <a href="#" data-lang="nav_home"
-                        class="font-semibold text-white hover:text-queva-indigo dark:hover:text-queva-purple transition-all duration-300">Ana
+                        class="font-semibold text-white hover:text-queva-gold dark:hover:text-queva-gold transition-all duration-300">Ana
                         Sayfa</a>
                     <a href="#products" data-lang="nav_products"
-                        class="font-semibold text-white hover:text-queva-indigo dark:hover:text-queva-purple transition-all duration-300">Araştırma
+                        class="font-semibold text-white hover:text-queva-gold dark:hover:text-queva-gold transition-all duration-300">Araştırma
                         Alanları</a>
                     <a href="#platform" data-lang="nav_platform"
-                        class="font-semibold text-white hover:text-queva-indigo dark:hover:text-queva-purple transition-all duration-300">Teknolojiler</a>
+                        class="font-semibold text-white hover:text-queva-gold dark:hover:text-queva-gold transition-all duration-300">Teknolojiler</a>
                     <a href="#solutions" data-lang="nav_solutions"
-                        class="font-semibold text-white hover:text-queva-indigo dark:hover:text-queva-purple transition-all duration-300">Yayınlar
+                        class="font-semibold text-white hover:text-queva-gold dark:hover:text-queva-gold transition-all duration-300">Yayınlar
                         & Raporlar</a>
                     <a href="#projects" data-lang="nav_projects"
-                        class="font-semibold text-white hover:text-queva-indigo dark:hover:text-queva-purple transition-all duration-300">Projeler</a>
+                        class="font-semibold text-white hover:text-queva-gold dark:hover:text-queva-gold transition-all duration-300">Projeler</a>
+                    <a href="#youtube" data-lang="nav_youtube"
+                        class="font-semibold text-white hover:text-queva-gold transition-all duration-300 flex items-center gap-1.5">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="color:#ff4444">
+                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                        </svg>
+                        YouTube
+                    </a>
                     <a href="#contact" data-lang="nav_contact"
-                        class="font-semibold text-white hover:text-queva-indigo dark:hover:text-queva-purple transition-all duration-300">İletişim</a>
+                        class="font-semibold text-white hover:text-queva-gold dark:hover:text-queva-gold transition-all duration-300">İletişim</a>
                 </nav>
 
                 <!-- Controls: Language, Theme, Mobile Menu -->
@@ -968,20 +1001,20 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-queva-dark shadow-lg">
             <a href="#" data-lang="nav_home_mobile"
-                class="block py-3 px-4 text-sm font-semibold text-white hover:text-queva-indigo dark:hover:text-queva-purple hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300">Ana
+                class="block py-3 px-4 text-sm font-semibold text-white hover:text-queva-gold dark:hover:text-queva-gold hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300">Ana
                 Sayfa</a>
             <a href="#products" data-lang="nav_products_mobile"
-                class="block py-3 px-4 text-sm font-semibold text-white hover:text-queva-indigo dark:hover:text-queva-purple hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300">Araştırma
+                class="block py-3 px-4 text-sm font-semibold text-white hover:text-queva-gold dark:hover:text-queva-gold hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300">Araştırma
                 Alanları</a>
             <a href="#platform" data-lang="nav_platform_mobile"
-                class="block py-3 px-4 text-sm font-semibold text-white hover:text-queva-indigo dark:hover:text-queva-purple hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300">Teknolojiler</a>
+                class="block py-3 px-4 text-sm font-semibold text-white hover:text-queva-gold dark:hover:text-queva-gold hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300">Teknolojiler</a>
             <a href="#solutions" data-lang="nav_solutions_mobile"
-                class="block py-3 px-4 text-sm font-semibold text-white hover:text-queva-indigo dark:hover:text-queva-purple hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300">Yayınlar
+                class="block py-3 px-4 text-sm font-semibold text-white hover:text-queva-gold dark:hover:text-queva-gold hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300">Yayınlar
                 & Raporlar</a>
             <a href="#projects" data-lang="nav_projects_mobile"
-                class="block py-3 px-4 text-sm font-semibold text-white hover:text-queva-indigo dark:hover:text-queva-purple hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300">Projeler</a>
+                class="block py-3 px-4 text-sm font-semibold text-white hover:text-queva-gold dark:hover:text-queva-gold hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300">Projeler</a>
             <a href="#contact" data-lang="nav_contact_mobile"
-                class="block py-3 px-4 text-sm font-semibold text-white hover:text-queva-indigo dark:hover:text-queva-purple hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300">İletişim</a>
+                class="block py-3 px-4 text-sm font-semibold text-white hover:text-queva-gold dark:hover:text-queva-gold hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300">İletişim</a>
         </div>
     </header>
 
@@ -992,7 +1025,7 @@
         =================================
         -->
         <section class="relative h-screen flex items-center justify-center text-center text-white overflow-hidden">
-            <div class="absolute inset-0 bg-gradient-to-br from-queva-indigo to-queva-purple z-0"></div>
+            <div class="absolute inset-0 bg-gradient-to-br from-queva-midnight to-queva-gold z-0"></div>
 
             <canvas id="star-canvas" class="absolute inset-0 z-10"></canvas>
             <div class="relative z-20 p-4" data-aos="fade-up">
@@ -1037,111 +1070,202 @@
                         rastgelelik teknolojisi ile güvenli çözümler</p>
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8" style="perspective: 1200px;">
+
                     <!-- Parola API -->
-                    <div class="glass-card floating-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="glass-card" data-aos="fade-up" data-aos-delay="100">
                         <div class="p-8">
-                            <div class="text-queva-indigo dark:text-queva-purple mb-4">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <rect width="18" height="11" x="3" y="11" rx="2" ry="2" />
-                                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                            <p class="qt-eyebrow">Güvenlik · Kriptografi</p>
+                            <div class="qt-icon mb-4">
+                                <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect width="18" height="11" x="3" y="11" rx="2"/>
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                                    <circle cx="12" cy="16" r="1" fill="currentColor"/>
                                 </svg>
                             </div>
                             <h3 data-lang="product1_title" class="text-xl font-bold mb-2">Parola API'si</h3>
-                            <p data-lang="product1_desc" class="text-gray-600 dark:text-gray-300">Yüksek entropili
-                                güvenli parolalar ve anahtarlar üretimi</p>
+                            <p data-lang="product1_desc" class="text-sm mb-4" style="color:var(--fg2)">Fiziksel entropi kaynağından türetilmiş, yüksek entropili güvenli parola ve kriptografik anahtar üretim servisi.</p>
+                            <div>
+                                <span class="qt-chip qt-chip-gold">AES-256-GCM</span>
+                                <span class="qt-chip qt-chip-blue">REST API</span>
+                                <span class="qt-chip qt-chip-gray">NIST SP 800-90A</span>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- RNG Hizmeti -->
-                    <div class="glass-card floating-card" data-aos="fade-up" data-aos-delay="200">
+                    <!-- TRNG Hizmeti -->
+                    <div class="glass-card" data-aos="fade-up" data-aos-delay="200">
                         <div class="p-8">
-                            <div class="text-queva-indigo dark:text-queva-purple mb-4">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path
-                                        d="M12 2L12 6M12 18L12 22M4.93 4.93L7.76 7.76M16.24 16.24L19.07 19.07M2 12L6 12M18 12L22 12M4.93 19.07L7.76 16.24M16.24 7.76L19.07 4.93" />
+                            <p class="qt-eyebrow">Donanım · Entropi</p>
+                            <div class="qt-icon mb-4">
+                                <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="3"/>
+                                    <path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/>
                                 </svg>
                             </div>
-                            <h3 data-lang="product2_title" class="text-xl font-bold mb-2">RNG Hizmeti</h3>
-                            <p data-lang="product2_desc" class="text-gray-600 dark:text-gray-300">Fiziksel entropi ile
-                                gerçek rastgele sayı üretimi</p>
+                            <h3 data-lang="product2_title" class="text-xl font-bold mb-2">TRNG Hizmeti</h3>
+                            <p data-lang="product2_desc" class="text-sm mb-4" style="color:var(--fg2)">Kuantum gürültüsü ve termal entropi tabanlı gerçek rastgele sayı üretimi. Yazılım yöntemlerine kriptografik üstünlük.</p>
+                            <div>
+                                <span class="qt-chip qt-chip-gold">Fiziksel Entropi</span>
+                                <span class="qt-chip qt-chip-purple">NIST 800-90B</span>
+                                <span class="qt-chip qt-chip-blue">Hardware RNG</span>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Kurumsal Cihaz -->
                     <div class="glass-card" data-aos="fade-up" data-aos-delay="300">
                         <div class="p-8">
-                            <div class="text-queva-indigo dark:text-queva-purple mb-4">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <rect width="20" height="14" x="2" y="3" rx="2" ry="2" />
-                                    <line x1="8" y1="21" x2="16" y2="21" />
-                                    <line x1="12" y1="17" x2="12" y2="21" />
+                            <p class="qt-eyebrow">Gömülü Sistem · FPGA</p>
+                            <div class="qt-icon mb-4">
+                                <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="4" y="4" width="16" height="16" rx="2"/>
+                                    <rect x="9" y="9" width="6" height="6"/>
+                                    <path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"/>
                                 </svg>
                             </div>
-                            <h3 data-lang="product3_title" class="text-xl font-bold mb-2">Kurumsal Cihaz</h3>
-                            <p data-lang="product3_desc" class="text-gray-600 dark:text-gray-300">Yüksek kapasiteli
-                                donanım rastgele sayı üreteci</p>
+                            <h3 data-lang="product3_title" class="text-xl font-bold mb-2">Kurumsal TRNG Cihazı</h3>
+                            <p data-lang="product3_desc" class="text-sm mb-4" style="color:var(--fg2)">Yüksek hacimli kriptografik işlemler için FPGA tabanlı donanım rastgele sayı üreteci. Secure boot ve tamper-evident tasarım.</p>
+                            <div>
+                                <span class="qt-chip qt-chip-blue">FPGA</span>
+                                <span class="qt-chip qt-chip-gold">Secure Boot</span>
+                                <span class="qt-chip qt-chip-gray">PCIe</span>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Mobil Uygulamalar -->
                     <div class="glass-card" data-aos="fade-up" data-aos-delay="400">
                         <div class="p-8">
-                            <div class="text-queva-indigo dark:text-queva-purple mb-4">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <rect width="14" height="20" x="5" y="2" rx="2" ry="2" />
-                                    <path d="M12 18h.01" />
+                            <p class="qt-eyebrow">Mobil · Flutter</p>
+                            <div class="qt-icon mb-4">
+                                <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect width="14" height="20" x="5" y="2" rx="2"/>
+                                    <path d="M12 18h.01"/>
+                                    <path d="M9 7h6"/>
                                 </svg>
                             </div>
-                            <h3 data-lang="product4_title" class="text-xl font-bold mb-2">Mobil Uygulamalar</h3>
-                            <p data-lang="product4_desc" class="text-gray-600 dark:text-gray-300">iOS ve Android
-                                uygulamaları ile güvenli depolama</p>
+                            <h3 data-lang="product4_title" class="text-xl font-bold mb-2">Mobil Güvenlik Uygulamaları</h3>
+                            <p data-lang="product4_desc" class="text-sm mb-4" style="color:var(--fg2)">Flutter ile geliştirilen iOS ve Android uygulamaları. Yerel şifreleme, biyometrik kimlik doğrulama ve sıfır-bilgi mimarisi.</p>
+                            <div>
+                                <span class="qt-chip qt-chip-gold">Flutter</span>
+                                <span class="qt-chip qt-chip-blue">iOS · Android</span>
+                                <span class="qt-chip qt-chip-green">Zero-Knowledge</span>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Özel AI Cihazı -->
+                    <!-- AI-Hybrid Entropi -->
                     <div class="glass-card" data-aos="fade-up" data-aos-delay="500">
                         <div class="p-8">
-                            <div class="text-queva-indigo dark:text-queva-purple mb-4">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path d="M12 2L2 7l10 5 10-5-10-5z" />
-                                    <path d="M2 17l10 5 10-5" />
-                                    <path d="M2 12l10 5 10-5" />
+                            <p class="qt-eyebrow">Yapay Zeka · Entropi Analizi</p>
+                            <div class="qt-icon mb-4">
+                                <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 2a8 8 0 0 1 8 8v4a8 8 0 0 1-16 0v-4a8 8 0 0 1 8-8z"/>
+                                    <path d="M9 9h.01M15 9h.01"/>
+                                    <path d="M8 13s1.5 2 4 2 4-2 4-2"/>
+                                    <path d="M9 2v2M15 2v2"/>
                                 </svg>
                             </div>
-                            <h3 data-lang="product5_title" class="text-xl font-bold mb-2">Özel AI Cihazı</h3>
-                            <p data-lang="product5_desc" class="text-gray-600 dark:text-gray-300">Yapay zeka destekli
-                                gelişmiş entropi işleme</p>
+                            <h3 data-lang="product5_title" class="text-xl font-bold mb-2">AI-Hybrid Entropi Analizörü</h3>
+                            <p data-lang="product5_desc" class="text-sm mb-4" style="color:var(--fg2)">Derin öğrenme modelleri ile entropi kalitesinin ölçülmesi ve doğrulanması. Monte Carlo simülasyonlarında %38 yakınsama iyileştirmesi.</p>
+                            <div>
+                                <span class="qt-chip qt-chip-purple">Deep Learning</span>
+                                <span class="qt-chip qt-chip-gold">Entropi QA</span>
+                                <span class="qt-chip qt-chip-blue">MLOps</span>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Danışmanlık -->
+                    <!-- Teknik Danışmanlık -->
                     <div class="glass-card" data-aos="fade-up" data-aos-delay="600">
                         <div class="p-8">
-                            <div class="text-queva-indigo dark:text-queva-purple mb-4">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                                    <circle cx="9" cy="7" r="4" />
-                                    <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-                                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                            <p class="qt-eyebrow">Akademik · İş Birliği</p>
+                            <div class="qt-icon mb-4">
+                                <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="9" cy="7" r="4"/>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
                                 </svg>
                             </div>
-                            <h3 data-lang="product6_title" class="text-xl font-bold mb-2">Danışmanlık</h3>
-                            <p data-lang="product6_desc" class="text-gray-600 dark:text-gray-300">Entegrasyon ve
-                                özelleştirme danışmanlığı</p>
+                            <h3 data-lang="product6_title" class="text-xl font-bold mb-2">Teknik Danışmanlık</h3>
+                            <p data-lang="product6_desc" class="text-sm mb-4" style="color:var(--fg2)">Kuantum-dirençli kriptografi entegrasyonu, güvenlik mimarisi değerlendirmesi ve akademik iş birliği için teknik yetkinlik paylaşımı.</p>
+                            <div>
+                                <span class="qt-chip qt-chip-blue">Post-Quantum</span>
+                                <span class="qt-chip qt-chip-gold">B2B</span>
+                                <span class="qt-chip qt-chip-gray">Akademik</span>
+                            </div>
                         </div>
                     </div>
+
+                    <!-- Hesaplamalı Analiz -->
+                    <div class="glass-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="p-8">
+                            <p class="qt-eyebrow">Analiz · Simülasyon</p>
+                            <div class="qt-icon mb-4">
+                                <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M3 3v18h18"/>
+                                    <path d="M7 16l4-8 4 6 2-4"/>
+                                    <circle cx="7" cy="16" r="1" fill="currentColor"/>
+                                    <circle cx="11" cy="8" r="1" fill="currentColor"/>
+                                    <circle cx="15" cy="14" r="1" fill="currentColor"/>
+                                    <circle cx="17" cy="10" r="1" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <h3 data-lang="product7_title" class="text-xl font-bold mb-2">Hesaplamalı Analiz & Simülasyon</h3>
+                            <p data-lang="product7_desc" class="text-sm mb-4" style="color:var(--fg2)">Monte Carlo yöntemleri, istatistiksel modelleme ve sayısal hesaplama teknikleriyle büyük veri setlerinin analizi. Risk modelleme ve öngörü sistemlerinde yüksek kaliteli rastgelelik entegrasyonu.</p>
+                            <div>
+                                <span class="qt-chip qt-chip-gold">Monte Carlo</span>
+                                <span class="qt-chip qt-chip-blue">İstatistiksel Modelleme</span>
+                                <span class="qt-chip qt-chip-purple">Sayısal Hesaplama</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Yazılım Mimarisi & Altyapı -->
+                    <div class="glass-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="p-8">
+                            <p class="qt-eyebrow">Mimari · DevSecOps</p>
+                            <div class="qt-icon mb-4">
+                                <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="2" y="3" width="20" height="14" rx="2"/>
+                                    <path d="M8 21h8M12 17v4"/>
+                                    <path d="M6 8h4M6 11h3"/>
+                                    <rect x="13" y="7" width="5" height="5" rx="1"/>
+                                </svg>
+                            </div>
+                            <h3 data-lang="product8_title" class="text-xl font-bold mb-2">Yazılım Mimarisi & Altyapı</h3>
+                            <p data-lang="product8_desc" class="text-sm mb-4" style="color:var(--fg2)">Güvenlik odaklı yazılım mimarisi tasarımı, DevSecOps pipeline kurulumu ve mikroservis altyapısı. Sıfır-güven mimarisi prensipleriyle güvenli sistem inşası ve altyapı stratejisi danışmanlığı.</p>
+                            <div>
+                                <span class="qt-chip qt-chip-blue">DevSecOps</span>
+                                <span class="qt-chip qt-chip-gold">Zero-Trust</span>
+                                <span class="qt-chip qt-chip-gray">Microservices</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sosyal Mühendislik & İnsan Faktörü -->
+                    <div class="glass-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="p-8">
+                            <p class="qt-eyebrow">Farkındalık · İnsan Faktörü</p>
+                            <div class="qt-icon mb-4">
+                                <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="9" cy="7" r="4"/>
+                                    <path d="M23 11l-4 4-2-2"/>
+                                    <path d="M19 3a2 2 0 0 1 0 4"/>
+                                </svg>
+                            </div>
+                            <h3 data-lang="product9_title" class="text-xl font-bold mb-2">Sosyal Mühendislik & İnsan Faktörü</h3>
+                            <p data-lang="product9_desc" class="text-sm mb-4" style="color:var(--fg2)">Siber saldırıların insan boyutunu ele alan farkındalık çalışmaları. OSINT metodolojileri, phishing vektörlerinin analizi ve davranışsal güvenlik modelleri ile kurumsal güvenlik kültürü oluşturma.</p>
+                            <div>
+                                <span class="qt-chip qt-chip-purple">OSINT</span>
+                                <span class="qt-chip qt-chip-gold">Farkındalık</span>
+                                <span class="qt-chip qt-chip-green">Davranışsal Analiz</span>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -1193,10 +1317,10 @@
 
                             <!-- Feature badges -->
                             <div class="flex flex-wrap gap-2 mb-8">
-                                <span class="text-xs px-3 py-1.5 rounded-full bg-queva-indigo/10 dark:bg-queva-indigo/20 text-queva-indigo dark:text-blue-300 font-medium">AES-256-GCM</span>
-                                <span class="text-xs px-3 py-1.5 rounded-full bg-queva-indigo/10 dark:bg-queva-indigo/20 text-queva-indigo dark:text-blue-300 font-medium">Argon2id</span>
-                                <span class="text-xs px-3 py-1.5 rounded-full bg-queva-purple/10 dark:bg-queva-purple/20 text-queva-purple dark:text-purple-300 font-medium">iOS · Android</span>
-                                <span class="text-xs px-3 py-1.5 rounded-full bg-queva-purple/10 dark:bg-queva-purple/20 text-queva-purple dark:text-purple-300 font-medium">macOS · Linux · Windows</span>
+                                <span class="text-xs px-3 py-1.5 rounded-full bg-queva-gold/10 dark:bg-queva-gold/15 text-queva-gold dark:text-blue-300 font-medium">AES-256-GCM</span>
+                                <span class="text-xs px-3 py-1.5 rounded-full bg-queva-gold/10 dark:bg-queva-gold/15 text-queva-gold dark:text-blue-300 font-medium">Argon2id</span>
+                                <span class="text-xs px-3 py-1.5 rounded-full bg-queva-ember/10 dark:bg-queva-ember/15 text-queva-ember dark:text-purple-300 font-medium">iOS · Android</span>
+                                <span class="text-xs px-3 py-1.5 rounded-full bg-queva-ember/10 dark:bg-queva-ember/15 text-queva-ember dark:text-purple-300 font-medium">macOS · Linux · Windows</span>
                                 <span class="text-xs px-3 py-1.5 rounded-full bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-400 font-medium">Sıfır Bulut</span>
                                 <span class="text-xs px-3 py-1.5 rounded-full bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-400 font-medium">Hesap Yok</span>
                                 <span class="text-xs px-3 py-1.5 rounded-full bg-orange-100 dark:bg-orange-900/20 text-orange-700 dark:text-orange-400 font-medium">AGPL-3.0</span>
@@ -1205,8 +1329,8 @@
                             <!-- Key features grid -->
                             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
                                 <div class="flex items-start gap-3">
-                                    <div class="w-8 h-8 rounded-lg bg-queva-indigo/10 dark:bg-queva-indigo/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-queva-indigo dark:text-blue-400">
+                                    <div class="w-8 h-8 rounded-lg bg-queva-gold/10 dark:bg-queva-gold/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-queva-gold dark:text-blue-400">
                                             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
                                         </svg>
                                     </div>
@@ -1216,8 +1340,8 @@
                                     </div>
                                 </div>
                                 <div class="flex items-start gap-3">
-                                    <div class="w-8 h-8 rounded-lg bg-queva-purple/10 dark:bg-queva-purple/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-queva-purple dark:text-purple-400">
+                                    <div class="w-8 h-8 rounded-lg bg-queva-ember/10 dark:bg-queva-ember/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-queva-ember dark:text-purple-400">
                                             <rect width="20" height="14" x="2" y="3" rx="2" ry="2"/>
                                             <line x1="8" y1="21" x2="16" y2="21"/>
                                             <line x1="12" y1="17" x2="12" y2="21"/>
@@ -1247,7 +1371,7 @@
                             <!-- Security Architecture -->
                             <div class="mb-8">
                                 <h4 data-lang="passguard_arch_title" class="font-bold text-base mb-4 flex items-center gap-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-queva-indigo dark:text-blue-400">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-queva-gold dark:text-blue-400">
                                         <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
                                         <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
                                     </svg>
@@ -1285,7 +1409,7 @@
                             <!-- Comparison Table -->
                             <div class="mb-8">
                                 <h4 data-lang="passguard_compare_title" class="font-bold text-base mb-4 flex items-center gap-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-queva-purple dark:text-purple-400">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-queva-ember dark:text-purple-400">
                                         <path d="M9 11l3 3L22 4"/>
                                         <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
                                     </svg>
@@ -1296,7 +1420,7 @@
                                         <thead>
                                             <tr class="bg-gray-50 dark:bg-gray-800/60">
                                                 <th class="text-left p-3 font-semibold text-gray-600 dark:text-gray-300">Özellik</th>
-                                                <th class="p-3 font-bold text-queva-indigo dark:text-blue-400">PassGuard</th>
+                                                <th class="p-3 font-bold text-queva-gold dark:text-blue-400">PassGuard</th>
                                                 <th class="p-3 font-semibold text-gray-500 dark:text-gray-400">LastPass</th>
                                                 <th class="p-3 font-semibold text-gray-500 dark:text-gray-400">1Password</th>
                                                 <th class="p-3 font-semibold text-gray-500 dark:text-gray-400">KeePass</th>
@@ -1353,14 +1477,14 @@
                             <!-- CTA Buttons -->
                             <div class="flex flex-wrap gap-3">
                                 <a href="https://github.com/QuevaTech/PassGuard" target="_blank" rel="noopener noreferrer"
-                                    class="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-queva-indigo to-queva-purple text-white text-sm font-semibold hover:opacity-90 transition-opacity">
+                                    class="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-queva-midnight to-queva-gold text-white text-sm font-semibold hover:opacity-90 transition-opacity">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                                         <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
                                     </svg>
                                     <span data-lang="passguard_cta_source">Kaynak Kodu İncele</span>
                                 </a>
                                 <a href="https://github.com/QuevaTech/PassGuard/releases" target="_blank" rel="noopener noreferrer"
-                                    class="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-queva-indigo dark:border-blue-500 text-queva-indigo dark:text-blue-400 text-sm font-semibold hover:bg-queva-indigo/5 transition-colors">
+                                    class="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-queva-gold dark:border-blue-500 text-queva-gold dark:text-blue-400 text-sm font-semibold hover:bg-queva-gold/5 transition-colors">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
                                         <polyline points="7 10 12 15 17 10"/>
@@ -1389,49 +1513,36 @@
         3.5 Stats Counter Section
         =================================
         -->
-        <section id="stats" class="py-16 bg-gray-100 dark:bg-gradient-to-r dark:from-queva-indigo dark:to-queva-purple">
+        <section id="stats" class="py-16" style="background: var(--queva-midnight);">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-12" data-aos="fade-up">
-                    <h2 data-lang="stats_title"
-                        class="text-3xl md:text-4xl font-bold text-queva-indigo dark:text-white">Rakamlarla QuevaTech
-                    </h2>
-                    <p data-lang="stats_subtitle" class="text-lg mt-2 text-gray-600 dark:text-white/80">Akademik Ar-Ge
-                        yolculuğumuzun özeti
-                    </p>
+                    <h2 data-lang="stats_title" class="text-3xl md:text-4xl font-bold" style="-webkit-text-fill-color:transparent; background: linear-gradient(90deg,#d4b038,#4f8ef7,#a78bfa,#d4b038); background-size:300% auto; -webkit-background-clip:text; background-clip:text; animation: section-title-flow 15s ease infinite;">Rakamlarla QuevaTech</h2>
+                    <p data-lang="stats_subtitle" class="text-lg mt-2" style="color:rgba(212,176,56,0.7)">Akademik Ar-Ge yolculuğumuzun özeti</p>
                 </div>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-8" data-aos="fade-up" data-aos-delay="200">
-                    <!-- Stat 1: Research Areas -->
                     <div class="text-center">
-                        <div class="text-5xl md:text-6xl font-bold text-queva-purple dark:text-white mb-2">
+                        <div class="text-5xl md:text-6xl font-bold mb-2 stat-num">
                             <span class="stat-counter" data-target="5">0</span>+
                         </div>
-                        <p data-lang="stats_research_areas"
-                            class="text-gray-600 dark:text-white/80 text-sm md:text-base">Araştırma Alanı
-                        </p>
+                        <p data-lang="stats_research_areas" class="text-sm md:text-base" style="color:rgba(238,230,216,0.65)">Araştırma Alanı</p>
                     </div>
-                    <!-- Stat 2: Publications -->
                     <div class="text-center">
-                        <div class="text-5xl md:text-6xl font-bold text-queva-purple dark:text-white mb-2">
+                        <div class="text-5xl md:text-6xl font-bold mb-2 stat-num">
                             <span class="stat-counter" data-target="10">0</span>+
                         </div>
-                        <p data-lang="stats_publications" class="text-gray-600 dark:text-white/80 text-sm md:text-base">
-                            Teknik Doküman</p>
+                        <p data-lang="stats_publications" class="text-sm md:text-base" style="color:rgba(238,230,216,0.65)">Teknik Doküman</p>
                     </div>
-                    <!-- Stat 3: Prototypes -->
                     <div class="text-center">
-                        <div class="text-5xl md:text-6xl font-bold text-queva-purple dark:text-white mb-2">
+                        <div class="text-5xl md:text-6xl font-bold mb-2 stat-num">
                             <span class="stat-counter" data-target="3">0</span>+
                         </div>
-                        <p data-lang="stats_prototypes" class="text-gray-600 dark:text-white/80 text-sm md:text-base">
-                            Prototip Demo</p>
+                        <p data-lang="stats_prototypes" class="text-sm md:text-base" style="color:rgba(238,230,216,0.65)">Prototip Demo</p>
                     </div>
-                    <!-- Stat 4: Code Lines -->
                     <div class="text-center">
-                        <div class="text-5xl md:text-6xl font-bold text-queva-purple dark:text-white mb-2">
+                        <div class="text-5xl md:text-6xl font-bold mb-2 stat-num">
                             <span class="stat-counter" data-target="50">0</span>K+
                         </div>
-                        <p data-lang="stats_code_lines" class="text-gray-600 dark:text-white/80 text-sm md:text-base">
-                            Satır Kod</p>
+                        <p data-lang="stats_code_lines" class="text-sm md:text-base" style="color:rgba(238,230,216,0.65)">Satır Kod</p>
                     </div>
                 </div>
             </div>
@@ -1442,7 +1553,7 @@
         4. QuevaTech Platform: Core Technology & Infrastructure
         =================================
         -->
-        <section id="platform" class="py-20 bg-white dark:bg-queva-dark/50">
+        <section id="platform" class="py-20 bg-white dark:bg-queva-midnight/50">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-16" data-aos="fade-up">
                     <h2 data-lang="platform_title" class="text-3xl md:text-4xl font-bold mb-4">QuevaTech: Platformun
@@ -1459,7 +1570,7 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
                         <div class="glass-card" data-aos="fade-up" data-aos-delay="100">
                             <div class="p-6">
-                                <div class="text-queva-indigo dark:text-queva-purple mb-4">
+                                <div class="qt-icon mb-4">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round">
@@ -1478,7 +1589,7 @@
 
                         <div class="glass-card" data-aos="fade-up" data-aos-delay="200">
                             <div class="p-6">
-                                <div class="text-queva-indigo dark:text-queva-purple mb-4">
+                                <div class="qt-icon mb-4">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round">
@@ -1500,7 +1611,7 @@
 
                         <div class="glass-card" data-aos="fade-up" data-aos-delay="300">
                             <div class="p-6">
-                                <div class="text-queva-indigo dark:text-queva-purple mb-4">
+                                <div class="qt-icon mb-4">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round">
@@ -1519,7 +1630,7 @@
 
                         <div class="glass-card" data-aos="fade-up" data-aos-delay="400">
                             <div class="p-6">
-                                <div class="text-queva-indigo dark:text-queva-purple mb-4">
+                                <div class="qt-icon mb-4">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round">
@@ -1545,7 +1656,7 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
                         <div class="text-center" data-aos="fade-up" data-aos-delay="100">
                             <div
-                                class="bg-gradient-to-br from-queva-indigo to-queva-purple text-white p-4 rounded-xl mb-4 mx-auto w-16 h-16 flex items-center justify-center">
+                                class="bg-gradient-to-br from-queva-midnight to-queva-gold text-white p-4 rounded-xl mb-4 mx-auto w-16 h-16 flex items-center justify-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round">
@@ -1560,7 +1671,7 @@
 
                         <div class="text-center" data-aos="fade-up" data-aos-delay="200">
                             <div
-                                class="bg-gradient-to-br from-queva-indigo to-queva-purple text-white p-4 rounded-xl mb-4 mx-auto w-16 h-16 flex items-center justify-center">
+                                class="bg-gradient-to-br from-queva-midnight to-queva-gold text-white p-4 rounded-xl mb-4 mx-auto w-16 h-16 flex items-center justify-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round">
@@ -1577,7 +1688,7 @@
 
                         <div class="text-center" data-aos="fade-up" data-aos-delay="300">
                             <div
-                                class="bg-gradient-to-br from-queva-indigo to-queva-purple text-white p-4 rounded-xl mb-4 mx-auto w-16 h-16 flex items-center justify-center">
+                                class="bg-gradient-to-br from-queva-midnight to-queva-gold text-white p-4 rounded-xl mb-4 mx-auto w-16 h-16 flex items-center justify-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round">
@@ -1593,7 +1704,7 @@
 
                         <div class="text-center" data-aos="fade-up" data-aos-delay="400">
                             <div
-                                class="bg-gradient-to-br from-queva-indigo to-queva-purple text-white p-4 rounded-xl mb-4 mx-auto w-16 h-16 flex items-center justify-center">
+                                class="bg-gradient-to-br from-queva-midnight to-queva-gold text-white p-4 rounded-xl mb-4 mx-auto w-16 h-16 flex items-center justify-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round">
@@ -1607,7 +1718,7 @@
 
                         <div class="text-center" data-aos="fade-up" data-aos-delay="500">
                             <div
-                                class="bg-gradient-to-br from-queva-indigo to-queva-purple text-white p-4 rounded-xl mb-4 mx-auto w-16 h-16 flex items-center justify-center">
+                                class="bg-gradient-to-br from-queva-midnight to-queva-gold text-white p-4 rounded-xl mb-4 mx-auto w-16 h-16 flex items-center justify-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round">
@@ -1751,7 +1862,7 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
                         <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
                             data-aos="fade-up" data-aos-delay="100">
-                            <div class="text-queva-indigo dark:text-queva-purple mb-4">
+                            <div class="qt-icon mb-4">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round">
@@ -1768,7 +1879,7 @@
 
                         <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
                             data-aos="fade-up" data-aos-delay="200">
-                            <div class="text-queva-indigo dark:text-queva-purple mb-4">
+                            <div class="qt-icon mb-4">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round">
@@ -1786,7 +1897,7 @@
 
                         <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
                             data-aos="fade-up" data-aos-delay="300">
-                            <div class="text-queva-indigo dark:text-queva-purple mb-4">
+                            <div class="qt-icon mb-4">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round">
@@ -1804,7 +1915,7 @@
 
                         <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
                             data-aos="fade-up" data-aos-delay="400">
-                            <div class="text-queva-indigo dark:text-queva-purple mb-4">
+                            <div class="qt-icon mb-4">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round">
@@ -1822,7 +1933,7 @@
 
                         <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
                             data-aos="fade-up" data-aos-delay="500">
-                            <div class="text-queva-indigo dark:text-queva-purple mb-4">
+                            <div class="qt-icon mb-4">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round">
@@ -1846,7 +1957,7 @@
                         Capabilities</h3>
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
                         <div class="text-center" data-aos="fade-up" data-aos-delay="100">
-                            <div class="bg-queva-indigo/10 dark:bg-queva-purple/10 p-6 rounded-xl mb-4">
+                            <div class="bg-queva-gold/10 dark:bg-queva-ember/10 p-6 rounded-xl mb-4">
                                 <h4 data-lang="platform_int_data" class="font-semibold mb-2">Veri Kaynakları</h4>
                                 <p data-lang="platform_int_data_desc" class="text-sm text-gray-600 dark:text-gray-400">
                                     Veritabanları, veri gölleri, akış platformları</p>
@@ -1854,7 +1965,7 @@
                         </div>
 
                         <div class="text-center" data-aos="fade-up" data-aos-delay="200">
-                            <div class="bg-queva-indigo/10 dark:bg-queva-purple/10 p-6 rounded-xl mb-4">
+                            <div class="bg-queva-gold/10 dark:bg-queva-ember/10 p-6 rounded-xl mb-4">
                                 <h4 data-lang="platform_int_dev" class="font-semibold mb-2">Geliştirme Araçları</h4>
                                 <p data-lang="platform_int_dev_desc" class="text-sm text-gray-600 dark:text-gray-400">
                                     Jupyter, VS Code, popüler makine öğrenmesi çerçeveleri</p>
@@ -1862,7 +1973,7 @@
                         </div>
 
                         <div class="text-center" data-aos="fade-up" data-aos-delay="300">
-                            <div class="bg-queva-indigo/10 dark:bg-queva-purple/10 p-6 rounded-xl mb-4">
+                            <div class="bg-queva-gold/10 dark:bg-queva-ember/10 p-6 rounded-xl mb-4">
                                 <h4 data-lang="platform_int_deploy" class="font-semibold mb-2">Dağıtım Hedefleri</h4>
                                 <p data-lang="platform_int_deploy_desc"
                                     class="text-sm text-gray-600 dark:text-gray-400">Bulut, şirket içi, uç ortamlar</p>
@@ -1870,7 +1981,7 @@
                         </div>
 
                         <div class="text-center" data-aos="fade-up" data-aos-delay="400">
-                            <div class="bg-queva-indigo/10 dark:bg-queva-purple/10 p-6 rounded-xl mb-4">
+                            <div class="bg-queva-gold/10 dark:bg-queva-ember/10 p-6 rounded-xl mb-4">
                                 <h4 data-lang="platform_int_monitor" class="font-semibold mb-2">İzleme Sistemleri</h4>
                                 <p data-lang="platform_int_monitor_desc"
                                     class="text-sm text-gray-600 dark:text-gray-400">Kurumsal izleme ve günlükleme
@@ -1887,7 +1998,7 @@
         5. Case Study / Success Story
         =================================
         -->
-        <section id="solutions" class="py-20 bg-white dark:bg-queva-dark/50 overflow-hidden">
+        <section id="solutions" class="py-20 bg-white dark:bg-queva-midnight/50 overflow-hidden">
             <div class="container mx-auto px-4">
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div data-aos="fade-right">
@@ -1896,7 +2007,7 @@
                     </div>
                     <div data-aos="fade-left">
                         <span data-lang="case_study_tag"
-                            class="text-queva-indigo dark:text-queva-purple font-bold">POTANSIYEL ANALIZ</span>
+                            class="qt-icon font-bold">POTANSIYEL ANALIZ</span>
                         <h2 data-lang="case_study_title" class="text-3xl md:text-4xl font-bold mt-2 mb-4">Finansal
                             Kurumlar İçin: AI-Hybrid TRNG ile Risk Ölçümünde Hızlı ve İstikrarlı Konverjans</h2>
                         <p data-lang="case_study_desc" class="text-lg text-gray-600 dark:text-gray-400 mb-6">
@@ -1904,7 +2015,7 @@
                             portföy optimizasyonu süreçlerinde senaryo çeşitliliğini artırır, örneklemler arasındaki
                             bağımsızlığı güçlendirir ve konverjansı hızlandırmayı hedefler.</p>
                         <div class="bg-queva-light dark:bg-queva-dark p-6 rounded-2xl">
-                            <span class="text-5xl font-bold text-queva-indigo dark:text-queva-purple">Hızlı</span>
+                            <span class="text-5xl font-bold qt-icon">Hızlı</span>
                             <p data-lang="case_study_stat" class="mt-2 font-semibold">Risk Ölçümünde Hızlandırılmış
                                 Konverjans</p>
                         </div>
@@ -1923,7 +2034,7 @@
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div data-aos="fade-left">
                         <span data-lang="gaming_case_study_tag"
-                            class="text-queva-indigo dark:text-queva-purple font-bold">POTANSİYEL ANALİZ</span>
+                            class="qt-icon font-bold">POTANSİYEL ANALİZ</span>
                         <h2 data-lang="gaming_case_study_title" class="text-3xl md:text-4xl font-bold mt-2 mb-4">Oyun
                             Stüdyoları İçin: AI-Hybrid TRNG ile Prosedürel Üretimde Tekrarı Azaltın, Çeşitliliği Artırın
                         </h2>
@@ -1933,7 +2044,7 @@
                             amaçlar. Sonuç: daha geniş desen kapsamı, daha düşük seed çarpışması ve hedef drop
                             oranlarına daha yakın dağılımlar.</p>
                         <div class="bg-queva-light dark:bg-queva-dark p-6 rounded-2xl">
-                            <span class="text-5xl font-bold text-queva-indigo dark:text-queva-purple">POC</span>
+                            <span class="text-5xl font-bold qt-icon">POC</span>
                             <p data-lang="gaming_case_study_stat" class="mt-2 font-semibold">Desen Çeşitliliği ve Tekrar
                                 Azaltma</p>
                         </div>
@@ -1951,7 +2062,7 @@
         6. Cybersecurity Case Study
         =================================
         -->
-        <section class="py-20 bg-white dark:bg-queva-dark/50">
+        <section class="py-20 bg-white dark:bg-queva-midnight/50">
             <div class="container mx-auto px-4">
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div data-aos="fade-right">
@@ -1960,7 +2071,7 @@
                     </div>
                     <div data-aos="fade-left">
                         <span data-lang="security_case_study_tag"
-                            class="text-queva-indigo dark:text-queva-purple font-bold">POTANSIYEL ANALIZ</span>
+                            class="qt-icon font-bold">POTANSIYEL ANALIZ</span>
                         <h2 data-lang="security_case_study_title" class="text-3xl md:text-4xl font-bold mt-2 mb-4">
                             Güvenlik Uygulamaları İçin: AI-Hybrid TRNG ile Standartlara Uyumlu Anahtar ve Oturum
                             Rastgeleliği</h2>
@@ -1969,7 +2080,7 @@
                             gizliliğinde fiziksel entropi ile öngörülebilirliği azaltmayı, tekrar riskini düşürmeyi ve
                             denetlenebilir güvence sunmayı hedefler.</p>
                         <div class="bg-queva-light dark:bg-queva-dark p-6 rounded-2xl">
-                            <span class="text-5xl font-bold text-queva-indigo dark:text-queva-purple">SP800</span>
+                            <span class="text-5xl font-bold qt-icon">SP800</span>
                             <p data-lang="security_case_study_stat" class="mt-2 font-semibold">Standartlara Uyumlu
                                 Güvenlik Kalitesi</p>
                         </div>
@@ -1997,7 +2108,7 @@
                             <div class="glass-card p-8 h-full">
                                 <div class="flex items-center mb-4">
                                     <div
-                                        class="w-12 h-12 rounded-full mr-4 bg-gradient-to-br from-queva-indigo to-queva-purple flex items-center justify-center text-white font-bold">
+                                        class="w-12 h-12 rounded-full mr-4 bg-gradient-to-br from-queva-midnight to-queva-gold flex items-center justify-center text-white font-bold">
                                         T
                                     </div>
                                     <div>
@@ -2017,7 +2128,7 @@
                             <div class="glass-card p-8 h-full">
                                 <div class="flex items-center mb-4">
                                     <div
-                                        class="w-12 h-12 rounded-full mr-4 bg-gradient-to-br from-queva-purple to-queva-sky flex items-center justify-center text-white font-bold">
+                                        class="w-12 h-12 rounded-full mr-4 bg-gradient-to-br from-queva-midnight to-queva-ember flex items-center justify-center text-white font-bold">
                                         L
                                     </div>
                                     <div>
@@ -2037,7 +2148,7 @@
                             <div class="glass-card p-8 h-full">
                                 <div class="flex items-center mb-4">
                                     <div
-                                        class="w-12 h-12 rounded-full mr-4 bg-gradient-to-br from-queva-sky to-queva-indigo flex items-center justify-center text-white font-bold">
+                                        class="w-12 h-12 rounded-full mr-4 bg-gradient-to-br from-queva-gold to-queva-indigo flex items-center justify-center text-white font-bold">
                                         V
                                     </div>
                                     <div>
@@ -2057,7 +2168,7 @@
                             <div class="glass-card p-8 h-full">
                                 <div class="flex items-center mb-4">
                                     <div
-                                        class="w-12 h-12 rounded-full mr-4 bg-gradient-to-br from-queva-indigo to-queva-purple flex items-center justify-center text-white font-bold">
+                                        class="w-12 h-12 rounded-full mr-4 bg-gradient-to-br from-queva-midnight to-queva-gold flex items-center justify-center text-white font-bold">
                                         Ü
                                     </div>
                                     <div>
@@ -2088,312 +2199,319 @@
         <section id="blog" class="py-20 overflow-hidden">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-12" data-aos="fade-up">
-                    <h2 data-lang="blog_title" class="text-3xl md:text-4xl font-bold">Blog'dan Son Yazılar</h2>
-                    <p data-lang="blog_subtitle" class="text-lg mt-2 text-gray-600 dark:text-gray-400">Yapay zekâ
-                        dünyasındaki en son trendler ve analizler.</p>
+                    <p class="qt-eyebrow mb-3">Akademik Çalışmalar · Ar-Ge</p>
+                    <h2 data-lang="blog_title" class="text-3xl md:text-4xl font-bold">Bilimsel Yayınlar ve Ar-Ge Blogu</h2>
+                    <p data-lang="blog_subtitle" class="text-lg mt-2" style="color:var(--fg2)">Akademik çalışmalarımızdan ve teknoloji ekosisteminden en güncel notlar.</p>
                 </div>
 
                 <!-- Blog Carousel Container -->
                 <div class="relative">
-                    <!-- Scroll Navigation Buttons -->
                     <button id="blogScrollLeft"
-                        class="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white dark:bg-queva-dark shadow-xl rounded-full p-3 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-300 -ml-4">
-                        <svg class="w-6 h-6 text-queva-indigo" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
-                            </path>
+                        class="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 shadow-xl rounded-full p-3 transition-all duration-300 -ml-4"
+                        style="background:var(--surface); border:1px solid rgba(212,176,56,0.25);">
+                        <svg class="w-6 h-6" style="color:var(--queva-gold)" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
                         </svg>
                     </button>
                     <button id="blogScrollRight"
-                        class="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white dark:bg-queva-dark shadow-xl rounded-full p-3 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-300 -mr-4">
-                        <svg class="w-6 h-6 text-queva-indigo" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
-                            </path>
+                        class="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 shadow-xl rounded-full p-3 transition-all duration-300 -mr-4"
+                        style="background:var(--surface); border:1px solid rgba(212,176,56,0.25);">
+                        <svg class="w-6 h-6" style="color:var(--queva-gold)" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                         </svg>
                     </button>
 
                     <!-- Scrollable Blog Grid -->
                     <div id="blogCarousel"
-                        class="flex gap-6 overflow-x-auto scroll-smooth pb-4 snap-x snap-mandatory scrollbar-hide"
+                        class="flex gap-6 overflow-x-auto scroll-smooth pb-4 snap-x snap-mandatory"
                         style="scrollbar-width: none; -ms-overflow-style: none;">
                         <style>
-                            #blogCarousel::-webkit-scrollbar {
-                                display: none;
-                            }
-
-                            .blog-card {
-                                min-width: 350px;
-                                max-width: 400px;
-                                flex-shrink: 0;
-                                scroll-snap-align: start;
-                            }
-
-                            @media (max-width: 768px) {
-                                .blog-card {
-                                    min-width: 300px;
-                                    max-width: 320px;
-                                }
-                            }
+                            #blogCarousel::-webkit-scrollbar { display: none; }
+                            .blog-card { min-width: 350px; max-width: 400px; flex-shrink: 0; scroll-snap-align: start; }
+                            @media (max-width: 768px) { .blog-card { min-width: 300px; max-width: 320px; } }
                         </style>
-                        <!-- Blog Post 1 -->
-                        <div class="blog-card bg-white dark:bg-queva-dark/50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300"
-                            data-aos="fade-up" data-aos-delay="100">
-                            <div
-                                class="w-full h-48 bg-gradient-to-br from-pink-500 via-purple-600 to-indigo-600 flex items-center justify-center relative overflow-hidden group">
-                                <!-- Animated Background Pattern -->
-                                <div class="absolute inset-0 opacity-10">
-                                    <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                                        <defs>
-                                            <pattern id="grid1" width="20" height="20" patternUnits="userSpaceOnUse">
-                                                <circle cx="10" cy="10" r="1" fill="white" opacity="0.3" />
-                                            </pattern>
-                                        </defs>
-                                        <rect width="100%" height="100%" fill="url(#grid1)" />
+
+                        <!-- Blog 1: 6G -->
+                        <div class="blog-card glass-card rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                            <div class="w-full h-48 flex items-center justify-center relative overflow-hidden group"
+                                style="background: linear-gradient(135deg, #1b1f3b 0%, #2d2060 50%, #1b1f3b 100%);">
+                                <div class="absolute inset-0 opacity-15">
+                                    <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg"><defs>
+                                        <pattern id="pg1" width="30" height="30" patternUnits="userSpaceOnUse">
+                                            <circle cx="15" cy="15" r="1" fill="#d4b038" opacity="0.4"/>
+                                            <line x1="0" y1="15" x2="30" y2="15" stroke="#d4b038" stroke-width="0.4" opacity="0.2"/>
+                                        </pattern></defs>
+                                        <rect width="100%" height="100%" fill="url(#pg1)"/>
                                     </svg>
                                 </div>
-                                <!-- AI Brain Icon -->
-                                <svg class="w-24 h-24 text-white opacity-90 relative z-10 transform group-hover:scale-110 transition-transform duration-300"
-                                    fill="currentColor" viewBox="0 0 24 24">
-                                    <path
-                                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
-                                    <circle cx="8" cy="10" r="1.5" />
-                                    <circle cx="16" cy="10" r="1.5" />
-                                    <circle cx="12" cy="8" r="1.5" />
-                                    <circle cx="9.5" cy="13" r="1.5" />
-                                    <circle cx="14.5" cy="13" r="1.5" />
-                                    <circle cx="12" cy="16" r="1.5" />
-                                    <path d="M8 10l4-2m0 0l4 2m-8 3l2.5 3m3 0l2.5-3" stroke="currentColor"
-                                        stroke-width="0.5" opacity="0.5" />
+                                <svg class="w-20 h-20 relative z-10 transform group-hover:scale-110 transition-transform duration-300"
+                                    style="color:#d4b038" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                    <path d="M1 6l5 6-5 6M23 6l-5 6 5 6M8 18l2-12M14 18l2-12"/>
                                 </svg>
                             </div>
                             <div class="p-6">
-                                <div class="flex items-center text-xs text-gray-500 dark:text-gray-400 mb-2">
-                                    <span>1 Ağustos 2025</span>
-                                    <span class="mx-2">•</span>
-                                    <span>5 dk okuma</span>
+                                <div class="flex items-center text-xs mb-2" style="color:var(--fg3)">
+                                    <span>1 Ağustos 2025</span><span class="mx-2">·</span><span>5 dk okuma</span>
                                 </div>
-                                <h3 data-lang="blog1_title" class="text-xl font-bold mb-2">2025'te Yapay Zekânın
-                                    Geleceği</h3>
-                                <p data-lang="blog1_desc" class="text-gray-600 dark:text-gray-300 mb-4">2025 yılı yapay
-                                    zeka için dönüm noktası olacak. Multimodal AI, agentic AI sistemleri ve edge
-                                    computing ile birleşen yapay zeka, iş dünyasında köklü değişimler yaratacak.
-                                    GPT-5'ten Claude 4'e kadar yeni nesil modeller, insan-AI işbirliğini yeniden
-                                    tanımlıyor. Özellikle healthcare, fintech ve manufacturing sektörlerinde AI adoption
-                                    %300 artış gösteriyor.</p>
-                                <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="px-2 py-1 bg-queva-indigo/10 text-queva-indigo text-xs rounded-full">AI
-                                        Trends</span>
-                                    <span
-                                        class="px-2 py-1 bg-queva-purple/10 text-queva-purple text-xs rounded-full">Future
-                                        Tech</span>
-                                    <span
-                                        class="px-2 py-1 bg-queva-sky/10 text-queva-sky text-xs rounded-full">Innovation</span>
+                                <h3 data-lang="blog1_title" class="text-xl font-bold mb-2">6G ve Geleceğin İletişim Mimarileri</h3>
+                                <p data-lang="blog1_desc" class="text-sm mb-4" style="color:var(--fg2)">6G teknolojileri üzerine güncel araştırmalar, multimodal yapay zeka ve edge computing entegrasyonunun iletişim protokollerine etkisini incelemektedir. Çalışmamız, yeni nesil modellerin insan-makine iş birliğindeki rolünü teknik perspektiften ele almaktadır.</p>
+                                <div class="mb-4">
+                                    <span class="qt-chip qt-chip-gold">6G</span>
+                                    <span class="qt-chip qt-chip-blue">Edge Computing</span>
+                                    <span class="qt-chip qt-chip-purple">Fiziksel Katman</span>
                                 </div>
-                                <div class="mt-4">
-                                    <a href="blog/ai-future-2025.html" data-lang="blog_readmore"
-                                        class="glass-button inline-flex items-center px-6 py-3 rounded-full font-semibold transition-all duration-300 group">
-                                        <span>Devamını Oku</span>
-                                        <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300"
-                                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Blog Post 2 -->
-                        <div class="blog-card bg-white dark:bg-queva-dark/50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300"
-                            data-aos="fade-up" data-aos-delay="200">
-                            <div
-                                class="w-full h-48 bg-gradient-to-br from-cyan-500 via-blue-600 to-indigo-700 flex items-center justify-center relative overflow-hidden group">
-                                <!-- Animated Background Pattern -->
-                                <div class="absolute inset-0 opacity-10">
-                                    <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                                        <defs>
-                                            <pattern id="grid2" width="30" height="30" patternUnits="userSpaceOnUse">
-                                                <path d="M 30 0 L 0 0 0 30" fill="none" stroke="white"
-                                                    stroke-width="0.5" opacity="0.3" />
-                                            </pattern>
-                                        </defs>
-                                        <rect width="100%" height="100%" fill="url(#grid2)" />
+                                <a href="blog/6g-communication-2025.html" data-lang="blog_readmore"
+                                    class="glass-button inline-flex items-center px-5 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 group">
+                                    <span>Devamını Oku</span>
+                                    <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                                     </svg>
-                                </div>
-                                <!-- Shield + Lock Icon -->
-                                <svg class="w-24 h-24 text-white opacity-90 relative z-10 transform group-hover:scale-110 transition-transform duration-300"
-                                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                                    <circle cx="12" cy="12" r="2" fill="currentColor" opacity="0.8" />
-                                </svg>
-                            </div>
-                            <div class="p-6">
-                                <div class="flex items-center text-xs text-gray-500 dark:text-gray-400 mb-2">
-                                    <span>25 Temmuz 2025</span>
-                                    <span class="mx-2">•</span>
-                                    <span>7 dk okuma</span>
-                                </div>
-                                <h3 data-lang="blog2_title" class="text-xl font-bold mb-2">Büyük Veri Çağında Güvenlik
-                                </h3>
-                                <p data-lang="blog2_desc" class="text-gray-600 dark:text-gray-300 mb-4">Cyber security
-                                    landscape 2025'te dramatik değişimler yaşıyor. Zero-trust architecture,
-                                    quantum-resistant encryption ve AI-powered threat detection artık zorunluluk. GDPR,
-                                    KVKV ve yeni regulation'lar data governance'ı yeniden şekillendiriyor. Özellikle
-                                    TRNG teknolojisi ile enhanced cryptographic security, modern enterprise'ların
-                                    vazgeçilmez savunma stratejisi haline geliyor.</p>
-                                <div class="flex flex-wrap gap-2 mb-4">
-                                    <span
-                                        class="px-2 py-1 bg-queva-sky/10 text-queva-sky text-xs rounded-full">Cybersecurity</span>
-                                    <span
-                                        class="px-2 py-1 bg-queva-indigo/10 text-queva-indigo text-xs rounded-full">Data
-                                        Protection</span>
-                                    <span
-                                        class="px-2 py-1 bg-queva-purple/10 text-queva-purple text-xs rounded-full">TRNG</span>
-                                </div>
-                                <div class="mt-4">
-                                    <a href="blog/data-security-2025.html" data-lang="blog_readmore2"
-                                        class="glass-button inline-flex items-center px-6 py-3 rounded-full font-semibold transition-all duration-300 group">
-                                        <span>Devamını Oku</span>
-                                        <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300"
-                                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                                        </svg>
-                                    </a>
-                                </div>
+                                </a>
                             </div>
                         </div>
 
-                        <!-- Blog Post 3 (MLOps) -->
-                        <div class="blog-card bg-white dark:bg-queva-dark/50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300"
-                            data-aos="fade-up" data-aos-delay="300">
-                            <div
-                                class="w-full h-48 bg-gradient-to-br from-purple-600 via-pink-600 to-red-600 flex items-center justify-center relative overflow-hidden group">
-                                <!-- Animated Background Pattern -->
-                                <div class="absolute inset-0 opacity-10">
-                                    <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                                        <defs>
-                                            <pattern id="grid4" width="20" height="20" patternUnits="userSpaceOnUse">
-                                                <rect x="0" y="0" width="10" height="10" fill="white" opacity="0.2" />
-                                                <rect x="10" y="10" width="10" height="10" fill="white" opacity="0.2" />
-                                            </pattern>
-                                        </defs>
-                                        <rect width="100%" height="100%" fill="url(#grid4)" />
+                        <!-- Blog 2: Post-Quantum -->
+                        <div class="blog-card glass-card rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                            <div class="w-full h-48 flex items-center justify-center relative overflow-hidden group"
+                                style="background: linear-gradient(135deg, #1b1f3b 0%, #3b1f5e 50%, #1b1f3b 100%);">
+                                <div class="absolute inset-0 opacity-15">
+                                    <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg"><defs>
+                                        <pattern id="pg2" width="24" height="24" patternUnits="userSpaceOnUse">
+                                            <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#a78bfa" stroke-width="0.4" opacity="0.3"/>
+                                        </pattern></defs>
+                                        <rect width="100%" height="100%" fill="url(#pg2)"/>
                                     </svg>
                                 </div>
-                                <!-- Gear + Pipeline Icon -->
-                                <svg class="w-24 h-24 text-white opacity-90 relative z-10 transform group-hover:rotate-180 transition-transform duration-700"
-                                    fill="currentColor" viewBox="0 0 24 24">
-                                    <path
-                                        d="M12 15.5A3.5 3.5 0 0 1 8.5 12 3.5 3.5 0 0 1 12 8.5a3.5 3.5 0 0 1 3.5 3.5 3.5 3.5 0 0 1-3.5 3.5m7.43-2.53c.04-.32.07-.64.07-.97 0-.33-.03-.66-.07-1l2.11-1.63c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.31-.61-.22l-2.49 1c-.52-.39-1.06-.73-1.69-.98l-.37-2.65A.506.506 0 0 0 14 2h-4c-.25 0-.46.18-.5.42l-.37 2.65c-.63.25-1.17.59-1.69.98l-2.49-1c-.22-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64L4.57 11c-.04.34-.07.67-.07 1 0 .33.03.65.07.97l-2.11 1.66c-.19.15-.25.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1.01c.52.4 1.06.74 1.69.99l.37 2.65c.04.24.25.42.5.42h4c.25 0 .46-.18.5-.42l.37-2.65c.63-.26 1.17-.59 1.69-.99l2.49 1.01c.22.08.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.66z" />
-                                    <circle cx="12" cy="12" r="1.5" fill="white" opacity="0.8" />
+                                <svg class="w-20 h-20 relative z-10 transform group-hover:scale-110 transition-transform duration-300"
+                                    style="color:#a78bfa" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                    <path d="M9 12l2 2 4-4"/>
                                 </svg>
                             </div>
                             <div class="p-6">
-                                <div class="flex items-center text-xs text-gray-500 dark:text-gray-400 mb-2">
-                                    <span>10 Ağustos 2025</span>
-                                    <span class="mx-2">•</span>
-                                    <span>8 dk okuma</span>
+                                <div class="flex items-center text-xs mb-2" style="color:var(--fg3)">
+                                    <span>15 Temmuz 2025</span><span class="mx-2">·</span><span>7 dk okuma</span>
                                 </div>
-                                <h3 data-lang="blog3_title" class="text-xl font-bold mb-2">MLOps: Modellerinizi Hayata
-                                    Geçirin</h3>
-                                <p data-lang="blog3_desc" class="text-gray-600 dark:text-gray-300 mb-4">MLOps 2025'te
-                                    enterprise AI'ın omurgası haline geldi. Production-grade ML pipeline'lar, automated
-                                    deployment ve continuous monitoring ile model lifecycle yönetimi yeni bir boyut
-                                    kazanıyor. Kubernetes, MLflow ve Kubeflow ekosistemi ile scalable AI infrastructure
-                                    artık her şirketin ulaşabileceği bir gerçeklik.</p>
-                                <div class="flex flex-wrap gap-2 mb-4">
-                                    <span
-                                        class="px-2 py-1 bg-queva-purple/10 text-queva-purple text-xs rounded-full">MLOps</span>
-                                    <span
-                                        class="px-2 py-1 bg-queva-indigo/10 text-queva-indigo text-xs rounded-full">DevOps</span>
-                                    <span class="px-2 py-1 bg-queva-sky/10 text-queva-sky text-xs rounded-full">ML
-                                        Pipeline</span>
+                                <h3 data-lang="blog2_title" class="text-xl font-bold mb-2">Kuantum Sonrası Kriptografi: Finansal Sistemlerde Risk Modelleme</h3>
+                                <p data-lang="blog2_desc" class="text-sm mb-4" style="color:var(--fg2)">QuevaTech bünyesinde yürütülen çalışmalarda AI-Hybrid TRNG yaklaşımının Monte Carlo simülasyonlarına etkisi araştırılmaktadır. Yüksek kaliteli rastgeleliğin risk analizindeki potansiyeli teknik olarak belgelenmektedir.</p>
+                                <div class="mb-4">
+                                    <span class="qt-chip qt-chip-purple">Post-Quantum</span>
+                                    <span class="qt-chip qt-chip-gold">NIST SP 800-90A</span>
+                                    <span class="qt-chip qt-chip-blue">Risk Modelleme</span>
                                 </div>
-                                <div class="mt-4">
-                                    <a href="blog/mlops-2025.html" data-lang="blog_readmore3"
-                                        class="glass-button inline-flex items-center px-6 py-3 rounded-full font-semibold transition-all duration-300 group">
-                                        <span>Devamını Oku</span>
-                                        <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300"
-                                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                                        </svg>
-                                    </a>
-                                </div>
+                                <a href="blog/post-quantum-finance.html" data-lang="blog_readmore2"
+                                    class="glass-button inline-flex items-center px-5 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 group">
+                                    <span>Devamını Oku</span>
+                                    <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                                    </svg>
+                                </a>
                             </div>
                         </div>
 
-                        <!-- Blog Post 4 (AI-Hybrid TRNG) -->
-                        <div class="blog-card bg-white dark:bg-queva-dark/50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300"
-                            data-aos="fade-up" data-aos-delay="400">
-                            <div
-                                class="w-full h-48 bg-gradient-to-br from-green-500 via-teal-600 to-blue-700 flex items-center justify-center relative overflow-hidden group">
-                                <!-- Animated Background Pattern -->
-                                <div class="absolute inset-0 opacity-10">
-                                    <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                                        <defs>
-                                            <pattern id="grid5" width="25" height="25" patternUnits="userSpaceOnUse">
-                                                <circle cx="12.5" cy="12.5" r="2" fill="white" opacity="0.3" />
-                                                <line x1="0" y1="12.5" x2="25" y2="12.5" stroke="white"
-                                                    stroke-width="0.5" opacity="0.2" />
-                                                <line x1="12.5" y1="0" x2="12.5" y2="25" stroke="white"
-                                                    stroke-width="0.5" opacity="0.2" />
-                                            </pattern>
-                                        </defs>
-                                        <rect width="100%" height="100%" fill="url(#grid5)" />
+                        <!-- Blog 3: AI-Hybrid TRNG -->
+                        <div class="blog-card glass-card rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                            <div class="w-full h-48 flex items-center justify-center relative overflow-hidden group"
+                                style="background: linear-gradient(135deg, #2a1f0e 0%, #1b1f3b 50%, #2a1f0e 100%);">
+                                <div class="absolute inset-0 opacity-15">
+                                    <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg"><defs>
+                                        <pattern id="pg3" width="20" height="20" patternUnits="userSpaceOnUse">
+                                            <rect x="0" y="0" width="10" height="10" fill="#d4b038" opacity="0.15"/>
+                                            <rect x="10" y="10" width="10" height="10" fill="#d4b038" opacity="0.15"/>
+                                        </pattern></defs>
+                                        <rect width="100%" height="100%" fill="url(#pg3)"/>
                                     </svg>
                                 </div>
-                                <!-- Random/AI Hybrid Icon -->
-                                <svg class="w-24 h-24 text-white opacity-90 relative z-10 transform group-hover:scale-110 transition-transform duration-300"
-                                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                        d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                                    <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1" fill="white"
-                                        opacity="0.3" />
-                                    <path d="M8 12h8M12 8v8" stroke="white" stroke-width="1.5" opacity="0.6" />
+                                <svg class="w-20 h-20 relative z-10 transform group-hover:scale-110 transition-transform duration-300"
+                                    style="color:#d4b038" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="3"/>
+                                    <path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/>
                                 </svg>
                             </div>
                             <div class="p-6">
-                                <div class="flex items-center text-xs text-gray-500 dark:text-gray-400 mb-2">
-                                    <span>15 Ağustos 2025</span>
-                                    <span class="mx-2">•</span>
-                                    <span>6 dk okuma</span>
+                                <div class="flex items-center text-xs mb-2" style="color:var(--fg3)">
+                                    <span>10 Ağustos 2025</span><span class="mx-2">·</span><span>8 dk okuma</span>
                                 </div>
-                                <h3 data-lang="blog4_title" class="text-xl font-bold mb-2">AI-Hybrid TRNG: Gelecek Nesil
-                                    Rastgelelik</h3>
-                                <p data-lang="blog4_desc" class="text-gray-600 dark:text-gray-300 mb-4">Yapay zeka ve
-                                    fiziksel entropi birleşimi ile True Random Number Generation (TRNG) yeni bir çağa
-                                    giriyor. Quantum-safe cryptography, blockchain validation ve advanced simulation
-                                    için AI-enhanced randomness artık standart oluyor. QuevaTech'in hybrid approach'u
-                                    ile %99.9+ entropy quality ve predictability resistance garanti altında.</p>
-                                <div class="flex flex-wrap gap-2 mb-4">
-                                    <span
-                                        class="px-2 py-1 bg-queva-sky/10 text-queva-sky text-xs rounded-full">TRNG</span>
-                                    <span
-                                        class="px-2 py-1 bg-queva-indigo/10 text-queva-indigo text-xs rounded-full">Quantum
-                                        Safety</span>
-                                    <span
-                                        class="px-2 py-1 bg-queva-purple/10 text-queva-purple text-xs rounded-full">AI-Hybrid</span>
+                                <h3 data-lang="blog3_title" class="text-xl font-bold mb-2">AI-Hybrid TRNG: Fiziksel Entropi ile Yapay Zekânın Kesişimi</h3>
+                                <p data-lang="blog3_desc" class="text-sm mb-4" style="color:var(--fg2)">Fiziksel entropi kaynaklarının kriptografik anahtar üretimine entegrasyonu üzerine yürütülen araştırma, NIST SP 800-90A/B/C standartlarına uyum hedeflemektedir. Donanım tabanlı çözümlerin yazılım yaklaşımlarına kriptografik üstünlüğü teknik olarak analiz edilmektedir.</p>
+                                <div class="mb-4">
+                                    <span class="qt-chip qt-chip-gold">TRNG</span>
+                                    <span class="qt-chip qt-chip-blue">AI-Hybrid</span>
+                                    <span class="qt-chip qt-chip-green">Entropi Kalitesi</span>
                                 </div>
-                                <div class="mt-4">
-                                    <a href="blog/ai-hybrid-trng.html" data-lang="blog_readmore4"
-                                        class="glass-button inline-flex items-center px-6 py-3 rounded-full font-semibold transition-all duration-300 group">
-                                        <span>Devamını Oku</span>
-                                        <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300"
-                                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                                        </svg>
-                                    </a>
-                                </div>
+                                <a href="blog/ai-hybrid-trng.html" data-lang="blog_readmore3"
+                                    class="glass-button inline-flex items-center px-5 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 group">
+                                    <span>Devamını Oku</span>
+                                    <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                                    </svg>
+                                </a>
                             </div>
                         </div>
+
+                        <!-- Blog 4: PassGuard / Zero-Knowledge -->
+                        <div class="blog-card glass-card rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="400">
+                            <div class="w-full h-48 flex items-center justify-center relative overflow-hidden group"
+                                style="background: linear-gradient(135deg, #1b1f3b 0%, #1f3b2a 50%, #1b1f3b 100%);">
+                                <div class="absolute inset-0 opacity-15">
+                                    <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg"><defs>
+                                        <pattern id="pg4" width="25" height="25" patternUnits="userSpaceOnUse">
+                                            <circle cx="12.5" cy="12.5" r="1.5" fill="#4ade80" opacity="0.3"/>
+                                            <line x1="0" y1="12.5" x2="25" y2="12.5" stroke="#4ade80" stroke-width="0.4" opacity="0.2"/>
+                                            <line x1="12.5" y1="0" x2="12.5" y2="25" stroke="#4ade80" stroke-width="0.4" opacity="0.2"/>
+                                        </pattern></defs>
+                                        <rect width="100%" height="100%" fill="url(#pg4)"/>
+                                    </svg>
+                                </div>
+                                <svg class="w-20 h-20 relative z-10 transform group-hover:scale-110 transition-transform duration-300"
+                                    style="color:#4ade80" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                    <rect width="18" height="11" x="3" y="11" rx="2"/>
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                                    <circle cx="12" cy="16" r="1" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <div class="p-6">
+                                <div class="flex items-center text-xs mb-2" style="color:var(--fg3)">
+                                    <span>20 Ağustos 2025</span><span class="mx-2">·</span><span>6 dk okuma</span>
+                                </div>
+                                <h3 data-lang="blog4_title" class="text-xl font-bold mb-2">PassGuard: Sıfır-Bulut Mimarisinde Güvenli Parola Yönetimi</h3>
+                                <p data-lang="blog4_desc" class="text-sm mb-4" style="color:var(--fg2)">AES-256-GCM şifreleme ve Argon2id anahtar türetme ile tasarlanan PassGuard, kullanıcı verilerinin yalnızca cihazda şifrelenerek saklandığı sıfır-bilgi mimarisini pratikte uygular. Kriptografik tasarım kararları ve güvenlik denetim süreci ele alınmaktadır.</p>
+                                <div class="mb-4">
+                                    <span class="qt-chip qt-chip-green">Zero-Knowledge</span>
+                                    <span class="qt-chip qt-chip-gold">AES-256-GCM</span>
+                                    <span class="qt-chip qt-chip-blue">Argon2id</span>
+                                </div>
+                                <a href="blog/passguard-zero-cloud.html" data-lang="blog_readmore4"
+                                    class="glass-button inline-flex items-center px-5 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 group">
+                                    <span>Devamını Oku</span>
+                                    <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 
+        <!--
+        =================================
+        7.5 YouTube Channel
+        =================================
+        -->
+        <section id="youtube" class="py-20" style="background:var(--queva-midnight);">
+            <div class="container mx-auto px-4">
+
+                <!-- Başlık -->
+                <div class="text-center mb-14" data-aos="fade-up">
+                    <p class="qt-eyebrow mb-3" style="color:var(--queva-gold)">YouTube · Duyurular · İçerik</p>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4"
+                        style="background:linear-gradient(90deg,#d4b038,#1e3a8a,#6b21a8,#0EA5E9,#d87e37,#d4b038);background-size:300% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:section-title-flow 15s ease infinite;"
+                        data-lang="youtube_title">QuevaTech YouTube Kanalı</h2>
+                    <p class="text-lg max-w-2xl mx-auto" style="color:rgba(238,230,216,0.65)" data-lang="youtube_subtitle">
+                        Araştırma güncellemeleri, teknik analizler ve akademik içerikler için kanalımıza abone olun.
+                    </p>
+                </div>
+
+                <!-- Ana içerik: sol bilgi + sağ embed -->
+                <div class="grid md:grid-cols-2 gap-10 items-center max-w-5xl mx-auto mb-14">
+
+                    <!-- Sol: Kanal bilgisi -->
+                    <div data-aos="fade-right">
+                        <!-- Kanal kimliği -->
+                        <div class="flex items-center gap-4 mb-8">
+                            <div class="w-16 h-16 rounded-full flex items-center justify-center flex-shrink-0"
+                                style="background:linear-gradient(135deg,#1b1f3b,#d4b038);border:2px solid rgba(212,176,56,0.4);">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" style="color:#fff">
+                                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-bold text-lg" style="color:#f4ecdb">QuevaTech</p>
+                                <p class="text-sm" style="color:rgba(212,176,56,0.7)">@QuevaTech · youtube.com/@QuevaTech</p>
+                            </div>
+                        </div>
+
+                        <!-- İçerik tipleri -->
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-start gap-3">
+                                <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5"
+                                    style="background:rgba(212,176,56,0.12);border:1px solid rgba(212,176,56,0.25);">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d4b038" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-sm" style="color:#f4ecdb" data-lang="yt_item1_title">Araştırma Güncellemeleri</p>
+                                    <p class="text-xs" style="color:rgba(238,230,216,0.5)" data-lang="yt_item1_desc">TRNG, post-quantum kriptografi ve 6G üzerine teknik içerikler</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5"
+                                    style="background:rgba(79,142,247,0.12);border:1px solid rgba(79,142,247,0.25);">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#93c5fd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-sm" style="color:#f4ecdb" data-lang="yt_item2_title">Demo & Prototip Videoları</p>
+                                    <p class="text-xs" style="color:rgba(238,230,216,0.5)" data-lang="yt_item2_desc">PassGuard ve FPGA prototip demolarının görsel anlatımı</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5"
+                                    style="background:rgba(167,139,250,0.12);border:1px solid rgba(167,139,250,0.25);">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c4b5fd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-sm" style="color:#f4ecdb" data-lang="yt_item3_title">Duyurular & Yeni Projeler</p>
+                                    <p class="text-xs" style="color:rgba(238,230,216,0.5)" data-lang="yt_item3_desc">Açık kaynak yayınları ve iş birliği duyuruları</p>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <!-- Abone ol butonu -->
+                        <a href="https://www.youtube.com/@QuevaTech?sub_confirmation=1" target="_blank" rel="noopener"
+                            class="inline-flex items-center gap-3 px-7 py-4 rounded-full font-bold text-white transition-all duration-300 hover:scale-105"
+                            style="background:linear-gradient(135deg,#ff0000,#cc0000);box-shadow:0 0 25px rgba(255,0,0,0.4),0 0 50px rgba(255,0,0,0.2),inset 0 1px 0 rgba(255,255,255,0.2);">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                            </svg>
+                            <span data-lang="yt_subscribe">Abone Ol</span>
+                        </a>
+                        <a href="https://www.youtube.com/@QuevaTech" target="_blank" rel="noopener"
+                            class="inline-flex items-center gap-2 ml-3 px-5 py-4 rounded-full font-semibold text-sm transition-all duration-300"
+                            style="border:1px solid rgba(212,176,56,0.35);color:rgba(212,176,56,0.85);">
+                            <span data-lang="yt_view_channel">Kanalı Gez</span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                        </a>
+                    </div>
+
+                    <!-- Sağ: Son video embed -->
+                    <div data-aos="fade-left">
+                        <div class="flex justify-center">
+                            <div class="rounded-2xl overflow-hidden" style="width:315px;border:1px solid rgba(212,176,56,0.2);box-shadow:0 0 40px rgba(212,176,56,0.1);">
+                                <iframe
+                                    src="https://www.youtube.com/embed/7FY82HrByiE?rel=0&modestbranding=1"
+                                    width="315" height="560" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen loading="lazy"
+                                    title="QuevaTech Short">
+                                </iframe>
+                            </div>
+                        </div>
+                        <p class="text-xs text-center mt-3" style="color:rgba(238,230,216,0.4)" data-lang="yt_embed_note">Son yüklenen videolar · QuevaTech</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!--
         =================================
         7.5 Founder & Vision
         =================================
@@ -2406,7 +2524,7 @@
                             <!-- Founder Avatar -->
                             <div class="flex-shrink-0">
                                 <div
-                                    class="w-32 h-32 md:w-40 md:h-40 rounded-full bg-gradient-to-br from-queva-indigo to-queva-purple flex items-center justify-center text-white text-4xl md:text-5xl font-bold shadow-2xl">
+                                    class="w-32 h-32 md:w-40 md:h-40 rounded-full bg-gradient-to-br from-queva-midnight to-queva-gold flex items-center justify-center text-white text-4xl md:text-5xl font-bold shadow-2xl">
                                     YGT
                                 </div>
                             </div>
@@ -2415,7 +2533,7 @@
                                 <h2 data-lang="founder_title" class="text-2xl md:text-3xl font-bold mb-2">Baş
                                     Araştırmacı & İnisiyatif Lideri</h2>
                                 <h3 data-lang="founder_name"
-                                    class="text-xl text-queva-indigo dark:text-queva-purple font-semibold mb-4">Hasan
+                                    class="text-xl qt-icon font-semibold mb-4">Hasan
                                     Yiğit</h3>
                                 <p data-lang="founder_bio" class="text-gray-600 dark:text-gray-400 mb-6">
                                     Deep Tech, yapay zeka, siber güvenlik ve kuantum sonrası kriptografi alanlarında
@@ -2487,7 +2605,7 @@
         8. Contact Form & Map
         =================================
         -->
-        <section id="contact" class="py-20 bg-white dark:bg-queva-dark/50">
+        <section id="contact" class="py-20 bg-white dark:bg-queva-midnight/50">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-12" data-aos="fade-up">
                     <h2 data-lang="contact_title" class="text-3xl md:text-4xl font-bold">Bizimle İletişime Geçin</h2>
@@ -2529,10 +2647,10 @@
                         </button>
 
                         <!-- Yedek e-posta linki -->
-                        <div class="mt-4 p-4 bg-queva-light dark:bg-queva-dark/50 rounded-lg border border-gray-200 dark:border-gray-700">
+                        <div class="mt-4 p-4 rounded-lg email-fallback-box">
                             <p data-lang="form_alt_text" class="text-sm text-gray-600 dark:text-gray-400 mb-3">Form çalışmıyor mu? Doğrudan e-posta gönderin:</p>
                             <a href="mailto:info@queva.tech"
-                                class="glass-button inline-flex items-center px-4 py-2 rounded-lg transition-all duration-300">
+                                class="email-fallback-btn inline-flex items-center px-4 py-2 rounded-lg transition-all duration-300">
                                 <svg class="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                                 </svg>
@@ -2558,8 +2676,24 @@
     -->
 
     <!-- Quercus Background Icon -->
-    <div id="quercus-bg" style="position:fixed; bottom:-80px; left:50%; transform:translateX(-50%); width:520px; pointer-events:none; z-index:0; opacity:0.06;">
+    <div id="quercus-bg" style="position:fixed; bottom:-80px; left:50%; transform:translateX(-50%); width:520px; pointer-events:none; z-index:0; opacity:0.10;">
         <svg viewBox="0 0 364.44983 582.15778" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <!-- Açık tema: krem arka planda koyu tonlar — kökten lacivert, orta altın, üst mor -->
+                <linearGradient id="quercus-grad-light" x1="0%" y1="100%" x2="100%" y2="0%">
+                    <stop offset="0%"   stop-color="#1b1f3b"/>
+                    <stop offset="40%"  stop-color="#d4b038"/>
+                    <stop offset="70%"  stop-color="#6b21a8"/>
+                    <stop offset="100%" stop-color="#0EA5E9"/>
+                </linearGradient>
+                <!-- Koyu tema: midnight arka planda açık tonlar — kökten amber, orta sky, üst lila -->
+                <linearGradient id="quercus-grad-dark" x1="0%" y1="100%" x2="100%" y2="0%">
+                    <stop offset="0%"   stop-color="#f0c84a"/>
+                    <stop offset="40%"  stop-color="#4f8ef7"/>
+                    <stop offset="70%"  stop-color="#a78bfa"/>
+                    <stop offset="100%" stop-color="#38bdf8"/>
+                </linearGradient>
+            </defs>
             <g transform="translate(-1352.9331,781.80999)">
                 <path id="quercus-path" d="m 1530.6607,-200.43126 c -7.6286,-2.3291 -9.5176,-11.1462 -5.9646,-27.84 3.3679,-15.8236 3.8376,-21.9896 4.1669,-54.7115 0.4083,-40.54134 2.1173,-36.6929 -18.744,-42.20391 -113.5767,-30.00419 -212.0595,-181.65081 -122.1397,-188.07449 9.5158,-0.67979 9.3836,0.21354 1.3002,-8.78547 -62.2156,-69.26306 -30.8193,-128.95573 49.1509,-93.44929 13.5024,5.99505 13.1383,6.24323 7.4555,-5.08139 -28.1068,-56.00913 -16.4653,-97.93069 24.591,-88.55368 8.8436,2.01982 8.8905,1.98135 10.0097,-8.20244 9.2614,-84.28337 94.1124,-86.62441 107.4084,-2.96341 2.1163,13.31659 2.4915,13.66632 12.0123,11.19918 39.3876,-10.20635 52.4601,37.23375 23.7868,86.32308 -2.9663,5.07828 -5.3931,9.62585 -5.3931,10.10569 0,0.47987 5.412,-1.31138 12.0266,-3.98051 81.5402,-32.90313 113.21,28.25622 48.7438,94.13205 l -9.5743,9.7835 4.582,0.44728 c 24.0823,2.35089 29.9859,4.2477 36.3459,11.67793 34.2368,39.99801 -64.0655,149.18047 -159.5567,177.21689 -12.9395,3.79909 -15.5675,36.27839 -7.3986,91.43419 3.7418,25.2639 -0.348,35.3302 -12.809,31.5263 z m -1.4601,-134.80415 c 2.4746,-5.43164 -2.3655,-11.61267 -23.3161,-29.77598 -56.3911,-48.88883 -109.7706,-101.67697 -108.9195,-107.71305 1.1512,-8.16648 14.5411,1.89899 48.0905,36.15065 13.6905,13.9771 22.624,21.95323 24.5881,21.95323 0.6234,0 0.7515,-2.39742 0.3756,-7.03438 -2.4787,-30.5971 -1.9574,-33.7127 5.5251,-33.00761 1.8981,0.17877 3.7512,8.95819 5.6739,26.88074 2.177,20.291 2.4134,21.59512 4.7621,26.23296 3.2953,6.50805 34.1174,36.64195 41.2961,40.37398 l 2.0118,1.04581 -0.2068,-42.07984 -0.2067,-42.07985 -3.7358,-4.9077 c -2.0549,-2.69934 -30.5982,-32.06986 -63.4301,-65.26793 -62.9981,-63.70069 -64.894,-65.7837 -63.2194,-69.4593 2.7294,-5.99009 6.2047,-3.26622 42.7503,33.50594 14.6912,14.78215 26.87,26.87665 27.064,26.87665 0.1942,0 0.1,-4.18663 -0.2084,-9.30363 -0.6864,-11.3751 0.1664,-13.70177 5.1759,-14.1207 4.7976,-0.40124 5.9184,2.35624 7.5899,18.67619 1.7129,16.72364 2.8664,19.26277 14.5269,31.97828 17.4471,19.02558 32.2982,34.4915 33.1205,34.4915 0.4977,0 0.8407,-11.45723 0.8407,-28.08551 v -28.08553 l -5.2192,-5.86393 c -2.8704,-3.22518 -9.9363,-11.11141 -15.7019,-17.52495 -15.6133,-17.36835 -17.3405,-20.50356 -12.671,-23.00254 2.9726,-1.59084 5.9479,0.69275 19.394,14.88492 6.9035,7.28669 12.95,13.2485 13.4364,13.2485 0.5608,0 0.779,-9.72079 0.5963,-26.54938 l -0.2885,-26.54938 -2.5209,-4.28873 c -1.3867,-2.35879 -4.1874,-5.6264 -6.224,-7.26136 -12.8998,-10.35613 -50.6975,-51.90275 -50.7041,-55.73337 -0.017,-9.76751 11.4265,-1.03503 41.4891,31.65923 7.2307,7.86372 14.3583,15.16048 15.8393,16.21502 l 2.6926,1.91736 -0.286,-64.81038 c -0.3135,-71.06586 -0.3642,-70.34667 4.8994,-69.5614 5.2524,0.78356 5.656,2.94692 6.2891,33.70521 0.3204,15.56442 0.6266,28.40108 0.6807,28.52588 0.5233,1.20741 3.4811,-0.97829 10.1338,-7.48827 8.3727,-8.19314 9.9453,-8.87314 13.2786,-5.74166 4.4126,4.1455 1.9716,8.37553 -12.6673,21.95032 -12.0243,11.15039 -11.5545,9.66296 -11.5545,36.57169 0,27.79415 -4.2475,29.38598 37.2146,-13.9464 15.5075,-16.20702 20.7724,-18.77039 21.6043,-10.51866 0.389,3.86021 -2.8145,7.56627 -31.5149,36.45695 -31.2887,31.4964 -27.7728,24.77042 -27.6849,52.95828 0.091,29.19735 -0.5029,28.599 13.1345,13.23945 12.5731,-14.16098 17.2691,-16.93485 20.4503,-12.07966 2.2526,3.43791 -1.0202,8.12383 -16.5052,23.63051 -18.3063,18.33208 -17.2258,15.191 -16.8485,48.98209 0.3806,34.08593 -0.6012,32.7084 12.4891,17.52315 4.4274,-5.13612 13.8046,-15.26404 20.8378,-22.50649 15.2214,-15.67395 14.9295,-14.96426 14.9295,-36.30777 0,-16.08925 0.5062,-18.14566 4.4659,-18.14566 4.6763,0 7.3338,7.78998 7.3338,21.497 0,8.82264 0.5496,8.6685 11.1128,-3.11666 19.1778,-21.39625 50.7682,-51.74422 54.6118,-52.46388 6.1484,-1.15119 7.1369,3.19407 2.4511,10.77573 -1.0029,1.62263 -17.6716,18.23554 -37.0417,36.91759 -99.8668,96.3192 -91.4341,83.88729 -91.7399,135.24838 -0.313,52.55656 -3.3642,50.23515 26.885,20.45364 23.2798,-22.91975 21.2786,-18.75976 21.956,-45.64065 0.5949,-23.6039 1.296,-26.55028 6.3188,-26.55028 4.8846,0 5.8811,3.52318 6.1821,21.85485 0.1549,9.44633 0.6343,17.17496 1.065,17.17496 2.1151,0 11.5209,-8.583 31.7829,-29.00271 26.623,-26.83018 33.2432,-31.60438 37.2049,-26.83084 3.4393,4.14428 -0.016,7.69621 -68.9733,70.88911 -59.1221,54.1803 -59.7157,54.80484 -61.1836,64.36574 -1.0071,6.55966 -0.28,6.69415 12.7774,2.36278 59.7804,-19.83023 114.2716,-64.53028 141.7443,-116.27555 18.8704,-35.54266 10.8752,-49.01428 -29.0894,-49.01428 -19.9734,0 -23.4069,-2.78354 -14.1347,-11.45848 24.5962,-23.01192 33.1145,-33.23853 40.6486,-48.80017 25.9308,-53.56089 -18.8012,-71.10212 -81.1581,-31.82556 -22.279,14.03258 -29.1683,8.82175 -13.73,-10.38473 40.1992,-50.01135 37.7728,-105.7792 -3.9756,-91.375 -13.6308,4.7029 -14.937,3.61636 -16.8983,-14.05626 -4.3715,-39.38754 -30.1498,-70.06689 -50.7955,-60.45269 -18.5108,8.62007 -32.3913,33.04613 -33.9972,59.82624 -1.103,18.38966 -2.1011,19.25287 -16.9188,14.6329 -43.6459,-13.60804 -45.2799,44.05898 -2.7423,96.77293 13.4355,16.64957 9.322,20.82293 -9.1275,9.26047 -54.6899,-34.27501 -93.8888,-33.78381 -93.9847,1.17775 -0.06,21.86716 14.5203,46.65253 40.5909,69.00093 17.5255,15.02339 16.8115,16.59506 -8.2607,18.18355 -31.5151,1.99665 -38.4825,5.49387 -38.4825,19.31621 0,44.65831 78.2701,122.26631 146.1352,144.8989 14.4489,4.81865 18.2875,5.1682 19.8202,1.80459 z"/>
             </g>
@@ -2570,7 +2704,7 @@
         <div class="container mx-auto px-4 py-12">
             <div class="grid md:grid-cols-4 gap-8">
                 <div>
-                    <h3 class="text-xl font-bold mb-4">Queva<span class="text-queva-purple">Tech</span></h3>
+                    <h3 class="text-xl font-bold mb-4">Queva<span class="text-queva-ember">Tech</span></h3>
                     <p data-lang="footer_tagline" class="text-gray-400">Yapay zekâ ile geleceği şekillendiriyoruz.</p>
                 </div>
                 <div>
@@ -2673,6 +2807,7 @@
                 nav_platform: "Teknolojiler",
                 nav_solutions: "Yayınlar & Raporlar",
                 nav_projects: "Projeler",
+                nav_youtube: "YouTube",
                 nav_contact: "İletişim",
                 nav_home_mobile: "Ana Sayfa",
                 nav_products_mobile: "Araştırma Alanları",
@@ -2702,6 +2837,12 @@
                 product5_desc: "Entropi kalitesini ölçen derin öğrenme modelleri",
                 product6_title: "Teknik Danışmanlık ve Bilimsel Destek",
                 product6_desc: "Akademik iş birlikleri ve teknik yetkinlik paylaşımı",
+                product7_title: "Hesaplamalı Analiz & Simülasyon",
+                product7_desc: "Monte Carlo yöntemleri, istatistiksel modelleme ve sayısal hesaplama teknikleriyle büyük veri setlerinin analizi.",
+                product8_title: "Yazılım Mimarisi & Altyapı",
+                product8_desc: "Güvenlik odaklı yazılım mimarisi tasarımı, DevSecOps pipeline kurulumu ve sıfır-güven prensiplerine dayalı altyapı stratejisi.",
+                product9_title: "Sosyal Mühendislik & İnsan Faktörü",
+                product9_desc: "Siber saldırıların insan boyutunu ele alan farkındalık çalışmaları. OSINT metodolojileri ve davranışsal güvenlik modelleri.",
                 // Projects
                 projects_title: "Açık Kaynak Projeler",
                 projects_subtitle: "Araştırma altyapımızı destekleyen özgür yazılımlar",
@@ -2725,6 +2866,18 @@
                 stats_publications: "Teknik Doküman",
                 stats_prototypes: "Prototip Demo",
                 stats_code_lines: "Satır Kod",
+                // YouTube
+                youtube_title: "QuevaTech YouTube Kanalı",
+                youtube_subtitle: "Araştırma güncellemeleri, teknik analizler ve akademik içerikler için kanalımıza abone olun.",
+                yt_item1_title: "Araştırma Güncellemeleri",
+                yt_item1_desc: "TRNG, post-quantum kriptografi ve 6G üzerine teknik içerikler",
+                yt_item2_title: "Demo & Prototip Videoları",
+                yt_item2_desc: "PassGuard ve FPGA prototip demolarının görsel anlatımı",
+                yt_item3_title: "Duyurular & Yeni Projeler",
+                yt_item3_desc: "Açık kaynak yayınları ve iş birliği duyuruları",
+                yt_subscribe: "Abone Ol",
+                yt_view_channel: "Kanalı Gez",
+                yt_embed_note: "Son yüklenen videolar · QuevaTech",
                 // Tech Stack
                 tech_stack_title: "Kullandığımız Teknolojiler",
                 tech_stack_subtitle: "Araştırma ve geliştirme süreçlerimizde kullandığımız temel teknolojiler",
@@ -2853,6 +3006,7 @@
                 nav_platform: "Technologies",
                 nav_solutions: "Publications & Reports",
                 nav_projects: "Projects",
+                nav_youtube: "YouTube",
                 nav_contact: "Contact",
                 nav_home_mobile: "Home",
                 nav_products_mobile: "Research Areas",
@@ -2882,6 +3036,12 @@
                 product5_desc: "Deep learning models for measuring entropy quality",
                 product6_title: "Technical Consulting and Scientific Support",
                 product6_desc: "Academic collaborations and technical competency sharing",
+                product7_title: "Computational Analysis & Simulation",
+                product7_desc: "Analysis of large datasets using Monte Carlo methods, statistical modeling and numerical computation techniques.",
+                product8_title: "Software Architecture & Infrastructure",
+                product8_desc: "Security-first software architecture design, DevSecOps pipeline setup and zero-trust infrastructure strategy.",
+                product9_title: "Social Engineering & Human Factor",
+                product9_desc: "Awareness research on the human dimension of cyber attacks. OSINT methodologies and behavioral security models.",
                 // Projects
                 projects_title: "Open Source Projects",
                 projects_subtitle: "Free software powering our research infrastructure",
@@ -2905,6 +3065,18 @@
                 stats_publications: "Technical Documents",
                 stats_prototypes: "Prototype Demos",
                 stats_code_lines: "Lines of Code",
+                // YouTube
+                youtube_title: "QuevaTech YouTube Channel",
+                youtube_subtitle: "Subscribe for research updates, technical analyses and academic content.",
+                yt_item1_title: "Research Updates",
+                yt_item1_desc: "Technical content on TRNG, post-quantum cryptography and 6G",
+                yt_item2_title: "Demo & Prototype Videos",
+                yt_item2_desc: "Visual walkthroughs of PassGuard and FPGA prototype demos",
+                yt_item3_title: "Announcements & New Projects",
+                yt_item3_desc: "Open source releases and collaboration announcements",
+                yt_subscribe: "Subscribe",
+                yt_view_channel: "Visit Channel",
+                yt_embed_note: "Latest uploads · QuevaTech",
                 // Tech Stack
                 tech_stack_title: "Technologies We Use",
                 tech_stack_subtitle: "Core technologies used in our research and development processes",
@@ -3181,22 +3353,15 @@
         themeToggleBtn.addEventListener('click', function () {
             themeToggleDarkIcon.classList.toggle('hidden');
             themeToggleLightIcon.classList.toggle('hidden');
-            if (localStorage.getItem('color-theme')) {
-                if (localStorage.getItem('color-theme') === 'light') {
-                    document.documentElement.classList.add('dark');
-                    localStorage.setItem('color-theme', 'dark');
-                } else {
-                    document.documentElement.classList.remove('dark');
-                    localStorage.setItem('color-theme', 'light');
-                }
+            const goingDark = !document.documentElement.classList.contains('dark');
+            if (goingDark) {
+                document.documentElement.classList.add('dark');
+                navbar.classList.remove('bg-white');
+                localStorage.setItem('color-theme', 'dark');
             } else {
-                if (document.documentElement.classList.contains('dark')) {
-                    document.documentElement.classList.remove('dark');
-                    localStorage.setItem('color-theme', 'light');
-                } else {
-                    document.documentElement.classList.add('dark');
-                    localStorage.setItem('color-theme', 'dark');
-                }
+                document.documentElement.classList.remove('dark');
+                if (window.scrollY > 50) navbar.classList.add('bg-white');
+                localStorage.setItem('color-theme', 'light');
             }
         });
 
@@ -3388,8 +3553,10 @@
                     const isScrolled = window.scrollY > 50;
                     if (isScrolled !== lastNavbarState) {
                         lastNavbarState = isScrolled;
+                        const isDark = document.documentElement.classList.contains('dark');
                         if (isScrolled) {
-                            navbar.classList.add('bg-white', 'shadow-md', 'scrolled');
+                            if (!isDark) navbar.classList.add('bg-white');
+                            navbar.classList.add('shadow-md', 'scrolled');
                         } else {
                             navbar.classList.remove('bg-white', 'shadow-md', 'scrolled');
                         }
