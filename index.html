@@ -21,14 +21,16 @@
     <meta property="og:title" content="QuevaTech | Deep Tech, Advanced Engineering, AI Solutions">
     <meta property="og:description"
         content="Deep-tech venture born from academic research, building TRNG, cybersecurity, and post-quantum cryptography solutions.">
-    <meta property="og:image" content="https://queva.tech/qt-icon.svg">
+    <meta property="og:image" content="https://queva.tech/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://queva.tech/">
     <meta name="twitter:title" content="QuevaTech | Deep Tech, Advanced Engineering, AI Solutions">
     <meta name="twitter:description" content="Deep-tech solutions for TRNG, cybersecurity, and AI architectures — born from academic research.">
-    <meta name="twitter:image" content="https://queva.tech/qt-icon.svg">
+    <meta name="twitter:image" content="https://queva.tech/og-image.png">
 
     <!-- Schema.org Structured Data -->
     <script type="application/ld+json">
@@ -40,6 +42,7 @@
         "description": "Deep-tech venture born from academic research, focusing on advanced engineering and AI solutions including TRNG and post-quantum cryptography.",
         "url": "https://queva.tech",
         "logo": "https://queva.tech/qt-icon.svg",
+        "image": "https://queva.tech/og-image.png",
         "sameAs": [
             "https://www.youtube.com/@QuevaTech",
             "https://x.com/quevatech",
@@ -57,6 +60,29 @@
             }
         },
         "keywords": ["TRNG", "Cybersecurity", "AI", "Deep Tech", "Post-Quantum Cryptography"]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "PassGuard Vault",
+        "description": "Açık kaynaklı, sıfır-bilgi mimarili şifre yöneticisi ve dijital notebook. AES-256-GCM şifreleme ve Argon2id anahtar türetme ile verileriniz yalnızca cihazınızda şifrelenir.",
+        "applicationCategory": "SecurityApplication",
+        "operatingSystem": "Windows, macOS, Linux",
+        "author": {
+            "@type": "Organization",
+            "name": "QuevaTech"
+        },
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "url": "https://github.com/QuevaTech/PassGuard",
+        "downloadUrl": "https://github.com/QuevaTech/PassGuard/releases",
+        "softwareHelp": "https://github.com/QuevaTech/PassGuard/issues"
     }
     </script>
 
@@ -2038,9 +2064,30 @@
         <section id="solutions" class="py-20 bg-white dark:bg-queva-midnight/50 overflow-hidden">
             <div class="container mx-auto px-4">
                 <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div data-aos="fade-right">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&h=800&q=80"
-                            alt="Financial Analytics Dashboard" class="rounded-2xl shadow-2xl">
+                    <div data-aos="fade-right" class="rounded-2xl shadow-2xl overflow-hidden" style="background:linear-gradient(135deg,#1b1f3b,#2a2f56);">
+                        <svg viewBox="0 0 600 400" role="img" aria-labelledby="fin-illust-title" class="w-full h-full block">
+                            <title id="fin-illust-title">Monte Carlo örneklemlerinin gold renkli bir yakınsama eğrisine doğru toplanmasını gösteren soyut risk-yakınsama grafiği</title>
+                            <defs>
+                                <linearGradient id="finFade" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0%" stop-color="#d4b038" stop-opacity="0.9"/>
+                                    <stop offset="100%" stop-color="#d87e37" stop-opacity="0.6"/>
+                                </linearGradient>
+                            </defs>
+                            <g stroke="#eee6d8" stroke-opacity="0.12">
+                                <line x1="60" y1="60" x2="60" y2="330"/>
+                                <line x1="60" y1="330" x2="550" y2="330"/>
+                            </g>
+                            <g fill="#d4b038" fill-opacity="0.55">
+                                <circle cx="100" cy="120" r="4"/><circle cx="130" cy="200" r="4"/><circle cx="150" cy="90" r="4"/>
+                                <circle cx="180" cy="240" r="4"/><circle cx="210" cy="150" r="4"/><circle cx="230" cy="270" r="4"/>
+                                <circle cx="260" cy="180" r="4"/><circle cx="290" cy="220" r="4"/><circle cx="320" cy="195" r="4"/>
+                                <circle cx="350" cy="210" r="4"/><circle cx="380" cy="200" r="4"/><circle cx="410" cy="205" r="4"/>
+                            </g>
+                            <path d="M80 260 C 180 260, 220 190, 300 200 S 460 205, 520 202" fill="none" stroke="url(#finFade)" stroke-width="4" stroke-linecap="round"/>
+                            <g fill="#eee6d8" fill-opacity="0.25">
+                                <circle cx="440" cy="203" r="3"/><circle cx="470" cy="200" r="3"/><circle cx="500" cy="204" r="3"/>
+                            </g>
+                        </svg>
                     </div>
                     <div data-aos="fade-left">
                         <span data-lang="case_study_tag"
@@ -2086,9 +2133,26 @@
                                 Azaltma</p>
                         </div>
                     </div>
-                    <div data-aos="fade-right">
-                        <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&h=800&q=80"
-                            alt="Game Development Studio" class="rounded-2xl shadow-2xl">
+                    <div data-aos="fade-right" class="rounded-2xl shadow-2xl overflow-hidden" style="background:linear-gradient(135deg,#1b1f3b,#2a2f56);">
+                        <svg viewBox="0 0 600 400" role="img" aria-labelledby="gaming-illust-title" class="w-full h-full block">
+                            <title id="gaming-illust-title">Farklı renk ve yoğunluklarda dokuz karodan oluşan, prosedürel çeşitliliği simgeleyen soyut karo ızgarası</title>
+                            <g stroke="#eee6d8" stroke-opacity="0.15" stroke-width="2">
+                                <rect x="60" y="60" width="150" height="100" rx="10" fill="#d4b038" fill-opacity="0.35"/>
+                                <rect x="225" y="60" width="150" height="100" rx="10" fill="#d87e37" fill-opacity="0.5"/>
+                                <rect x="390" y="60" width="150" height="100" rx="10" fill="#d4b038" fill-opacity="0.2"/>
+                                <rect x="60" y="175" width="150" height="100" rx="10" fill="#d87e37" fill-opacity="0.25"/>
+                                <rect x="225" y="175" width="150" height="100" rx="10" fill="#d4b038" fill-opacity="0.6"/>
+                                <rect x="390" y="175" width="150" height="100" rx="10" fill="#d87e37" fill-opacity="0.4"/>
+                                <rect x="60" y="290" width="150" height="70" rx="10" fill="#d4b038" fill-opacity="0.45"/>
+                                <rect x="225" y="290" width="150" height="70" rx="10" fill="#d87e37" fill-opacity="0.2"/>
+                                <rect x="390" y="290" width="150" height="70" rx="10" fill="#d4b038" fill-opacity="0.3"/>
+                            </g>
+                            <g fill="#eee6d8" fill-opacity="0.7">
+                                <circle cx="135" cy="110" r="4"/>
+                                <circle cx="300" cy="225" r="4"/><circle cx="285" cy="210" r="4"/>
+                                <circle cx="465" cy="325" r="4"/><circle cx="450" cy="310" r="4"/><circle cx="480" cy="310" r="4"/>
+                            </g>
+                        </svg>
                     </div>
                 </div>
             </div>
@@ -2102,9 +2166,35 @@
         <section class="py-20 bg-white dark:bg-queva-midnight/50">
             <div class="container mx-auto px-4">
                 <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div data-aos="fade-right">
-                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&h=800&q=80"
-                            alt="Cybersecurity Operations Center" class="rounded-2xl shadow-2xl">
+                    <div data-aos="fade-right" class="rounded-2xl shadow-2xl overflow-hidden" style="background:linear-gradient(135deg,#1b1f3b,#2a2f56);">
+                        <svg viewBox="0 0 600 400" role="img" aria-labelledby="sec-illust-title" class="w-full h-full block">
+                            <title id="sec-illust-title">Fiziksel entropiden anahtar üretimini simgeleyen, ikili veri akışının bir kilit simgesine bağlandığı soyut şema</title>
+                            <g stroke="#eee6d8" stroke-opacity="0.15" stroke-width="1.5" fill="none">
+                                <path d="M40 100 H 220"/><path d="M40 140 H 260"/><path d="M40 180 H 200"/>
+                                <path d="M40 220 H 240"/><path d="M40 260 H 210"/><path d="M40 300 H 250"/>
+                            </g>
+                            <g font-family="monospace" font-size="13" fill="#d4b038" fill-opacity="0.5">
+                                <text x="45" y="104">01001101</text>
+                                <text x="45" y="144">11000101</text>
+                                <text x="45" y="184">00110110</text>
+                                <text x="45" y="224">10101100</text>
+                                <text x="45" y="264">01110010</text>
+                                <text x="45" y="304">11011001</text>
+                            </g>
+                            <circle cx="400" cy="200" r="90" fill="#1b1f3b"/>
+                            <circle cx="400" cy="200" r="90" fill="none" stroke="url(#secRing)" stroke-width="3"/>
+                            <defs>
+                                <linearGradient id="secRing" x1="0" y1="0" x2="1" y2="1">
+                                    <stop offset="0%" stop-color="#d4b038"/>
+                                    <stop offset="100%" stop-color="#d87e37"/>
+                                </linearGradient>
+                            </defs>
+                            <g transform="translate(400,200)">
+                                <rect x="-28" y="-6" width="56" height="46" rx="8" fill="#eee6d8"/>
+                                <path d="M -16 -6 V -22 A 16 16 0 0 1 16 -22 V -6" fill="none" stroke="#eee6d8" stroke-width="8"/>
+                                <circle cx="0" cy="16" r="6" fill="#1b1f3b"/>
+                            </g>
+                        </svg>
                     </div>
                     <div data-aos="fade-left">
                         <span data-lang="security_case_study_tag"
@@ -2549,13 +2639,13 @@
                             <div class="flex-shrink-0">
                                 <div
                                     class="w-32 h-32 md:w-40 md:h-40 rounded-full bg-gradient-to-br from-queva-midnight to-queva-gold flex items-center justify-center text-white text-4xl md:text-5xl font-bold shadow-2xl">
-                                    YGT
+                                    HY
                                 </div>
                             </div>
                             <!-- Founder Info -->
                             <div class="text-center md:text-left flex-1">
-                                <h2 data-lang="founder_title" class="text-2xl md:text-3xl font-bold mb-2">Kurucu &
-                                    Baş Araştırmacı</h2>
+                                <h2 data-lang="founder_title" class="text-2xl md:text-3xl font-bold mb-2">Kurucu
+                                    Araştırmacı</h2>
                                 <h3 data-lang="founder_name"
                                     class="text-xl qt-icon font-semibold mb-4">Hasan
                                     Yiğit</h3>
@@ -2983,8 +3073,6 @@
                 security_case_study_title: "Siber Güvenlik: Standartlara Uyumlu Anahtar ve Oturum Rastgeleliği",
                 security_case_study_desc: "Fiziksel entropi kaynaklarının kriptografik anahtar üretimi süreçlerine entegrasyonu üzerine yapılan araştırmamız, NIST SP 800-90A/B/C standartlarına uyumluluğu hedeflemektedir. Çalışma; oturum gizliliği ve anahtar güvenliği konularında, donanım tabanlı çözümlerin yazılımsal yaklaşımlara üstünlüğünü teknik olarak analiz etmektedir.",
                 security_case_study_stat: "Kriptografik Güvenlik ve Standart Uyumluluk",
-                // Testimonials
-                testimonials_title: "Şeffaflık ve Güven",
                 trust_title: "Şeffaflık ve Güven",
                 trust_subtitle: "Tüm çalışmalarımız kamuya açık, bağımsız denetlenebilir ve belgelenmiştir.",
                 trust_github_title: "Açık Kaynak Kod",
@@ -2995,18 +3083,6 @@
                 trust_nist_desc: "Araştırmalarımız NIST SP 800-90A/B/C standartlarına atıfla yürütülmektedir. AI-Hybrid TRNG makalemiz arXiv'de yayımlandı.",
                 trust_academic_title: "Akademik Kökenli Deep-Tech",
                 trust_academic_desc: "Akademik araştırmadan doğan, bilimsel titizlikle yürütülen bir deep-tech girişimi. Akyaka / Muğla merkezli, küresel vizyonlu.",
-                testimonial1_name: "Finans Teknolojileri Araştırmacısı",
-                testimonial1_title: "Hesaplamalı Finans Laboratuvarı",
-                testimonial1_desc: "\"QuevaTech'in sunduğu yüksek entropili veri setleri, simülasyon modellerimizin gerçeklik payını artırmada kritik rol oynamaktadır. Bilimsel yaklaşım ve teknik şeffaflık, projeyi benzerlerinden ayırmaktadır.\"",
-                testimonial2_name: "Siber Güvenlik Uzmanı",
-                testimonial2_title: "Kriptografi ve Güvenlik Birimi",
-                testimonial2_desc: "\"Geleceğin şifreleme standartlarına yönelik donanım tabanlı yaklaşımların akademik düzeyde temsil edilmesi, ekosistemin güvenliği açısından büyük önem taşımaktadır.\"",
-                testimonial3_name: "Game Design Uzmanı",
-                testimonial3_title: "AAA Oyun Stüdyosu Araştırması",
-                testimonial3_desc: "\"Procedural generation'da gerçek rastgelelik kullanımının content variety'yi %85+ artırabileceği pilot projelerimizde gözlemlendi. Player engagement ve replayability açısından game-changer teknoloji olabilir.\"",
-                testimonial4_name: "Blockchain Security Uzmanı",
-                testimonial4_title: "DeFi & Smart Contract Auditing",
-                testimonial4_desc: "\"On-chain randomness'ta TRNG kullanımının smart contract security'yi %90+ artırabileceği mainnet testlerinde doğrulandı. DeFi protokollerinde MEV protection ve fair distribution için vazgeçilmez.\"",
                 // Tech Stack
                 tech_stack_title: "Entegre Olduğumuz Teknolojiler",
                 // Blog
@@ -3025,7 +3101,7 @@
                 blog_readmore3: "Devamını Oku",
                 blog_readmore4: "Devamını Oku",
                 // Founder
-                founder_title: "Kurucu & Baş Araştırmacı",
+                founder_title: "Kurucu Araştırmacı",
                 founder_name: "Hasan Yiğit",
                 founder_bio: "Deep Tech, yapay zeka, siber güvenlik ve kuantum sonrası kriptografi alanlarında araştırmalar yürüten QuevaTech'in kurucusu. TRNG teknolojileri ve 6G fiziksel katman güvenliği üzerine çalışmaktadır.",
                 founder_quote: "QuevaTech; akademik araştırmadan doğan, Deep Tech, ileri mühendislik ve yapay zeka mimarilerini gerçek dünya çözümlerine dönüştüren bir teknoloji girişimidir. Amacımız; bilimsel titizlikle geliştirdiğimiz teknolojileri güvenilir ve sürdürülebilir ürünler olarak ekosisteme sunmaktır.",
@@ -3214,8 +3290,6 @@
                 security_case_study_title: "Cybersecurity: Standards-Aligned Key and Session Randomness",
                 security_case_study_desc: "Our research on the integration of physical entropy sources into cryptographic key generation processes aims for compliance with NIST SP 800-90A/B/C standards. The study technically analyzes the superiority of hardware-based solutions over software approaches in session confidentiality and key security.",
                 security_case_study_stat: "Cryptographic Security and Standards Compliance",
-                // Testimonials
-                testimonials_title: "Transparency and Trust",
                 trust_title: "Transparency and Trust",
                 trust_subtitle: "All our work is publicly available, independently auditable and documented.",
                 trust_github_title: "Open Source Code",
@@ -3226,18 +3300,6 @@
                 trust_nist_desc: "Our research is conducted with reference to NIST SP 800-90A/B/C standards. Our AI-Hybrid TRNG paper is published on arXiv.",
                 trust_academic_title: "Deep Tech with Academic Roots",
                 trust_academic_desc: "A deep-tech venture born from academic research, driven by scientific rigor. Based in Akyaka / Muğla, with a global vision.",
-                testimonial1_name: "FinTech Researcher",
-                testimonial1_title: "Computational Finance Laboratory",
-                testimonial1_desc: "\"The high-entropy datasets provided by QuevaTech play a critical role in increasing the reality of our simulation models. The scientific approach and technical transparency distinguish the project from its counterparts.\"",
-                testimonial2_name: "Cybersecurity Expert",
-                testimonial2_title: "Cryptography and Security Unit",
-                testimonial2_desc: "\"Representing hardware-based approaches for future encryption standards at an academic level is of great importance for the security of the ecosystem.\"",
-                testimonial3_name: "Game Design Expert",
-                testimonial3_title: "AAA Game Studio Research",
-                testimonial3_desc: "\"Our pilot projects observed that using true randomness in procedural generation could increase content variety by 85%+. Could be a game-changer technology for player engagement and replayability.\"",
-                testimonial4_name: "Blockchain Security Expert",
-                testimonial4_title: "DeFi & Smart Contract Auditing",
-                testimonial4_desc: "\"Our mainnet tests confirmed that using TRNG for on-chain randomness could increase smart contract security by 90%+. Indispensable for MEV protection and fair distribution in DeFi protocols.\"",
                 // Tech Stack
                 tech_stack_title: "Technologies We Integrate With",
                 // Blog
@@ -3256,7 +3318,7 @@
                 blog_readmore3: "Read More",
                 blog_readmore4: "Read More",
                 // Founder
-                founder_title: "Founder & Principal Researcher",
+                founder_title: "Founding Researcher",
                 founder_name: "Hasan Yiğit",
                 founder_bio: "Founder of QuevaTech, conducting research in Deep Tech, AI, cybersecurity, and post-quantum cryptography. Working on TRNG technologies and 6G physical layer security.",
                 founder_quote: "QuevaTech is a deep-tech venture born from academic research, turning advanced engineering and AI architectures into real-world solutions. Our goal is to deliver technologies built with scientific rigor to the ecosystem as reliable, sustainable products.",
