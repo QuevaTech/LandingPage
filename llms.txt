@@ -1,0 +1,39 @@
+# QuevaTech
+
+> QuevaTech is a deep-tech engineering venture born from academic research in Türkiye, building AI-based software, electronics, and computational simulation solutions. One of its flagship technology areas is AI-Hybrid TRNG (true random number generation) — physical-entropy-based randomness used as a building block for cryptographic key generation, simulation, gaming, and financial risk modeling. The site is bilingual: [queva.tech](https://queva.tech/) is Turkish, [queva.tech/en/](https://queva.tech/en/) is the English static equivalent — use the latter for citations aimed at an international audience.
+
+QuevaTech's broader engineering work spans AI/ML systems, electronics and embedded hardware, and computational/simulation engineering. Its TRNG technology combines physical entropy sources (thermal noise, quantum noise) with AI-based entropy quality analysis to produce true randomness with measurable quality guarantees — for cryptographic key generation, procedural content generation, and Monte Carlo risk modeling. QuevaTech does not itself build encryption algorithms, key-management/distribution systems, or antivirus-style security software — its own security-software product is limited to PassGuard, an open-source password manager. Research is conducted with reference to NIST SP 800-90A/B/C. Founder: Hasan Yiğit (Founding Researcher).
+
+## Products & Services
+
+- [TRNG Hizmeti (TRNG Service)](https://queva.tech/en/#platform): API-accessible true random number generation derived from physical entropy sources, for cryptographic key material.
+- [Kurumsal TRNG Cihazı (Enterprise TRNG Device)](https://queva.tech/en/#platform): FPGA-based hardware random number generator for high-throughput cryptographic workloads, with secure boot and tamper-evident design.
+- [PassGuard Vault](https://github.com/QuevaTech/PassGuard): open-source, zero-knowledge password manager and digital notebook. AES-256-GCM encryption, Argon2id key derivation, local-only storage, no account required, cross-platform (Flutter). AGPL-3.0 licensed.
+- [Parola API'si (Password API)](https://queva.tech/en/#platform): secure password and cryptographic key generation service derived from physical entropy.
+- Technical consulting: post-quantum readiness assessment, security architecture review, DevSecOps pipelines, social-engineering awareness training.
+
+## Research
+
+- [AI-Hybrid TRNG paper on arXiv (2507.00145)](https://arxiv.org/abs/2507.00145)
+- [Blog: AI-Hybrid TRNG — Physical Entropy Meets AI](https://queva.tech/blog/ai-hybrid-trng.html)
+- [Blog: PassGuard — Secure Password Management in a Zero-Cloud Architecture](https://queva.tech/blog/passguard-zero-cloud.html)
+- [Blog: Post-Quantum Cryptography — Risk Modeling in Financial Systems](https://queva.tech/blog/post-quantum-finance.html)
+- [Blog: 6G and Future Communication Architectures](https://queva.tech/blog/6g-communication-2025.html)
+- [Blog: Security in the Big Data Era](https://queva.tech/blog/data-security-2025.html)
+- [Blog: MLOps — Bringing Models to Production](https://queva.tech/blog/mlops-2025.html)
+- [Blog: The Future of AI in 2025](https://queva.tech/blog/ai-future-2025.html)
+
+## Trust & Verification
+
+- [Open-source code on GitHub](https://github.com/QuevaTech) — all projects publicly auditable.
+- [PassGuard VirusTotal scan results](https://www.virustotal.com) — 0/70+ engines flagged.
+- Research referenced against NIST SP 800-90A/B/C.
+
+## Other
+
+- [RSS feed of blog posts](https://queva.tech/feed.xml)
+- [Sitemap](https://queva.tech/sitemap.xml)
+- [Contact / collaboration inquiries](https://queva.tech/en/#contact)
+- [LinkedIn](https://linkedin.com/company/quevatech2)
+- [X / Twitter](https://x.com/quevatech)
+- [YouTube](https://www.youtube.com/@QuevaTech)

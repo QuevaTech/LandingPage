@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+    <title>QuevaTech Blog</title>
+    <link>https://queva.tech/</link>
+    <description>QuevaTech'in TRNG, siber güvenlik, yapay zeka ve kuantum-sonrası kriptografi alanlarındaki akademik Ar-Ge çalışmaları ve teknik yazıları.</description>
+    <language>tr</language>
+    <atom:link href="https://queva.tech/feed.xml" rel="self" type="application/rss+xml"/>
+
+    <item>
+        <title>AI-Hybrid TRNG: Fiziksel Entropi ile Yapay Zekânın Kesişimi</title>
+        <link>https://queva.tech/blog/ai-hybrid-trng.html</link>
+        <guid>https://queva.tech/blog/ai-hybrid-trng.html</guid>
+        <description>Fiziksel entropi kaynaklarının kriptografik anahtar üretimine entegrasyonu üzerine yürütülen araştırma, NIST SP 800-90A/B/C standartlarına uyum hedeflemektedir. Donanım tabanlı çözümlerin yazılım yaklaşımlarına kriptografik üstünlüğü teknik olarak analiz edilmektedir.</description>
+        <pubDate>Sat, 25 Apr 2026 12:42:06 +0300</pubDate>
+    </item>
+
+    <item>
+        <title>PassGuard: Sıfır-Bulut Mimarisinde Güvenli Parola Yönetimi</title>
+        <link>https://queva.tech/blog/passguard-zero-cloud.html</link>
+        <guid>https://queva.tech/blog/passguard-zero-cloud.html</guid>
+        <description>AES-256-GCM şifreleme ve Argon2id anahtar türetme ile tasarlanan PassGuard, kullanıcı verilerinin yalnızca cihazda şifrelenerek saklandığı sıfır-bilgi mimarisini pratikte uygular. Kriptografik tasarım kararları ve güvenlik denetim süreci ele alınmaktadır.</description>
+        <pubDate>Sat, 25 Apr 2026 12:42:06 +0300</pubDate>
+    </item>
+
+    <item>
+        <title>Kuantum Sonrası Kriptografi: Finansal Sistemlerde Risk Modelleme</title>
+        <link>https://queva.tech/blog/post-quantum-finance.html</link>
+        <guid>https://queva.tech/blog/post-quantum-finance.html</guid>
+        <description>QuevaTech bünyesinde yürütülen çalışmalarda AI-Hybrid TRNG yaklaşımının Monte Carlo simülasyonlarına etkisi araştırılmaktadır. Yüksek kaliteli rastgeleliğin risk analizindeki potansiyeli teknik olarak belgelenmektedir.</description>
+        <pubDate>Sat, 25 Apr 2026 12:42:06 +0300</pubDate>
+    </item>
+
+    <item>
+        <title>6G ve Geleceğin İletişim Mimarileri</title>
+        <link>https://queva.tech/blog/6g-communication-2025.html</link>
+        <guid>https://queva.tech/blog/6g-communication-2025.html</guid>
+        <description>6G teknolojileri üzerine güncel araştırmalar, multimodal yapay zeka ve edge computing entegrasyonunun iletişim protokollerine etkisini incelemektedir. Çalışmamız, yeni nesil modellerin insan-makine iş birliğindeki rolünü teknik perspektiften ele almaktadır.</description>
+        <pubDate>Sat, 25 Apr 2026 12:42:06 +0300</pubDate>
+    </item>
+
+    <item>
+        <title>Büyük Veri Çağında Güvenlik</title>
+        <link>https://queva.tech/blog/data-security-2025.html</link>
+        <guid>https://queva.tech/blog/data-security-2025.html</guid>
+        <description>2025'te siber saldırı sofistikasyonu exponential büyüme gösteriyor. Yapay zeka ile güçlendirilmiş saldırılar, kuantum bilişim tehditleri ve İnternet ağında güvenlik açıkları, geleneksel güvenlik önlemlerini yetersiz kılıyor.</description>
+        <pubDate>Fri, 02 Jan 2026 17:26:28 +0300</pubDate>
+    </item>
+
+    <item>
+        <title>MLOps: Modellerinizi Hayata Geçirin</title>
+        <link>https://queva.tech/blog/mlops-2025.html</link>
+        <guid>https://queva.tech/blog/mlops-2025.html</guid>
+        <description>Makine Öğrenmesi İşlemleri (MLOps) deneysel aşamanın ötesine geçerek, üretim hazır kurumsal çözümlerin temel bileşeni haline gelmiştir. Geleneksel DevOps uygulamalarını makine öğrenmesi iş akışlarına uyarlamak devrimci sonuçlar yaratıyor.</description>
+        <pubDate>Fri, 02 Jan 2026 17:26:28 +0300</pubDate>
+    </item>
+
+    <item>
+        <title>2025'te Yapay Zekânın Geleceği</title>
+        <link>https://queva.tech/blog/ai-future-2025.html</link>
+        <guid>https://queva.tech/blog/ai-future-2025.html</guid>
+        <description>2025 yılı yapay zeka teknolojisi için gerçek bir dönüm noktası olacak. Multimodal AI sistemlerinden agentic AI çözümlerine, edge computing entegrasyonundan quantum-enhanced algoritmalarına kadar, bu yıl iş dünyasında köklü değişimler yaşanacak.</description>
+        <pubDate>Fri, 02 Jan 2026 17:26:28 +0300</pubDate>
+    </item>
+
+</channel>
+</rss>
