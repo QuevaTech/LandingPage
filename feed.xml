@@ -3,7 +3,7 @@
 <channel>
     <title>QuevaTech Blog</title>
     <link>https://queva.tech/</link>
-    <description>QuevaTech'in TRNG, siber güvenlik, yapay zeka ve kuantum-sonrası kriptografi alanlarındaki akademik Ar-Ge çalışmaları ve teknik yazıları.</description>
+    <description>QuevaTech'in yapay zeka, elektronik ve yazılım mühendisliği alanlarındaki (AI-Hybrid TRNG dahil) akademik Ar-Ge çalışmaları ve teknik yazıları.</description>
     <language>tr</language>
     <atom:link href="https://queva.tech/feed.xml" rel="self" type="application/rss+xml"/>
 
