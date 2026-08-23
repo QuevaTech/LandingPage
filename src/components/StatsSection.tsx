@@ -58,11 +58,18 @@ export function StatsSection() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-12">
           {stats.map((stat, index) => (
             <div key={index} className="text-center">
-              <div className="text-5xl md:text-6xl font-bold mb-2 stat-num">
+              <div className="text-5xl md:text-6xl font-bold mb-2 stat-num" style={{ 
+                background: 'linear-gradient(135deg, #f4e4bc 0%, #d4b038 50%, #f4e4bc 100%)',
+                backgroundSize: '200% 200%',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                animation: 'qt-title-shine 3s ease-in-out infinite'
+              }}>
                 <span ref={(el) => { countersRef.current[index] = el!; }} className="stat-counter">0</span>
                 {stat.suffix}
               </div>
-              <p className="text-sm md:text-base" style={{ color: 'rgba(238,230,216,0.65)' }}>
+              <p className="text-sm md:text-base font-medium" style={{ color: '#f4e4bc' }}>
                 {t(stat.labelKey)}
               </p>
             </div>

@@ -1,0 +1,86 @@
+# QuevaTech Decap CMS Configuration
+
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: public/images
+public_folder: /images
+
+site_url: https://queva.tech
+display_url: https://queva.tech
+
+publish_mode: editorial_workflow
+
+collections:
+  - name: "blog"
+    label: "Blog Yazıları"
+    folder: "blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Layout", name: "layout", widget: "hidden", default: "blog"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Date", name: "date", widget: "datetime"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Tags", name: "tags", widget: "list"}
+      - {label: "Cover Image", name: "cover", widget: "image", required: false}
+      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Language", name: "lang", widget: "select", options: ["tr", "en"], default: "tr"}
+
+  - name: "publications"
+    label: "Yayınlar ve Raporlar"
+    folder: "publications"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Layout", name: "layout", widget: "hidden", default: "publication"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Date", name: "date", widget: "datetime"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Category", name: "category", widget: "select", options: ["6G", "Cryptography", "TRNG", "Security", "MLOps", "General"]}
+      - {label: "Tags", name: "tags", widget: "list"}
+      - {label: "PDF Link", name: "pdf_link", widget: "string", required: false}
+      - {label: "ArXiv Link", name: "arxiv_link", widget: "string", required: false}
+      - {label: "GitHub Link", name: "github_link", widget: "string", required: false}
+      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Language", name: "lang", widget: "select", options: ["tr", "en"], default: "tr"}
+
+  - name: "pages"
+    label: "Sayfalar"
+    files:
+      - name: "home"
+        label: "Ana Sayfa"
+        file: "src/locales/tr.json"
+        fields:
+          - {label: "Hero Title", name: "hero_title", widget: "string"}
+          - {label: "Hero Slogan", name: "hero_slogan", widget: "string"}
+          - {label: "Hero Subtitle", name: "hero_subtitle", widget: "string"}
+          - {label: "Hero CTA 1", name: "hero_cta1", widget: "string"}
+          - {label: "Hero CTA 2", name: "hero_cta2", widget: "string"}
+
+      - name: "contact"
+        label: "İletişim Sayfası"
+        file: "src/locales/tr.json"
+        fields:
+          - {label: "Contact Title", name: "contact_title", widget: "string"}
+          - {label: "Contact Subtitle", name: "contact_subtitle", widget: "string"}
+          - {label: "Form Name Label", name: "form_name", widget: "string"}
+          - {label: "Form Email Label", name: "form_email", widget: "string"}
+          - {label: "Form Message Label", name: "form_message", widget: "string"}
+          - {label: "Form Submit", name: "form_submit", widget: "string"}
+
+      - name: "footer"
+        label: "Footer"
+        file: "src/locales/tr.json"
+        fields:
+          - {label: "Footer Tagline", name: "footer_tagline", widget: "string"}
+          - {label: "Footer Copyright", name: "footer_copyright", widget: "string"}
+          - {label: "Academic Disclaimer", name: "footer_academic_disclaimer", widget: "text"}
+
+slug:
+  encoding: "ascii"
+  sanitize_replacement: "-"
+
+editor:
+  preview: false

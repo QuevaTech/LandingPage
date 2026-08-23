@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 interface FooterColProps {
   title: string;
@@ -15,8 +16,11 @@ function FooterCol({ title, children }: FooterColProps) {
   );
 }
 
-function FooterLink({ children, href = '#' }: { children: React.ReactNode; href?: string }) {
-  return <a className="qt-foot__link" href={href}>{children}</a>;
+function FooterLink({ children, to, href }: { children: React.ReactNode; to?: string; href?: string }) {
+  if (href) {
+    return <a className="qt-foot__link" href={href}>{children}</a>;
+  }
+  return <Link className="qt-foot__link" to={to || '#'}>{children}</Link>;
 }
 
 export function Footer() {
@@ -75,10 +79,10 @@ export function Footer() {
         </div>
 
         <FooterCol title={t('footer_menu_quick')}>
-          <FooterLink href="#products">{t('footer_nav_products')}</FooterLink>
-          <FooterLink href="#platform">{t('footer_nav_solutions')}</FooterLink>
-          <FooterLink href="#solutions">{t('footer_nav_blog')}</FooterLink>
-          <FooterLink href="#contact">{t('footer_nav_contact')}</FooterLink>
+          <FooterLink to="#products">{t('footer_nav_products')}</FooterLink>
+          <FooterLink to="#platform">{t('footer_nav_solutions')}</FooterLink>
+          <FooterLink to="/publications">{t('footer_nav_blog')}</FooterLink>
+          <FooterLink to="#contact">{t('footer_nav_contact')}</FooterLink>
         </FooterCol>
 
         <FooterCol title={t('footer_menu_legal')}>

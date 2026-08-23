@@ -22,20 +22,22 @@ export function ContactSection() {
     setStatus(null);
 
     try {
-      // In production, this would call your API endpoint
-      // const response = await fetch('/api/contact', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify(formData),
-      // });
-      
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      setStatus({ type: 'success', message: t('form_success') });
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...formData, _honey: '' }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Form submission failed');
+      }
+
+      setStatus({ type: 'success', message: data.message || t('form_success') });
       setFormData({ name: '', email: '', message: '' });
-    } catch {
-      setStatus({ type: 'error', message: t('form_error') });
+    } catch (error) {
+      setStatus({ type: 'error', message: error instanceof Error ? error.message : t('form_error') });
     } finally {
       setIsSubmitting(false);
     }
@@ -127,7 +129,7 @@ export function ContactSection() {
               <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">{t('form_alt_text')}</p>
               <a 
                 href="mailto:info@queva.tech"
-                className="email-fallback-btn inline-flex items-center px-4 py-2 rounded-lg transition-all duration-300"
+                className="email-fallback-btn inline-flex items-center px-4 py-2 rounded-full transition-all duration-300"
               >
                 <svg className="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>

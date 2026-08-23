@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { Footer } from './components/Footer';
@@ -13,6 +14,26 @@ import { BlogSection } from './components/BlogSection';
 import { YouTubeSection } from './components/YouTubeSection';
 import { FounderSection } from './components/FounderSection';
 import { ContactSection } from './components/ContactSection';
+import { PublicationsPage } from './components/PublicationsPage';
+import { TRNGDemoPage } from './components/TRNGDemoPage';
+
+function HomePage() {
+  return (
+    <main>
+      <Hero />
+      <ProductsSection />
+      <ProjectsSection />
+      <StatsSection />
+      <PlatformSection />
+      <CaseStudiesSection />
+      <TrustSection />
+      <BlogSection />
+      <YouTubeSection />
+      <FounderSection />
+      <ContactSection />
+    </main>
+  );
+}
 
 export function App() {
   const { i18n } = useTranslation();
@@ -50,23 +71,17 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen">
-      <Navbar theme={theme} setTheme={handleThemeChange} lang={lang} setLang={handleLangChange} />
-      <main>
-        <Hero />
-        <ProductsSection />
-        <ProjectsSection />
-        <StatsSection />
-        <PlatformSection />
-        <CaseStudiesSection />
-        <TrustSection />
-        <BlogSection />
-        <YouTubeSection />
-        <FounderSection />
-        <ContactSection />
-      </main>
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <div className="min-h-screen">
+        <Navbar theme={theme} setTheme={handleThemeChange} lang={lang} setLang={handleLangChange} />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/publications" element={<PublicationsPage />} />
+          <Route path="/trng-demo" element={<TRNGDemoPage />} />
+        </Routes>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }
 

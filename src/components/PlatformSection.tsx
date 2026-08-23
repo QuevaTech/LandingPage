@@ -4,9 +4,20 @@ import { SectionHeading, GlassCard, Chip } from './ui/SectionComponents';
 const coreTech = [
   {
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M3 3v18h18"></path>
-        <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"></path>
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <defs>
+          <linearGradient id="platGrad1" x1="0" y1="0" x2="24" y2="24">
+            <stop offset="0%" stopColor="#d4b038"/>
+            <stop offset="100%" stopColor="#d87e37"/>
+          </linearGradient>
+        </defs>
+        <path d="M3 21h18M3 14h18M3 7h18" stroke="url(#platGrad1)" strokeWidth="1.5"/>
+        <path d="M7 16l4-8 4 6 2-4" stroke="url(#platGrad1)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <circle cx="7" cy="16" r="2" fill="url(#platGrad1)"/>
+        <circle cx="11" cy="8" r="2" fill="url(#platGrad1)"/>
+        <circle cx="15" cy="14" r="2" fill="url(#platGrad1)"/>
+        <circle cx="17" cy="10" r="2" fill="url(#platGrad1)"/>
+        <path d="M3 21l18-14" stroke="url(#platGrad1)" strokeWidth="0.8" strokeDasharray="4 4" opacity="0.3"/>
       </svg>
     ),
     titleKey: 'platform_analytics_title',
@@ -14,11 +25,18 @@ const coreTech = [
   },
   {
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M9.26 4.93L6.93 7.26M4.93 9.26L7.26 6.93M9.26 19.07L6.93 16.74M4.93 14.74L7.26 17.07"></path>
-        <circle cx="12" cy="12" r="3"></circle>
-        <path d="M12 1v6m0 6v6"></path>
-        <path d="M21 12h-6m-6 0H3"></path>
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <defs>
+          <linearGradient id="platGrad2" x1="0" y1="0" x2="24" y2="24">
+            <stop offset="0%" stopColor="#d87e37"/>
+            <stop offset="100%" stopColor="#0EA5E9"/>
+          </linearGradient>
+        </defs>
+        <circle cx="12" cy="12" r="8" stroke="url(#platGrad2)" strokeWidth="1.5"/>
+        <circle cx="12" cy="12" r="4" stroke="url(#platGrad2)" strokeWidth="1" strokeDasharray="4 4" opacity="0.4"/>
+        <path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12" stroke="url(#platGrad2)" strokeWidth="1.5"/>
+        <circle cx="12" cy="12" r="2" fill="url(#platGrad2)"/>
+        <ellipse cx="12" cy="12" rx="6" ry="6" stroke="url(#platGrad2)" strokeWidth="0.6" strokeDasharray="8 8" opacity="0.2"/>
       </svg>
     ),
     titleKey: 'platform_ml_title',
@@ -26,9 +44,18 @@ const coreTech = [
   },
   {
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect>
-        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <defs>
+          <linearGradient id="platGrad3" x1="0" y1="0" x2="24" y2="24">
+            <stop offset="0%" stopColor="#d4b038"/>
+            <stop offset="100%" stopColor="#d87e37"/>
+          </linearGradient>
+        </defs>
+        <rect x="3" y="11" width="18" height="11" rx="2" stroke="url(#platGrad3)" strokeWidth="1.5"/>
+        <path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="url(#platGrad3)" strokeWidth="1.5"/>
+        <circle cx="12" cy="16" r="2" fill="url(#platGrad3)"/>
+        <path d="M9 14h6M12 12v4" stroke="url(#platGrad3)" strokeWidth="1" strokeLinecap="round" opacity="0.6"/>
+        <circle cx="12" cy="11" r="3.5" stroke="url(#platGrad3)" strokeWidth="0.8" strokeDasharray="4 4" opacity="0.4"/>
       </svg>
     ),
     titleKey: 'platform_security_title',
@@ -36,8 +63,18 @@ const coreTech = [
   },
   {
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 2L12 6M12 18L12 22M4.93 4.93L7.76 7.76M16.24 16.24L19.07 19.07M2 12L6 12M18 12L22 12M4.93 19.07L7.76 16.24M16.24 7.76L19.07 4.93"></path>
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <defs>
+          <linearGradient id="platGrad4" x1="0" y1="0" x2="24" y2="24">
+            <stop offset="0%" stopColor="#d87e37"/>
+            <stop offset="100%" stopColor="#0EA5E9"/>
+          </linearGradient>
+        </defs>
+        <circle cx="12" cy="12" r="8" stroke="url(#platGrad4)" strokeWidth="1.5"/>
+        <circle cx="12" cy="12" r="4" stroke="url(#platGrad4)" strokeWidth="1" strokeDasharray="4 4" opacity="0.4"/>
+        <path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12" stroke="url(#platGrad4)" strokeWidth="1.5"/>
+        <circle cx="12" cy="12" r="2" fill="url(#platGrad4)"/>
+        <ellipse cx="12" cy="12" rx="6" ry="6" stroke="url(#platGrad4)" strokeWidth="0.6" strokeDasharray="8 8" opacity="0.2"/>
       </svg>
     ),
     titleKey: 'platform_trng_title',
@@ -48,9 +85,16 @@ const coreTech = [
 const architecture = [
   {
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M4 7v10c0 2.21 5.07 4 8 4s8-1.79 8-4V7"></path>
-        <ellipse cx="12" cy="7" rx="8" ry="4"></ellipse>
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <defs>
+          <linearGradient id="archGrad1" x1="0" y1="0" x2="24" y2="24">
+            <stop offset="0%" stopColor="#d4b038"/>
+            <stop offset="100%" stopColor="#d87e37"/>
+          </linearGradient>
+        </defs>
+        <path d="M4 17v10c0 2.21 5.07 4 8 4s8-1.79 8-4V17" stroke="url(#archGrad1)" strokeWidth="1.5"/>
+        <ellipse cx="12" cy="17" rx="8" ry="4" stroke="url(#archGrad1)" strokeWidth="1.5" fill="none"/>
+        <path d="M4 17l8-10 8 10" stroke="url(#archGrad1)" strokeWidth="1" opacity="0.4" strokeDasharray="4 4"/>
       </svg>
     ),
     titleKey: 'platform_arch_hybrid',
@@ -58,10 +102,17 @@ const architecture = [
   },
   {
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
-        <path d="M2 17l10 5 10-5"></path>
-        <path d="M2 12l10 5 10-5"></path>
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <defs>
+          <linearGradient id="archGrad2" x1="0" y1="0" x2="24" y2="24">
+            <stop offset="0%" stopColor="#0EA5E9"/>
+            <stop offset="100%" stopColor="#d4b038"/>
+          </linearGradient>
+        </defs>
+        <path d="M12 2L2 10l10 6 10-6-10-6z" stroke="url(#archGrad2)" strokeWidth="1.5"/>
+        <path d="M2 18l10 6 10-6" stroke="url(#archGrad2)" strokeWidth="1" opacity="0.5"/>
+        <path d="M2 13l10 6 10-6" stroke="url(#archGrad2)" strokeWidth="1" opacity="0.5"/>
+        <circle cx="12" cy="12" r="3" stroke="url(#archGrad2)" strokeWidth="1" strokeDasharray="3 3" opacity="0.4"/>
       </svg>
     ),
     titleKey: 'platform_arch_micro',
@@ -69,10 +120,18 @@ const architecture = [
   },
   {
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect>
-        <path d="M3 9h18"></path>
-        <path d="M9 21V9"></path>
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <defs>
+          <linearGradient id="archGrad3" x1="0" y1="0" x2="24" y2="24">
+            <stop offset="0%" stopColor="#d4b038"/>
+            <stop offset="100%" stopColor="#d87e37"/>
+          </linearGradient>
+        </defs>
+        <rect x="3" y="3" width="18" height="18" rx="2" stroke="url(#archGrad3)" strokeWidth="1.5"/>
+        <path d="M3 12h18" stroke="url(#archGrad3)" strokeWidth="1.5"/>
+        <path d="M12 3v18" stroke="url(#archGrad3)" strokeWidth="1.5"/>
+        <rect x="7" y="7" width="10" height="10" rx="1" stroke="url(#archGrad3)" strokeWidth="1" opacity="0.4"/>
+        <path d="M3 12l18 0" stroke="url(#archGrad3)" strokeWidth="0.6" strokeDasharray="3 3" opacity="0.3"/>
       </svg>
     ),
     titleKey: 'platform_arch_k8s',
@@ -80,8 +139,17 @@ const architecture = [
   },
   {
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <polyline points="22,12 18,12 15,21 9,3 6,12 2,12"></polyline>
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <defs>
+          <linearGradient id="archGrad4" x1="0" y1="0" x2="24" y2="24">
+            <stop offset="0%" stopColor="#0EA5E9"/>
+            <stop offset="100%" stopColor="#d4b038"/>
+          </linearGradient>
+        </defs>
+        <polyline points="22,12 18,12 15,21 9,3 6,12 2,12" stroke="url(#archGrad4)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <circle cx="15" cy="21" r="2" fill="url(#archGrad4)"/>
+        <circle cx="9" cy="3" r="2" fill="url(#archGrad4)"/>
+        <path d="M12 12l-3 9" stroke="url(#archGrad4)" strokeWidth="1" strokeDasharray="3 3" opacity="0.4"/>
       </svg>
     ),
     titleKey: 'platform_arch_realtime',
@@ -89,12 +157,20 @@ const architecture = [
   },
   {
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M9 12l2 2 4-4"></path>
-        <path d="M21 12c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1z"></path>
-        <path d="M3 12c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1z"></path>
-        <path d="M12 21c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1z"></path>
-        <path d="M12 3c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1z"></path>
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <defs>
+          <linearGradient id="archGrad5" x1="0" y1="0" x2="24" y2="24">
+            <stop offset="0%" stopColor="#d4b038"/>
+            <stop offset="100%" stopColor="#d87e37"/>
+          </linearGradient>
+        </defs>
+        <path d="M9 12l2 2 4-4" stroke="url(#archGrad5)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <circle cx="12" cy="12" r="7" stroke="url(#archGrad5)" strokeWidth="1.5"/>
+        <path d="M21 12c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1z" stroke="url(#archGrad5)" strokeWidth="1" opacity="0.4"/>
+        <path d="M3 12c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1z" stroke="url(#archGrad5)" strokeWidth="1" opacity="0.4"/>
+        <path d="M12 21c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1z" stroke="url(#archGrad5)" strokeWidth="1" opacity="0.4"/>
+        <path d="M12 3c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1z" stroke="url(#archGrad5)" strokeWidth="1" opacity="0.4"/>
+        <rect x="5" y="5" width="14" height="14" rx="2" stroke="url(#archGrad5)" strokeWidth="1" strokeDasharray="4 4" opacity="0.3"/>
       </svg>
     ),
     titleKey: 'platform_arch_secure',
@@ -123,10 +199,18 @@ const techStack = [
 const features = [
   {
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect>
-        <path d="M3 9h18"></path>
-        <path d="M9 21V9"></path>
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <defs>
+          <linearGradient id="featGrad1" x1="0" y1="0" x2="24" y2="24">
+            <stop offset="0%" stopColor="#d4b038"/>
+            <stop offset="100%" stopColor="#d87e37"/>
+          </linearGradient>
+        </defs>
+        <rect x="3" y="3" width="18" height="18" rx="2" stroke="url(#featGrad1)" strokeWidth="1.5"/>
+        <path d="M3 12h18" stroke="url(#featGrad1)" strokeWidth="1.5"/>
+        <path d="M12 3v18" stroke="url(#featGrad1)" strokeWidth="1.5"/>
+        <rect x="7" y="7" width="10" height="10" rx="1" stroke="url(#featGrad1)" strokeWidth="1" opacity="0.4"/>
+        <circle cx="12" cy="12" r="2" fill="url(#featGrad1)"/>
       </svg>
     ),
     titleKey: 'platform_feature_dashboard',
@@ -134,8 +218,15 @@ const features = [
   },
   {
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <defs>
+          <linearGradient id="featGrad2" x1="0" y1="0" x2="24" y2="24">
+            <stop offset="0%" stopColor="#0EA5E9"/>
+            <stop offset="100%" stopColor="#d4b038"/>
+          </linearGradient>
+        </defs>
+        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" stroke="url(#featGrad2)" strokeWidth="1.5" fill="none"/>
+        <circle cx="12" cy="12" r="5" stroke="url(#featGrad2)" strokeWidth="1" strokeDasharray="4 4" opacity="0.3"/>
       </svg>
     ),
     titleKey: 'platform_feature_pipeline',
@@ -143,10 +234,17 @@ const features = [
   },
   {
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="9" cy="21" r="1"></circle>
-        <circle cx="20" cy="21" r="1"></circle>
-        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <defs>
+          <linearGradient id="featGrad3" x1="0" y1="0" x2="24" y2="24">
+            <stop offset="0%" stopColor="#d4b038"/>
+            <stop offset="100%" stopColor="#d87e37"/>
+          </linearGradient>
+        </defs>
+        <circle cx="9" cy="21" r="1.5" fill="url(#featGrad3)"/>
+        <circle cx="20" cy="21" r="1.5" fill="url(#featGrad3)"/>
+        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" stroke="url(#featGrad3)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <rect x="4" y="4" width="16" height="16" rx="2" stroke="url(#featGrad3)" strokeWidth="1" opacity="0.4"/>
       </svg>
     ),
     titleKey: 'platform_feature_marketplace',
@@ -154,11 +252,19 @@ const features = [
   },
   {
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-        <circle cx="9" cy="7" r="4"></circle>
-        <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <defs>
+          <linearGradient id="featGrad4" x1="0" y1="0" x2="24" y2="24">
+            <stop offset="0%" stopColor="#d87e37"/>
+            <stop offset="100%" stopColor="#d4b038"/>
+          </linearGradient>
+        </defs>
+        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" stroke="url(#featGrad4)" strokeWidth="1.5"/>
+        <circle cx="9" cy="7" r="4" stroke="url(#featGrad4)" strokeWidth="1.5"/>
+        <circle cx="9" cy="7" r="2" stroke="url(#featGrad4)" strokeWidth="1" strokeDasharray="3 3" opacity="0.4"/>
+        <path d="M22 21v-2a4 4 0 0 0-3-3.87" stroke="url(#featGrad4)" strokeWidth="1.5"/>
+        <path d="M16 3.13a4 4 0 0 1 0 7.75" stroke="url(#featGrad4)" strokeWidth="1.5"/>
+        <path d="M12 12l-6 6" stroke="url(#featGrad4)" strokeWidth="1" strokeDasharray="3 3" opacity="0.3"/>
       </svg>
     ),
     titleKey: 'platform_feature_collab',
@@ -166,10 +272,18 @@ const features = [
   },
   {
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M9 12l2 2 4-4"></path>
-        <path d="M21 12c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1z"></path>
-        <path d="M3 12c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1z"></path>
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <defs>
+          <linearGradient id="featGrad5" x1="0" y1="0" x2="24" y2="24">
+            <stop offset="0%" stopColor="#d4b038"/>
+            <stop offset="100%" stopColor="#d87e37"/>
+          </linearGradient>
+        </defs>
+        <path d="M9 12l2 2 4-4" stroke="url(#featGrad5)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <circle cx="12" cy="12" r="7" stroke="url(#featGrad5)" strokeWidth="1.5"/>
+        <path d="M21 12c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1z" stroke="url(#featGrad5)" strokeWidth="1" opacity="0.4"/>
+        <path d="M3 12c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1z" stroke="url(#featGrad5)" strokeWidth="1" opacity="0.4"/>
+        <rect x="5" y="5" width="14" height="14" rx="2" stroke="url(#featGrad5)" strokeWidth="1" strokeDasharray="4 4" opacity="0.3"/>
       </svg>
     ),
     titleKey: 'platform_feature_compliance',
@@ -181,8 +295,17 @@ const integrations = [
   {
     eyebrowKey: 'eyebrow_data_sources',
     icon: (
-      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <defs>
+          <linearGradient id="intGrad1" x1="0" y1="0" x2="24" y2="24">
+            <stop offset="0%" stopColor="#d4b038"/>
+            <stop offset="100%" stopColor="#d87e37"/>
+          </linearGradient>
+        </defs>
+        <ellipse cx="12" cy="5" rx="9" ry="3" stroke="url(#intGrad1)" strokeWidth="1.5"/>
+        <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" stroke="url(#intGrad1)" strokeWidth="1.5"/>
+        <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" stroke="url(#intGrad1)" strokeWidth="1.5"/>
+        <circle cx="12" cy="12" r="3" stroke="url(#intGrad1)" strokeWidth="1" strokeDasharray="3 3" opacity="0.3"/>
       </svg>
     ),
     titleKey: 'platform_int_data',
@@ -195,8 +318,16 @@ const integrations = [
   {
     eyebrowKey: 'eyebrow_development',
     icon: (
-      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <defs>
+          <linearGradient id="intGrad2" x1="0" y1="0" x2="24" y2="24">
+            <stop offset="0%" stopColor="#0EA5E9"/>
+            <stop offset="100%" stopColor="#d4b038"/>
+          </linearGradient>
+        </defs>
+        <polyline points="16 18 22 12 16 6" stroke="url(#intGrad2)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <polyline points="8 6 2 12 8 18" stroke="url(#intGrad2)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <circle cx="12" cy="12" r="5" stroke="url(#intGrad2)" strokeWidth="1" strokeDasharray="4 4" opacity="0.3"/>
       </svg>
     ),
     titleKey: 'platform_int_dev',
@@ -209,8 +340,16 @@ const integrations = [
   {
     eyebrowKey: 'eyebrow_deployment',
     icon: (
-      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <defs>
+          <linearGradient id="intGrad3" x1="0" y1="0" x2="24" y2="24">
+            <stop offset="0%" stopColor="#d87e37"/>
+            <stop offset="100%" stopColor="#d4b038"/>
+          </linearGradient>
+        </defs>
+        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" stroke="url(#intGrad3)" strokeWidth="1.5" fill="none"/>
+        <rect x="6" y="6" width="12" height="12" rx="2" stroke="url(#intGrad3)" strokeWidth="1" opacity="0.4"/>
+        <path d="M12 6v12M6 12h12" stroke="url(#intGrad3)" strokeWidth="1" strokeDasharray="3 3" opacity="0.3"/>
       </svg>
     ),
     titleKey: 'platform_int_deploy',
@@ -223,8 +362,16 @@ const integrations = [
   {
     eyebrowKey: 'eyebrow_monitoring',
     icon: (
-      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <defs>
+          <linearGradient id="intGrad4" x1="0" y1="0" x2="24" y2="24">
+            <stop offset="0%" stopColor="#d4b038"/>
+            <stop offset="100%" stopColor="#d87e37"/>
+          </linearGradient>
+        </defs>
+        <path d="M22 12h-4l-3 9L9 3l-3 9H2" stroke="url(#intGrad4)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <circle cx="12" cy="12" r="6" stroke="url(#intGrad4)" strokeWidth="1" strokeDasharray="4 4" opacity="0.3"/>
+        <circle cx="12" cy="12" r="2" fill="url(#intGrad4)"/>
       </svg>
     ),
     titleKey: 'platform_int_monitor',
@@ -270,7 +417,7 @@ export function PlatformSection() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6 mt-8">
             {architecture.map((arch, index) => (
               <div key={index} className="text-center">
-                <div className="bg-gradient-to-br from-queva-midnight to-queva-gold text-white p-4 rounded-xl mb-4 mx-auto w-16 h-16 flex items-center justify-center">
+                <div className="mx-auto w-16 h-16 flex items-center justify-center mb-4">
                   {arch.icon}
                 </div>
                 <h4 className="font-semibold mb-2">{t(arch.titleKey)}</h4>
@@ -308,11 +455,11 @@ export function PlatformSection() {
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6 mt-8">
             {features.map((feature, index) => (
-              <div key={index} className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+              <GlassCard key={index} className="p-6 text-center">
                 <div className="qt-icon mb-4">{feature.icon}</div>
                 <h4 className="font-semibold mb-2">{t(feature.titleKey)}</h4>
                 <p className="text-sm text-gray-600 dark:text-gray-400">{t(feature.descKey)}</p>
-              </div>
+              </GlassCard>
             ))}
           </div>
         </div>

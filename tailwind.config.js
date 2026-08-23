@@ -12,14 +12,14 @@ export default {
       },
       colors: {
         // QuevaTech Design System — sıcak Quercus paleti
-        'queva-gold':      '#d4b038',  // Birincil — meşe ağacı rengi
+        'queva-gold':      '#d4b038',  // Birincil — meşe ağacı rengi (Gold/Yellow)
         'queva-ember':     '#d87e37',  // Amber/turuncu aksan
         'queva-signal':    '#ff1e3c',  // Alert/vurgu kırmızı
         'queva-midnight':  '#1b1f3b',  // Koyu lacivert — dark yüzey
         'queva-parchment': '#eee6d8',  // Sıcak krem — light yüzey
         // Legacy aliases (mevcut Tailwind class'ları için)
         'queva-indigo': '#1b1f3b',
-        'queva-purple': '#d87e37',
+        'queva-purple': '#d4b038',  // Changed to gold
         'queva-sky':    '#d4b038',
         'queva-dark':   '#1b1f3b',
         'queva-light':  '#eee6d8',
