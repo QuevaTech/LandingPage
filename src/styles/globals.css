@@ -1432,6 +1432,111 @@ html {
 }
 
 /* ===================================
+   Case Study Illustrations Animations
+   =================================== */
+
+/* Finance Case Study - Pulse and Flow */
+#fin-illust-title circle {
+  animation: financePulse 4s ease-in-out infinite;
+}
+
+#fin-illust-title path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: financeDraw 3s ease-out forwards, financeGlow 3s ease-in-out infinite;
+}
+
+@keyframes financePulse {
+  0%, 100% { 
+    fill-opacity: 0.55;
+    transform: scale(1);
+  }
+  50% { 
+    fill-opacity: 0.7;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes financeDraw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes financeGlow {
+  0%, 100% { 
+    stroke-opacity: 0.9;
+  }
+  50% { 
+    stroke-opacity: 1;
+  }
+}
+
+/* Gaming Case Study - Tile Pulse and Particle Float */
+#gaming-illust-title rect {
+  animation: gamingTilePulse 6s ease-in-out infinite;
+}
+
+#gaming-illust-title circle {
+  animation: gamingParticleFloat 8s ease-in-out infinite;
+}
+
+@keyframes gamingTilePulse {
+  0%, 100% { 
+    fill-opacity: 0.3;
+  }
+  25% { 
+    fill-opacity: 0.5;
+  }
+  50% { 
+    fill-opacity: 0.4;
+  }
+  75% { 
+    fill-opacity: 0.6;
+  }
+}
+
+@keyframes gamingParticleFloat {
+  0%, 100% { 
+    opacity: 0.7;
+    transform: translateY(0);
+  }
+  50% { 
+    opacity: 0.4;
+    transform: translateY(-20px);
+  }
+}
+
+/* Security Case Study - Lock Pulse and Wave */
+#security-illust-title circle {
+  animation: securityLockPulse 3s ease-in-out infinite;
+}
+
+#security-illust-title path {
+  animation: securityWave 4s ease-in-out infinite;
+}
+
+@keyframes securityLockPulse {
+  0%, 100% { 
+    fill: #1b1f3b;
+    transform: scale(1);
+  }
+  50% { 
+    fill: #0f172a;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes securityWave {
+  0%, 100% { 
+    stroke-dashoffset: 0;
+  }
+  50% { 
+    stroke-dashoffset: 50;
+  }
+}
+
+/* ===================================
    Focus Styles
    =================================== */
 *:focus-visible {
@@ -1469,3 +1574,13 @@ html {
     page-break-inside: avoid;
   }
 }
+
+/* Touch optimization */
+
+/* Mobile Bottom Navigation Styles */
+
+
+/* Mobile Menu Sidebar Styles */
+
+
+/* Touch optimization */

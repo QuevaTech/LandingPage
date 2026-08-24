@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Navbar } from './components/Navbar';
+import { Navbar } from './components/NavbarFinal';
 import { Hero } from './components/Hero';
 import { Footer } from './components/Footer';
 import { ProductsSection } from './components/ProductsSection';

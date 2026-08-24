@@ -14,7 +14,7 @@ const blogPosts = [
       { label: 'Edge Computing', variant: 'sky' as const },
       { label: 'Fiziksel Katman', variant: 'purple' as const },
     ],
-    link: 'blog/6g-communication-2025.html',
+    link: '/blog/6g-communication-2025.html',
     bgStyle: 'linear-gradient(135deg, #1b1f3b 0%, #2d2060 50%, #1b1f3b 100%)',
     iconColor: '#d4b038',
     icon: (
@@ -33,7 +33,7 @@ const blogPosts = [
       { label: 'NIST SP 800-90A', variant: 'indigo' as const },
       { label: 'Risk Modelleme', variant: 'sky' as const },
     ],
-    link: 'blog/post-quantum-finance.html',
+    link: '/blog/post-quantum-finance.html',
     bgStyle: 'linear-gradient(135deg, #1b1f3b 0%, #3b1f5e 50%, #1b1f3b 100%)',
     iconColor: '#a78bfa',
     icon: (
@@ -53,7 +53,7 @@ const blogPosts = [
       { label: 'AI-Hybrid', variant: 'sky' as const },
       { label: 'Entropi Kalitesi', variant: 'green' as const },
     ],
-    link: 'blog/ai-hybrid-trng.html',
+    link: '/blog/ai-hybrid-trng.html',
     bgStyle: 'linear-gradient(135deg, #2a1f0e 0%, #1b1f3b 50%, #2a1f0e 100%)',
     iconColor: '#d4b038',
     icon: (
@@ -73,7 +73,7 @@ const blogPosts = [
       { label: 'AES-256-GCM', variant: 'indigo' as const },
       { label: 'Argon2id', variant: 'sky' as const },
     ],
-    link: 'blog/passguard-zero-cloud.html',
+    link: '/blog/passguard-zero-cloud.html',
     bgStyle: 'linear-gradient(135deg, #1b1f3b 0%, #1f3b2a 50%, #1b1f3b 100%)',
     iconColor: '#4ade80',
     icon: (

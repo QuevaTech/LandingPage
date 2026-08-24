@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BLOG_TITLE | QuevaTech</title>
+<link rel="icon" type="image/svg+xml" href="../qt-icon.svg">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="../colors_and_type.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: { extend: { fontFamily: { inter: ['Inter','sans-serif'] },
+      colors: {
+        'queva-gold':'#d4b038','queva-ember':'#d87e37','queva-midnight':'#1b1f3b','queva-parchment':'#eee6d8',
+      }
+    }}
+  }
+</script>
+<style>
+  html,body{margin:0;padding:0;font-family:'Inter',sans-serif;}
+  body{background:var(--bg);color:var(--fg1);}
+  .prose p{color:var(--fg2);line-height:1.8;margin-bottom:1.25rem;font-size:1.05rem;}
+  .prose h2{color:var(--fg1);font-weight:700;font-size:1.5rem;margin:2.5rem 0 1rem;letter-spacing:-.01em;}
+  .prose h3{color:var(--fg1);font-weight:600;font-size:1.2rem;margin:2rem 0 0.75rem;}
+  .prose ul{color:var(--fg2);padding-left:1.5rem;margin-bottom:1.25rem;}
+  .prose ul li{margin-bottom:0.5rem;line-height:1.7;}
+  .prose strong{color:var(--fg1);}
+  .prose code{font-family:monospace;font-size:0.875em;background:var(--queva-midnight);color:var(--queva-gold);padding:0.1em 0.4em;border-radius:4px;}
+  .qt-chip{display:inline-block;font-size:11px;font-weight:600;padding:3px 10px;border-radius:9999px;margin:3px 3px 0 0;}
+  .qt-chip-gold{background:rgba(212,176,56,0.13);color:#b8901e;border:1px solid rgba(212,176,56,0.3);}
+  .qt-chip-blue{background:rgba(30,58,138,0.10);color:#1e3a8a;border:1px solid rgba(30,58,138,0.25);}
+  .qt-chip-purple{background:rgba(107,33,168,0.10);color:#6b21a8;border:1px solid rgba(107,33,168,0.25);}
+  .qt-chip-green{background:rgba(22,163,74,0.10);color:#16a34a;border:1px solid rgba(22,163,74,0.25);}
+  .dark .qt-chip-gold{background:rgba(212,176,56,0.18);color:#f0c84a;border-color:rgba(212,176,56,0.4);}
+  .dark .qt-chip-blue{background:rgba(79,142,247,0.18);color:#93c5fd;border-color:rgba(79,142,247,0.4);}
+  .dark .qt-chip-purple{background:rgba(167,139,250,0.18);color:#c4b5fd;border-color:rgba(167,139,250,0.4);}
+  .dark .qt-chip-green{background:rgba(22,163,74,0.18);color:#4ade80;border-color:rgba(22,163,74,0.4);}
+  @keyframes grad{0%{background-position:0% center}50%{background-position:100% center}100%{background-position:0% center}}
+  .grad-text{background:linear-gradient(90deg,#d4b038,#1e3a8a,#6b21a8,#0EA5E9,#d87e37,#d4b038);background-size:300% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:grad 15s ease infinite;}
+</style>
+</head>
+<body class="font-inter min-h-screen">
+
+<!-- Navbar -->
+<header class="fixed top-0 left-0 w-full z-50 transition-all duration-300"
+  style="background:rgba(238,230,216,0.08);backdrop-filter:blur(25px);border-bottom:1px solid rgba(212,176,56,0.15);">
+  <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a href="../index.html" class="text-xl font-bold">
+      <span style="color:#fff">Queva</span><span style="color:#d4b038;font-weight:800">Tech</span>
+    </a>
+    <a href="../index.html#blog"
+      class="text-sm font-semibold flex items-center gap-2 transition-colors"
+      style="color:rgba(255,255,255,0.7)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M19 12H5M12 19l-7-7 7-7"/>
+      </svg>
+      Bloga Dön
+    </a>
+  </div>
+</header>
+
+<!-- Hero banner -->
+<div class="w-full h-72 flex items-end relative overflow-hidden" style="BANNER_STYLE">
+  <div class="absolute inset-0" style="background:linear-gradient(to top, rgba(27,31,59,0.95) 0%, rgba(27,31,59,0.3) 60%, transparent 100%);"></div>
+  <div class="relative z-10 max-w-5xl mx-auto px-6 pb-10 w-full">
+    <p class="text-xs font-bold tracking-widest uppercase mb-3" style="color:var(--queva-gold)">BLOG_EYEBROW</p>
+    <h1 class="text-3xl md:text-4xl font-bold text-white leading-tight max-w-3xl">BLOG_TITLE</h1>
+  </div>
+</div>
+
+<!-- Article -->
+<main class="max-w-3xl mx-auto px-6 py-12">
+
+  <!-- Meta -->
+  <div class="flex flex-wrap items-center gap-4 mb-8 pb-8" style="border-bottom:1px solid rgba(212,176,56,0.15);">
+    <div>
+      <p class="text-xs font-semibold" style="color:var(--queva-ember)">QuevaTech Araştırma İnisiyatifi</p>
+      <p class="text-sm mt-0.5" style="color:var(--fg3)">BLOG_DATE · BLOG_READTIME</p>
+    </div>
+    <div class="ml-auto flex flex-wrap gap-1">
+      BLOG_CHIPS
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="prose">
+    BLOG_CONTENT
+  </div>
+
+  <!-- Footer note -->
+  <div class="mt-12 p-6 rounded-2xl" style="background:var(--glass-bg);border:1px solid var(--glass-border);">
+    <p class="text-xs italic" style="color:var(--fg3)">Bu yazı, QuevaTech Akademik Ar-Ge İnisiyatifi bünyesinde yürütülen araştırmaların özeti niteliğindedir. Ticari amaç taşımamakta olup bilimsel merak ve bağımsız araştırma motivasyonuyla hazırlanmıştır.</p>
+  </div>
+
+  <!-- Back -->
+  <div class="mt-8 text-center">
+    <a href="../index.html#blog" class="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-sm text-white transition-all"
+      style="background:linear-gradient(135deg,#1b1f3b,#d4b038,#d87e37);box-shadow:0 0 20px rgba(212,176,56,0.3);">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Tüm Yazılar
+    </a>
+  </div>
+
+</main>
+
+<script>
+  const saved = localStorage.getItem('color-theme');
+  if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.classList.add('dark');
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PassGuard: Sıfır-Bulut Mimarisinde Güvenli Parola Yönetimi | QuevaTech</title>
+<link rel="icon" type="image/svg+xml" href="../qt-icon.svg">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="../colors_and_type.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script>tailwind.config={darkMode:'class',theme:{extend:{fontFamily:{inter:['Inter','sans-serif']},colors:{'queva-gold':'#d4b038','queva-ember':'#d87e37','queva-midnight':'#1b1f3b','queva-parchment':'#eee6d8'}}}}</script>
+<style>
+  html,body{margin:0;padding:0;font-family:'Inter',sans-serif;}body{background:var(--bg);color:var(--fg1);}
+  .prose p{color:var(--fg2);line-height:1.8;margin-bottom:1.25rem;font-size:1.05rem;}
+  .prose h2{color:var(--fg1);font-weight:700;font-size:1.5rem;margin:2.5rem 0 1rem;}
+  .prose h3{color:var(--fg1);font-weight:600;font-size:1.2rem;margin:2rem 0 0.75rem;}
+  .prose ul{color:var(--fg2);padding-left:1.5rem;margin-bottom:1.25rem;}.prose ul li{margin-bottom:0.5rem;line-height:1.7;}
+  .prose strong{color:var(--fg1);}.prose code{font-family:monospace;font-size:0.875em;background:var(--queva-midnight);color:var(--queva-gold);padding:0.1em 0.4em;border-radius:4px;}
+  .qt-chip{display:inline-block;font-size:11px;font-weight:600;padding:3px 10px;border-radius:9999px;margin:3px 3px 0 0;}
+  .qt-chip-gold{background:rgba(212,176,56,0.13);color:#b8901e;border:1px solid rgba(212,176,56,0.3);}
+  .qt-chip-blue{background:rgba(30,58,138,0.10);color:#1e3a8a;border:1px solid rgba(30,58,138,0.25);}
+  .qt-chip-green{background:rgba(22,163,74,0.10);color:#16a34a;border:1px solid rgba(22,163,74,0.25);}
+  .dark .qt-chip-gold{background:rgba(212,176,56,0.18);color:#f0c84a;border-color:rgba(212,176,56,0.4);}
+  .dark .qt-chip-blue{background:rgba(79,142,247,0.18);color:#93c5fd;border-color:rgba(79,142,247,0.4);}
+  .dark .qt-chip-green{background:rgba(22,163,74,0.18);color:#4ade80;border-color:rgba(22,163,74,0.4);}
+</style>
+</head>
+<body class="font-inter min-h-screen">
+<header class="fixed top-0 left-0 w-full z-50" style="background:rgba(27,31,59,0.85);backdrop-filter:blur(25px);border-bottom:1px solid rgba(212,176,56,0.15);">
+  <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a href="../index.html" class="text-xl font-bold"><span style="color:#fff">Queva</span><span style="color:#d4b038;font-weight:800">Tech</span></a>
+    <a href="../index.html#blog" class="text-sm font-semibold flex items-center gap-2" style="color:rgba(255,255,255,0.7)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>Bloga Dön
+    </a>
+  </div>
+</header>
+<div class="w-full h-72 flex items-end relative overflow-hidden" style="background:linear-gradient(135deg,#1b1f3b 0%,#1f3b2a 50%,#1b1f3b 100%);">
+  <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(27,31,59,0.95) 0%,rgba(27,31,59,0.2) 70%,transparent 100%);"></div>
+  <div class="relative z-10 max-w-5xl mx-auto px-6 pb-10 w-full">
+    <p class="text-xs font-bold tracking-widest uppercase mb-3" style="color:#4ade80">Açık Kaynak · Güvenli Yazılım</p>
+    <h1 class="text-3xl md:text-4xl font-bold text-white leading-tight max-w-3xl">PassGuard: Sıfır-Bulut Mimarisinde Güvenli Parola Yönetimi</h1>
+  </div>
+</div>
+<main class="max-w-3xl mx-auto px-6 py-12">
+  <div class="flex flex-wrap items-center gap-4 mb-8 pb-8" style="border-bottom:1px solid rgba(212,176,56,0.15);">
+    <div>
+      <p class="text-xs font-semibold" style="color:#d87e37">QuevaTech Araştırma İnisiyatifi</p>
+      <p class="text-sm mt-0.5" style="color:var(--fg3)">20 Ağustos 2025 · 6 dk okuma</p>
+    </div>
+    <div class="ml-auto flex flex-wrap gap-1">
+      <span class="qt-chip qt-chip-green">Zero-Knowledge</span>
+      <span class="qt-chip qt-chip-gold">AES-256-GCM</span>
+      <span class="qt-chip qt-chip-blue">Argon2id</span>
+    </div>
+  </div>
+  <div class="prose">
+    <p><strong>AES-256-GCM</strong> şifreleme ve <strong>Argon2id</strong> anahtar türetme ile tasarlanan PassGuard, kullanıcı verilerinin yalnızca cihazda şifrelenerek saklandığı sıfır-bilgi mimarisini pratikte uygular. Kriptografik tasarım kararları ve güvenlik denetim süreci bu yazıda ele alınmaktadır.</p>
+    <h2>Sıfır-Bulut (Zero-Cloud) Mimarisi</h2>
+    <p>PassGuard'ın temel tasarım ilkesi şudur: <strong>sunucu hiçbir zaman düz metin veriye erişemez.</strong> Şifreleme ve şifre çözme işlemleri tamamen kullanıcının cihazında gerçekleşir. Bulut yalnızca şifreli blob'ları depolar; matematiksel olarak bile olsa içeriğe erişim mümkün değildir.</p>
+    <h2>Kriptografik Tasarım</h2>
+    <h3>Anahtar Türetme Zinciri</h3>
+    <p>Kullanıcının ana parolasından şifreleme anahtarı türetme süreci:</p>
+    <p><code>Ana Parola + Salt → Argon2id → Master Key → HKDF → Vault Key</code></p>
+    <ul>
+      <li><strong>Argon2id:</strong> Bellek-yoğun KDF, brute-force ve ASIC saldırılarına dirençli</li>
+      <li><strong>Parametreler:</strong> m=65536 KB, t=3 iterasyon, p=4 paralel iş parçacığı</li>
+      <li><strong>Salt:</strong> Her cihaz için benzersiz, TRNG ile üretilmiş 256-bit</li>
+    </ul>
+    <h3>Şifreleme</h3>
+    <ul>
+      <li><strong>AES-256-GCM:</strong> Hem gizlilik hem bütünlük doğrulaması tek geçişte</li>
+      <li><strong>Nonce:</strong> Her şifreleme işlemi için yeni, TRNG kaynaklı 96-bit değer</li>
+      <li><strong>AAD:</strong> Meta veriler şifrelenmez ama bütünlük koruması altındadır</li>
+    </ul>
+    <h2>Güvenlik Denetim Süreci</h2>
+    <p>PassGuard'ın güvenlik değerlendirmesi kapsamında VirusTotal çoklu motor taraması gerçekleştirilmiş olup temiz sonuç elde edilmiştir. Kaynak kod GitHub'da açık olarak yayımlanmakta ve topluluk denetimi desteklenmektedir.</p>
+    <p>Proje sayfasına <a href="https://github.com/QuevaTech/PassGuard" target="_blank" style="color:var(--queva-gold)">GitHub üzerinden</a> ulaşabilirsiniz.</p>
+  </div>
+  <div class="mt-12 p-6 rounded-2xl" style="background:var(--glass-bg);border:1px solid var(--glass-border);">
+    <p class="text-xs italic" style="color:var(--fg3)">Bu yazı, QuevaTech Akademik Ar-Ge İnisiyatifi bünyesinde yürütülen araştırmaların özeti niteliğindedir.</p>
+  </div>
+  <div class="mt-8 text-center">
+    <a href="../index.html#blog" class="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-sm text-white" style="background:linear-gradient(135deg,#1b1f3b,#d4b038,#d87e37);box-shadow:0 0 20px rgba(212,176,56,0.3);">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>Tüm Yazılar
+    </a>
+  </div>
+</main>
+<script>const s=localStorage.getItem('color-theme');if(s==='dark'||(!s&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark');}</script>
+</body></html>
