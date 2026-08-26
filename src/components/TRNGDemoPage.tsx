@@ -191,44 +191,94 @@ export function TRNGDemoPage() {
     navigator.clipboard.writeText(text);
   };
 
+  const painPoints = [
+    { title: t('trng_pain_1_title'), desc: t('trng_pain_1_desc') },
+    { title: t('trng_pain_2_title'), desc: t('trng_pain_2_desc') },
+    { title: t('trng_pain_3_title'), desc: t('trng_pain_3_desc') },
+  ];
+
+  const faqs = [
+    { question: t('trng_faq_1_q'), answer: t('trng_faq_1_a') },
+    { question: t('trng_faq_2_q'), answer: t('trng_faq_2_a') },
+    { question: t('trng_faq_3_q'), answer: t('trng_faq_3_a') },
+  ];
+
   return (
     <div className="min-h-screen bg-[var(--bg)]">
       {/* Hero */}
-      <section className="py-20 md:py-32 px-4" style={{ background: 'linear-gradient(135deg, var(--queva-midnight) 0%, #2d2060 50%, var(--queva-midnight) 100%)' }}>
+      <section className="py-24 md:py-36 px-4" style={{ background: 'radial-gradient(circle at 15% 20%, rgba(212, 176, 56, 0.2), transparent 26%), radial-gradient(circle at 86% 12%, rgba(216, 126, 55, 0.17), transparent 24%), linear-gradient(135deg, var(--queva-midnight) 0%, #2d2060 50%, var(--queva-midnight) 100%)' }}>
         <div className="container mx-auto max-w-4xl text-center">
           <p className="qt-eyebrow mb-4" style={{ color: 'var(--queva-gold)' }}>{t('trng_demo_eyebrow')}</p>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 qt-gradient">{t('trng_demo_title')}</h1>
-          <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto">{t('trng_demo_subtitle')}</p>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white tracking-tight">{t('trng_demo_title')}</h1>
+          <p className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">{t('trng_demo_subtitle')}</p>
+
+          <div className="mt-8 flex flex-wrap justify-center gap-3 text-sm">
+            {[t('trng_hero_label_simulation'), t('trng_hero_label_no_production'), t('trng_hero_label_no_api')].map((label) => (
+              <span key={label} className="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-white/85 backdrop-blur-sm">{label}</span>
+            ))}
+          </div>
+
+          <div className="mt-8 flex flex-col sm:flex-row justify-center gap-3">
+            <a href="#trng-simulation" className="rounded-full bg-[var(--queva-gold)] px-6 py-3 font-semibold text-[var(--queva-midnight)] transition-transform hover:-translate-y-0.5">
+              {t('trng_cta_explore')}
+            </a>
+            <a href="/#contact" className="rounded-full border border-white/30 bg-white/5 px-6 py-3 font-semibold text-white transition-colors hover:bg-white/10">
+              {t('trng_cta_contact')}
+            </a>
+          </div>
           
           {/* Connection Status */}
-          <div className="mt-8 flex justify-center items-center gap-4">
+          <div className="mt-8 flex flex-wrap justify-center items-center gap-3" aria-live="polite">
             <div className={`flex items-center gap-2 px-4 py-2 rounded-full ${isConnected ? 'bg-green-500/20 text-green-400' : 'bg-red-500/20 text-red-400'}`}>
               <span className={`w-2 h-2 rounded-full ${isConnected ? 'bg-green-400' : 'bg-red-400'}`}></span>
               <span className="text-sm font-medium">{isConnected ? t('trng_status_connected') : t('trng_status_disconnected')}</span>
             </div>
             <div className="px-4 py-2 rounded-full bg-white/10 text-white/80 text-sm font-mono">
-              {t('trng_throughput')}: {health?.throughput_mbps?.toFixed(1) || '—'} MB/s
+              {t('trng_sample_throughput')}: {health?.throughput_mbps?.toFixed(1) || '—'} MB/s
             </div>
           </div>
+          <p className="mt-4 text-sm text-white/55">{t('trng_simulation_disclaimer_short')}</p>
         </div>
       </section>
 
       {/* Main Content */}
       <section className="py-16 px-4">
         <div className="container mx-auto max-w-7xl">
+          <div className="mb-20">
+            <SectionHeading
+              eyebrow={t('trng_pain_eyebrow')}
+              title={t('trng_pain_title')}
+              subtitle={t('trng_pain_subtitle')}
+            />
+            <div className="mt-8 grid gap-6 md:grid-cols-3">
+              {painPoints.map((point, index) => (
+                <GlassCard key={point.title} className="relative overflow-hidden p-7">
+                  <span className="mb-5 flex h-10 w-10 items-center justify-center rounded-full bg-[var(--queva-gold)] font-mono text-sm font-bold text-[var(--queva-midnight)]">0{index + 1}</span>
+                  <h3 className="text-xl font-semibold text-[var(--fg1)]">{point.title}</h3>
+                  <p className="mt-3 leading-relaxed text-[var(--fg2)]">{point.desc}</p>
+                </GlassCard>
+              ))}
+            </div>
+          </div>
+
           {/* Real-time Entropy Visualization */}
-          <div className="mb-12">
+          <div id="trng-simulation" className="mb-16 scroll-mt-24">
             <SectionHeading
               eyebrow={t('trng_live_entropy')}
               title={t('trng_entropy_title')}
               subtitle={t('trng_entropy_subtitle')}
             />
+            <div className="mx-auto mt-6 max-w-4xl rounded-2xl border border-[var(--queva-gold)]/35 bg-[var(--queva-gold)]/10 px-5 py-4 text-sm leading-relaxed text-[var(--fg1)]">
+              <span className="font-semibold">{t('trng_simulation_notice_title')}</span>{' '}
+              {t('trng_simulation_notice_body')}
+            </div>
             <div className="mt-8 glass-card rounded-2xl p-6">
               <div className="relative h-64 md:h-80">
                 <canvas
                   ref={setEntropyCanvas}
                   className="w-full h-full"
                   style={{ background: 'rgba(0,0,0,0.3)', borderRadius: '8px' }}
+                  aria-label={t('trng_canvas_label')}
                 />
                 <div className="absolute bottom-4 left-4 right-4 flex flex-wrap gap-4 text-sm">
                   <div className="flex items-center gap-2 bg-black/50 px-3 py-2 rounded-lg">
@@ -248,7 +298,7 @@ export function TRNGDemoPage() {
             </div>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-8 mb-12">
+          <div className="grid lg:grid-cols-2 gap-8 mb-16">
             {/* Health Check Panel */}
             <div>
               <SectionHeading
@@ -267,7 +317,7 @@ export function TRNGDemoPage() {
                         </span>
                       </div>
                       <div>
-                        <h3 className="text-xl font-bold capitalize">{health.status}</h3>
+                        <h3 className="text-xl font-bold">{health.status === 'healthy' ? t('trng_health_healthy') : health.status === 'degraded' ? t('trng_health_degraded') : t('trng_health_critical')}</h3>
                         <p className="text-sm text-gray-500 dark:text-gray-400">{t('trng_last_update')}: {new Date(health.last_updated).toLocaleString()}</p>
                       </div>
                     </div>
@@ -422,6 +472,7 @@ export function TRNGDemoPage() {
               title={t('trng_api_title')}
               subtitle={t('trng_api_subtitle')}
             />
+            <p className="mx-auto mt-5 max-w-3xl text-center text-sm leading-relaxed text-[var(--fg2)]">{t('trng_api_notice')}</p>
             <div className="mt-8 grid md:grid-cols-3 gap-6">
               {[
                 {
@@ -469,8 +520,8 @@ export function TRNGDemoPage() {
             </div>
           </div>
 
-          {/* Technical Specs */}
-          <div>
+          {/* Technical approach */}
+          <div className="mb-16">
             <SectionHeading
               eyebrow={t('trng_specs_eyebrow')}
               title={t('trng_specs_title')}
@@ -489,6 +540,30 @@ export function TRNGDemoPage() {
                   <p className="text-sm text-gray-500 dark:text-gray-400">{spec.desc}</p>
                 </GlassCard>
               ))}
+            </div>
+          </div>
+
+          <div className="rounded-3xl border border-[var(--queva-gold)]/25 bg-[var(--queva-midnight)] px-6 py-12 text-white md:px-12">
+            <SectionHeading
+              eyebrow={t('trng_faq_eyebrow')}
+              title={t('trng_faq_title')}
+              subtitle={t('trng_faq_subtitle')}
+            />
+            <div className="mx-auto mt-8 max-w-3xl divide-y divide-white/10">
+              {faqs.map((faq) => (
+                <details key={faq.question} className="group py-5">
+                  <summary className="cursor-pointer list-none pr-8 text-lg font-semibold text-white marker:hidden">
+                    {faq.question}
+                    <span className="float-right text-[var(--queva-gold)] transition-transform group-open:rotate-45">+</span>
+                  </summary>
+                  <p className="mt-3 max-w-2xl leading-relaxed text-white/70">{faq.answer}</p>
+                </details>
+              ))}
+            </div>
+            <div className="mt-10 text-center">
+              <a href="/#contact" className="inline-flex rounded-full bg-[var(--queva-gold)] px-6 py-3 font-semibold text-[var(--queva-midnight)] transition-transform hover:-translate-y-0.5">
+                {t('trng_cta_contact')}
+              </a>
             </div>
           </div>
         </div>

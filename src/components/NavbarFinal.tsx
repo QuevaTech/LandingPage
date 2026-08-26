@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -26,7 +26,6 @@ export function Navbar({ theme, setTheme, lang, setLang }: NavbarProps) {
   const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const mobileMenuRef = useRef<HTMLDivElement>(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   useEffect(() => {
@@ -40,16 +39,10 @@ export function Navbar({ theme, setTheme, lang, setLang }: NavbarProps) {
     };
   }, []);
 
-  // Animate mobile menu on open/close
-  useEffect(() => {
-    if (mobileMenuOpen && mobileMenuRef.current) {
-      mobileMenuRef.current.style.animation = 'slideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards';
-    }
-  }, [mobileMenuOpen]);
-
   const isActive = (href: string) => {
     if (href === '/') return location.pathname === '/';
     if (href === '/publications') return location.pathname === '/publications';
+    if (href === '/trng-demo') return location.pathname === '/trng-demo';
     return false;
   };
 
@@ -135,43 +128,55 @@ export function Navbar({ theme, setTheme, lang, setLang }: NavbarProps) {
 
       {/* Mobile Hamburger Button - Hidden on desktop */}
       {isMobile && (
-        <button
-          className="md:hidden qt-nav__menu-btn qt-nav__btn-icon"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Toggle menu"
-          aria-expanded={mobileMenuOpen}
-        >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            {mobileMenuOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 6h16M4 12h16M4 18h16" />
-            )}
-          </svg>
-        </button>
+        <>
+          <Link to="/" className="qt-mobile-brand" aria-label="QuevaTech ana sayfa">
+            <img src="/qt-icon.svg" alt="" />
+            <span>Queva<span>Tech</span></span>
+          </Link>
+          <button
+            className="md:hidden qt-nav__menu-btn qt-nav__btn-icon"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle menu"
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-menu"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              {mobileMenuOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
+          </button>
+        </>
       )}
 
       {/* Mobile Menu Sidebar */}
       {isMobile && mobileMenuOpen && (
         <div
-          ref={mobileMenuRef}
           id="mobile-menu"
-          className="fixed inset-0 z-50 flex items-end bg-black/50"
+          className="qt-mobile-menu"
           aria-modal="true"
           role="dialog"
+          aria-label="Navigation menu"
         >
-          <div className="relative w-full max-w-xs flex-1 bg-surface p-6 shadow-2xl transform transition-transform duration-300 ease-out"
-            style={{ transform: 'translateX(0)' }}>
-            <div className="flex justify-between items-start mb-6">
-              <Link to="/" className="qt-brand">
-                <img src="/qt-icon.svg" alt="" className="qt-brand__icon h-8 w-8" />
-                <span className="qt-brand__text text-lg font-bold">
+          <button
+            className="qt-mobile-menu__backdrop"
+            type="button"
+            onClick={() => setMobileMenuOpen(false)}
+            aria-label="Close menu"
+          />
+          <aside className="qt-mobile-menu__panel">
+            <div className="qt-mobile-menu__header flex items-center justify-between gap-4">
+              <Link to="/" className="qt-brand qt-mobile-menu__brand" onClick={() => setMobileMenuOpen(false)}>
+                <img src="/qt-icon.svg" alt="" className="qt-brand__icon" />
+                <span className="qt-brand__text">
                   Queva<span className="qt-brand__t">Tech</span>
                 </span>
               </Link>
               <button
                 onClick={() => setMobileMenuOpen(false)}
-                className="qt-nav__btn-icon text-fg3 hover:text-fg1 transition-colors"
+                className="qt-mobile-menu__close"
                 aria-label="Close menu"
               >
                 <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
@@ -180,40 +185,35 @@ export function Navbar({ theme, setTheme, lang, setLang }: NavbarProps) {
               </button>
             </div>
             
-            <nav className="space-y-4">
-              {navLinks.map(({ key, href }) => (
+            <nav className="qt-mobile-menu__nav" aria-label="Mobile navigation">
+              {navLinks.map(({ key, href }, index) => (
                 <Link
                   key={key}
                   to={href}
-                  className="block py-3 px-4 rounded-lg text-fg1 hover:bg-surface/50 hover:text-queva-signal transition-colors"
-                  onClick={() => {
-                    setMobileMenuOpen(false);
-                    // Smooth scroll for anchor links
-                    if (href.startsWith('#')) {
-                      const element = document.querySelector(href);
-                      if (element) {
-                        element.scrollIntoView({ behavior: 'smooth' });
-                      }
-                    }
-                  }}
+                  className={`qt-mobile-menu__item ${isActive(href) ? 'is-active' : ''}`}
+                  style={{ animationDelay: `${80 + index * 45}ms` }}
+                  onClick={() => handleMobileLinkClick(href)}
                 >
-                  {t(key)}
+                  <span className="qt-mobile-menu__item-text">{t(key)}</span>
+                  <svg className="qt-mobile-menu__item-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="m9 18 6-6-6-6" />
+                  </svg>
                 </Link>
               ))}
             </nav>
             
-            <div className="mt-8 pt-6 border-t border-fg3/20">
-              <div className="flex items-center space-x-3 mb-4">
+            <div className="qt-mobile-menu__footer">
+              <div className="qt-mobile-menu__lang" aria-label="Language selector">
                 <button
                   onClick={() => setLang('tr')}
-                  className={`px-3 py-1.5 rounded-lg text-sm font-medium ${lang === 'tr' ? 'bg-queva-signal/20 text-queva-signal' : 'text-fg3 hover:bg-surface/50'} transition-colors`}
+                  className={lang === 'tr' ? 'is-active' : ''}
                 >
                   TR
                 </button>
                 <span>/</span>
                 <button
                   onClick={() => setLang('en')}
-                  className={`px-3 py-1.5 rounded-lg text-sm font-medium ${lang === 'en' ? 'bg-queva-signal/20 text-queva-signal' : 'text-fg3 hover:bg-surface/50'} transition-colors`}
+                  className={lang === 'en' ? 'is-active' : ''}
                 >
                   EN
                 </button>
@@ -221,11 +221,9 @@ export function Navbar({ theme, setTheme, lang, setLang }: NavbarProps) {
               
               <button
                 onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                className="w-full items-center justify-between px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${theme === 'dark' ? 'bg-queva-signal/20 text-queva-signal' : 'text-fg3 hover:bg-surface/50'}"
+                className="qt-nav__btn-icon qt-mobile-menu__theme"
+                aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
               >
-                <span>
-                  {theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
-                </span>
                 <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
                   {theme === 'dark' ? (
                     <g>
@@ -246,7 +244,7 @@ export function Navbar({ theme, setTheme, lang, setLang }: NavbarProps) {
                 </svg>
               </button>
             </div>
-          </div>
+          </aside>
         </div>
       )}
     </>

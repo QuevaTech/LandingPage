@@ -1,4 +1,4 @@
-import type { Handler, HandlerEvent, HandlerContext } from "@netlify/functions";
+import type { Handler, HandlerEvent } from "@netlify/functions";
 
 interface ContactFormData {
   name: string;
@@ -42,7 +42,7 @@ const checkRateLimit = (ip: string): boolean => {
   return true;
 };
 
-const handler: Handler = async (event: HandlerEvent, _context: HandlerContext) => {
+const handler: Handler = async (event: HandlerEvent) => {
   // Only allow POST
   if (event.httpMethod !== 'POST') {
     return {

@@ -28,12 +28,56 @@ test.describe('Navigation', () => {
     await expect(page.locator('#contact')).toBeTruthy();
   });
 
+  test('should localize the enterprise section and display its visual', async ({ page }) => {
+    const enterpriseSection = page.locator('#enterprise-products');
+
+    await expect(enterpriseSection.getByText('Kurumsal Çözümler')).toBeVisible();
+    await expect(enterpriseSection.getByRole('heading', { level: 2 })).toContainText('Kritik Sistemler İçin Güvenli Mühendislik');
+    await expect(enterpriseSection.locator('img[src="/enterprise-security-infrastructure.png"]')).toBeVisible();
+  });
+
+  test('should frame use cases as research scenarios with a visual', async ({ page }) => {
+    const researchSection = page.locator('#research-scenarios');
+
+    await expect(researchSection.getByText('Araştırma Senaryoları')).toBeVisible();
+    await expect(researchSection.getByRole('heading', { level: 2 })).toContainText('Rastgeleliği Nerede Sorguluyoruz?');
+    await expect(researchSection.locator('img[src="/research-scenarios.png"]')).toBeVisible();
+    await expect(researchSection.locator('img[src="/research-finance-risk-modelling.png"]')).toBeVisible();
+    await expect(researchSection.locator('img[src="/research-procedural-systems.png"]')).toBeVisible();
+    await expect(researchSection.locator('img[src="/research-security-architecture.png"]')).toBeVisible();
+    await expect(researchSection.getByText('Üretim performansı, müşteri sonucu veya sertifika iddiası değildir.')).toBeVisible();
+  });
+
+  test('should display AI cover images for every featured blog post', async ({ page }) => {
+    const blogSection = page.locator('#blog');
+
+    for (const src of [
+      '/blog-6g-communications.png',
+      '/blog-post-quantum-cryptography.png',
+      '/blog-mlops-hardware-security.png',
+      '/blog-physical-entropy.png',
+    ]) {
+      await expect(blogSection.locator(`img[src="${src}"]`)).toBeVisible();
+    }
+  });
+
   test('should have mobile menu button visible on mobile', async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 667 });
     await page.waitForTimeout(500);
     
     const menuButton = page.locator('button[aria-label="Toggle menu"]');
     await expect(menuButton).toBeVisible();
+  });
+
+  test('should present a clear mobile navigation panel', async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 667 });
+
+    await page.locator('button[aria-label="Toggle menu"]').click();
+
+    const menu = page.locator('#mobile-menu');
+    await expect(menu).toBeVisible();
+    await expect(menu.getByText(/Ana Sayfa|Home/)).toBeVisible();
+    await expect(menu.locator('.qt-brand__text')).toContainText('QuevaTech');
   });
 });
 
@@ -169,6 +213,25 @@ test.describe('Publications Page', () => {
     const readMoreLinks = page.locator('a:has-text("Devamını Oku"), a:has-text("Read More")');
     const count = await readMoreLinks.count();
     expect(count).toBeGreaterThan(0);
+  });
+});
+
+test.describe('TRNG Simulation Page', () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto('/trng-demo');
+    await page.waitForLoadState('networkidle');
+  });
+
+  test('should clearly identify the experience as a simulation', async ({ page }) => {
+    await expect(page.locator('h1')).toContainText(/Rastgeleliğe Güvenmeyin|Don't Trust Randomness/);
+    await expect(page.getByText(/üretim verisi değil|not production data/i).first()).toBeVisible();
+    await expect(page.getByText(/Şeffaflık notu|Transparency note/i)).toBeVisible();
+  });
+
+  test('should translate the simulation narrative to English', async ({ page }) => {
+    await page.getByRole('button', { name: 'EN' }).click();
+    await expect(page.locator('h1')).toContainText("Don't Trust Randomness");
+    await expect(page.getByText('Not production data', { exact: true })).toBeVisible();
   });
 });
 
