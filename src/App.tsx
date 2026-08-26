@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { HelmetProvider, Helmet } from 'react-helmet-async';
 import { Navbar } from './components/NavbarFinal';
 import { Hero } from './components/Hero';
@@ -18,13 +18,26 @@ import { FounderSection } from './components/FounderSection';
 import { ContactSection } from './components/ContactSection';
 import { PublicationsPage } from './components/PublicationsPage';
 import { TRNGDemoPage } from './components/TRNGDemoPage';
+import { ProductConceptsSection } from './components/ProductConceptsSection';
+import { ProductConceptPage } from './components/ProductConceptPage';
 
 function HomePage() {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (!location.hash) return;
+    const frame = requestAnimationFrame(() => {
+      document.querySelector(location.hash)?.scrollIntoView({ behavior: 'smooth' });
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [location.hash]);
+
   return (
     <main>
       <Hero />
       <ProductsSection />
       <EnterpriseProductsSection />
+      <ProductConceptsSection />
       <ProjectsSection />
       <StatsSection />
       <PlatformSection />
@@ -142,6 +155,8 @@ export function App() {
                 <TRNGDemoPage />
               </>
             } />
+            <Route path="/simlab-demo" element={<ProductConceptPage product="simlab" />} />
+            <Route path="/compute-control-demo" element={<ProductConceptPage product="compute" />} />
           </Routes>
           <Footer />
         </div>

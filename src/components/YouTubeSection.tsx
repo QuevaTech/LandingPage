@@ -52,14 +52,29 @@ export function YouTubeSection() {
         <div className="grid md:grid-cols-2 gap-10 items-center max-w-5xl mx-auto mt-12">
           <div>
             <div className="flex items-center gap-4 mb-8">
-              <div className="w-16 h-16 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: 'linear-gradient(135deg,#1b1f3b,#d4b038)', border: '2px solid rgba(212,176,56,0.4)' }}>
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" style={{ color: '#fff' }}>
-                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                </svg>
+              <div className="w-16 h-16 rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden" style={{ background: 'radial-gradient(circle at 35% 30%,#34425c,#1b1f3b 70%)', border: '2px solid rgba(245,214,111,0.75)', boxShadow: '0 0 22px rgba(212,176,56,0.35)' }}>
+                <img src="/qt-icon.svg" alt="QuevaTech yaprak logosu" className="h-10 w-8 object-contain drop-shadow-[0_2px_3px_rgba(0,0,0,0.38)]" />
               </div>
               <div>
                 <p className="font-bold text-lg" style={{ color: '#f4ecdb' }}>QuevaTech</p>
-                <p className="text-sm" style={{ color: 'rgba(212,176,56,0.7)' }}>@QuevaTech · youtube.com/@QuevaTech</p>
+                <a
+                  href="https://www.youtube.com/@QuevaTech"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="QuevaTech YouTube kanalı"
+                  className="mt-1 inline-flex items-center gap-1.5 text-sm transition-colors hover:text-[#f4ecdb]"
+                  style={{ color: 'rgba(212,176,56,0.7)' }}
+                >
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                  </svg>
+                  <span>@QuevaTech · youtube.com/@QuevaTech</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                </a>
               </div>
             </div>
 

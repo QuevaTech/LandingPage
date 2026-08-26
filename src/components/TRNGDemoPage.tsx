@@ -197,6 +197,12 @@ export function TRNGDemoPage() {
     { title: t('trng_pain_3_title'), desc: t('trng_pain_3_desc') },
   ];
 
+  const storySteps = [
+    { title: t('trng_story_step_1_title'), desc: t('trng_story_step_1_desc') },
+    { title: t('trng_story_step_2_title'), desc: t('trng_story_step_2_desc') },
+    { title: t('trng_story_step_3_title'), desc: t('trng_story_step_3_desc') },
+  ];
+
   const faqs = [
     { question: t('trng_faq_1_q'), answer: t('trng_faq_1_a') },
     { question: t('trng_faq_2_q'), answer: t('trng_faq_2_a') },
@@ -238,6 +244,47 @@ export function TRNGDemoPage() {
             </div>
           </div>
           <p className="mt-4 text-sm text-white/55">{t('trng_simulation_disclaimer_short')}</p>
+        </div>
+      </section>
+
+      <section id="trng-story" className="scroll-mt-24 overflow-hidden bg-[#09182a] px-4 py-20 sm:py-24">
+        <div className="container mx-auto max-w-6xl">
+          <SectionHeading
+            eyebrow={t('trng_story_eyebrow')}
+            title={t('trng_story_title')}
+            subtitle={t('trng_story_subtitle')}
+          />
+
+          <div className="mt-10 grid gap-8 lg:grid-cols-[1.16fr_0.84fr]">
+            <article className="rounded-3xl border border-white/10 bg-white/[0.04] p-7 shadow-[0_24px_60px_rgba(0,0,0,0.18)] backdrop-blur-sm sm:p-9">
+              <p className="text-lg leading-8 text-slate-200">{t('trng_story_paragraph_1')}</p>
+              <p className="mt-5 leading-8 text-slate-300">{t('trng_story_paragraph_2')}</p>
+              <p className="mt-5 leading-8 text-slate-300">{t('trng_story_paragraph_3')}</p>
+              <div className="mt-7 border-l-2 border-[var(--queva-gold)] bg-[var(--queva-gold)]/10 px-5 py-4 text-lg font-semibold leading-8 text-[#f7df96]">
+                {t('trng_story_pull_quote')}
+              </div>
+              <p className="mt-7 leading-8 text-slate-300">{t('trng_story_paragraph_4')}</p>
+              <p className="mt-5 leading-8 text-slate-300">{t('trng_story_paragraph_5')}</p>
+            </article>
+
+            <aside className="rounded-3xl border border-[var(--queva-gold)]/25 bg-[#07111d] p-7 shadow-[0_24px_60px_rgba(0,0,0,0.22)] sm:p-8">
+              <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#f1c75b]">{t('trng_story_steps_eyebrow')}</p>
+              <div className="mt-6 space-y-5">
+                {storySteps.map((step, index) => (
+                  <div key={step.title} className="relative border-l border-white/10 pl-6 last:border-l-0">
+                    <span className="absolute -left-3 top-0 flex h-6 w-6 items-center justify-center rounded-full border border-[#f1c75b]/50 bg-[#09182a] font-mono text-[10px] font-bold text-[#f1c75b]">0{index + 1}</span>
+                    <h3 className="text-lg font-bold text-white">{step.title}</h3>
+                    <p className="mt-2 text-sm leading-6 text-slate-300">{step.desc}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-8 rounded-2xl border border-white/10 bg-white/[0.05] p-5">
+                <p className="text-sm font-bold text-[#f7df96]">{t('trng_story_outcome_title')}</p>
+                <p className="mt-3 text-sm leading-6 text-slate-300">{t('trng_story_outcome_desc')}</p>
+              </div>
+            </aside>
+          </div>
+          <p className="mx-auto mt-7 max-w-5xl text-center text-sm leading-6 text-slate-400">{t('trng_story_scope_note')}</p>
         </div>
       </section>
 

@@ -61,6 +61,21 @@ test.describe('Navigation', () => {
     }
   });
 
+  test('should introduce both infrastructure product concepts with clear simulation framing', async ({ page }) => {
+    const concepts = page.locator('#product-concepts');
+
+    await expect(concepts.getByText('Ürün Konseptleri')).toBeVisible();
+    await expect(concepts.getByRole('heading', { name: 'Queva SimLab' })).toBeVisible();
+    await expect(concepts.getByRole('heading', { name: 'Queva Compute Control' })).toBeVisible();
+    await expect(concepts.getByText(/Canlı hizmete, fiyatlandırmaya ya da gerçek kaynak kullanım verisine bağlı değildir/)).toBeVisible();
+  });
+
+  test('should link the YouTube identity and researcher website', async ({ page }) => {
+    await expect(page.locator('a[aria-label="QuevaTech YouTube kanalı"]')).toHaveAttribute('href', 'https://www.youtube.com/@QuevaTech');
+    await expect(page.locator('#youtube img[alt="QuevaTech yaprak logosu"]')).toBeVisible();
+    await expect(page.locator('#founder a[href="https://yigithasan.com"]')).toBeVisible();
+  });
+
   test('should have mobile menu button visible on mobile', async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 667 });
     await page.waitForTimeout(500);
@@ -78,6 +93,17 @@ test.describe('Navigation', () => {
     await expect(menu).toBeVisible();
     await expect(menu.getByText(/Ana Sayfa|Home/)).toBeVisible();
     await expect(menu.locator('.qt-brand__text')).toContainText('QuevaTech');
+  });
+
+  test('should make the light-theme control visible in the mobile menu', async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 667 });
+    await page.locator('button[aria-label="Toggle menu"]').click();
+
+    const themeButton = page.locator('.qt-mobile-menu__theme');
+    await expect(themeButton).toHaveClass(/is-light/);
+    await expect(themeButton).toHaveCSS('color', 'rgb(27, 31, 59)');
+    const orbitAnimation = await themeButton.evaluate((element) => getComputedStyle(element, '::before').animationName);
+    expect(orbitAnimation).toBe('qt-mobile-theme-orbit');
   });
 });
 
@@ -228,10 +254,62 @@ test.describe('TRNG Simulation Page', () => {
     await expect(page.getByText(/Şeffaflık notu|Transparency note/i)).toBeVisible();
   });
 
+  test('should tell an accessible story about why randomness matters', async ({ page }) => {
+    const story = page.locator('#trng-story');
+
+    await expect(story.getByRole('heading', { level: 2 })).toContainText('Kritik sistemler bazen görünmeyen tek bir başlangıç noktasına dayanır.');
+    await expect(story.getByText('Bir Sayının Arkasındaki Hikâye')).toBeVisible();
+    await expect(story.getByText(/Bu soru ilk bakışta soyut gelebilir/)).toBeVisible();
+    await expect(story.getByText('Bu değer hangi kökten doğdu?')).toBeVisible();
+    await expect(story.getByText(/Bu sayfa eğitim amaçlı bir simülasyondur/)).toBeVisible();
+  });
+
   test('should translate the simulation narrative to English', async ({ page }) => {
     await page.getByRole('button', { name: 'EN' }).click();
     await expect(page.locator('h1')).toContainText("Don't Trust Randomness");
     await expect(page.getByText('Not production data', { exact: true })).toBeVisible();
+  });
+});
+
+test.describe('Infrastructure Product Concepts', () => {
+  test('should make SimLab a clearly labelled interactive demonstration', async ({ page }) => {
+    await page.goto('/simlab-demo');
+    await page.waitForLoadState('networkidle');
+
+    await expect(page.locator('h1')).toContainText('Simülasyon işini tekrarlanabilir bir çalışma alanına dönüştürün.');
+    await expect(page.getByText(/Gerçek bir çalışma alanı oluşturmaz, konteyner başlatmaz/).first()).toBeVisible();
+    const story = page.locator('#simlab-story');
+    await expect(story.getByRole('heading', { level: 2 })).toContainText('Araştırma, onu kuran kişinin bilgisayarına mahkûm kalmamalı.');
+    await expect(story.getByText('Bir Deneyin Yolculuğu')).toBeVisible();
+    await expect(story.getByText(/Bir simülasyon yalnızca bir sonuç üretmez/)).toBeVisible();
+    await expect(story.getByText('Kuruma nasıl uyacak?')).toBeVisible();
+    await expect(story.getByText(/ürün yönünü anlatır/)).toBeVisible();
+    await page.getByRole('button', { name: 'Örnek akışı göster' }).click();
+    await expect(page.getByText('Örnek çalışma akışı görünür durumda')).toBeVisible();
+  });
+
+  test('should distinguish Compute Control logging concepts from proof claims', async ({ page }) => {
+    await page.goto('/compute-control-demo');
+    await page.waitForLoadState('networkidle');
+
+    await expect(page.locator('h1')).toContainText('Kaynağı görünür, erişimi kontrollü, olayları izlenebilir kılın.');
+    await expect(page.getByText('Şeffaflık ve kanıtlanabilirlik sınırı')).toBeVisible();
+    await expect(page.getByText(/“Kanıt” iddiası için imzalı olaylar/)).toBeVisible();
+    const story = page.locator('#compute-story');
+    await expect(story.getByRole('heading', { level: 2 })).toContainText('Hesaplama kaynağı sadece kapasite değil; erişim, bütçe ve sorumluluktur.');
+    await expect(story.getByText('Bir GPU Saatinin Arkasındaki Karar')).toBeVisible();
+    await expect(story.getByText(/Hassas hesaplama bir kuyruk problemi değildir/)).toBeVisible();
+    await expect(story.getByText('İş nerede çalışacak?')).toBeVisible();
+    await expect(story.getByText(/Güvenli ağ, kimlik entegrasyonu, kaynak tahsisi/)).toBeVisible();
+  });
+
+  test('should take an in-app anchor link back to the matching homepage section', async ({ page }) => {
+    await page.goto('/trng-demo');
+    await page.waitForLoadState('networkidle');
+
+    await page.locator('.qt-nav a[href="/#contact"]').click();
+    await expect(page).toHaveURL(/\/#contact$/);
+    await expect(page.locator('#contact')).toBeInViewport();
   });
 });
 

@@ -6,7 +6,7 @@ const stats = [
   { target: 5, suffix: '+', labelKey: 'stats_research_areas' },
   { target: 10, suffix: '+', labelKey: 'stats_publications' },
   { target: 3, suffix: '+', labelKey: 'stats_prototypes' },
-  { target: 50, suffix: 'K+', labelKey: 'stats_code_lines' },
+  { target: 100, suffix: 'K+', labelKey: 'stats_code_lines' },
 ];
 
 export function StatsSection() {

@@ -1,0 +1,16 @@
+:root {
+  --queva-gold: #d4b038;
+  --queva-ember: #d87e37;
+  --queva-midnight: #1b1f3b;
+  --bg: #eee6d8;
+  --fg1: #111827;
+  --fg2: #4b5563;
+  --fg3: #6b7280;
+}
+
+.dark {
+  --bg: #1b1f3b;
+  --fg1: #f1f5f9;
+  --fg2: #cbd5e1;
+  --fg3: #94a3b8;
+}

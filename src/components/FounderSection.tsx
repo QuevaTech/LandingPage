@@ -20,6 +20,18 @@ export function FounderSection() {
                 <h3 className="text-xl qt-icon font-semibold mb-4">{t('founder_name')}</h3>
                 <p className="text-gray-600 dark:text-gray-400 mb-6">{t('founder_bio')}</p>
                 <div className="flex justify-center md:justify-start gap-4 flex-wrap">
+                  <a
+                    href="https://yigithasan.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="social-link-btn flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--queva-gold)] hover:bg-[#bb982c] text-[var(--queva-midnight)] text-sm font-semibold"
+                  >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2" aria-hidden="true">
+                      <circle cx="12" cy="12" r="9" />
+                      <path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18" />
+                    </svg>
+                    yigithasan.com
+                  </a>
                   <a 
                     href="https://www.linkedin.com/in/yigithasan/" 
                     target="_blank"

@@ -387,6 +387,7 @@ export function PlatformSection() {
 
   return (
     <section id="platform" className="py-20 bg-white dark:bg-queva-midnight/50">
+      <span id="solutions" className="block h-0 scroll-mt-24" aria-hidden="true" />
       <div className="container mx-auto px-4">
         <SectionHeading
           title={t('platform_title')}

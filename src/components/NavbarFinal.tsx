@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { type MouseEvent, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -46,10 +46,12 @@ export function Navbar({ theme, setTheme, lang, setLang }: NavbarProps) {
     return false;
   };
 
-  const handleMobileLinkClick = (href: string) => {
+  const linkTarget = (href: string) => href.startsWith('#') && location.pathname !== '/' ? `/${href}` : href;
+
+  const handleNavigationClick = (event: MouseEvent<HTMLAnchorElement>, href: string) => {
     setMobileMenuOpen(false);
-    // Smooth scroll for anchor links
-    if (href.startsWith('#')) {
+    if (href.startsWith('#') && location.pathname === '/') {
+      event.preventDefault();
       const element = document.querySelector(href);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
@@ -74,9 +76,9 @@ export function Navbar({ theme, setTheme, lang, setLang }: NavbarProps) {
               {navLinks.map(({ key, href }) => (
                 <Link
                   key={key}
-                  to={href}
+                  to={linkTarget(href)}
                   className={`qt-nav__btn ${isActive(href) ? 'qt-nav__btn--active' : ''}`}
-                  onClick={() => handleMobileLinkClick(href)}
+                  onClick={(event) => handleNavigationClick(event, href)}
                 >
                   {t(key)}
                 </Link>
@@ -189,10 +191,10 @@ export function Navbar({ theme, setTheme, lang, setLang }: NavbarProps) {
               {navLinks.map(({ key, href }, index) => (
                 <Link
                   key={key}
-                  to={href}
+                  to={linkTarget(href)}
                   className={`qt-mobile-menu__item ${isActive(href) ? 'is-active' : ''}`}
                   style={{ animationDelay: `${80 + index * 45}ms` }}
-                  onClick={() => handleMobileLinkClick(href)}
+                  onClick={(event) => handleNavigationClick(event, href)}
                 >
                   <span className="qt-mobile-menu__item-text">{t(key)}</span>
                   <svg className="qt-mobile-menu__item-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" aria-hidden="true">
@@ -221,7 +223,7 @@ export function Navbar({ theme, setTheme, lang, setLang }: NavbarProps) {
               
               <button
                 onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                className="qt-nav__btn-icon qt-mobile-menu__theme"
+                className={`qt-nav__btn-icon qt-mobile-menu__theme ${theme === 'dark' ? 'is-dark' : 'is-light'}`}
                 aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
               >
                 <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">

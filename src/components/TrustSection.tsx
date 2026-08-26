@@ -22,7 +22,7 @@ const trustItems = [
     ),
     titleKey: 'trust_vt_title',
     descKey: 'trust_vt_desc',
-    chips: [{ label: '0 / 70+ Tehdit Tespit', variant: 'green' as const }],
+    chips: [{ label: 'Rapor kapsamı · yayımlandığında', variant: 'green' as const }],
     link: 'https://www.virustotal.com',
   },
   {
@@ -75,26 +75,25 @@ export function TrustSection() {
           subtitle={t('trust_subtitle')}
         />
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-12">
-          {trustItems.map((item, index) => (
-            <a 
-              key={index} 
-              href={item.link || '#'} 
-              target={item.link ? '_blank' : undefined}
-              rel={item.link ? 'noopener' : undefined}
-              className={`glass-card group transition-all duration-300 hover:scale-[1.02] ${!item.link ? 'pointer-events-none' : ''}`}
-            >
+          {trustItems.map((item, index) => {
+            const card = (
               <div className="p-8">
                 <div className="qt-icon mb-4">{item.icon}</div>
                 <h3 className="text-lg font-bold mb-1">{t(item.titleKey)}</h3>
                 <p className="text-sm mb-3" style={{ color: 'var(--fg2)' }}>{t(item.descKey)}</p>
                 <div className="flex flex-wrap gap-2">
-                  {item.chips.map((chip, i) => (
-                    <span key={i} className={`qt-chip qt-chip--${chip.variant}`}>{chip.label}</span>
-                  ))}
+                  {item.chips.map((chip, i) => <span key={i} className={`qt-chip qt-chip--${chip.variant}`}>{chip.label}</span>)}
                 </div>
               </div>
-            </a>
-          ))}
+            );
+            const className = 'glass-card group transition-all duration-300 hover:scale-[1.02]';
+
+            return item.link ? (
+              <a key={index} href={item.link} target="_blank" rel="noopener noreferrer" className={className}>{card}</a>
+            ) : (
+              <article key={index} className={className}>{card}</article>
+            );
+          })}
         </div>
       </div>
     </section>

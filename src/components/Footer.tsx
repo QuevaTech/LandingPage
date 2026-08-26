@@ -79,15 +79,15 @@ export function Footer() {
         </div>
 
         <FooterCol title={t('footer_menu_quick')}>
-          <FooterLink to="#products">{t('footer_nav_products')}</FooterLink>
-          <FooterLink to="#platform">{t('footer_nav_solutions')}</FooterLink>
+          <FooterLink to="/#products">{t('footer_nav_products')}</FooterLink>
+          <FooterLink to="/#platform">{t('footer_nav_solutions')}</FooterLink>
           <FooterLink to="/publications">{t('footer_nav_blog')}</FooterLink>
-          <FooterLink to="#contact">{t('footer_nav_contact')}</FooterLink>
+          <FooterLink to="/#contact">{t('footer_nav_contact')}</FooterLink>
         </FooterCol>
 
         <FooterCol title={t('footer_menu_legal')}>
-          <FooterLink href="privacy-policy.html">{t('footer_nav_privacy')}</FooterLink>
-          <FooterLink href="terms-of-service.html">{t('footer_nav_terms')}</FooterLink>
+          <FooterLink href="/privacy-policy.html">{t('footer_nav_privacy')}</FooterLink>
+          <FooterLink href="/terms-of-service.html">{t('footer_nav_terms')}</FooterLink>
         </FooterCol>
 
         <FooterCol title={t('footer_menu_contact')}>
